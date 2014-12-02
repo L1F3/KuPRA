@@ -16,16 +16,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class UnitDaoImpl extends GenericDaoImpl<Unit> implements UnitDao {
 
-    @Autowired
-    public UnitDaoImpl(SessionFactory sessionFactory) {
-        super(sessionFactory, Unit.class);
-    }
+	@Autowired
+	public UnitDaoImpl(SessionFactory sessionFactory) {
+		super(sessionFactory, Unit.class);
+	}
 
-    @Override
-    public void delete(long unitId) {
-        Unit unit = get(unitId);
-        getSession().delete(unit);
-    }
-    
-    
+	@Override
+	public void delete(long unitId) {
+		Unit unit = get(unitId);
+		getSession().delete(unit);
+	}
 }
