@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package net.metasite.des.dao;
+package lt.vu.mif.ps5.kupra.dao;
 
 import java.util.List;
 
