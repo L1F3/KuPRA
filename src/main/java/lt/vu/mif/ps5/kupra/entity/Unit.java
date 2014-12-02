@@ -44,4 +44,5 @@ public class Unit {
 	public void setAbbreviation(String abbreviation) {
 		this.abbreviation = abbreviation;
 	}
+	//
 }
