@@ -28,16 +28,16 @@ public class Product {
 	
 	@Column(length = 30, name= "product_name")
 	private String product_name;
-	
-	
-/*	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	@JoinTable(name = "units_of_measurement",
+		
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@JoinTable(name = "units",
 	            joinColumns = {
 	                @JoinColumn(name = "productId")},
 	            inverseJoinColumns = {
 	                @JoinColumn(name = "unitId")})
-	private Set<Unit> units = new HashSet<Unit>(0);
-*/
+	                                
+	@Column(name = "units")
+	private Set<Unit> unitsSet = new HashSet<Unit>();
 
 	@Column(length = 2000, name="product_despription")
 	private String product_despription;
@@ -68,14 +68,14 @@ public class Product {
 	        this.product_name = product_name;
 	    }
 	 
-/*	 public Set<Unit> getUnits(){ 
-		 return units;
+	 public Set<Unit> getUnits(){ 
+		 return unitsSet;
 	 }
 	 
-	 public void setUnits( Set<Unit> units){
-		 this.units = units;
+	 public void setUnits( Set<Unit> unitsSet){
+		 this.unitsSet = unitsSet;
 	 }
-*/
+
 	 public String getDescription() {
 	        return product_despription;
 	    }
