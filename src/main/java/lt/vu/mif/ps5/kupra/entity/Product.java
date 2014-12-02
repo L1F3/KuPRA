@@ -32,8 +32,6 @@ public class Product {
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinTable(name = "units",
 	            joinColumns = {
-	                @JoinColumn(name = "productId")},
-	            inverseJoinColumns = {
 	                @JoinColumn(name = "unitId")})
 	                                
 	@Column(name = "units")
