@@ -21,5 +21,4 @@ public class UnitDaoImpl extends GenericDaoImpl<Unit> implements UnitDao {
         getSession().delete(unit);
     }
     
-    
 }
