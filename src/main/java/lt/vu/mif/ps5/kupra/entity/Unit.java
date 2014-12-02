@@ -1,15 +1,10 @@
 package lt.vu.mif.ps5.kupra.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,12 +20,7 @@ public class Unit {
 	
 	@Column(length = 16, name = "abbreviation")
 	private String abbreviation;
-	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	@JoinTable(name = "products",
-			joinColumns = {
-				@JoinColumn(name = "unitId")})
-	
+
 	public long getUnitId() {
 		return unitId;
 	}
