@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 
-package net.metasite.des.dao.implementation;
+package lt.vu.mif.ps5.kupra.dao.implementation;
 
 
 import java.util.List;
-import net.metasite.des.dao.GenericDao;
+import lt.vu.mif.ps5.kupra.dao.GenericDao;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
