@@ -18,7 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 //import net.metasite.des.entity.Unit;
-
+//
 @Entity
 @Table (name= "products")
 public class Product {
