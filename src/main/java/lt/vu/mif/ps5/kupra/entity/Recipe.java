@@ -2,8 +2,6 @@ package lt.vu.mif.ps5.kupra.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
@@ -12,13 +10,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
-import javax.validation.constraints.Size;
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
 import java.util.HashSet;
 import java.util.Set;
-
-import org.hibernate.validator.constraints.NotEmpty;
 
 import java.sql.Blob;
 
