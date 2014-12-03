@@ -1,4 +1,4 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
@@ -36,7 +36,7 @@
 
          <img src="<c:url value="/resources/MainI.svg" />"  class="center-block  icon-size img-responsive"/>
           
-        <form method="post" action="<c:url value='j_spring_security_check' />" class="form-horizontal form-signin" role="form">
+        <form name="loginForm" method="post" action="<c:url value='/j_spring_security_check' />" class="form-horizontal form-signin" role="form">
             <div class="form-group inner-addon left-addon">
                <label for="inputEmail" class="col-sm-2 control-label">Email</label>
                <div class="col-sm-10">
