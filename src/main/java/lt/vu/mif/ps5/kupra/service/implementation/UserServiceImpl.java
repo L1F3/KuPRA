@@ -9,6 +9,10 @@ import lt.vu.mif.ps5.kupra.service.UserService;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -52,4 +56,21 @@ public class UserServiceImpl implements UserService {
 		return user.getUserId();
 	}
 	
+	private boolean hasRole(String role) {
+		SecurityContext context = SecurityContextHolder.getContext();
+		if (context == null)
+			return false;
+
+		Authentication authentication = context.getAuthentication();
+		if (authentication == null)
+			return false;
+
+		for (GrantedAuthority authority : authentication.getAuthorities()) {
+			if (role.equals(authority.getAuthority())) {
+				return true;
+			}
+		}
+
+		return false;
+	}
 }
