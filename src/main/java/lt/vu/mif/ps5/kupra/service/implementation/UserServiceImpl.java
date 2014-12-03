@@ -20,14 +20,14 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserServiceImpl implements UserService {
 
 	static Logger log = Logger.getLogger(UserServiceImpl.class.getName());
-	
+
 	private UserDao userDao;
-	
+
 	@Autowired
 	public UserServiceImpl(UserDao userDao) {
 		this.userDao = userDao;
 	}
-	
+
 	@Transactional(readOnly = true)
 	@Override
 	public User getUser(long userId) {
@@ -42,7 +42,9 @@ public class UserServiceImpl implements UserService {
 
 	@Transactional
 	@Override
-	public long addUser(String loginname, String username, String password, String email, String name, String lastname, String address, Role role) {
+	public long addUser(String loginname, String username, String password,
+			String email, String name, String lastname, String address,
+			Role role) {
 		User user = new User();
 		user.setLoginname(loginname);
 		user.setUsername(username);
@@ -55,13 +57,10 @@ public class UserServiceImpl implements UserService {
 		userDao.persist(user);
 		return user.getUserId();
 	}
-	
-	private boolean hasRole(String role) {
-		SecurityContext context = SecurityContextHolder.getContext();
-		if (context == null)
-			return false;
 
-		Authentication authentication = context.getAuthentication();
+	public boolean hasRole(String role) {
+		Authentication authentication = getAuthentication();
+
 		if (authentication == null)
 			return false;
 
@@ -72,5 +71,25 @@ public class UserServiceImpl implements UserService {
 		}
 
 		return false;
+	}
+
+	public String getUsername() {
+		Authentication authentication = getAuthentication();
+
+		if (authentication == null)
+			return null;
+		
+		return authentication.getName();
+	}
+
+	private Authentication getAuthentication() {
+		SecurityContext context = SecurityContextHolder.getContext();
+		if (context == null)
+			return null;
+
+		Authentication authentication = context.getAuthentication();
+		if (authentication == null)
+			return null;
+		return authentication;
 	}
 }

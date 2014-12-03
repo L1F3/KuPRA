@@ -16,5 +16,7 @@ public interface UserService {
 			Role role);
 	
 	boolean hasRole(String role);
+	
+	String getUsername();
 
 }
