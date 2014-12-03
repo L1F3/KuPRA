@@ -85,14 +85,15 @@ public class ProductController {
     }
 
     @Secured({"ROLE_ADMIN"})
-    @RequestMapping(value = "/product/modify", method = RequestMethod.POST)
+    @RequestMapping(value = "/product/modify/{id}", method = RequestMethod.POST)
     public ModelAndView productDoModify(
-            @Valid @ModelAttribute("product") Product product, BindingResult result) {
+    		@PathVariable long id, @Valid @ModelAttribute("product") Product product, BindingResult result) {
         if (result.hasErrors()) {
             log.info("Returning product.jsp page");
             return new ModelAndView("product");
         }
         productService.updateProduct(
+        		id,
         		product.getName(), 
         		product.getUnits(), 
         		product.getDescription(), 

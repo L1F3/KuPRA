@@ -50,4 +50,22 @@ public class ProductServiceImpl implements ProductService {
 		return product.getProductId();
 	}
 
+	@Override
+	public void deleteProduct(long id) {
+		productDao.delete(id);
+	}
+
+	@Override
+	public void updateProduct(long id, String productName, Set<Unit> units,
+			String description, String imageName, String imageType, Blob image) {
+		Product product = productDao.get(id);
+		product.setName(productName);
+		product.setUnits(units);
+		product.setDescription(description);
+		product.setImgName(imageName);
+		product.setImgType(imageType);
+		product.setImg(image);
+		productDao.persist(product);
+	}
+
 }
