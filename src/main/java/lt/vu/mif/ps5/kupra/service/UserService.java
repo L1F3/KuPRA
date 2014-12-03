@@ -14,9 +14,13 @@ public interface UserService {
 	long addUser(String loginname, String username, String password,
 			String email, String name, String lastname, String address,
 			Role role);
-	
+
 	boolean hasRole(String role);
-	
+
 	String getUsername();
 
+	void updateUser(String loginname, String username, String password,
+			String email, String name, String lastname, String address,
+			Role role);
+	
 }
