@@ -23,7 +23,6 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 		this.persistingClass = persistingClass;
 	}
 
-	@Override
 	public List<T> getAll() {
 		Session sess = getSession();
 
@@ -32,13 +31,11 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 		return list;
 	}
 
-	@Override
 	public T get(long id) {
 		return (T) getSession().get(persistingClass, id);
 
 	}
 
-	@Override
 	public void persist(T entity) {
 		getSession().persist(entity);
 	}

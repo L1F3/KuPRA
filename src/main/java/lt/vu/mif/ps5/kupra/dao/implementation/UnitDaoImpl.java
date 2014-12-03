@@ -15,7 +15,6 @@ public class UnitDaoImpl extends GenericDaoImpl<Unit> implements UnitDao {
 		super(sessionFactory, Unit.class);
 	}
 
-	@Override
 	public void delete(long unitId) {
 		Unit unit = get(unitId);
 		getSession().delete(unit);

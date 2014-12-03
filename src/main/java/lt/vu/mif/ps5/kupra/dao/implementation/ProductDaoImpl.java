@@ -14,7 +14,6 @@ public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDa
         super(sessionFactory, Product.class);
     }
 
-	@Override
     public void delete(long productId) {
         Product product = get(productId);
         getSession().delete(product);

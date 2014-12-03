@@ -15,7 +15,6 @@ public class RecipeDaoImpl extends GenericDaoImpl<Recipe> implements RecipeDao {
 		super(sessionFactory, Recipe.class);
 	}
 
-	@Override
 	public void delete(long recipeId) {
 		Recipe recipe = get(recipeId);
 		getSession().delete(recipe);

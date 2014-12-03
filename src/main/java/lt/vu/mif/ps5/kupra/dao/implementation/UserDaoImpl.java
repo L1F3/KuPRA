@@ -19,7 +19,6 @@ public class UserDaoImpl extends GenericDaoImpl<User> implements UserDao {
         super(sessionFactory, User.class);
     }
 	
-    @Override
     public void delete(long userId) {
         User user = get(userId);
         getSession().delete(user);
