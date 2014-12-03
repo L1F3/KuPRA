@@ -17,7 +17,6 @@ import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-//import net.metasite.des.entity.Unit;
 @Entity
 @Table (name= "products")
 public class Product {
@@ -37,8 +36,8 @@ public class Product {
 	@Column(name = "units")
 	private Set<Unit> unitsSet = new HashSet<Unit>();
 
-	@Column(length = 2000, name="product_despription")
-	private String product_despription;
+	@Column(length = 2000, name="product_description")
+	private String product_description;
 	
 	@Column(name = "imgName")
     private String imgName;
@@ -62,7 +61,7 @@ public class Product {
 	        return product_name;
 	    }
 
-	public void setName(String Name) {
+	public void setName(String product_name) {
 	        this.product_name = product_name;
 	    }
 	 
@@ -75,12 +74,12 @@ public class Product {
 	 }
 
 	 public String getDescription() {
-	        return product_despription;
+	        return product_description;
 	    }
 
 	   
-	 public void setDescription(String description) {
-	        this.product_despription = product_despription;
+	 public void setDescription(String product_description) {
+	        this.product_description = product_description;
 	    }
 	 
 	 
