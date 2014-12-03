@@ -41,6 +41,7 @@ public class UnitServiceImpl implements UnitService {
 		Unit unit = new Unit();
 		unit.setName(name);
 		unit.setAbbreviation(abbreviation);
+		unitDao.persist(unit);
 		return unit.getUnitId();
 	}
 	
