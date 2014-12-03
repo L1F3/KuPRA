@@ -37,7 +37,8 @@ public class UserController {
 
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
-	public ModelAndView userCreate(@Valid @ModelAttribute("user") UserForm userForm,
+	public ModelAndView userCreate(
+			@Valid @ModelAttribute("user") UserForm userForm,
 			BindingResult result) {
 		if (result.hasErrors()) {
 			// log.info("Returning account.jsp page");
@@ -46,15 +47,17 @@ public class UserController {
 
 		if ((userForm.getRole() == Role.ROLE_ADMIN)
 				|| (userForm.getRole() == Role.ROLE_USER)) {
-			if (!userService.hasRole("ROLE_ADMIN") && !userService.hasRole("ROLE_MANAGER")) {
+			if (!userService.hasRole("ROLE_ADMIN")
+					&& !userService.hasRole("ROLE_MANAGER")) {
 				// log.info("Fucking cheater. Returning account.jsp page");
 				return new ModelAndView("user");
 			}
 		}
 
 		long userId = userService.addUser(userForm.getLoginname(),
-				userForm.getUsername(), userForm.getPassword(), userForm.getEmail(),
-				userForm.getName(), userForm.getLastname(), userForm.getAddress(),
+				userForm.getUsername(), userForm.getPassword(),
+				userForm.getEmail(), userForm.getName(),
+				userForm.getLastname(), userForm.getAddress(),
 				userForm.getRole());
 
 		return new ModelAndView("redirect:user/{" + userId + "}");
@@ -62,23 +65,28 @@ public class UserController {
 
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
 	@RequestMapping(value = "/user/{id}/edit", method = RequestMethod.GET)
-	public ModelAndView accountModify(@PathVariable long id) {
+	public ModelAndView userModify(@PathVariable long id) {
 		User user = userService.getUser(id);
+
+		if (user.getName() != userService.getUsername()) {
+			// Grazinti access denied page
+			return new ModelAndView("");
+		}
+
 		return new ModelAndView("edit").addObject("user", user);
 	}
 
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
-	@RequestMapping(value = "/user/modify", method = RequestMethod.POST)
-	public ModelAndView accountDoModify(
+	@RequestMapping(value = "/user/edit", method = RequestMethod.POST)
+	public ModelAndView userDoModify(
 			@Valid @ModelAttribute("user") User user, BindingResult result) {
 		if (result.hasErrors()) {
 			// log.info("Returning account.jsp page");
 			return new ModelAndView("user");
 		}
 
-		long userId;
-		// userService.updateAccount(
-		// );
+		long userId = 0; // Padaryti updateUser methoda
+
 		return new ModelAndView("redirect:user/{" + userId + "}");
 	}
 
