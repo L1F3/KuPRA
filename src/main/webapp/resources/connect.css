@@ -1,0 +1,91 @@
+html {
+    height: 100%;
+    width:100%;
+}
+
+/* Main image*/
+
+.img-responsive {
+    height: 100%;
+    width: 100%;
+}
+.icon-size {
+    width: 360px;
+    height: 360px;
+}
+/* --------------------------*/
+
+
+/* Login */
+.form-signin {
+    max-width: 430px;
+    padding-top :15px;
+    padding-left:15px; 
+    padding-right:15px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+
+.forget {
+    font-size:15px;
+	text-align: right;
+	display: block;
+    padding-right:15px;
+}
+
+
+.login-form {
+    padding-top:20px;
+}
+
+.registration-form {
+     padding-top:20px;
+}
+/* --------------------------*/
+
+
+/* For login icons*/
+.inner-addon { 
+    position: relative; 
+}
+
+.inner-addon .glyphicon {
+  position: absolute;
+  margin-top:10px;
+  margin-left:25px;
+  pointer-events: none;
+}
+
+.left-addon .glyphicon {
+    left: 0px;
+}
+
+.left-addon input {
+    padding-left: 30px;
+}
+/* -------------------- */
+
+/*
+#page-content-wrapper {
+   position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+}
+
+.item {
+    position:absolute;
+  top: 0; 
+  left: 0; 
+  min-width: 100%;
+  min-height: 100%;
+
+  -webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+background-position: center; 
+}
+    */
