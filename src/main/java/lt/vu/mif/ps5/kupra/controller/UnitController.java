@@ -7,10 +7,14 @@ import javax.validation.Valid;
 import lt.vu.mif.ps5.kupra.controller.UnitController;
 import lt.vu.mif.ps5.kupra.service.UnitService;
 import lt.vu.mif.ps5.kupra.entity.Unit;
+import lt.vu.mif.ps5.kupra.form.UnitForm;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -87,15 +91,16 @@ public class UnitController {
     }
     
     @Secured({"ROLE_ADMIN"})
-    @RequestMapping(value = "/unit/modify", method = RequestMethod.POST)
+    @RequestMapping(value = "/unit/modify/{id}", method = RequestMethod.POST)
     public ModelAndView unitDoModify(
-            @Valid @ModelAttribute("unit") Unit unit, BindingResult result) {
+            @PathVariable long id,
+    		@Valid @ModelAttribute("unit") UnitForm unit, BindingResult result) {
         if (result.hasErrors()) {
             log.info("Returning unit.jsp page");
             return new ModelAndView("unit");
         }
         unitService.updateUnit(
-                unit.getUnitId(),
+                id,
                 unit.getName(),
                 unit.getAbbreviation());
         return new ModelAndView("redirect:list");

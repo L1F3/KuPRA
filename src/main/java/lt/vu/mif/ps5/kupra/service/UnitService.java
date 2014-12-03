@@ -11,5 +11,7 @@ public interface UnitService {
 
     long addUnit(String name, String abbreviation);
     
+    void deleteUnit(long id);
     
+    void updateUnit(long id, String abbreviation, String name);
 }

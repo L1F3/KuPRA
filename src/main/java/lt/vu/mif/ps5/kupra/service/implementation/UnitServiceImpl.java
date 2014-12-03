@@ -24,25 +24,36 @@ public class UnitServiceImpl implements UnitService {
 	}
 	
 	@Transactional(readOnly = true)
-	@Override
 	public Unit getUnit(long unitId) {
 		return unitDao.get(unitId);
 	}
 
 	@Transactional(readOnly = true)
-	@Override
 	public List<Unit> getAll() {
 		return unitDao.getAll();
 	}
 
 	@Transactional
-	@Override
 	public long addUnit(String name, String abbreviation) {
 		Unit unit = new Unit();
 		unit.setName(name);
 		unit.setAbbreviation(abbreviation);
 		unitDao.persist(unit);
 		return unit.getUnitId();
+	}
+	
+	@Transactional
+	public void deleteUnit(long id) {
+		unitDao.delete(id);
+	}
+	
+	@Transactional
+	public void updateUnit(long id, String abbreviation, String name) {
+		Unit unit;
+		unit = unitDao.get(id);
+		unit.setAbbreviation(abbreviation);
+		unit.setName(name);
+		unitDao.persist(unit);
 	}
 	
 }
