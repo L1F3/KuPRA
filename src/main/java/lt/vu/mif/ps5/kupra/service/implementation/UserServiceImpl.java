@@ -3,6 +3,7 @@ package lt.vu.mif.ps5.kupra.service.implementation;
 import java.util.List;
 
 import lt.vu.mif.ps5.kupra.dao.UserDao;
+import lt.vu.mif.ps5.kupra.entity.Role;
 import lt.vu.mif.ps5.kupra.entity.User;
 import lt.vu.mif.ps5.kupra.service.UserService;
 
@@ -37,7 +38,7 @@ public class UserServiceImpl implements UserService {
 
 	@Transactional
 	@Override
-	public long addUser(String loginname, String username, String password, String email, String name, String lastname, String address) {
+	public long addUser(String loginname, String username, String password, String email, String name, String lastname, String address, Role role) {
 		User user = new User();
 		user.setLoginname(loginname);
 		user.setUsername(username);
@@ -46,6 +47,7 @@ public class UserServiceImpl implements UserService {
 		user.setName(name);
 		user.setLastname(lastname);
 		user.setAddress(address);
+		user.setRole(role);
 		userDao.persist(user);
 		return user.getUserId();
 	}
