@@ -15,7 +15,6 @@ public class LoginController {
     public ModelAndView getLoginForm(
             @RequestParam(required = false) String authfailed, String logout,
             String denied) {
-    	log.info("IEJO I LOGINA");
         String message = "";
         if (authfailed != null) {
             message = "Neteisingas prisijungimo vardas arba slaptazodis!";
@@ -41,7 +40,6 @@ public class LoginController {
     public ModelAndView getIndexForm(
             @RequestParam(required = false) String authfailed, String logout,
             String denied) {
-    	log.info("IEJO I LOGINA");
         String message = "";
         if (authfailed != null) {
             message = "Neteisingas prisijungimo vardas arba slaptazodis!";
