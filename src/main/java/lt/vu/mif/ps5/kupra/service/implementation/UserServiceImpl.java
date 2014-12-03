@@ -29,19 +29,16 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Transactional(readOnly = true)
-	@Override
 	public User getUser(long userId) {
 		return userDao.get(userId);
 	}
 
 	@Transactional(readOnly = true)
-	@Override
 	public List<User> getAll() {
 		return userDao.getAll();
 	}
 
 	@Transactional
-	@Override
 	public long addUser(String loginname, String username, String password,
 			String email, String name, String lastname, String address,
 			Role role) {
@@ -78,7 +75,7 @@ public class UserServiceImpl implements UserService {
 
 		if (authentication == null)
 			return null;
-		
+
 		return authentication.getName();
 	}
 
@@ -90,7 +87,7 @@ public class UserServiceImpl implements UserService {
 		Authentication authentication = context.getAuthentication();
 		if (authentication == null)
 			return null;
-		
+
 		return authentication;
 	}
 }
