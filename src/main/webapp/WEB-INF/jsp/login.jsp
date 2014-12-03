@@ -1,4 +1,4 @@
- <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
@@ -15,7 +15,7 @@
 <body>
 
     
-   <!-- <div id="myCarousel" class="carousel slide">
+  <!-- <div id="myCarousel" class="carousel slide">
             <div class="carousel-inner">
               <div class="item active">
                <img src="2.jpg"  class="img-responsive"  > 
@@ -25,43 +25,48 @@
               </div>
             </div>
      </div>
-
     -->
+    
 
 <div id= "page-content-wrapper">
-
-  <div class="container">
+  <div class="container login">
       <div class="row">
-        <div class="col-md-12  ">
+        <div class="col-md-6 col-md-offset-3">
 
          <img src="<c:url value="/resources/MainI.svg" />"  class="center-block  icon-size img-responsive"/>
           
-        <form name="loginForm" method="post" action="<c:url value='/j_spring_security_check' />" class="form-horizontal form-signin" role="form">
+        <form class="form-horizontal form-signin" role="form">
+             <fieldset>
             <div class="form-group inner-addon left-addon">
                <label for="inputEmail" class="col-sm-2 control-label">Email</label>
                <div class="col-sm-10">
-<!-- *** -->          <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="username" >  
-                    <i class="glyphicon glyphicon-user"></i>
+<!-- *** -->          <input type="email" class="form-control" id="inputEmail" placeholder="Email" required/>  
+                      <img src="<c:url value="/resources/svg/user.svg"/>"  class="icons"/>
                 </div>
            </div>
            <div class="form-group inner-addon left-addon">
                <label for="inputPassword" class="col-sm-2 control-label">Password</label>
-               <div class="col-sm-10">
-<!-- *** -->          <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password" >
-                    <i class="glyphicon glyphicon-lock"></i>
+               <div class="col-sm-10"> 
+<!-- *** -->          <input type="password" class="form-control" id="inputPassword" placeholder="Password" required/>
+                      <img src="<c:url value="/resources/svg/key.svg"/>"  class="icons"/>
                </div>
            </div>
-            <a href="javascript:;" class="forget" data-toggle="modal" data-target=".forget-modal">Forgot your password?</a>
-           <div class="form-group login-form">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
+           <div class="form-group">
+             <label class="col-md-4 control-label" for="buttonLogIn"></label>
+             <div class=" col-md-12 center-block ">
+                <a class="btn btn-lg btn-primary btn-block" href="Main.html" role="button">Prisijungti</a>
+                 <a href="javascript:;" class="forget" data-toggle="modal" data-target=".forget-modal">Pamiršote slaptažodį ?</a>
+             </div>  
+                    
+          </div> 
+           
+           <div class="form-group">
+                <label class="col-md-7 control-label" for="buttonRegistration">Norite sukurti naują formą?</label>
+                <div class=" col-md-5">
+                    <a class="btn btn-lg btn-primary btn-block" href="Registration.html" role="button">Registracija</a>
                 </div>
            </div>
-           <div class="form-group registration-form">
-             <div class="col-sm-offset-2 col-sm-10">
-                   <button type="submit" class="btn btn-lg btn-primary btn-block" value="Login">Registration</button>
-             </div>
-           </div>
+         </fieldset>
         </form>
      </div> 
    </div>  
@@ -74,17 +79,17 @@
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">
 					<span aria-hidden="true">X</span>
-					<span class="sr-only">Close</span>
+					<span class="sr-only">Uždaryti</span>
 				</button>
-				<h4 class="modal-title">Recovery password</h4>
+				<h4 class="modal-title">Atkurti slaptažodį</h4>
 			</div>
 			<div class="modal-body">
-				<p>Type your email account</p>
-<!-- *** -->    <input type="email" name="recovery-email" id="recovery-email" class="form-control">
+				<p>Įveskite savo elektroninį paštą</p>
+<!-- *** -->    <input type="email" name="recovery-email" id="recovery-email" class="form-control" required>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-				<button type="button" class="btn btn-custom">Recovery</button>
+				<button type="button" class="btn btn-default button-recovery-cancel" data-dismiss="modal">Atšaukti</button>
+				<button type="button" class="btn btn-custom button-recovery-accept">Atstatyti</button>
 			</div>
 		</div> 
 	</div> 
@@ -93,6 +98,14 @@
     
       
   </div>  
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.carousel').carousel({
+                interval: 2000
+            })
+        });
+</script>
 
 	
 </body>

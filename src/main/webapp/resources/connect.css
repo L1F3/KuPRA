@@ -15,24 +15,24 @@ html {
 }
 /* --------------------------*/
 
+.icons {
+    width: 20px;
+    height: 20px;
+    margin-top:-25px;
+    margin-left:5px;
+}
 
 /* Login */
 .form-signin {
-    max-width: 430px;
-    padding-top :15px;
-    padding-left:15px; 
-    padding-right:15px;
     margin: 0 auto;
-    background-color: #fff;
-    border: 1px solid rgba(0,0,0,0.1);
+    max-width: 430px;
 }
 
 
 .forget {
     font-size:15px;
-	text-align: right;
+	text-align: center;
 	display: block;
-    padding-right:15px;
 }
 
 
@@ -41,7 +41,15 @@ html {
 }
 
 .registration-form {
-     padding-top:20px;
+    padding-top: 20px;
+}
+
+.button-recovery-cancel {
+    color:red;
+}
+
+.button-recovery-accept {
+    color:green;
 }
 /* --------------------------*/
 
@@ -89,3 +97,31 @@ background-size: cover;
 background-position: center; 
 }
     */
+
+
+/* Registration*/
+
+.form-registration {
+    padding-top:20px;
+    margin: 0 auto;
+    
+}
+
+.info-registration {
+    text-align:right;
+}
+
+.extended-info {
+    padding-top:40px;
+}
+
+.registration-h1 {
+    text-align:center;
+}
+.icons-registration {
+    margin-left:5px;
+    width: 20px;
+    height: 20px;
+    margin-top:-52px;
+}
+/* --------------------*/

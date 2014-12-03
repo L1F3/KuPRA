@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Comapatible" content="IE=edge" /> <!-- Tam nustatytu ie rendinima pagal ju verijas -->
+    <title>Registration</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="connect.css" rel="stylesheet" type="text/css" />
+    <link href="normalize.css" rel="stylesheet" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="connect.js"></script>
+</head>
+<body>
+
+ <div id= "page-content-wrapper">
+
+    
+
+  <div class="container registration">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+ 
+        <form class="form-horizontal form-registration" role="form">
+           <h1 class="registration-h1">Registracija</h1>
+           <fieldset>
+            <div class="form-group inner-addon left-addon">
+               <label for="inputLoginName" class="col-md-5 control-label">Prisijungimo vardas *</label>
+               <div class="col-md-6">
+<!-- *** -->          <input type="text" class="form-control" id="inputLoginName" placeholder="Vardas"/>  
+                       <img src="svg/user.svg"  class="icons-registration"/>
+                </div>
+           </div>
+           <div class="form-group inner-addon left-addon">
+               <label for="inputUserName" class="col-md-5 control-label"> Slapyvardis *</label>
+               <div class="col-md-6">
+<!-- *** -->          <input type="text" class="form-control" id="inputUserName" placeholder="Vardas"/>  
+                       <img src="svg/user.svg"  class="icons-registration"/>
+                </div>
+           </div>
+           <div class="form-group inner-addon left-addon ">
+               <label for="inputPassword" class="col-md-5 control-label">Slaptažodis *</label>
+               <div class="col-md-6">
+<!-- *** -->          <input type="password" class="form-control" id="inputPassword" placeholder="Slaptažodis"/>
+                      <img src="svg/key.svg"  class="icons-registration"/>
+               </div>
+           </div>
+            <div class="form-group inner-addon left-addon">
+               <label for="inputRePassword" class="col-md-5 control-label">Pakartoti slaptažodį *</label>
+               <div class="col-md-6">
+<!-- *** -->          <input type="password" class="form-control" id="inputRePassword" placeholder="Pakartoti slaptažodį"/>
+                      <img src="svg/key.svg"  class="icons-registration"/>
+               </div>
+           </div>
+           <div class="form-group inner-addon left-addon">
+               <label for="inputEmail" class="col-md-5 control-label">Elektroninio pašto adresas *</label>
+               <div class="col-md-6">
+<!-- *** -->          <input type="email" class="form-control" id="inputEmail" placeholder="Elektroninis paštas"/>  
+                       <img src="svg/email.svg"  class="icons-registration"/>
+                </div>
+           </div>
+               <div class="extended-info">
+           <div class="form-group inner-addon left-addon">
+               <label for="inputName" class="col-md-5 control-label">Vardas</label>
+               <div class="col-md-6">
+<!-- *** -->          <input type="text" class="form-control" id="inputName" placeholder="Vardas"/>  
+                       <img src="svg/user.svg"  class="icons-registration"/>
+                </div>
+           </div>
+            <div class="form-group inner-addon left-addon">
+               <label for="inputLastName" class="col-md-5 control-label">Pavardė</label>
+               <div class="col-md-6">
+<!-- *** -->          <input type="text" class="form-control" id="inputLastName" placeholder="Pavardė"/> 
+                      <img src="svg/user.svg"  class="icons-registration"/>
+                </div>
+           </div>
+            <div class="form-group inner-addon left-addon">
+               <label for="inputAddress" class="col-md-5 control-label">Adresas</label>
+               <div class="col-md-6">
+<!-- *** -->          <input type="text" class="form-control" id="inputAddress" placeholder="Adresas"/> 
+                      <img src="svg/buildings.svg"  class="icons-registration"/> 
+                </div>
+           </div>
+           <div class="col-md-6 col-md-offset-5 info-registration"><p>*pažymėti laukai privalomi</p></div> 
+           <div class="form-group">
+             <label class="col-md-4 control-label" for="buttonRegistration"></label>
+             <div class=" col-md-4 center-block ">
+                <button name="buttonRegistration" class="btn btn-primary center-block">Registruokis</button>
+             </div>
+           </div>
+          </div>
+         </fieldset>
+        </form>
+     </div> 
+   </div>  
+  </div> 
+</div>
+
+</body>
+</html>
