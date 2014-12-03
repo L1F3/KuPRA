@@ -1,5 +1,6 @@
 package lt.vu.mif.ps5.kupra.service.implementation;
 
+import java.sql.Blob;
 import java.util.List;
 
 import lt.vu.mif.ps5.kupra.dao.UserDao;
@@ -89,5 +90,25 @@ public class UserServiceImpl implements UserService {
 			return null;
 
 		return authentication;
+	}
+
+	public void updateUser(long userId, String loginname, String username,
+			String password, String email, String name, String lastname,
+			String address, String description, String imageName,
+			String imageType, Blob image, Role role) {
+		User user = userDao.get(userId);
+		user.setLoginname(loginname);
+		user.setUsername(username);
+		user.setPassword(password);
+		user.setEmail(email);
+		user.setName(name);
+		user.setLastname(lastname);
+		user.setAddress(address);
+		user.setDescription(description);
+		user.setImgName(imageName);
+		user.setImgType(imageType);
+		user.setImg(image);
+		user.setRole(role);
+		userDao.persist(user);
 	}
 }

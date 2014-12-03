@@ -78,16 +78,20 @@ public class UserController {
 
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
 	@RequestMapping(value = "/user/edit", method = RequestMethod.POST)
-	public ModelAndView userDoModify(
-			@Valid @ModelAttribute("user") User user, BindingResult result) {
+	public ModelAndView userDoModify(@Valid @ModelAttribute("user") User user,
+			BindingResult result) {
 		if (result.hasErrors()) {
 			// log.info("Returning account.jsp page");
 			return new ModelAndView("user");
 		}
 
-		long userId = 0; // Padaryti updateUser methoda
+		userService.updateUser(user.getUserId(), user.getLoginname(),
+				user.getUsername(), user.getPassword(), user.getEmail(),
+				user.getName(), user.getLastname(), user.getAddress(),
+				user.getDescription(), user.getImgName(), user.getImgType(),
+				user.getImg(), user.getRole());
 
-		return new ModelAndView("redirect:user/{" + userId + "}");
+		return new ModelAndView("redirect:user/{" + user.getUserId() + "}");
 	}
 
 }

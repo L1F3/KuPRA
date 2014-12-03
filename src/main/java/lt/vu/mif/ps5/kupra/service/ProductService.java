@@ -15,5 +15,10 @@ public interface ProductService {
 
 	long addProduct(String productName, Set<Unit> units, String description,
 			String imageName, String imageType, Blob image);
+	
+	void deleteProduct(long id);
+	
+	void updateProduct(long id, String productName, Set<Unit> units, String description,
+			String imageName, String imageType, Blob image);
 
 }
