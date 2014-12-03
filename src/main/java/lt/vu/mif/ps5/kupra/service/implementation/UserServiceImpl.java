@@ -25,19 +25,16 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Transactional(readOnly = true)
-	@Override
 	public User getUser(long userId) {
 		return userDao.get(userId);
 	}
 
 	@Transactional(readOnly = true)
-	@Override
 	public List<User> getAll() {
 		return userDao.getAll();
 	}
 
 	@Transactional
-	@Override
 	public long addUser(String loginname, String username, String password, String email, String name, String lastname, String address, Role role) {
 		User user = new User();
 		user.setLoginname(loginname);

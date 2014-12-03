@@ -27,19 +27,16 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 	
 	@Transactional(readOnly = true)
-	@Override
 	public Recipe getRecipe(long recId) {
 		return recipeDao.get(recId);
 	}
 
 	@Transactional(readOnly = true)
-	@Override
 	public List<Recipe> getAll() {
 		return recipeDao.getAll();
 	}
 
 	@Transactional
-	@Override
 	public long addRecipe(String name, String imgName, Blob img, String imgType, Set<Product> productsOfRecipe, String description, int visibility) {
 		Recipe recipe = new Recipe();
 		recipe.setName(name);

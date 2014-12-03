@@ -27,19 +27,16 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Transactional(readOnly = true)
-	@Override
 	public Product getProduct(long productId) {
 		return productDao.get(productId);
 	}
 
 	@Transactional(readOnly = true)
-	@Override
 	public List<Product> getAll() {
 		return productDao.getAll();
 	}
 
 	@Transactional
-	@Override
 	public long addProduct(String productName, Set<Unit> units,
 			String description, String imageName, String imageType, Blob image) {
 		Product product = new Product();
