@@ -2,6 +2,7 @@ package lt.vu.mif.ps5.kupra.service;
 
 import java.sql.Blob;
 import java.util.List;
+import java.util.Set;
 
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.Role;
@@ -26,4 +27,5 @@ public interface UserService {
 			String address, String description, String imageName,
 			String imageType, Blob image, Role role);
 
+	Set<Recipe> getMeals(String username);
 }
