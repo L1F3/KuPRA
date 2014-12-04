@@ -22,59 +22,60 @@ import javax.persistence.OneToMany;
 
 @Entity
 @Table(name = "users")
-
 public class User {
-    
-	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long userId;
-	
-    @Column(length = 30, name = "loginname")
-    private String loginname;
-	
-    @Column(length = 30, name = "username")
-    private String username;
-    
-    @Column(length = 30, name = "password")
-    private String password;
-    
-    @Column(length = 30, name = "email")
-    private String email;
-    
-    @Column(length = 30, name = "name")
-    private String name;
-    
-    @Column(length = 30, name = "lastname")
-    private String lastname;
-    
-    @Column(length = 64, name = "address")
-    private String address;
-    
-    @Column(length = 256, name = "description")
-    private String description;
-    
-    @Column(name = "imgName")
-    private String imgName;
-    
-    @Column(name = "img")
-    @Lob
-    private Blob img;
-    
-    @Column(name = "imgType")
-    private String imgType;
 
-    @Column(length = 30, name = "role")
-    @Enumerated(EnumType.STRING)
-    private Role role;
-    
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "user_products",
-            joinColumns = {
-                @JoinColumn(name = "userId")})
-    
-    private Set<Product> userProducts = new HashSet<Product>();   
-    // Get / Set
-    
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long userId;
+
+	@Column(length = 30, name = "loginname")
+	private String loginname;
+
+	@Column(length = 30, name = "username")
+	private String username;
+
+	@Column(length = 30, name = "password")
+	private String password;
+
+	@Column(length = 30, name = "email")
+	private String email;
+
+	@Column(length = 30, name = "name")
+	private String name;
+
+	@Column(length = 30, name = "lastname")
+	private String lastname;
+
+	@Column(length = 64, name = "address")
+	private String address;
+
+	@Column(length = 256, name = "description")
+	private String description;
+
+	@Column(name = "imgName")
+	private String imgName;
+
+	@Column(name = "img")
+	@Lob
+	private Blob img;
+
+	@Column(name = "imgType")
+	private String imgType;
+
+	@Column(length = 30, name = "role")
+	@Enumerated(EnumType.STRING)
+	private Role role;
+
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@JoinTable(name = "user_products", joinColumns = { @JoinColumn(name = "userId") })
+	private Set<Product> userProducts = new HashSet<Product>();
+
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@JoinTable(name = "user_eats", joinColumns = { @JoinColumn(name = "userId") })
+	private Set<Recipe> userEats = new HashSet<Recipe>();
+
+	// Get / Set
+
 	public long getUserId() {
 		return userId;
 	}
@@ -170,7 +171,7 @@ public class User {
 	public void setImgType(String imgType) {
 		this.imgType = imgType;
 	}
-    
+
 	public Role getRole() {
 		return role;
 	}
@@ -178,5 +179,5 @@ public class User {
 	public void setRole(Role role) {
 		this.role = role;
 	}
-	
+
 }
