@@ -28,14 +28,14 @@ public class Product {
 	
 	@Column(length = 30, name= "product_name")
 	private String product_name;
-		
-	/*@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	@JoinTable(name = "units",
-	            joinColumns = {
-	                @JoinColumn(name = "unitId")})
 	                                
-	//@Column(name = "units")
-	private Set<Unit> unitsSet = new HashSet<Unit>();*/
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "unit_product",
+            joinColumns = {
+                @JoinColumn(name = "productId")},
+            inverseJoinColumns = {
+                @JoinColumn(name = "unitId")})
+	private Set<Unit> unitsSet = new HashSet<Unit>();
 
 	@Column(length = 2000, name="product_description")
 	private String product_description;
