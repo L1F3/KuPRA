@@ -22,63 +22,71 @@
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
  
-        <form:form method="POST" class="form-horizontal form-registration" role="form" commandName="regForm" action="register">
+        <form:form method="POST" class="form-horizontal form-registration" role="form" modelAttribute="userForm">
            <h1 class="registration-h1">Registracija</h1>
            <fieldset>
             <div class="form-group inner-addon left-addon">
                <label for="inputLoginName" class="col-md-5 control-label">Prisijungimo vardas *</label>
                <div class="col-md-6">
-<!-- *** -->          <form:input type="text" class="form-control" id="inputLoginName" placeholder="Prisijungimo vardas" path="loginname"/>  
+<!-- *** -->          <input value="${userForm.loginname}" type="text" class="form-control" id="inputLoginName" placeholder="Prisijungimo vardas" name="loginname"/> 
+                      <form:errors path="loginname" cssClass="error" /> 
                       <img src="<c:url value="/resources/svg/user.svg"/>"  class="icons-registration"/>
                 </div>
            </div>
            <div class="form-group inner-addon left-addon">
                <label for="inputUserName" class="col-md-5 control-label"> Slapyvardis *</label>
                <div class="col-md-6">
-<!-- *** -->          <form:input type="text" class="form-control" id="inputUserName" placeholder="Slapyvardis" path="username"/>  
-                       <img src="<c:url value="/resources/svg/user.svg"/>"  class="icons-registration"/>
+<!-- *** -->          <input type="text" class="form-control" id="inputUserName" placeholder="Slapyvardis" name="username"/>  
+                      <form:errors path="username" cssClass="error" /> 
+                      <img src="<c:url value="/resources/svg/user.svg"/>"  class="icons-registration"/>
                 </div>
            </div>
            <div class="form-group inner-addon left-addon ">
                <label for="inputPassword" class="col-md-5 control-label">Slaptažodis *</label>
                <div class="col-md-6">
-<!-- *** -->          <form:input type="password" class="form-control" id="inputPassword" placeholder="Slaptažodis" path="password"/>
+<!-- *** -->          <input type="password" class="form-control" id="inputPassword" placeholder="Slaptažodis" name="password"/>
+                      <form:errors path="password" cssClass="error" /> 
                       <img src="<c:url value="/resources/svg/key.svg"/>"  class="icons-registration"/>
                </div>
            </div>
             <div class="form-group inner-addon left-addon">
                <label for="inputRePassword" class="col-md-5 control-label">Pakartoti slaptažodi *</label>
                <div class="col-md-6">
-<!-- *** -->          <form:input type="password" class="form-control" id="inputRePassword" placeholder="Pakartoti slaptažodi" path="passrepeat"/>
+<!-- *** -->          <input type="password" class="form-control" id="inputRePassword" placeholder="Pakartoti slaptažodi" name="passrepeat"/>
+                      <form:errors path="passrepeat" cssClass="error" /> 
                       <img src="<c:url value="/resources/svg/key.svg"/>"  class="icons-registration"/>
                </div>
            </div>
            <div class="form-group inner-addon left-addon">
                <label for="inputEmail" class="col-md-5 control-label">Elektroninio pašto adresas *</label>
                <div class="col-md-6">
-<!-- *** -->          <form:input type="email" class="form-control" id="inputEmail" placeholder="Elektroninis paštas" path="email"/>  
-                       <img src="<c:url value="/resources/svg/email.svg"/>"  class="icons-registration"/>
+<!-- *** -->          <input type="email" class="form-control" id="inputEmail" placeholder="Elektroninis paštas" name="email"/>  
+                      <form:errors path="email" cssClass="error" /> 
+                      <img src="<c:url value="/resources/svg/email.svg"/>"  class="icons-registration"/>
                 </div>
            </div>
                <div class="extended-info">
            <div class="form-group inner-addon left-addon">
                <label for="inputName" class="col-md-5 control-label">Vardas</label>
                <div class="col-md-6">
-<!-- *** -->          <form:input type="text" class="form-control" id="inputName" placeholder="Vardas" path="name"/>  
+<!-- *** -->          <input type="text" class="form-control" id="inputName" placeholder="Vardas" name="name"/>  
+                      <form:errors path="name" cssClass="error" /> 
                        <img src="<c:url value="/resources/svg/user.svg"/>"  class="icons-registration"/>
                 </div>
            </div>
             <div class="form-group inner-addon left-addon">
                <label for="inputLastName" class="col-md-5 control-label">Pavarde</label>
                <div class="col-md-6">
-<!-- *** -->          <form:input type="text" class="form-control" id="inputLastName" placeholder="Pavarde" path="lastname"/> 
+<!-- *** -->          <input type="text" class="form-control" id="inputLastName" placeholder="Pavarde" name="lastname"/> 
+                      <form:errors path="lastname" cssClass="error" /> 
                       <img src="<c:url value="/resources/svg/user.svg"/>"  class="icons-registration"/>
                 </div>
            </div>
             <div class="form-group inner-addon left-addon">
                <label for="inputAddress" class="col-md-5 control-label">Adresas</label>
                <div class="col-md-6">
-<!-- *** -->          <form:input type="text" class="form-control" id="inputAddress" placeholder="Adresas" path="address"/> 
+<!-- *** -->          <input type="text" class="form-control" id="inputAddress" placeholder="Adresas" name="address"/> 
+                      <form:errors path="address" cssClass="error" /> 
                       <img src="<c:url value="/resources/svg/buildings.svg"/>"  class="icons-registration"/> 
                 </div>
            </div>

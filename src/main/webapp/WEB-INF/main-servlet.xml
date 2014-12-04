@@ -60,6 +60,11 @@
 
     <bean id="webSecurityExpressionHandler" 
         class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
+
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="/messages"/>
+        <property name="defaultEncoding" value="UTF-8" />
+    </bean>
         
     <import resource="classpath:db-context.xml"/>
 
