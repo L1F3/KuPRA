@@ -24,6 +24,6 @@ public class MealsController {
 	
 	@RequestMapping(value = "/meals", method = RequestMethod.GET)
 	public ModelAndView eatsList() {		
-		return new ModelAndView("mealslist");//.addObject("meals", userService.getMeals());
+		return new ModelAndView("mealslist").addObject("meals", userService.getMeals());
 	}
 }

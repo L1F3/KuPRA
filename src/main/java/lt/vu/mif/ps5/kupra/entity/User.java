@@ -86,13 +86,13 @@ public class User {
 		return userId;
 	}
 
-	/*public Set<Recipe> getMeals() {
+	public Set<Recipe> getMeals() {
 		return meals;
 	}
 
 	public void setMeals(Set<Recipe> meals) {
 		this.meals = meals;
-	}*/
+	}
 
 	public void setUserId(long userId) {
 		this.userId = userId;
