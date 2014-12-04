@@ -68,7 +68,7 @@ public class User {
 
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinTable(name = "user_products", joinColumns = { @JoinColumn(name = "userId") })
-	private Set<Product> userProducts = new HashSet<Product>();
+	private Set<UserProduct> userProducts = new HashSet<UserProduct>();
 
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinTable(name = "user_eats", joinColumns = { @JoinColumn(name = "userId") })
