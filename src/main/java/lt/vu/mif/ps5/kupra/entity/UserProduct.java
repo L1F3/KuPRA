@@ -5,10 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "user_products")
@@ -16,21 +20,36 @@ public class UserProduct {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long userProductId;
+	
+	@Column(name="productId")
+	private long productId;
+	
+	@Column(length = 15, name= "userId")
 	private long userId;
-	
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "productId")
-	private Product product;
-	
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "unitId")
-    private Unit unit;
+
+	@Column(name="unitId")
+    private long unitId;
     
     @Column(length = 30, name= "quantity")
     private long quantity;
 
-    @Column(length = 30, name= "userProductId")
-    private long userProductId;
-    
-    
+    public long getProductId() {
+		return productId;
+	}
+
+	public long getUnitId() {
+		return unitId;
+	}
+
+	public void setUnitId(long unitId) {
+		this.unitId = unitId;
+	}
+
+	public void setProductId(long productId) {
+		this.productId = productId;
+	}
+	
 	public long getUserProductId() {
 		return userProductId;
 	}
@@ -45,22 +64,6 @@ public class UserProduct {
 
 	public void setUserId(long userId) {
 		this.userId = userId;
-	}
-
-	public Product getProduct() {
-		return product;
-	}
-
-	public void setProduct(Product product) {
-		this.product = product;
-	}
-
-	public Unit getUnit() {
-		return unit;
-	}
-
-	public void setUnit(Unit unit) {
-		this.unit = unit;
 	}
 
 	public long getQuantity() {

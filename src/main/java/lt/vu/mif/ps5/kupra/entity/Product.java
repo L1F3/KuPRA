@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,13 +29,13 @@ public class Product {
 	@Column(length = 30, name= "product_name")
 	private String product_name;
 		
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	/*@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinTable(name = "units",
 	            joinColumns = {
 	                @JoinColumn(name = "unitId")})
 	                                
-	@Column(name = "units")
-	private Set<Unit> unitsSet = new HashSet<Unit>();
+	//@Column(name = "units")
+	private Set<Unit> unitsSet = new HashSet<Unit>();*/
 
 	@Column(length = 2000, name="product_description")
 	private String product_description;
@@ -53,7 +54,7 @@ public class Product {
         this.productId = productId;
     }
 
-    public long getProductId() {
+	public long getProductId() {
         return productId;
     }
     
@@ -65,13 +66,13 @@ public class Product {
 	        this.product_name = product_name;
 	    }
 	 
-	 public Set<Unit> getUnits(){ 
+	 /*public Set<Unit> getUnits(){ 
 		 return unitsSet;
 	 }
 	 
 	 public void setUnits( Set<Unit> unitsSet){
 		 this.unitsSet = unitsSet;
-	 }
+	 }*/
 
 	 public String getDescription() {
 	        return product_description;

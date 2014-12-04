@@ -37,11 +37,11 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Transactional
-	public long addProduct(String productName, Set<Unit> units,
+	public long addProduct(String productName, /*Set<Unit> units,*/
 			String description, String imageName, String imageType, Blob image) {
 		Product product = new Product();
 		product.setName(productName);
-		product.setUnits(units);
+		/*product.setUnits(units);*/
 		product.setDescription(description);
 		product.setImgName(imageName);
 		product.setImgType(imageType);
@@ -56,11 +56,11 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Transactional
-	public void updateProduct(long id, String productName, Set<Unit> units,
+	public void updateProduct(long id, String productName, /*Set<Unit> units,*/
 			String description, String imageName, String imageType, Blob image) {
 		Product product = productDao.get(id);
 		product.setName(productName);
-		product.setUnits(units);
+		//product.setUnits(units);
 		product.setDescription(description);
 		product.setImgName(imageName);
 		product.setImgType(imageType);

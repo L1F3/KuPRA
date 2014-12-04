@@ -15,6 +15,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -65,14 +67,14 @@ public class User {
 	@Column(length = 30, name = "role")
 	@Enumerated(EnumType.STRING)
 	private Role role;
-
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	
+	/*@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinTable(name = "user_products", joinColumns = { @JoinColumn(name = "userId") })
-	private Set<UserProduct> userProducts = new HashSet<UserProduct>();
+	private Set<UserProduct> userProducts = new HashSet<UserProduct>();*/
 
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	/*@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinTable(name = "user_eats", joinColumns = { @JoinColumn(name = "userId") })
-	private Set<Recipe> meals = new HashSet<Recipe>();
+	private Set<Recipe> meals = new HashSet<Recipe>();*/
 
 	// Get / Set
 
@@ -80,13 +82,13 @@ public class User {
 		return userId;
 	}
 
-	public Set<Recipe> getMeals() {
+	/*public Set<Recipe> getMeals() {
 		return meals;
 	}
 
 	public void setMeals(Set<Recipe> meals) {
 		this.meals = meals;
-	}
+	}*/
 
 	public void setUserId(long userId) {
 		this.userId = userId;

@@ -1,4 +1,4 @@
-package lt.vu.mif.ps5.kupra.controller;
+/*package lt.vu.mif.ps5.kupra.controller;
 
 import java.util.logging.Logger;
 
@@ -28,4 +28,4 @@ public class FridgeController {
     	return new ModelAndView("fridge").addObject(attributeValue);
     }
     
-}
+}*/

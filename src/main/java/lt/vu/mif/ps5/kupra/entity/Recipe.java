@@ -35,10 +35,10 @@ public class Recipe {
 	@Column(name = "imgType")
 	private String imgType;
 
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	/*@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinTable(name = "rec_prod", joinColumns = { @JoinColumn(name = "productId") }, inverseJoinColumns = { @JoinColumn(name = "recId") })
 	private Set<Product> productsOfRecipe = new HashSet<Product>(0);
-
+*/
 	@Column(length = 4000, name = "description")
 	private String description;
 	@Column(name = "visibility")
@@ -94,13 +94,13 @@ public class Recipe {
 		this.imgType = imgType;
 	}
 
-	public Set<Product> getProductsOfRecipe() {
+	/*public Set<Product> getProductsOfRecipe() {
 		return productsOfRecipe;
 	}
 
 	public void setProductsOfRecipe(Set<Product> productsOfRecipe) {
 		this.productsOfRecipe = productsOfRecipe;
-	}
+	}*/
 
 	public String getDescription() {
 		return description;

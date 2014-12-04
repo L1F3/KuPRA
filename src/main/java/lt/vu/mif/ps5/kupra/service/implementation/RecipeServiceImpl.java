@@ -45,7 +45,7 @@ public class RecipeServiceImpl implements RecipeService {
 		recipe.setImgName(imgName);
 		recipe.setImg(img);
 		recipe.setImgType(imgType);
-		recipe.setProductsOfRecipe(productsOfRecipe);
+		//recipe.setProductsOfRecipe(productsOfRecipe);
 		recipe.setDescription(description);
 		recipe.setVisibility(visibility);
 		recipeDao.persist(recipe);

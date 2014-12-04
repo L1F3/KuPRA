@@ -4,5 +4,9 @@
 <hibernate-configuration>
     <session-factory>
         <mapping class="lt.vu.mif.ps5.kupra.entity.User"/>
+        <mapping class="lt.vu.mif.ps5.kupra.entity.Unit"/>
+        <mapping class="lt.vu.mif.ps5.kupra.entity.Product"/>
+        <mapping class="lt.vu.mif.ps5.kupra.entity.Recipe"/>
+        <mapping class="lt.vu.mif.ps5.kupra.entity.UserProduct"/>
     </session-factory>
 </hibernate-configuration>

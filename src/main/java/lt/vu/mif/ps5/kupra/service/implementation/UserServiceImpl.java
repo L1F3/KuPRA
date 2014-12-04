@@ -114,7 +114,7 @@ public class UserServiceImpl implements UserService {
 		userDao.persist(user);
 	}
 
-	@Override
+	/*@Override
 	public Set<Recipe> getMeals() {
 		List<User> users = getAll();
 		
@@ -126,5 +126,5 @@ public class UserServiceImpl implements UserService {
 			}
 		}
 		return null;
-	}
+	}*/
 }
