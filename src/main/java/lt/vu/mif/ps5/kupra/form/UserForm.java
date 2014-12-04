@@ -9,42 +9,46 @@ import org.hibernate.validator.constraints.NotEmpty;
 import lt.vu.mif.ps5.kupra.entity.Role;
 
 public class UserForm {
-	
-	@NotEmpty
-	@Size(min = 3, max = 30)
-    private String loginname;
-	
-	@NotEmpty
-	@Size(min = 3, max = 30)
-    private String username;
-    
-	@NotEmpty
-	@Size(min = 3, max = 30)
-    private String password;
-    
-	@NotEmpty
-	@Size(min = 3, max = 30)
-    private String email;
-    
-	@Size(min = 3, max = 30)
-    private String name;
-    
-	@Size(min = 3, max = 30)
-    private String lastname;
-    
-	@Size(max = 64)
-    private String address;
-    
-	@Size(max = 256)
-    private String description;
-    
-    private String imgName;
-    
-    private Blob img;
-    
-    private String imgType;
 
-    private Role role;
+	@NotEmpty
+	@Size(min = 3, max = 30)
+	private String loginname;
+
+	@NotEmpty
+	@Size(min = 3, max = 30)
+	private String username;
+
+	@NotEmpty
+	@Size(min = 3, max = 30)
+	private String password;
+
+	@NotEmpty
+	@Size(min = 3, max = 30)
+	private String passrepeat;
+
+	@NotEmpty
+	@Size(min = 3, max = 30)
+	private String email;
+
+	@Size(min = 3, max = 30)
+	private String name;
+
+	@Size(min = 3, max = 30)
+	private String lastname;
+
+	@Size(max = 64)
+	private String address;
+
+	@Size(max = 256)
+	private String description;
+
+	private String imgName;
+
+	private Blob img;
+
+	private String imgType;
+
+	private Role role;
 
 	public String getLoginname() {
 		return loginname;
@@ -133,7 +137,7 @@ public class UserForm {
 	public void setImgType(String imgType) {
 		this.imgType = imgType;
 	}
-    
+
 	public Role getRole() {
 		return role;
 	}
@@ -141,5 +145,13 @@ public class UserForm {
 	public void setRole(Role role) {
 		this.role = role;
 	}
-	
+
+	public String getPassrepeat() {
+		return passrepeat;
+	}
+
+	public void setPassrepeat(String passrepeat) {
+		this.passrepeat = passrepeat;
+	}
+
 }

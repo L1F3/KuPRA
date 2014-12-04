@@ -1,4 +1,5 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
@@ -21,41 +22,41 @@
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
  
-        <form class="form-horizontal form-registration" role="form">
+        <form:form method="POST" class="form-horizontal form-registration" role="form" commandName="regForm" action="register">
            <h1 class="registration-h1">Registracija</h1>
            <fieldset>
             <div class="form-group inner-addon left-addon">
                <label for="inputLoginName" class="col-md-5 control-label">Prisijungimo vardas *</label>
                <div class="col-md-6">
-<!-- *** -->          <input type="text" class="form-control" id="inputLoginName" placeholder="Vardas"/>  
+<!-- *** -->          <form:input type="text" class="form-control" id="inputLoginName" placeholder="Prisijungimo vardas" path="loginname"/>  
                       <img src="<c:url value="/resources/svg/user.svg"/>"  class="icons-registration"/>
                 </div>
            </div>
            <div class="form-group inner-addon left-addon">
                <label for="inputUserName" class="col-md-5 control-label"> Slapyvardis *</label>
                <div class="col-md-6">
-<!-- *** -->          <input type="text" class="form-control" id="inputUserName" placeholder="Vardas"/>  
+<!-- *** -->          <form:input type="text" class="form-control" id="inputUserName" placeholder="Slapyvardis" path="username"/>  
                        <img src="<c:url value="/resources/svg/user.svg"/>"  class="icons-registration"/>
                 </div>
            </div>
            <div class="form-group inner-addon left-addon ">
                <label for="inputPassword" class="col-md-5 control-label">Slaptažodis *</label>
                <div class="col-md-6">
-<!-- *** -->          <input type="password" class="form-control" id="inputPassword" placeholder="Slaptažodis"/>
+<!-- *** -->          <form:input type="password" class="form-control" id="inputPassword" placeholder="Slaptažodis" path="password"/>
                       <img src="<c:url value="/resources/svg/key.svg"/>"  class="icons-registration"/>
                </div>
            </div>
             <div class="form-group inner-addon left-addon">
                <label for="inputRePassword" class="col-md-5 control-label">Pakartoti slaptažodi *</label>
                <div class="col-md-6">
-<!-- *** -->          <input type="password" class="form-control" id="inputRePassword" placeholder="Pakartoti slaptažodi"/>
+<!-- *** -->          <form:input type="password" class="form-control" id="inputRePassword" placeholder="Pakartoti slaptažodi" path="passrepeat"/>
                       <img src="<c:url value="/resources/svg/key.svg"/>"  class="icons-registration"/>
                </div>
            </div>
            <div class="form-group inner-addon left-addon">
                <label for="inputEmail" class="col-md-5 control-label">Elektroninio pašto adresas *</label>
                <div class="col-md-6">
-<!-- *** -->          <input type="email" class="form-control" id="inputEmail" placeholder="Elektroninis paštas"/>  
+<!-- *** -->          <form:input type="email" class="form-control" id="inputEmail" placeholder="Elektroninis paštas" path="email"/>  
                        <img src="<c:url value="/resources/svg/email.svg"/>"  class="icons-registration"/>
                 </div>
            </div>
@@ -63,21 +64,21 @@
            <div class="form-group inner-addon left-addon">
                <label for="inputName" class="col-md-5 control-label">Vardas</label>
                <div class="col-md-6">
-<!-- *** -->          <input type="text" class="form-control" id="inputName" placeholder="Vardas"/>  
+<!-- *** -->          <form:input type="text" class="form-control" id="inputName" placeholder="Vardas" path="name"/>  
                        <img src="<c:url value="/resources/svg/user.svg"/>"  class="icons-registration"/>
                 </div>
            </div>
             <div class="form-group inner-addon left-addon">
                <label for="inputLastName" class="col-md-5 control-label">Pavarde</label>
                <div class="col-md-6">
-<!-- *** -->          <input type="text" class="form-control" id="inputLastName" placeholder="Pavarde"/> 
+<!-- *** -->          <form:input type="text" class="form-control" id="inputLastName" placeholder="Pavarde" path="lastname"/> 
                       <img src="<c:url value="/resources/svg/user.svg"/>"  class="icons-registration"/>
                 </div>
            </div>
             <div class="form-group inner-addon left-addon">
                <label for="inputAddress" class="col-md-5 control-label">Adresas</label>
                <div class="col-md-6">
-<!-- *** -->          <input type="text" class="form-control" id="inputAddress" placeholder="Adresas"/> 
+<!-- *** -->          <form:input type="text" class="form-control" id="inputAddress" placeholder="Adresas" path="address"/> 
                       <img src="<c:url value="/resources/svg/buildings.svg"/>"  class="icons-registration"/> 
                 </div>
            </div>
@@ -90,7 +91,7 @@
            </div>
           </div>
          </fieldset>
-        </form>
+        </form:form>
      </div> 
    </div>  
   </div> 
