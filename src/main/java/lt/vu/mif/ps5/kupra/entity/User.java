@@ -62,14 +62,6 @@ public class User {
 	@Column(name = "imgType")
 	private String imgType;
 
-	public Set<Recipe> getUserEats() {
-		return userEats;
-	}
-
-	public void setUserEats(Set<Recipe> userEats) {
-		this.userEats = userEats;
-	}
-
 	@Column(length = 30, name = "role")
 	@Enumerated(EnumType.STRING)
 	private Role role;
@@ -80,12 +72,20 @@ public class User {
 
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinTable(name = "user_eats", joinColumns = { @JoinColumn(name = "userId") })
-	private Set<Recipe> userEats = new HashSet<Recipe>();
+	private Set<Recipe> meals = new HashSet<Recipe>();
 
 	// Get / Set
 
 	public long getUserId() {
 		return userId;
+	}
+
+	public Set<Recipe> getMeals() {
+		return meals;
+	}
+
+	public void setMeals(Set<Recipe> meals) {
+		this.meals = meals;
 	}
 
 	public void setUserId(long userId) {

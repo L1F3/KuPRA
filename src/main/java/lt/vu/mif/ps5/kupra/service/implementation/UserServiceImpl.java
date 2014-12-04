@@ -4,6 +4,7 @@ import java.sql.Blob;
 import java.util.List;
 
 import lt.vu.mif.ps5.kupra.dao.UserDao;
+import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.Role;
 import lt.vu.mif.ps5.kupra.entity.User;
 import lt.vu.mif.ps5.kupra.service.UserService;
