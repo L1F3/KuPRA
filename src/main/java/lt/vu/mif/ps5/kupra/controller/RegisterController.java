@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import lt.vu.mif.ps5.kupra.entity.Role;
 import lt.vu.mif.ps5.kupra.form.UserForm;
 import lt.vu.mif.ps5.kupra.service.UserService;
 
@@ -40,9 +41,7 @@ public class RegisterController {
 			//errors.rejectValue("name", "msg", "LOPASTU");
 			return new ModelAndView("register").addObject(userForm);
 		}
-		errors.rejectValue("name", "msg", "erroras, truksta kazko");
-		return new ModelAndView("register").addObject(userForm);
-		/*userService.addUser(
+		userService.addUser(
 				userForm.getLoginname(), 
 				userForm.getUsername(),
 				userForm.getPassword(),
@@ -50,8 +49,8 @@ public class RegisterController {
 				userForm.getName(), 
 				userForm.getLastname(),
 				userForm.getAddress(),
-				userForm.getRole());
-		return new ModelAndView("redirect:/home");*/
+				Role.ROLE_USER);
+		return new ModelAndView("redirect:/home");
 		
 	}
 
