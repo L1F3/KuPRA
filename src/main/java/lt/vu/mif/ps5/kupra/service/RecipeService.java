@@ -16,5 +16,5 @@ public interface RecipeService {
 	long addRecipe(String name, String imgName, Blob img, String imgType,
 			Set<Product> productsOfRecipe, String description, int visibility);
 
-	getTopRecipes();
+	List<Recipe> getTopRecipes();
 }

@@ -53,8 +53,7 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 
 	@Transactional(readOnly = true)
-	public getTopRecipes() {
-		
+	public List<Recipe> getTopRecipes() {
 		return recipeDao.getTop();
 	}
 
