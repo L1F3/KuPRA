@@ -62,6 +62,14 @@ public class User {
 	@Column(name = "imgType")
 	private String imgType;
 
+	public Set<Recipe> getUserEats() {
+		return userEats;
+	}
+
+	public void setUserEats(Set<Recipe> userEats) {
+		this.userEats = userEats;
+	}
+
 	@Column(length = 30, name = "role")
 	@Enumerated(EnumType.STRING)
 	private Role role;
