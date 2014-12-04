@@ -43,6 +43,16 @@ public class Recipe {
 	private String description;
 	@Column(name = "visibility")
 	private int visibility;
+	@Column(name = "rating")
+	private int rating;
+
+	public int getRating() {
+		return rating;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
 
 	public long getRecId() {
 		return recId;
