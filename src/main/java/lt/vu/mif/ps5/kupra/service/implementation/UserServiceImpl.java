@@ -2,6 +2,7 @@ package lt.vu.mif.ps5.kupra.service.implementation;
 
 import java.sql.Blob;
 import java.util.List;
+import java.util.Set;
 
 import lt.vu.mif.ps5.kupra.dao.UserDao;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
@@ -111,5 +112,19 @@ public class UserServiceImpl implements UserService {
 		user.setImg(image);
 		user.setRole(role);
 		userDao.persist(user);
+	}
+
+	@Override
+	public Set<Recipe> getMeals() {
+		List<User> users = getAll();
+		
+		String username = getUsername();
+		
+		for (User user : users) {
+			if (user.getName().equals(username)) {
+				return user.getMeals();
+			}
+		}
+		return null;
 	}
 }

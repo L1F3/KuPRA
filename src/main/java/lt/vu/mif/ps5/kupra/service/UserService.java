@@ -27,5 +27,5 @@ public interface UserService {
 			String address, String description, String imageName,
 			String imageType, Blob image, Role role);
 
-	Set<Recipe> getMeals(String username);
+	Set<Recipe> getMeals();
 }
