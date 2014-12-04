@@ -50,12 +50,12 @@ public class ProductServiceImpl implements ProductService {
 		return product.getProductId();
 	}
 
-	@Override
+	@Transactional
 	public void deleteProduct(long id) {
 		productDao.delete(id);
 	}
 
-	@Override
+	@Transactional
 	public void updateProduct(long id, String productName, Set<Unit> units,
 			String description, String imageName, String imageType, Blob image) {
 		Product product = productDao.get(id);
