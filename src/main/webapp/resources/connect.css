@@ -15,13 +15,6 @@ html {
 }
 /* --------------------------*/
 
-.icons {
-    width: 20px;
-    height: 20px;
-    margin-top:-25px;
-    margin-left:5px;
-}
-
 /* Login */
 .form-signin {
     margin: 0 auto;
@@ -104,7 +97,6 @@ background-position: center;
 .form-registration {
     padding-top:20px;
     margin: 0 auto;
-    
 }
 
 .info-registration {
@@ -118,10 +110,12 @@ background-position: center;
 .registration-h1 {
     text-align:center;
 }
-.icons-registration {
-    margin-left:5px;
+.icons-registration, .icons {
     width: 20px;
     height: 20px;
-    margin-top:-52px;
+ 
 }
+
+
 /* --------------------*/
+

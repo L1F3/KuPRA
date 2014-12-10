@@ -1,0 +1,220 @@
+﻿html {
+    min-height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+body {
+    background-color: #D5DEF1;
+    padding-top: 90px;
+}
+
+/*Page content*/
+#page-content-wrapper {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+/*Meniu*/
+#page-content-wrapper .navbar {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+#page-content-wrapper .navbar-default {
+    border: none;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #000;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #fff;
+    background-color: #0965aa;
+}
+
+/* Recipe's tile */
+.recipe-tile {
+    /*min-height: 300px;
+    max-height: 600px;*/
+    height: 500px;
+    width: 300px;
+    color: #000;
+    background-color: #ffffff;
+    position: relative;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+}
+
+.recipe-tile .recipe-iamge {
+    height: 300px;
+    width: 100%;
+}
+
+.recipe-tile .recipe-image  img {
+    height: 100%;
+    width: 100%;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+}
+
+.recipe-tile .recipe-info {
+    height: auto;
+    width: 100%;
+}
+
+.recipe-tile .recipe-info .recipe-title {
+   text-align: left;
+   font-size: 20px;
+   padding-top: 5px;
+   padding-left: 5px;
+   padding-right: 5px;
+   overflow-wrap: break-word;
+}
+
+.recipe-tile .recipe-info .recipe-author {
+   color: #808080;
+   text-align: left;
+   font-size: 12px;
+   padding-left: 5px;
+   padding-right: 5px;
+   padding-bottom: 5px;
+   overflow-wrap: break-word;
+}
+
+.recipe-tile .recipe-info .recipe-description {
+   text-align: left;
+   font-size: 12px;
+   padding-left: 5px;
+   padding-right: 5px;
+   padding-bottom: 5px;
+   overflow-wrap: break-word;
+}
+
+.recipe-tile .recipe-bottom-part {
+    margin: 0px auto;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.recipe-tile .recipe-bottom-part > div {
+    width: 50%;
+    text-align: center;
+}
+
+.recipe-tile .recipe-bottom-part > div > img {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.recipe-tile .recipe-bottom-part .rating-block {
+    float: left;
+}
+
+.recipe-tile .recipe-bottom-part .people-counter-block {
+    float: right;
+}
+    
+.recipe-tile .recipe-bottom-part  .rating-block img,
+.recipe-tile .recipe-bottom-part  .people-counter-block img {
+    height: 30px;
+    width: 30px;
+}
+
+/*Footer*/
+
+.footer {
+    height: 60px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.footer {
+    background-color: #1592ef;
+    text-align: left;
+    line-height: 50px;
+}
+.footCss {
+    font-size: 40px;
+}
+/* Main container */
+div#search-navigation-wrapper {
+    height: inherit;
+    width: 300px;
+    float: left;
+}
+
+div#main-content-wrapper {
+    float: right;
+    align-content: center;
+}
+
+
+
+/* Search navigation */
+.search-panel {
+    height: auto;
+    width: 300px;
+    background: rgb(255, 255, 255); /* Fall-back for browsers that don't support rgba */
+    background: rgba(255, 255, 255, .7);
+    padding: 10px;
+    margin-left: 5px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+}
+
+.inputFieldIcon {
+    height: 20px;
+    width: 20px;
+}
+
+div#main-wrapper {
+    margin: 0px auto;
+}
+
+
+div#search-panel-wrapper {
+    /*min-height: 500px;
+    height: 100%;*/
+    min-width: 305px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+div#search-result-wraper {
+    float: right;
+}
+
+div#showingOrder-form-wrapper {
+    height: auto;
+    width: auto;
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+}
+
+.dropdown-menu-style {
+    border-color: #969393;
+}
+
+div#refreshButtonStyle {
+    height: auto;
+    width: 100%;
+}
+
+div#refreshButtonStyle > button {
+    display: block;
+    margin: 0px auto;
+}

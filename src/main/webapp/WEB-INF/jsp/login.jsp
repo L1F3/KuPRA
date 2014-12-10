@@ -37,18 +37,24 @@
           
         <form class="form-horizontal form-signin" role="form">
              <fieldset>
-            <div class="form-group inner-addon left-addon">
+            <div class="form-group ">
                <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-               <div class="col-sm-10">
-<!-- *** -->          <input type="email" class="form-control" id="inputEmail" placeholder="Email" required/>  
-                      <img src="<c:url value="/resources/svg/user.svg"/>"  class="icons"/>
+               <div class="col-sm-10 controls">
+			         <div class="input-group">
+					   <span class="input-group-addon"><img src="<c:url value="/resources/svg/user.svg"/>"  class="icons"/> </span>
+<!-- *** -->           <input type="email" class="form-control" id="inputEmail" placeholder="Email" required/>  
+					 </div> 
+					 <!-- Cia klaida -->
                 </div>
            </div>
-           <div class="form-group inner-addon left-addon">
+           <div class="form-group">
                <label for="inputPassword" class="col-sm-2 control-label">Password</label>
-               <div class="col-sm-10"> 
+               <div class="col-sm-10 controls"> 
+			       <div class="input-group">
+				      <span class="input-group-addon"><img src="<c:url value="/resources/svg/key.svg"/>"  class="icons"/></span>
 <!-- *** -->          <input type="password" class="form-control" id="inputPassword" placeholder="Password" required/>
-                      <img src="<c:url value="/resources/svg/key.svg"/>"  class="icons"/>
+					</div> 
+					 <!-- Cia klaida -->
                </div>
            </div>
            <div class="form-group">
@@ -63,7 +69,7 @@
            <div class="form-group">
                 <label class="col-md-7 control-label" for="buttonRegistration">Norite sukurti naują formą?</label>
                 <div class=" col-md-5">
-                    <a class="btn btn-lg btn-primary btn-block" href="Registration.html" role="button">Registracija</a>
+                    <a class="btn btn-lg btn-primary btn-block" href="register" role="button">Registracija</a>
                 </div>
            </div>
          </fieldset>
@@ -71,8 +77,6 @@
      </div> 
    </div>  
   </div> 
-    
-    
     <div class="modal fade forget-modal" tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-sm">
 		<div class="modal-content">

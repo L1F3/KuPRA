@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Comapatible" content="IE=edge" /> <!-- Tam nustatytu ie rendinima pagal ju verijas -->
     <title>Registration</title>
    <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet" type="text/css" />
-    <link href="<c:url value="/resources/connect.css" />" rel="stylesheet" type="text/css" />
+    <link href="<c:url value="/resources/main.css" />" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/normalize.css" />" rel="stylesheet" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
@@ -14,11 +14,60 @@
 </head>
 <body>
 
- <div id= "page-content-wrapper">
 
-    
+ <div id="page-content-wrapper">
+  <div class="navbar navbar-default navbar-fixed-top " role="navigation">    
+   <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">KuPRA</a>
+    </div>
 
-  <div class="container registration">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Ikelti recepta</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Visi Receptai</a></li>
+            <li><a href="#">Mano receptia</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Klasifikatoriai<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Produktai</a></li>
+            <li><a href="#">Matavimo vienetai</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Šaldytuvas</a></li>
+        <li><a href="#">Valgiaraštis</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Vartotojo profilis</a></li>
+        <li><a href="#">Atsijungti</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container -->
+ </div>
+
+ <div class="user-profile">
+ <div class="container">
+ <div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#profile" data-toggle="tab">Profilis</a></li>
+    <li><a href="#friends" data-toggle="tab">Mano draugai</a></li>
+    <li><a href="#users" data-toggle="tab">Naudotoju sarašas</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="profile" class="tab-pane active">
+
+        <div class="container registration">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
  
@@ -119,6 +168,21 @@
      </div> 
    </div>  
   </div> 
+        
+    </div>
+    <div id="friends" class="tab-pane">
+    
+    </div>
+    <div id="users" class="tab-pane">
+     
+    </div>
+  </div><!-- /.tab-content -->
+</div><!-- /.tabbable -->
+</div>
+</div>
+
+
+
 </div>
 
 </body>
