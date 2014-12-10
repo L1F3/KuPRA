@@ -18,14 +18,14 @@ import org.springframework.transaction.annotation.Transactional;
 public class RecipeServiceImpl implements RecipeService {
 
 	static Logger log = Logger.getLogger(RecipeServiceImpl.class.getName());
-	
+
 	private RecipeDao recipeDao;
-	
+
 	@Autowired
 	public RecipeServiceImpl(RecipeDao recipeDao) {
 		this.recipeDao = recipeDao;
 	}
-	
+
 	@Transactional(readOnly = true)
 	public Recipe getRecipe(long recId) {
 		return recipeDao.get(recId);
@@ -37,17 +37,24 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 
 	@Transactional
-	public long addRecipe(String name, String imgName, Blob img, String imgType, Set<Product> productsOfRecipe, String description, int visibility) {
+	public long addRecipe(String name, String imgName, Blob img,
+			String imgType, Set<Product> productsOfRecipe, String description,
+			int visibility) {
 		Recipe recipe = new Recipe();
 		recipe.setName(name);
 		recipe.setImgName(imgName);
 		recipe.setImg(img);
 		recipe.setImgType(imgType);
-		recipe.setProductsOfRecipe(productsOfRecipe);
+		//recipe.setProductsOfRecipe(productsOfRecipe);
 		recipe.setDescription(description);
 		recipe.setVisibility(visibility);
 		recipeDao.persist(recipe);
 		return recipe.getRecId();
 	}
-	
+
+	@Transactional(readOnly = true)
+	public List<Recipe> getTopRecipes() {
+		return recipeDao.getTop();
+	}
+
 }

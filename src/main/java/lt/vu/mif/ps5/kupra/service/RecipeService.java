@@ -8,11 +8,13 @@ import lt.vu.mif.ps5.kupra.entity.Product;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 
 public interface RecipeService {
-	
+
 	Recipe getRecipe(long recId);
 
-    List<Recipe> getAll();
+	List<Recipe> getAll();
 
-    long addRecipe(String name, String imgName, Blob img, String imgType, Set<Product> productsOfRecipe, String description, int visibility);
-    
+	long addRecipe(String name, String imgName, Blob img, String imgType,
+			Set<Product> productsOfRecipe, String description, int visibility);
+
+	List<Recipe> getTopRecipes();
 }

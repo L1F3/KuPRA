@@ -52,7 +52,7 @@ public class ProductController {
             log.info("Returning product.jsp page");
             return new ModelAndView("product");
         }
-        productService.addProduct(product.getName(), product.getUnits(), product.getDescription(), product.getImgName(), product.getImgType(), product.getImg());
+        productService.addProduct(product.getName(),/* product.getUnits(), */product.getDescription(), product.getImgName(), product.getImgType(), product.getImg());
         return new ModelAndView("redirect:product/list");
     }
 /*
@@ -95,7 +95,7 @@ public class ProductController {
         productService.updateProduct(
         		id,
         		product.getName(), 
-        		product.getUnits(), 
+        		/*product.getUnits(), */
         		product.getDescription(), 
         		product.getImgName(), 
         		product.getImgType(), 

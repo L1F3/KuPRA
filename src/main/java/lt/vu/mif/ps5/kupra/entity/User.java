@@ -1,68 +1,97 @@
 package lt.vu.mif.ps5.kupra.entity;
 
 import java.sql.Blob;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 
 @Entity
 @Table(name = "users")
-
 public class User {
-    
-	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long userId;
-	
-    @Column(length = 30, name = "loginname")
-    private String loginname;
-	
-    @Column(length = 30, name = "username")
-    private String username;
-    
-    @Column(length = 30, name = "password")
-    private String password;
-    
-    @Column(length = 30, name = "email")
-    private String email;
-    
-    @Column(length = 30, name = "name")
-    private String name;
-    
-    @Column(length = 30, name = "lastname")
-    private String lastname;
-    
-    @Column(length = 64, name = "address")
-    private String address;
-    
-    @Column(length = 256, name = "description")
-    private String description;
-    
-    @Column(name = "imgName")
-    private String imgName;
-    
-    @Column(name = "img")
-    @Lob
-    private Blob img;
-    
-    @Column(name = "imgType")
-    private String imgType;
 
-    @Column(length = 30, name = "role")
-    @Enumerated(EnumType.STRING)
-    private Role role;
-    
-    // Get / Set
-    
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long userId;
+
+	@Column(length = 30, name = "loginname")
+	private String loginname;
+
+	@Column(length = 30, name = "username")
+	private String username;
+
+	@Column(length = 30, name = "password")
+	private String password;
+
+	@Column(length = 30, name = "email")
+	private String email;
+
+	@Column(length = 30, name = "name")
+	private String name;
+
+	@Column(length = 30, name = "lastname")
+	private String lastname;
+
+	@Column(length = 64, name = "address")
+	private String address;
+
+	@Column(length = 256, name = "description")
+	private String description;
+
+	@Column(name = "imgName")
+	private String imgName;
+
+	@Column(name = "img")
+	@Lob
+	private Blob img;
+
+	@Column(name = "imgType")
+	private String imgType;
+
+	@Column(length = 30, name = "role")
+	@Enumerated(EnumType.STRING)
+	private Role role;
+	
+	/*@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@JoinTable(name = "user_products", joinColumns = { @JoinColumn(name = "userId") })
+	private Set<UserProduct> userProducts = new HashSet<UserProduct>();*/
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "user_meals",
+            joinColumns = {
+                @JoinColumn(name = "userId")},
+            inverseJoinColumns = {
+                @JoinColumn(name = "recipeId")})
+	private Set<Recipe> meals = new HashSet<Recipe>();
+	
+	// Get / Set
+
 	public long getUserId() {
 		return userId;
+	}
+
+	public Set<Recipe> getMeals() {
+		return meals;
+	}
+
+	public void setMeals(Set<Recipe> meals) {
+		this.meals = meals;
 	}
 
 	public void setUserId(long userId) {
@@ -156,7 +185,7 @@ public class User {
 	public void setImgType(String imgType) {
 		this.imgType = imgType;
 	}
-    
+
 	public Role getRole() {
 		return role;
 	}
@@ -164,5 +193,5 @@ public class User {
 	public void setRole(Role role) {
 		this.role = role;
 	}
-	
+
 }
