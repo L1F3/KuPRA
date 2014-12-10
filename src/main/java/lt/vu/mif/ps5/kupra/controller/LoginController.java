@@ -1,4 +1,4 @@
-package lt.vu.mif.ps5.kupra.controller;
+
 
 import java.util.logging.Logger;
 import org.springframework.stereotype.Controller;

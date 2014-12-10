@@ -33,6 +33,6 @@ public class HomeController {
 	public ModelAndView homePage() {
 		List<Recipe> topRecipes = recipeService.getTopRecipes();
 
-		return new ModelAndView("home").addObject("topRecipes", topRecipes);
+		return new ModelAndView("main").addObject("topRecipes", topRecipes);
 	}
 }
