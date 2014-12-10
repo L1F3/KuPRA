@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2014 at 08:45 PM
+-- Generation Time: Dec 10, 2014 at 10:34 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -48,8 +48,18 @@ CREATE TABLE IF NOT EXISTS `recipies` (
   `visibility` int(11) NOT NULL DEFAULT '0',
   `imgName` varchar(256) NOT NULL,
   `imgType` varchar(8) NOT NULL,
-  `img` blob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `img` blob NOT NULL,
+  `rating` int(3) NOT NULL,
+  `ratingCount` int(5) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `recipies`
+--
+
+INSERT INTO `recipies` (`recId`, `name`, `description`, `visibility`, `imgName`, `imgType`, `img`, `rating`, `ratingCount`) VALUES
+(1, 'dfsfdsf', 'dsfsdfsdfdsfsd', 1, '', '', '', 2, 100),
+(2, 'Geras receptukas', 'aurio plauku tirpalas', 1, '', '', '', 6, 10);
 
 -- --------------------------------------------------------
 
@@ -134,7 +144,7 @@ MODIFY `productId` bigint(20) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `recipies`
 --
 ALTER TABLE `recipies`
-MODIFY `recId` bigint(20) NOT NULL AUTO_INCREMENT;
+MODIFY `recId` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `units`
 --

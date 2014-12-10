@@ -5,11 +5,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
-
-
-
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
@@ -37,7 +32,8 @@ public class RecipeDaoImpl extends GenericDaoImpl<Recipe> implements RecipeDao {
 		List<Recipe> recipes = new ArrayList<Recipe>();
 		recipes = (List<Recipe>)sess.createCriteria(Recipe.class).
 				addOrder(Order.asc("rating")).
-				setMaxResults(16);
+				setMaxResults(16).
+				list();
 		return recipes;
 	}
 		

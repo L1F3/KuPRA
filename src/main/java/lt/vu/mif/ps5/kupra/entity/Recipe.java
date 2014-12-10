@@ -45,6 +45,16 @@ public class Recipe {
 	private int visibility;
 	@Column(name = "rating")
 	private int rating;
+	@Column(name = "ratingCount")
+	private int ratingCount;
+
+	public int getRatingCount() {
+		return ratingCount;
+	}
+
+	public void setRatingCount(int ratingCount) {
+		this.ratingCount = ratingCount;
+	}
 
 	public int getRating() {
 		return rating;

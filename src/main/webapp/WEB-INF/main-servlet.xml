@@ -29,7 +29,7 @@
         <security:intercept-url pattern="/app/admin**" access="ROLE_ADMIN" />  
         <security:form-login login-page='/app/login' username-parameter="username"  
             always-use-default-target="false" 
-            password-parameter="password" default-target-url="/app/user"
+            password-parameter="password" default-target-url="/app/home"
             authentication-failure-url="/app/login?authfailed" />  
         <security:logout logout-success-url="/app/login?logout" />  
     </security:http>  
