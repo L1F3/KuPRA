@@ -26,7 +26,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="home">
 					    <!-- System brand -->
                         <p class="brand">
                             <img class="brand"src="<c:url value="/resources/svg/brand.svg"/>" />KuPRA</p>
@@ -67,7 +67,6 @@
         <div class="add-recept-form container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-				  <!--  <form:form method="add-recipe" class="form-horizontal " role="form" modelAttribute=" ">-->
                     <form class="form-horizontal" role="form">
                         <div class="form-horizontal add-recepts-header">
                             <h1>Receptu pridejimas</h1>
@@ -135,7 +134,6 @@
                             <button class="button">Sukurti</button>
                         </div>
                     </form>
-					<!--</form:form> -->
                 </div>
             </div>
         </div>

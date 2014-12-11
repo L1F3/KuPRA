@@ -34,7 +34,7 @@
                 </div>
                 <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="profile">Ikelti recepta</a></li>
+                        <li><a href="add-recept">Ikelti recepta</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
@@ -53,7 +53,7 @@
                         <li><a href="#">Valgiaraštis</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Vartotojo profilis</a></li>
+                        <li><a href="profile">Vartotojo profilis</a></li>
                         <li><a href="#">Atsijungti</a></li>
                     </ul>
                 </div>

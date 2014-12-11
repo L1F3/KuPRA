@@ -35,4 +35,14 @@ public class HomeController {
 
 		return new ModelAndView("home").addObject("topRecipes", topRecipes);
 	}
+	
+	@RequestMapping(value = "/add-recept", method = RequestMethod.GET)
+	public ModelAndView addReceptPage() {
+		return new ModelAndView("add-recept");
+	}
+	
+	@RequestMapping(value = "/profile", method = RequestMethod.GET)
+	public ModelAndView profilePage() {
+		return new ModelAndView("profile");
+	}
 }
