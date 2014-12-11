@@ -27,10 +27,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">
+                     <a class="navbar-brand" href="home">
 					    <!-- System brand -->
                         <p class="brand">
-                            <img class="brand"src="<c:url value="/resources/svg/brand.svg"/>" />KuPRA</p>
+                            <img src="<c:url value="/resources/svg/brand.svg"/>" />KuPRA
+						</p>
                     </a>
                 </div>
                 <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">

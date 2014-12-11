@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Comapatible" content="IE=edge" /> <!-- Tam nustatytu ie rendinima pagal ju verijas -->
     <title>Add recipe</title>
    <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet" type="text/css" />
-    <link href="<c:url value="/resources/connect.css" />" rel="stylesheet" type="text/css" />
+    <link href="<c:url value="/resources/main.css" />" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/normalize.css" />" rel="stylesheet" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
@@ -16,7 +16,7 @@
 
     <div id="page-content-wrapper">
 
-        <div class="navbar navbar-default navbar-fixed-top menu " role="navigation">
+       <div class="navbar navbar-default navbar-fixed-top menu " role="navigation">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -29,14 +29,13 @@
                     <a class="navbar-brand" href="home">
 					    <!-- System brand -->
                         <p class="brand">
-                            <img class="brand"src="<c:url value="/resources/svg/brand.svg"/>" />KuPRA</p>
+                            <img src="<c:url value="/resources/svg/brand.svg"/>" />KuPRA
+						</p>
                     </a>
                 </div>
-
-
                 <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Ikelti recepta</a></li>
+                        <li><a href="add-recept">Ikelti recepta</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
@@ -55,7 +54,7 @@
                         <li><a href="#">Valgiaraštis</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Vartotojo profilis</a></li>
+                        <li><a href="profile">Vartotojo profilis</a></li>
                         <li><a href="#">Atsijungti</a></li>
                     </ul>
                 </div>
@@ -64,7 +63,8 @@
             <!-- /.container-fluid -->
         </div>
 
-        <div class="add-recept-form container">
+        <div class="add-recept-form">
+		  <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <form class="form-horizontal" role="form">
@@ -136,6 +136,7 @@
                     </form>
                 </div>
             </div>
+		   </div>
         </div>
         <div class="push"></div>
     </div>
