@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -49,8 +50,12 @@ public class Product {
     
     @Column(name = "imgType")
     private String imgType;
+
+	/*@ManyToOne
+	@JoinColumn(name="recipeId")
+	private Recipe recipe;*/
 	
-    public void setProductId(long productId) {
+	public void setProductId(long productId) {
         this.productId = productId;
     }
 

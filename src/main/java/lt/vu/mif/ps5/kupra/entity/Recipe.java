@@ -40,12 +40,19 @@ public class Recipe {
 	@JoinTable(name = "rec_prod", joinColumns = { @JoinColumn(name = "productId") }, inverseJoinColumns = { @JoinColumn(name = "recId") })
 	private Set<Product> productsOfRecipe = new HashSet<Product>(0);
 */
+	//@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="recipe")
+	//private Set<Product> productsOfRecipe = new HashSet<Product>();
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "recipe_product",
+            joinColumns = {
+                @JoinColumn(name = "recId")},
+            inverseJoinColumns = {
+                @JoinColumn(name = "productId")})
+	private Set<Product> products = new HashSet<Product>();
 	
 	@ManyToOne
 	@JoinColumn(name="userId")
-	private User user;//(fetch = FetchType.LAZY)
-	//@JoinColumn(name = "recipeOwner", nullable = false)
-	//private User recipeOwner;
+	private User user;
 	@Column(length = 4000, name = "description")
 	private String description;
 	@Column(name = "visibility")
@@ -54,6 +61,14 @@ public class Recipe {
 	private int rating;
 	@Column(name = "ratingCount")
 	private int ratingCount;
+	
+	public Set<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(Set<Product> products) {
+		this.products = products;
+	}
 
 	public int getRatingCount() {
 		return ratingCount;

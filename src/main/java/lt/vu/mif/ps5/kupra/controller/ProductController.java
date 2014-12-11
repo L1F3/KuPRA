@@ -55,14 +55,14 @@ public class ProductController {
         productService.addProduct(product.getName(),/* product.getUnits(), */product.getDescription(), product.getImgName(), product.getImgType(), product.getImg());
         return new ModelAndView("redirect:product/list");
     }
-/*
-    @Secured({"ROLE_ADMIN"})
+
+ /*   @Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/product/list", method = RequestMethod.GET)
     public ModelAndView productList() {
         List<Product> products = productService.getListPage(15, 0);
         return new ModelAndView("productlist").addObject("product", products);
     }
-
+/*
     @Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/product/list/{bound}", method = RequestMethod.GET)
     public ModelAndView productList(@PathVariable int bound) {
