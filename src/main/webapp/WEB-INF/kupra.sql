@@ -16,6 +16,27 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 -- 
+-- Table structure for table `ingredients`
+-- 
+
+CREATE TABLE `ingredients` (
+  `ingrId` int(10) NOT NULL auto_increment,
+  `recId` int(10) NOT NULL,
+  `productId` int(10) NOT NULL,
+  `unitId` int(10) NOT NULL,
+  `amount` int(10) NOT NULL,
+  PRIMARY KEY  (`ingrId`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+-- 
+-- Dumping data for table `ingredients`
+-- 
+
+INSERT INTO `ingredients` VALUES (1, 1, 1, 1, 200);
+
+-- --------------------------------------------------------
+
+-- 
 -- Table structure for table `products`
 -- 
 
@@ -33,6 +54,7 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 -- 
 
+INSERT INTO `products` VALUES (1, 'Kiausiniai', 'sdadassadasda', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -49,6 +71,7 @@ CREATE TABLE `recipe_product` (
 -- Dumping data for table `recipe_product`
 -- 
 
+INSERT INTO `recipe_product` VALUES (1, 1); 
 
 -- --------------------------------------------------------
 
@@ -74,8 +97,11 @@ CREATE TABLE `recipies` (
 -- Dumping data for table `recipies`
 -- 
 
-INSERT INTO `recipies` VALUES (1, 'dfsfdsf', 'dsfsdfsdfdsfsd', 1, '', '', '', 2, 100, 1);
-INSERT INTO `recipies` VALUES (2, 'Geras receptukas', 'aurio plauku tirpalas', 1, '', '', '', 6, 10, 1);
+INSERT INTO `recipies` VALUES (1, 'Kiausiniene', 'Puikus patiekalas pusryciams.', 1, '', '', '', 7, 100, 1);
+INSERT INTO `recipies` VALUES (2, 'Spageciai su suriu', 'Labai pigu ir skanu.', 1, '', '', '', 5, 75, 1);
+INSERT INTO `recipies` VALUES (3, 'Koldunai', 'Puikus patiekalas studentams, kurie neturi daug pinigu ir laiko.', 1, '', '', '', 6, 80, 1);
+INSERT INTO `recipies` VALUES (4, 'Pica', 'Sunkiai pagaminama, taciau labai skanu.', 1, '', '', '', 9, 55, 1);
+INSERT INTO `recipies` VALUES (5, 'Ledai', 'Sunkiai ir ilgai gaminama, taciau labai skanu.', 1, '', '', '', 10, 65, 3);
 
 -- --------------------------------------------------------
 
@@ -94,6 +120,7 @@ CREATE TABLE `units` (
 -- Dumping data for table `units`
 -- 
 
+INSERT INTO `units` VALUES (1, 'kilogramai', 'kg');
 
 -- --------------------------------------------------------
 
@@ -141,4 +168,6 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 -- 
 
-INSERT INTO `users` VALUES (1, 'lopas@lopas', 'duchas@duchas', '123456', 'tomas@auris.lt', 'Ryzas', 'Invalidas', 'sadasdsaada', 'sadasdsad', NULL, NULL, NULL, 'ROLE_ADMIN', 1);
+INSERT INTO `users` VALUES (1, 'admin@kupra.lt', 'Pirmasis administratorius', '123456', 'admin@kupra.lt', 'Jonas', 'Jonaitis', 'Universiteto g. 3', 'As pirmasis sistemos administratorius', NULL, NULL, NULL, 'ROLE_ADMIN', 1);
+INSERT INTO `users` VALUES (2, 'administrator@kupra.lt', 'Antrasis administratorius', '123456', 'administratorius@kupra.lt', 'Petras', 'Petraitis', 'Pylimo g. 8', 'As antrasis sistemos administratorius', NULL, NULL, NULL, 'ROLE_ADMIN', 1);
+INSERT INTO `users` VALUES (3, 'user@kupra.lt', 'Vartotojas', '123456', 'vartotojas@kupra.lt', 'Antanas', 'Antanaitis', 'Tauro g. 1', 'As sistemos vartotojas', NULL, NULL, NULL, 'ROLE_USER', 1);
