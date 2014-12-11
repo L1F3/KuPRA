@@ -72,12 +72,15 @@ public class User {
 	@JoinTable(name = "user_products", joinColumns = { @JoinColumn(name = "userId") })
 	private Set<UserProduct> userProducts = new HashSet<UserProduct>();*/
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+   /* @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(name = "user_meals",
             joinColumns = {
                 @JoinColumn(name = "userId")},
             inverseJoinColumns = {
-                @JoinColumn(name = "recipeId")})
+                @JoinColumn(name = "recipeId")})*/
+	//@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="user")
 	private Set<Recipe> meals = new HashSet<Recipe>();
 	
 	// Get / Set

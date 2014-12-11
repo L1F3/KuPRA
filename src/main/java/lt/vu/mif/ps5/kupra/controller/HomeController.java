@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import lt.vu.mif.ps5.kupra.entity.Recipe;
+import lt.vu.mif.ps5.kupra.entity.User;
 import lt.vu.mif.ps5.kupra.service.RecipeService;
 import lt.vu.mif.ps5.kupra.service.UserService;
 
@@ -32,7 +33,6 @@ public class HomeController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView homePage() {
 		List<Recipe> topRecipes = recipeService.getTopRecipes();
-
 		return new ModelAndView("home").addObject("topRecipes", topRecipes);
 	}
 	
