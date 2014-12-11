@@ -87,7 +87,7 @@
                     <label class="col-md-5 control-label">Email</label>
                     <div class="col-md-7">
                        <div class="input-group">
-				         <span class="input-group-addon"><img src="svg/user.svg"  class="icons-registration"/></span>
+				         <span class="input-group-addon"><img src="<c:url value="/resources/svg/email.svg"/>"  class="icons-registration"/></span>
 <!-- *** -->                <p class="form-control-static profile-user-name">Folderis</p>
                        </div>
                     </div>
@@ -98,7 +98,7 @@
                <label for="inputUserName" class="col-md-5 control-label"> Slapyvardis *</label>
                <div class="col-md-7 controls">
 			      <div class="input-group">
-				      <span class="input-group-addon"><img src="svg/user.svg"  class="icons-registration"/></span>
+				      <span class="input-group-addon"><img src="<c:url value="/resources/svg/user.svg"/>"  class="icons-registration"/></span>
 <!-- *** -->          <input type="text" class="form-control" id="inputUserName" placeholder="Slapyvardis" name="username"/>  
 				   </div> 
                    <form:errors path="username" cssClass="error" /> 				   
@@ -108,7 +108,7 @@
                <label for="inputPassword" class="col-md-5 control-label">Slaptažodis *</label>
                <div class="col-md-7 controls">
 			        <div class="input-group">
-			           <span class="input-group-addon"> <img src="svg/key.svg"  class="icons-registration"/></span>
+			           <span class="input-group-addon"> <img src="<c:url value="/resources/svg/key.svg"/>"  class="icons-registration"/></span>
 <!-- *** -->          <input type="password" class="form-control" id="inputPassword" placeholder="Slaptažodis" name="password"/>		
                     </div> 
                       <form:errors path="password" cssClass="error" /> 
@@ -118,7 +118,7 @@
                <label for="inputRePassword" class="col-md-5 control-label">Pakartoti slaptažodi *</label>
                <div class="col-md-7 controls">
 			         <div class="input-group">
-					       <span class="input-group-addon"> <img src="svg/key.svg"  class="icons-registration"/></span>
+					       <span class="input-group-addon"> <img src="<c:url value="/resources/svg/key.svg"/>"  class="icons-registration"/></span>
 <!-- *** -->              <input type="password" class="form-control" id="inputRePassword" placeholder="Pakartoti slaptažodi" name="passrepeat"/>
                      </div> 
                       <form:errors path="passrepeat" cssClass="error" /> 
@@ -128,7 +128,7 @@
                <label for="inputEmail" class="col-md-5 control-label">Elektroninio pašto adresas *</label>
                <div class="col-md-7 controls">
 			         <div class="input-group">
-					      <span class="input-group-addon"> <img src="svg/email.svg" class="icons-registration"/></span>
+					      <span class="input-group-addon"> <img src="<c:url value="/resources/svg/email.svg"/>" class="icons-registration"/></span>
 <!-- *** -->             <input type="email" class="form-control" id="inputEmail" placeholder="Elektroninis paštas" name="email"/> 
                     </div> 
                       <form:errors path="email" cssClass="error" />       
@@ -139,7 +139,7 @@
                <label for="inputName" class="col-md-5 control-label">Vardas</label>
                <div class="col-md-7 controls">
 			          <div class="input-group">
-					     <span class="input-group-addon"> <img src="svg/user.svg"  class="icons-registration"/></span>
+					     <span class="input-group-addon"> <img src="<c:url value="/resources/svg/user.svg"/>"  class="icons-registration"/></span>
 <!-- *** -->         	<input type="text" class="form-control" id="inputName" placeholder="Vardas" name="name"/>  
                       </div> 
 						<form:errors path="name" cssClass="error" />  
@@ -149,7 +149,7 @@
                <label for="inputLastName" class="col-md-5 control-label">Pavarde</label>
                <div class="col-md-7 controls">
 			         <div class="input-group">
-					      <span class="input-group-addon">  <img src="svg/user.svg"  class="icons-registration"/></span>
+					      <span class="input-group-addon">  <img src="<c:url value="/resources/svg/user.svg"/>"  class="icons-registration"/></span>
 <!-- *** -->             <input type="text" class="form-control" id="inputLastName" placeholder="Pavarde" name="lastname"/>
                     </div> 
                       <form:errors path="lastname" cssClass="error" /> 	 
@@ -159,7 +159,7 @@
                <label for="inputAddress" class="col-md-5 control-label">Adresas</label>
                <div class="col-md-7 controls">
 			       <div class="input-group">
-				        <span class="input-group-addon"><img src="svg/buildings.svg"  class="icons-registration"/> </span>
+				        <span class="input-group-addon"><img src="<c:url value="/resources/svg/buildings.svg"/>"  class="icons-registration"/> </span>
 <!-- *** -->          <input type="text" class="form-control" id="inputAddress" placeholder="Adresas" name="address"/> 
                    </div>
                       <form:errors path="address" cssClass="error" />
@@ -179,7 +179,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="profile-image-block">
-                                        <img src="pie.jpg" class="profile-image-size" />
+                                        <img src="src="<c:url value="/resources/pie.jpg"/>"" class="profile-image-size" />
                                         <input type="file" id="exampleInputFile" />
                                     </div>
                                 </div>
