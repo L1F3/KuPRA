@@ -6,15 +6,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
+
 import java.util.HashSet;
 import java.util.Set;
-
 import java.sql.Blob;
 
 @Entity
@@ -39,6 +40,12 @@ public class Recipe {
 	@JoinTable(name = "rec_prod", joinColumns = { @JoinColumn(name = "productId") }, inverseJoinColumns = { @JoinColumn(name = "recId") })
 	private Set<Product> productsOfRecipe = new HashSet<Product>(0);
 */
+	
+	@ManyToOne
+	@JoinColumn(name="userId")
+	private User user;//(fetch = FetchType.LAZY)
+	//@JoinColumn(name = "recipeOwner", nullable = false)
+	//private User recipeOwner;
 	@Column(length = 4000, name = "description")
 	private String description;
 	@Column(name = "visibility")
@@ -127,4 +134,13 @@ public class Recipe {
 	public void setVisibility(int visibility) {
 		this.visibility = visibility;
 	}
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 }

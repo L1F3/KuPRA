@@ -109,7 +109,7 @@
                 <img src="<c:url value="/resources/pie.jpg"/>" class="img-responsive image-size"/>
                 <div class="made-recipe-user-name">
 				 <!-- Recipe creator -->
-                        <span>Jonas Jonaitis</span> 
+                        <span>${recipe.user.username}</span>
                 </div>
 				<!-- Recipe name -->
                 <div class="recipe-name-box">
