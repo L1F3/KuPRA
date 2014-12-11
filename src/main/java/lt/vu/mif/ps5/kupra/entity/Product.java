@@ -29,7 +29,11 @@ public class Product {
 	
 	@Column(length = 30, name= "product_name")
 	private String product_name;
-	                                
+
+	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="product")
+	private Set<Ingredient> ingredients = new HashSet<Ingredient>();                        
+	
+	
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(name = "unit_product",
             joinColumns = {

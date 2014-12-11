@@ -42,13 +42,15 @@ public class Recipe {
 */
 	//@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="recipe")
 	//private Set<Product> productsOfRecipe = new HashSet<Product>();
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	/*@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(name = "recipe_product",
             joinColumns = {
                 @JoinColumn(name = "recId")},
             inverseJoinColumns = {
                 @JoinColumn(name = "productId")})
-	private Set<Product> products = new HashSet<Product>();
+	private Set<Product> products = new HashSet<Product>();*/
+	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="recipe")
+	private Set<Ingredient> ingredients = new HashSet<Ingredient>();
 	
 	@ManyToOne
 	@JoinColumn(name="userId")
@@ -62,12 +64,20 @@ public class Recipe {
 	@Column(name = "ratingCount")
 	private int ratingCount;
 	
-	public Set<Product> getProducts() {
+	/*public Set<Product> getProducts() {
 		return products;
 	}
 
 	public void setProducts(Set<Product> products) {
 		this.products = products;
+	}*/
+
+	public Set<Ingredient> getIngredients() {
+		return ingredients;
+	}
+
+	public void setIngredients(Set<Ingredient> ingredients) {
+		this.ingredients = ingredients;
 	}
 
 	public int getRatingCount() {

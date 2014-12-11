@@ -8,5 +8,6 @@
         <mapping class="lt.vu.mif.ps5.kupra.entity.Product"/>
         <mapping class="lt.vu.mif.ps5.kupra.entity.Recipe"/>
         <mapping class="lt.vu.mif.ps5.kupra.entity.UserProduct"/>
+        <mapping class="lt.vu.mif.ps5.kupra.entity.Ingredient"/>
     </session-factory>
 </hibernate-configuration>

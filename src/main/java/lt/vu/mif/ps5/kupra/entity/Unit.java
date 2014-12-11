@@ -1,10 +1,16 @@
 package lt.vu.mif.ps5.kupra.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +26,17 @@ public class Unit {
 	
 	@Column(length = 16, name = "abbreviation")
 	private String abbreviation;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="unit")
+	private Set<Ingredient> ingredients = new HashSet<Ingredient>();       
+
+	public Set<Ingredient> getIngredients() {
+		return ingredients;
+	}
+
+	public void setIngredients(Set<Ingredient> ingredients) {
+		this.ingredients = ingredients;
+	}
 
 	public long getUnitId() {
 		return unitId;

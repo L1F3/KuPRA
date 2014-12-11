@@ -112,8 +112,8 @@
                                 <p>Ingredientai:</p>
                                 <ul class="recipe-user-ingridients">
 								
-									<c:forEach var="recipeProduct" items="${recipe.products}">
-										<li>2vnt. ${recipeProduct.name}</li>
+									<c:forEach var="recipeProduct" items="${recipe.ingredients}">
+										<li>${recipeProduct.amount}${recipeProduct.unit.abbreviation} ${recipeProduct.product.name}</li>
 									 </c:forEach>
                                 </ul>
                             </div>
