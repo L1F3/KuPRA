@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Comapatible" content="IE=edge" /> <!-- Tam nustatytu ie rendinima pagal ju verijas -->
     <title>Add recipe</title>
     <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet" type="text/css" />
-    <link href="<c:url value="/resources/connect.css" />" rel="stylesheet" type="text/css" />
+    <link href="<c:url value="/resources/main.css" />" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/normalize.css" />" rel="stylesheet" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
@@ -75,9 +75,9 @@
                 </div>
                 <div class=" content col-md-10 container">
 				    <!-- Recipe name -->
-                    <p class="recipe-top-name">Firminis gatve patiekalas</p>
+                    <p class="recipe-top-name">${recipe.name}</p>
 					<!-- Creator -->
-                    <a href="#" class="recipe-user-nick">Ponas Ponaitis</a>
+                    <a href="#" class="recipe-user-nick">${recipe.user.username}</a>
 					<!-- Recipe Images -->
                     <div class="images">
                         <div class="row">
@@ -93,20 +93,15 @@
 					<!-- Recipe cooking time/rating/people rating -->
                     <div class="rating-time">
                         <div class="row">
-                            <div class="col-md-4 col-sm-4 col-xs-4">
-                                <img src="svg/clock.svg" class="img-responsive user-recipe-img display-inline" />
-                                <span class="display-inline">Pagaminamas per:</span>
-                                <span class="cooking-time display-inline">60min</span>
-                            </div>
 
                             <div class="col-md-4 col-sm-4  col-xm-4 ">
-                                <img src="star.svg" class="img-responsive user-recipe-img  display-inline" />
+                                <img src="<c:url value="/resources/star.svg"/>" class="img-responsive user-recipe-img  display-inline" />
                                 <span class="display-inline">Įvertinimas</span>
-                                <span class="display-inline">10 </span>
+                                <span class="display-inline">${recipe.rating}</span>
                             </div>
                             <div class="col-md-4 col-sm-4  col-xm-4 ">
-                                <img src="people.svg" class="img-responsive user-recipe-img display-inline" />
-                                <span class="display-inline">100</span>
+                                <img src="<c:url value="/resources/svg/people.svg"/>" class="img-responsive user-recipe-img display-inline" />
+                                <span class="display-inline">${recipe.ratingCount}</span>
                             </div>
                         </div>
                     </div>
@@ -114,22 +109,17 @@
                     <div class="recipe-user-info">
                         <div class="row recipe-user-row wrap">
                             <div class="col-md-6">
-                                <p>Ingridientai:</p>
+                                <p>Ingredientai:</p>
                                 <ul class="recipe-user-ingridients">
-                                    <li>2vnt. Kiaušiniai</li>
-                                    <li>2kg Burokai</li>
-                                    <li>100g Miltai </li>
-                                    <li>200g Cukrus </li>
-                                    <li>100ml Aliejus</li>
+								
+									<c:forEach var="recipeProduct" items="${recipe.products}">
+										<li>2vnt. ${recipeProduct.name}</li>
+									 </c:forEach>
                                 </ul>
                             </div>
                             <div class="col-md-6">
                                 <p>Aprašymas:</p>
-                                <p class="recipe-description">
-                                    Įkaitinkite orkaitę iki 160 laipsnių. Sumaišykite sausainių trupinius su sviestu, sudėkite į kepimo formą, išlyginkite, kepkite 10 – 15 minučių.
-                                                Varškę pertrinkite per sietelį, sumaišykite su rikota ir maskarpone, įdėkite cukraus ir medaus, maišydami įmuškite po vieną kiaušinį, galiausiai sudėkite citrinos žievelę ir sultis.
-                                                Užliekite masę ant pagrindo, pakratykite formą, kad neliktų oro. Kepkite pastatę formą ant indo su vandeniu 60 – 75 minutes 150 – 160 laipsnių temperatūroje.
-                                </p>
+                                <p class="recipe-description">${recipe.description}</p>
                             </div>
                         </div>
                     </div>

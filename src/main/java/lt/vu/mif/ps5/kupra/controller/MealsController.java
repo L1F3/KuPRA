@@ -22,8 +22,8 @@ public class MealsController {
         this.userService = userService;
     }
 	
-	@RequestMapping(value = "/meals", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/meals", method = RequestMethod.GET)
 	public ModelAndView eatsList() {		
 		return new ModelAndView("meals").addObject("meals", userService.getMeals());
-	}
+	}*/
 }

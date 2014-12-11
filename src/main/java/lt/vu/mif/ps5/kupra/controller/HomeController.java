@@ -1,4 +1,6 @@
 package lt.vu.mif.ps5.kupra.controller;
+import lt.vu.mif.ps5.kupra.controller.CM;
+
 
 import java.util.HashMap;
 import java.util.List;
@@ -30,7 +32,7 @@ public class HomeController {
 	}
 
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	@RequestMapping(value = CM.HOME_PAGE, method = RequestMethod.GET)
 	public ModelAndView homePage() {
 		List<Recipe> topRecipes = recipeService.getTopRecipes();
 		return new ModelAndView("home").addObject("topRecipes", topRecipes);
