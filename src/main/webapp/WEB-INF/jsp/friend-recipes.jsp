@@ -1,17 +1,16 @@
-﻿<!DOCTYPE html>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Comapatible" content="IE=edge" />
-    <!-- Tam nustatytu ie rendinima pagal ju verijas -->
-    <title>Main</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="main.css" rel="stylesheet" type="text/css" />
-    <link href="normalize.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="X-UA-Comapatible" content="IE=edge" /> <!-- Tam nustatytu ie rendinima pagal ju verijas -->
+    <title>Friend recipes</title>
+   <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet" type="text/css" />
+    <link href="<c:url value="/resources/main.css" />" rel="stylesheet" type="text/css" />
+    <link href="<c:url value="/resources/normalize.css" />" rel="stylesheet" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="connect.js"></script>
+    <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+    <script src="<c:url value="/resources/connect.js" />"></script>
 </head>
 <body>
     <div id="page-content-wrapper">
@@ -26,16 +25,17 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="Main.html">
+                    <a class="navbar-brand" href="#">
+					    <!-- System brand -->
                         <p class="brand">
-                            <img class="brand" src="svg/brand.svg" />KuPRA</p>
+                            <img class="brand"src="<c:url value="/resources/svg/brand.svg"/>" />KuPRA</p>
                     </a>
                 </div>
 
 
                 <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Įkelti receptą</a></li>
+                        <li><a href="#">Ikelti recepta</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
@@ -50,11 +50,11 @@
                                 <li><a href="#">Matavimo vienetai</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Šaldytuvas</a></li>
-                        <li><a href="#">Valgiaraštis</a></li>
+                        <li><a href="#">�aldytuvas</a></li>
+                        <li><a href="#">Valgiara�tis</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="profilis.html">Vartotojo profilis</a></li>
+                        <li><a href="#">Vartotojo profilis</a></li>
                         <li><a href="#">Atsijungti</a></li>
                     </ul>
                 </div>
@@ -70,15 +70,19 @@
                 <div class="row">
                     <div class="col-md-2 col-sm-2  ">
                         <div class="inline-profile">
-                            <img src="1.jpg" class="img-circle  user-profile-image" />
+						    <!-- User picture -->
+							<img class="brand"src="<c:url value="/resources/svg/brand.svg"/>" />KuPRA</p>
+                            <img src="<c:url value="/resources/1.jpg"/>" class="img-circle  user-profile-image" />
                         </div>
                     </div>
                     <div class="col-md-8 col-sm-10  ">
                         <div class=" pull-right">
+						    <!-- User nickname -->
                             <span class="user-nick">Slapyvardenis</span>
                             <a class="btn btn-default btn-block button action-add-friend" href="#" role="button">Pakviesti draugauti</a>
+							 <!-- About user -->
                             <p>
-                                Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text
+                            Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text
                             Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text
                             </p>
                         </div>
@@ -94,7 +98,39 @@
         <div class="recipies-content">
             <div class="container">
                 <div class='row'>
-                    <div class='col-sm-3'>
+       <c:forEach var="recipe" items="${friendRecipes}">
+			<div class='col-sm-3'>
+              <div class="panel panel-default  panel-custom" >
+			    <!-- Recipe image -->
+                <img src="<c:url value="/resources/pie.jpg"/>" class="img-responsive image-size"/>
+                <div class="made-recipe-user-name">
+				 <!-- Recipe creator -->
+                        <span>${} Jonas Jonaitis</span> 
+                </div>
+				<!-- Recipe name -->
+                <div class="recipe-name-box">
+                     <a href="#"><p class="recipe-name" >${recipe.name} Cool</p></a>
+                 </div>
+				 <!-- Recipe description -->
+                 <div class="recipe-info-box">
+                       <span>${recipe.description} AAAAAA</span>
+                 </div>
+				 <!-- Recipe rating/ people rating -->
+                 <div class="recipe-rating-box">
+                         <span>
+                              <img src="<c:url value="/resources/svg/star.svg"/>" class="img-responsive rating-icon"/>
+                               <p class="recipe-rating">${recipe.rating}</p>
+                         </span>
+                         <span>
+                              <img src="<c:url value="/resources/svg/people.svg"/>" class="img-responsive rating-icon"/>
+                              <p class="rating-people">${recipe.ratingCount}</p>
+                         </span>
+                     </div>  
+                  
+                 </div>
+          </div>
+		  </c:forEach>
+                   <!-- <div class='col-sm-3'>
                         <div class="panel panel-default  panel-custom">
                             <img src="pie.jpg" class="img-responsive image-size" />
                             <div class="made-recipe-user-name">
@@ -102,11 +138,11 @@
                             </div>
                             <div class="recipe-name-box">
                                 <a href="HTMLPage1.html">
-                                    <p class="recipe-name">Želė</p>
+                                    <p class="recipe-name">�ele</p>
                                 </a>
                             </div>
                             <div class="recipe-info-box">
-                                <span>Kalėdinis patiekalas vaikams
+                                <span>Kaledinis patiekalas vaikams
                                 </span>
                             </div>
                             <div class="recipe-rating-box">
@@ -130,11 +166,11 @@
                             </div>
                             <div class="recipe-name-box">
                                 <a href="HTMLPage1.html">
-                                    <p class="recipe-name">Želė</p>
+                                    <p class="recipe-name">�ele</p>
                                 </a>
                             </div>
                             <div class="recipe-info-box">
-                                <span>Kalėdinis patiekalas vaikams
+                                <span>Kaledinis patiekalas vaikams
                                 </span>
                             </div>
                             <div class="recipe-rating-box">
@@ -158,11 +194,11 @@
                             </div>
                             <div class="recipe-name-box">
                                 <a href="HTMLPage1.html">
-                                    <p class="recipe-name">Želė</p>
+                                    <p class="recipe-name">�ele</p>
                                 </a>
                             </div>
                             <div class="recipe-info-box">
-                                <span>Kalėdinis patiekalas vaikams
+                                <span>Kaledinis patiekalas vaikams
                                 </span>
                             </div>
                             <div class="recipe-rating-box">
@@ -177,35 +213,7 @@
                             </div>
 
                         </div>
-                    </div>
-                    <div class='col-sm-3'>
-                        <div class="panel panel-default  panel-custom">
-                            <img src="pie.jpg" class="img-responsive image-size" />
-                            <div class="made-recipe-user-name">
-                                <a href="#">Jonas Jonaitis</a>
-                            </div>
-                            <div class="recipe-name-box">
-                                <a href="HTMLPage1.html">
-                                    <p class="recipe-name">Želė</p>
-                                </a>
-                            </div>
-                            <div class="recipe-info-box">
-                                <span>Kalėdinis patiekalas vaikams
-                                </span>
-                            </div>
-                            <div class="recipe-rating-box">
-                                <span>
-                                    <img src="star.svg" class="img-responsive rating-icon" />
-                                    <p class="recipe-rating">7</p>
-                                </span>
-                                <span>
-                                    <img src="people.svg" class="img-responsive rating-icon" />
-                                    <p class="rating-people">80</p>
-                                </span>
-                            </div>
-
-                        </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

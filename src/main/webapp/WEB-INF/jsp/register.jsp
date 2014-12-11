@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+Ôªø<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -46,31 +46,31 @@
                 </div>
            </div>
            <div class="form-group">
-               <label for="inputPassword" class="col-md-5 control-label">Slaptaûodis *</label>
+               <label for="inputPassword" class="col-md-5 control-label">Slapta≈æodis *</label>
                <div class="col-md-7 controls">
 			        <div class="input-group">
 			           <span class="input-group-addon"> <img src="<c:url value="/resources/svg/key.svg"/>"  class="icons-registration"/></span>
-<!-- *** -->          <input type="password" class="form-control" id="inputPassword" placeholder="Slaptaûodis" name="password"/>		
+<!-- *** -->          <input type="password" class="form-control" id="inputPassword" placeholder="Slapta≈æodis" name="password"/>		
                     </div> 
                       <form:errors path="password" cssClass="error" /> 
                </div>
            </div>
             <div class="form-group ">
-               <label for="inputRePassword" class="col-md-5 control-label">Pakartoti slaptaûodi *</label>
+               <label for="inputRePassword" class="col-md-5 control-label">Pakartoti slapta≈æodi *</label>
                <div class="col-md-7 controls">
 			         <div class="input-group">
 					       <span class="input-group-addon"> <img src="<c:url value="/resources/svg/key.svg"/>"  class="icons-registration"/></span>
-<!-- *** -->              <input type="password" class="form-control" id="inputRePassword" placeholder="Pakartoti slaptaûodi" name="passrepeat"/>
+<!-- *** -->              <input type="password" class="form-control" id="inputRePassword" placeholder="Pakartoti slapta≈æodi" name="passrepeat"/>
                      </div> 
                       <form:errors path="passrepeat" cssClass="error" /> 
                </div>
            </div>
            <div class="form-group">
-               <label for="inputEmail" class="col-md-5 control-label">Elektroninio paöto adresas *</label>
+               <label for="inputEmail" class="col-md-5 control-label">Elektroninio pa≈°to adresas *</label>
                <div class="col-md-7 controls">
 			         <div class="input-group">
 					      <span class="input-group-addon"> <img src="<c:url value="/resources/svg/email.svg"/>"  class="icons-registration"/></span>
-<!-- *** -->             <input type="email" class="form-control" id="inputEmail" placeholder="Elektroninis paötas" name="email"/> 
+<!-- *** -->             <input type="email" class="form-control" id="inputEmail" placeholder="Elektroninis pa≈°tas" name="email"/> 
                     </div> 
                       <form:errors path="email" cssClass="error" />       
                 </div>
@@ -106,7 +106,7 @@
                       <form:errors path="address" cssClass="error" />
                 </div>
            </div>
-           <div class="col-md-6 col-md-offset-5 info-registration"><p>*paûymeti laukai privalomi</p></div> 
+           <div class="col-md-6 col-md-offset-5 info-registration"><p>*pa≈æymeti laukai privalomi</p></div> 
            <div class="form-group">
              <label class="col-md-4 control-label" for="buttonRegistration"></label>
              <div class=" col-md-4 center-block ">

@@ -1,6 +1,10 @@
-﻿html {
-    position: relative;
-    min-height: 100%;
+﻿* {
+    margin: 0;
+}
+
+html,body {
+   
+    height: 100%;
 }
 
 body {
@@ -10,13 +14,15 @@ body {
 
 /*Page content*/
 #page-content-wrapper {
-    height: 100%;
-    margin-bottom: 60px;
+ min-height: 100%;
+	height: auto !important; 
+	height: 100%;
+	margin: 0 auto -60px; 
 }
 
     /*Meniu*/
 
-    #page-content-wrapper .navbar {
+#page-content-wrapper .navbar {
         display: block;
         height: 80px;
     }
@@ -215,23 +221,21 @@ body {
 
 /*Footer*/
 
-.footer {
-    height: 60px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+footer, .push {
+	height: 60px;
+    width:100%;
+	bottom:0;
 }
 
-.footer {
+footer .custom-footer {
     background-color: #000;
     text-align: left;
     line-height: 50px;
-}
+    background-color: #000;
+    text-align: left;
+    font-size:20px;
+    }
 
-.footCss {
-    font-size: 20px;
-    color: #fff;
-}
 
 /*-------------------------*/
 

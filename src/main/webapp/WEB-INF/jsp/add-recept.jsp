@@ -1,17 +1,16 @@
-﻿<!DOCTYPE html>
-
+﻿<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Comapatible" content="IE=edge" />
-    <!-- Tam nustatytu ie rendinima pagal ju verijas -->
-    <title>Pridėti receptą</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="main.css" rel="stylesheet" type="text/css" />
-    <link href="normalize.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="X-UA-Comapatible" content="IE=edge" /> <!-- Tam nustatytu ie rendinima pagal ju verijas -->
+    <title>Add recipe</title>
+   <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet" type="text/css" />
+    <link href="<c:url value="/resources/connect.css" />" rel="stylesheet" type="text/css" />
+    <link href="<c:url value="/resources/normalize.css" />" rel="stylesheet" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="connect.js"></script>
+    <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+    <script src="<c:url value="/resources/connect.js" />"></script>
 </head>
 <body>
 
@@ -27,17 +26,17 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="Main.html">
+                    <a class="navbar-brand" href="#">
+					    <!-- System brand -->
                         <p class="brand">
-                            <img class="brand" src="svg/brand.svg" />KuPRA
-                        </p>
+                            <img class="brand"src="<c:url value="/resources/svg/brand.svg"/>" />KuPRA</p>
                     </a>
                 </div>
 
 
                 <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Įkelti receptą</a></li>
+                        <li><a href="#">Ikelti recepta</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
@@ -56,7 +55,7 @@
                         <li><a href="#">Valgiaraštis</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="profilis.html">Vartotojo profilis</a></li>
+                        <li><a href="#">Vartotojo profilis</a></li>
                         <li><a href="#">Atsijungti</a></li>
                     </ul>
                 </div>
@@ -68,60 +67,67 @@
         <div class="add-recept-form container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
+				  <!--  <form:form method="add-recipe" class="form-horizontal " role="form" modelAttribute=" ">-->
                     <form class="form-horizontal" role="form">
                         <div class="form-horizontal add-recepts-header">
-                            <h1>Receptų pridėjimas</h1>
+                            <h1>Receptu pridejimas</h1>
                         </div>
                         <div class="form-group">
                             <label for="recept-name" class="col-md-2 control-label">Pavadinimas</label>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="recept-name" placeholder="Pavadinimas" />
+                                <input type="text" class="form-control" id="recept-name" placeholder="Pavadinimas" name="recipe-name" />
+								<form:errors path="recipe-name" cssClass="error" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="recept-name" class="col-md-2 control-label">Nuotraukos</label>
                             <div class="col-md-10">
-                                  <input type="file" id="recept-pictures" />
+                                  <input type="file" id="recept-pictures" name="recipe-picture"/>
+								  <form:errors path="recipe-picture" cssClass="error" />
                             </div>
                         </div>
                         <div class="form-group ingredients-form ">
                             <label for="ingredients" class="col-sm-2 control-label">Ingridientai</label>
                             <div class="col-sm-10 container form-inline">
 
-                                <input type="text" class="form-control control-group inline-ingredients" id="ingredients" placeholder="Ingredientas" size="45" />
+                                <input type="text" class="form-control control-group inline-ingredients" id="ingredients" placeholder="Ingredientas" size="45" name="recipe-ingredient" />
 
                                 <input type="text" class="form-control control-group inline-ingredients" id="ingredient-size" size="2" />
                                 <div class="dropdown control-group inline-ingredients">
                                     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                                        Vertės
+                                        Vertes
                                         <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">kg</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">mg</a></li>
+                                        <li role="presentation" name="recipe-unit"><a role="menuitem" tabindex="-1" href="#">kg</a></li>
+                                        <li role="presentation" name="recipe-unit"><a role="menuitem" tabindex="-1" href="#">mg</a></li>
                                     </ul>
                                 </div>
-                                <button type="button" class="btn btn-default">Pridėti</button>
+                                <button type="button" class="btn btn-default">Prideti</button>
                                 <button type="button" class="btn btn-default">Pašalinti</button>
+								
+								<form:errors path="recipe-ingredient" cssClass="error" />
+								<form:errors path="recipe-unit" cssClass="error" />
                             </div>
                         </div>
                         <div class="form-group ">
                             <label for="recept-despription" class="col-md-2 control-label ">Aprašymas</label>
                             <div class="col-md-10 controls">
                                 <!-- *** -->
-                                <textarea class="form-control description" id="recept-despription" name="recept-despription"></textarea>
+                                <textarea class="form-control description" id="recipe-despription" name="recipe-despription"></textarea>
+								<form:errors path="recipe-despription" cssClass="error" />
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" />
+                                        <input type="checkbox" name="recipe-private" />
                                         Privatus 
                                     </label>
                                 </div>
                                 <div class="info-about-private">
-                                    Receptas nebus matomas kitiems sistemos vartotojams išskyrus jūsų draugus
+                                    Receptas nebus matomas kitiems sistemos vartotojams išskyrus jusu draugus
                                 </div>
                             </div>
                         </div>
@@ -129,6 +135,7 @@
                             <button class="button">Sukurti</button>
                         </div>
                     </form>
+					<!--</form:form> -->
                 </div>
             </div>
         </div>
