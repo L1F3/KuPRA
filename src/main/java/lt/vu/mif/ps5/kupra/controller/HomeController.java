@@ -2,8 +2,10 @@ package lt.vu.mif.ps5.kupra.controller;
 import lt.vu.mif.ps5.kupra.controller.CM;
 
 
+
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Logger;
 
 import org.springframework.security.access.annotation.Secured;
@@ -22,7 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Controller
 public class HomeController {
 
-	static Logger log = Logger.getLogger(RegisterController.class.getName());
+	static Logger log = Logger.getLogger(HomeController.class.getName());
 
 	private final RecipeService recipeService;
 

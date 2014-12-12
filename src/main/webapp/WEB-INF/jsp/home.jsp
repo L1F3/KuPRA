@@ -114,7 +114,7 @@
                 </div>
 				<!-- Recipe name -->
                 <div class="recipe-name-box">
-                     <a href="#"><p class="recipe-name" >${recipe.name}</p></a>
+                     <a href="../app/recipe/${recipe.recId}"><p class="recipe-name" >${recipe.name}</p></a>
                  </div>
 				 <!-- Recipe description -->
                  <div class="recipe-info-box">
@@ -135,137 +135,6 @@
                  </div>
           </div>
 		  </c:forEach>
-		  <!--
-           <div class='col-sm-3'>
-              <div class="panel panel-default  panel-custom" >
-                <img src="<c:url value="/resources/pie.jpg"/>" class="img-responsive image-size"/>
-                <div class="made-recipe-user-name">
-                        <a href="#">Jonas Jonaitis</a> 
-                </div>
-                <div class="recipe-name-box">
-                     <a href="#"><p class="recipe-name" >Želė</p></a>
-                 </div>
-                 <div class="recipe-info-box">
-                       <span>Kalėdinis patiekalas vaikams
-                       </span>
-                 </div>
-                 <div class="recipe-rating-box">
-                         <span>
-                              <img src="<c:url value="/resources/svg/star.svg"/>" class="img-responsive rating-icon"/>
-                               <p class="recipe-rating">7</p>
-                         </span>
-                         <span>
-                              <img src="<c:url value="/resources/svg/people.svg"/>" class="img-responsive rating-icon"/>
-                              <p class="rating-people">80</p>
-                         </span>
-                     </div>  
-                  
-                 </div>
-          </div>      
-           <div class='col-sm-3'>
-              <div class="panel panel-default  panel-custom" >
-                <img src="<c:url value="/resources/pie.jpg"/>" class="img-responsive image-size"/>
-                <div class="made-recipe-user-name">
-                        <a href="#">Jonas Jonaitis</a> 
-                </div>
-                <div class="recipe-name-box">
-                     <a href="#"><p class="recipe-name" >Želė</p></a>
-                 </div>
-                 <div class="recipe-info-box">
-                       <span>Kalėdinis patiekalas vaikams
-                       </span>
-                 </div>
-                 <div class="recipe-rating-box">
-                         <span>
-                              <img src="<c:url value="/resources/svg/star.svg"/>" class="img-responsive rating-icon"/>
-                               <p class="recipe-rating">7</p>
-                         </span>
-                         <span>
-                              <img src="<c:url value="/resources/svg/people.svg"/>" class="img-responsive rating-icon"/>
-                              <p class="rating-people">80</p>
-                         </span>
-                     </div>  
-                  
-                 </div>
-          </div>
-           <div class='col-sm-3'>
-              <div class="panel panel-default  panel-custom" >
-                <img src="<c:url value="/resources/pie.jpg"/>" class="img-responsive image-size"/>
-                <div class="made-recipe-user-name">
-                        <a href="#">Jonas Jonaitis</a> 
-                </div>
-                <div class="recipe-name-box">
-                     <a href="#"><p class="recipe-name" >Želė</p></a>
-                 </div>
-                 <div class="recipe-info-box">
-                       <span>Kalėdinis patiekalas vaikams
-                       </span>
-                 </div>
-                 <div class="recipe-rating-box">
-                         <span>
-                              <img src="<c:url value="/resources/svg/star.svg"/>" class="img-responsive rating-icon"/>
-                               <p class="recipe-rating">7</p>
-                         </span>
-                         <span>
-                              <img src="<c:url value="/resources/svg/people.svg"/>" class="img-responsive rating-icon"/>
-                              <p class="rating-people">80</p>
-                         </span>
-                     </div>  
-                  
-                 </div>
-          </div>
-           <div class='col-sm-3'>
-              <div class="panel panel-default  panel-custom" >
-                <img src="<c:url value="/resources/pie.jpg"/>" class="img-responsive image-size"/>
-                <div class="made-recipe-user-name">
-                        <a href="#">Jonas Jonaitis</a> 
-                </div>
-                <div class="recipe-name-box">
-                     <a href="HTMLPage1.html"><p class="recipe-name" >Želė</p></a>
-                 </div>
-                 <div class="recipe-info-box">
-                       <span>Kalėdinis patiekalas vaikams
-                       </span>
-                 </div>
-                 <div class="recipe-rating-box">
-                         <span>
-                              <img src="<c:url value="/resources/svg/star.svg"/>" class="img-responsive rating-icon"/>
-                               <p class="recipe-rating">7</p>
-                         </span>
-                         <span>
-                              <img src="<c:url value="/resources/svg/people.svg"/>" class="img-responsive rating-icon"/>
-                              <p class="rating-people">80</p>
-                         </span>
-                     </div>  
-                  
-                 </div>
-          </div>
-           <div class='col-sm-3'>
-              <div class="panel panel-default  panel-custom" >
-                <img src="<c:url value="/resources/pie.jpg"/>" class="img-responsive image-size"/>
-                <div class="made-recipe-user-name">
-                        <a href="#">Jonas Jonaitis</a> 
-                </div>
-                <div class="recipe-name-box">
-                     <a href="#"><p class="recipe-name" >Želė</p></a>
-                 </div>
-                 <div class="recipe-info-box">
-                       <span>Kalėdinis patiekalas vaikams
-                       </span>
-                 </div>
-                 <div class="recipe-rating-box">
-                         <span>
-                              <img src="<c:url value="/resources/svg/star.svg"/>" class="img-responsive rating-icon"/>
-                               <p class="recipe-rating">7</p>
-                         </span>
-                         <span>
-                              <img src="<c:url value="/resources/svg/people.svg"/>" class="img-responsive rating-icon"/>
-                              <p class="rating-people">80</p>
-                         </span>
-                     </div>  
-                  
-                 </div>
-          </div>	-->	  
         </div> 
       </div>
       </div>

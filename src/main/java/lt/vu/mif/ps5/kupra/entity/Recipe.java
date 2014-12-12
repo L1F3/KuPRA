@@ -14,6 +14,9 @@ import javax.persistence.Table;
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import java.util.HashSet;
 import java.util.Set;
 import java.sql.Blob;
@@ -50,6 +53,7 @@ public class Recipe {
                 @JoinColumn(name = "productId")})
 	private Set<Product> products = new HashSet<Product>();*/
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="recipe")
+	@Fetch (FetchMode.SELECT)
 	private Set<Ingredient> ingredients = new HashSet<Ingredient>();
 	
 	@ManyToOne
