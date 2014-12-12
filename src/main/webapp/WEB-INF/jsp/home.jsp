@@ -102,9 +102,9 @@
      <div class="recipies-content">
         <div class="container">
          <h3>Populiariausi receptai</h3>
-          <div class='row'>
+          <div class='row equal'>
          <c:forEach var="recipe" items="${topRecipes}">
-			<div class='col-sm-3'>
+			<div class='col-md-3'>
               <div class="panel panel-default  panel-custom" >
 			    <!-- Recipe image -->
                 <img src="<c:url value="/resources/pie.jpg"/>" class="img-responsive image-size"/>
