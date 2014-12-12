@@ -63,7 +63,7 @@ public class Recipe {
 	private int rating;
 	@Column(name = "ratingCount")
 	private int ratingCount;
-	
+
 	/*public Set<Product> getProducts() {
 		return products;
 	}
@@ -71,7 +71,6 @@ public class Recipe {
 	public void setProducts(Set<Product> products) {
 		this.products = products;
 	}*/
-
 	public Set<Ingredient> getIngredients() {
 		return ingredients;
 	}

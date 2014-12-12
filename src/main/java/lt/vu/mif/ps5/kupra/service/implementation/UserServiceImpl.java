@@ -95,6 +95,7 @@ public class UserServiceImpl implements UserService {
 		return authentication;
 	}
 
+	@Transactional
 	public void updateUser(long userId, String loginname, String username,
 			String password, String email, String name, String lastname,
 			String address, String description, String imageName,
@@ -126,5 +127,10 @@ public class UserServiceImpl implements UserService {
 			}
 		}
 		return null;
+	}
+
+	@Transactional(readOnly = true)
+	public User getUserByLoginname(String loginname) {
+		return userDao.getUserByLoginname(loginname);
 	}
 }

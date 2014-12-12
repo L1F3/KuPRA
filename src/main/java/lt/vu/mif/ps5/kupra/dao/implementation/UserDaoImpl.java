@@ -23,5 +23,16 @@ public class UserDaoImpl extends GenericDaoImpl<User> implements UserDao {
         User user = get(userId);
         getSession().delete(user);
     }
+    
+    public User getUserByLoginname(String loginname) {
+        Session sess = getSession();
+        List<User> list = null;
+        list = sess.createCriteria(User.class).
+                add(Restrictions.eq("loginname", loginname)).list();
+        if (list.size() > 0) {
+            return list.get(0);
+        }
+        return null;
+    }
 
 }

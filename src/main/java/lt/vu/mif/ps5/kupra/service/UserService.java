@@ -28,4 +28,6 @@ public interface UserService {
 			String imageType, Blob image, Role role);
 
 	Set<Recipe> getMeals();
+	
+	public User getUserByLoginname(String loginname);
 }

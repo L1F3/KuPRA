@@ -6,6 +6,7 @@ import java.util.Set;
 
 import lt.vu.mif.ps5.kupra.entity.Product;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
+import lt.vu.mif.ps5.kupra.entity.User;
 
 public interface RecipeService {
 
@@ -14,7 +15,7 @@ public interface RecipeService {
 	List<Recipe> getAll();
 
 	long addRecipe(String name, String imgName, Blob img, String imgType,
-			Set<Product> productsOfRecipe, String description, int visibility);
+			Set<Product> productsOfRecipe, String description, int visibility, User user);
 
 	List<Recipe> getTopRecipes();
 }

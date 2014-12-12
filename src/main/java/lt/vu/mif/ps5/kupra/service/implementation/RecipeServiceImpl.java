@@ -7,6 +7,7 @@ import java.util.Set;
 import lt.vu.mif.ps5.kupra.dao.RecipeDao;
 import lt.vu.mif.ps5.kupra.entity.Product;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
+import lt.vu.mif.ps5.kupra.entity.User;
 import lt.vu.mif.ps5.kupra.service.RecipeService;
 
 import org.apache.log4j.Logger;
@@ -39,7 +40,7 @@ public class RecipeServiceImpl implements RecipeService {
 	@Transactional
 	public long addRecipe(String name, String imgName, Blob img,
 			String imgType, Set<Product> productsOfRecipe, String description,
-			int visibility) {
+			int visibility, User user) {
 		Recipe recipe = new Recipe();
 		recipe.setName(name);
 		recipe.setImgName(imgName);
@@ -48,6 +49,7 @@ public class RecipeServiceImpl implements RecipeService {
 		//recipe.setProductsOfRecipe(productsOfRecipe);
 		recipe.setDescription(description);
 		recipe.setVisibility(visibility);
+		recipe.setUser(user);
 		recipeDao.persist(recipe);
 		return recipe.getRecId();
 	}

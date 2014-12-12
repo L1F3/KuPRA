@@ -5,7 +5,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.validation.constraints.Size;
+
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
 
 import lt.vu.mif.ps5.kupra.entity.Product;
 
@@ -15,11 +17,20 @@ public class RecipeForm {
 	@Size(min = 3, max = 30)
 	private String name;
 
-	private String imgName;
+	private MultipartFile file;
+	/*private String imgName;
 
 	private Blob img;
 
-	private String imgType;
+	private String imgType;*/
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
 
 	private Set<Product> productsOfRecipe = new HashSet<Product>(0);
 
@@ -39,7 +50,7 @@ public class RecipeForm {
 		this.name = name;
 	}
 
-	public String getImgName() {
+	/*public String getImgName() {
 		return imgName;
 	}
 
@@ -62,7 +73,7 @@ public class RecipeForm {
 	public void setImgType(String imgType) {
 		this.imgType = imgType;
 	}
-
+*/
 	public Set<Product> getProductsOfRecipe() {
 		return productsOfRecipe;
 	}
