@@ -45,4 +45,14 @@ public class HomeController {
 	public ModelAndView profilePage() {
 		return new ModelAndView("profile");
 	}
+	
+	@RequestMapping(value = "/create-product", method = RequestMethod.GET)
+	public ModelAndView addProduct() {
+		return new ModelAndView("create-product");
+	}
+	
+	@RequestMapping(value = "/create-unit", method = RequestMethod.GET)
+	public ModelAndView addUnit() {
+		return new ModelAndView("create-unit");
+	}
 }

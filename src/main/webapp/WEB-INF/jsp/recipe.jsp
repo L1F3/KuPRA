@@ -15,7 +15,7 @@
 </head>
 <body>
 
-    <div id="page-content-wrapper">
+    <div class="page-wrap">
 
          <div class="navbar navbar-default navbar-fixed-top menu " role="navigation">
             <div class="container-fluid">
@@ -136,13 +136,11 @@
                 </div>
             </div>
         </div>
-        <div class="footer">
-            <div class="container">
-                <div class="footCss">
-                    PS5 team
-                </div>
-            </div>
-        </div>
+        <footer class="footer">
+      <div class="container">
+        <p>KuPRA</p>
+      </div>
+    </footer>
     </div>
 
 </body>

@@ -14,8 +14,8 @@
 </head>
 <body>
 
-  <div id="page-content-wrapper">
-
+  <div class="page-wrap">
+   
   <div class="navbar navbar-default navbar-fixed-top menu " role="navigation">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -29,7 +29,7 @@
                      <a class="navbar-brand" href="home">
 					    <!-- System brand -->
                         <p class="brand">
-                            <img src="<c:url value="/resources/svg/brand.svg"/>" />KuPRA
+                            <img class="brand" src="<c:url value="/resources/svg/brand.svg"/>" />KuPRA
 						</p>
                     </a>
                 </div>
@@ -46,8 +46,8 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Klasifikatoriai<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Produktai</a></li>
-                                <li><a href="#">Matavimo vienetai</a></li>
+                                <li><a href="create-product">Produktai</a></li>
+                                <li><a href="create-unit">Matavimo vienetai</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Šaldytuvas</a></li>
@@ -269,15 +269,13 @@
         </div> 
       </div>
       </div>
-	  <div class="push"></div>
   </div>
-  <footer>
-        <div class="container-fluid custom-footer">
-            <div class="container">
-                <p>KuPra PS5 gamybos </p>
-            </div>
-        </div>
+  <footer class="footer">
+      <div class="container">
+        <p>KuPRA</p>
+      </div>
     </footer>
+
 
     <script type="text/javascript">
         $(document).ready(function () {

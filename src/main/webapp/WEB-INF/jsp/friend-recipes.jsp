@@ -13,7 +13,7 @@
     <script src="<c:url value="/resources/connect.js" />"></script>
 </head>
 <body>
-    <div id="page-content-wrapper">
+    <div class="page-wrap">
 
         <div class="navbar navbar-default navbar-fixed-top menu " role="navigation">
             <div class="container-fluid">
@@ -218,14 +218,12 @@
                 </div>
             </div>
         </div>
-        <div class="push"></div>
+        
     </div>
-    <footer>
-        <div class="container-fluid custom-footer">
-            <div class="container">
-                <p>KuPra PS5 gamybos </p>
-            </div>
-        </div>
+    <footer class="footer">
+      <div class="container">
+        <p>KuPRA</p>
+      </div>
     </footer>
 </body>
 </html>
