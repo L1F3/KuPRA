@@ -90,11 +90,11 @@ CREATE TABLE `recipies` (
 -- Dumping data for table `recipies`
 -- 
 
-INSERT INTO `recipies` VALUES (1, 'Kiausiniene', 'Puikus patiekalas pusryciams.', 1, '', '', '', 7, 100, 1);
-INSERT INTO `recipies` VALUES (2, 'Spageciai su suriu', 'Labai pigu ir skanu.', 1, '', '', '', 5, 75, 1);
-INSERT INTO `recipies` VALUES (3, 'Koldunai', 'Puikus patiekalas studentams, kurie neturi daug pinigu ir laiko.', 1, '', '', '', 6, 80, 1);
-INSERT INTO `recipies` VALUES (4, 'Pica', 'Sunkiai pagaminama, taciau labai skanu.', 1, '', '', '', 9, 55, 1);
-INSERT INTO `recipies` VALUES (5, 'Ledai', 'Sunkiai ir ilgai gaminama, taciau labai skanu.', 1, '', '', '', 10, 65, 3);
+INSERT INTO `recipies` VALUES (1, 'Kiausiniene', 'Puikus patiekalas pusryciams.', 1, '', '50', '', 7, 100, 1);
+INSERT INTO `recipies` VALUES (2, 'Spageciai su suriu', 'Labai pigu ir skanu.', 1, '', '50', '', 5, 75, 1);
+INSERT INTO `recipies` VALUES (3, 'Koldunai', 'Puikus patiekalas studentams, kurie neturi daug pinigu ir laiko.', 1, '', '50', '', 6, 80, 1);
+INSERT INTO `recipies` VALUES (4, 'Pica', 'Sunkiai pagaminama, taciau labai skanu.', 1, '', '50', '', 9, 55, 1);
+INSERT INTO `recipies` VALUES (5, 'Ledai', 'Sunkiai ir ilgai gaminama, taciau labai skanu.', 1, '', '50', '', 10, 65, 3);
 
 -- --------------------------------------------------------
 
