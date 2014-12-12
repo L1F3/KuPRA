@@ -114,11 +114,11 @@
                 </div>
 				<!-- Recipe name -->
                 <div class="recipe-name-box">
-                     <a href="#"><p class="recipe-name" >${recipe.name} Cool</p></a>
+                     <a href="#"><p class="recipe-name" >${recipe.name}</p></a>
                  </div>
 				 <!-- Recipe description -->
                  <div class="recipe-info-box">
-                       <span>${recipe.description} AAAAAA</span>
+                       <span>${recipe.description}</span>
                  </div>
 				 <!-- Recipe rating/ people rating -->
                  <div class="recipe-rating-box">

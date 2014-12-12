@@ -1,6 +1,7 @@
 package lt.vu.mif.ps5.kupra.service.implementation;
 
 import java.sql.Blob;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -121,7 +122,7 @@ public class UserServiceImpl implements UserService {
 		
 		for (User user : users) {
 			if (user.getName().equals(username)) {
-				return user.getMeals();
+				return new HashSet<Recipe>(); //user.getMeals();
 			}
 		}
 		return null;

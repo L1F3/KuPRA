@@ -80,22 +80,34 @@ public class User {
                 @JoinColumn(name = "recipeId")})*/
 	//@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="user")
-	private Set<Recipe> meals = new HashSet<Recipe>();
+	//@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="user")
 	
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="user")
+	private Set<Recipe> recipies = new HashSet<Recipe>();
 	// Get / Set
 
+	//private Set<Recipe> meals = new HashSet<Recipe>();
+	
 	public long getUserId() {
 		return userId;
 	}
 
-	public Set<Recipe> getMeals() {
+	public Set<Recipe> getRecipies() {
+		return recipies;
+	}
+
+	public void setRecipies(Set<Recipe> recipies) {
+		this.recipies = recipies;
+	}
+
+	/*public Set<Recipe> getMeals() {
 		return meals;
 	}
 
 	public void setMeals(Set<Recipe> meals) {
 		this.meals = meals;
-	}
+	}*/
 
 	public void setUserId(long userId) {
 		this.userId = userId;
