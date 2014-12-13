@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Comapatible" content="IE=edge" /> <!-- Tam nustatytu ie rendinima pagal ju verijas -->
-    <title>Registration</title>
+    <title>Add Product</title>
    <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/main.css" />" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/normalize.css" />" rel="stylesheet" type="text/css" />
@@ -67,7 +67,7 @@
                 <div class="col-md-6 col-md-offset-3">
                     <form class="form-horizontal" role="form">
                         <div class="form-horizontal add-recepts-header">
-                            <h1>Receptų pridėjimas</h1>
+                            <h1>Produkto pridėjimas</h1>
                         </div>
                         <div class="form-group">
                             <label for="recept-name" class="col-md-2 control-label">Pavadinimas*</label>

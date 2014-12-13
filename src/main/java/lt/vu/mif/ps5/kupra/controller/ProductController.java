@@ -3,10 +3,14 @@ package lt.vu.mif.ps5.kupra.controller;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.List;
+
 import javax.validation.Valid;
+
 import lt.vu.mif.ps5.kupra.entity.Product;
 import lt.vu.mif.ps5.kupra.entity.Role;
+import lt.vu.mif.ps5.kupra.form.ProductForm;
 import lt.vu.mif.ps5.kupra.service.ProductService;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
@@ -14,6 +18,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,18 +46,18 @@ public class ProductController {
     @Secured({"ROLE_USER", "ROLE_ADMIN"})
     @RequestMapping(value = "/product", method = RequestMethod.GET)
     public ModelAndView productPage() {
-        return new ModelAndView("product");
+        return new ModelAndView("productadd").addObject(new ProductForm());
     }
 
     @Secured({"ROLE_USER", "ROLE_ADMIN"})
     @RequestMapping(value = "/product", method = RequestMethod.POST)
     public ModelAndView productCreate(
-            @Valid @ModelAttribute("product") Product product, BindingResult result) {
-        if (result.hasErrors()) {
+            @Valid @ModelAttribute ProductForm productForm, Errors errors) {
+        if (errors.hasErrors()) {
             log.info("Returning product.jsp page");
-            return new ModelAndView("product");
+            return new ModelAndView("productadd").addObject(productForm);
         }
-        productService.addProduct(product.getName(),/* product.getUnits(), */product.getDescription(), product.getImgName(), product.getImgType(), product.getImg());
+        productService.addProduct(productForm.getName(),/* product.getUnits(), */productForm.getDescription(), productForm.getImgName(), productForm.getImgType(), productForm.getImg());
         return new ModelAndView("redirect:product/list");
     }
 
