@@ -46,7 +46,7 @@ public class RecipeServiceImpl implements RecipeService {
 		recipe.setImgName(imgName);
 		recipe.setImg(img);
 		recipe.setImgType(imgType);
-		//recipe.setProductsOfRecipe(productsOfRecipe);
+		// recipe.setProductsOfRecipe(productsOfRecipe);
 		recipe.setDescription(description);
 		recipe.setVisibility(visibility);
 		recipe.setUser(user);
@@ -67,5 +67,10 @@ public class RecipeServiceImpl implements RecipeService {
 	@Transactional(readOnly = true)
 	public List<Recipe> getByName(String key) {
 		return recipeDao.getByName(key);
+	}
+
+	@Transactional(readOnly = true)
+	public List<Recipe> getByNameFromUser(long user, String key) {
+		return recipeDao.getByNameFromUser(user, key);
 	}
 }

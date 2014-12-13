@@ -20,4 +20,5 @@ public interface RecipeService {
 	List<Recipe> getTopRecipes();
 	List<Recipe> getForUser(User user);
 	List<Recipe> getByName(String key);
+	List<Recipe> getByNameFromUser(long user, String key);
 }
