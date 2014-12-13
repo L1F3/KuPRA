@@ -17,20 +17,8 @@ public class RecipeForm {
 	@Size(min = 3, max = 30)
 	private String name;
 
+	@NotEmpty
 	private MultipartFile file;
-	/*private String imgName;
-
-	private Blob img;
-
-	private String imgType;*/
-
-	public MultipartFile getFile() {
-		return file;
-	}
-
-	public void setFile(MultipartFile file) {
-		this.file = file;
-	}
 
 	private Set<Product> productsOfRecipe = new HashSet<Product>(0);
 
@@ -40,7 +28,14 @@ public class RecipeForm {
 
 	private int visibility;
 
-	//<<GET / SET>>
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}	
 	
 	public String getName() {
 		return name;
@@ -49,31 +44,7 @@ public class RecipeForm {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	/*public String getImgName() {
-		return imgName;
-	}
-
-	public void setImgName(String imgName) {
-		this.imgName = imgName;
-	}
-
-	public Blob getImg() {
-		return img;
-	}
-
-	public void setImg(Blob img) {
-		this.img = img;
-	}
-
-	public String getImgType() {
-		return imgType;
-	}
-
-	public void setImgType(String imgType) {
-		this.imgType = imgType;
-	}
-*/
+	
 	public Set<Product> getProductsOfRecipe() {
 		return productsOfRecipe;
 	}

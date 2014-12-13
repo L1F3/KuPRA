@@ -6,12 +6,14 @@ import java.io.OutputStream;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Set;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.rowset.serial.SerialBlob;
 import javax.validation.Valid;
 
+import lt.vu.mif.ps5.kupra.entity.Image;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.User;
 import lt.vu.mif.ps5.kupra.form.RecipeForm;
@@ -61,13 +63,11 @@ public class RecipeController {
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
 		User user = userService.getUserByLoginname(auth.getName());
-		
+
 		List<Recipe> recipes = recipeService.getForUser(user);
-		
+
 		return new ModelAndView("recipelist").addObject("recipes", recipes);
 	}
-
-
 
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
 	@RequestMapping(value = "/recipe/{id}", method = RequestMethod.GET)
@@ -83,29 +83,34 @@ public class RecipeController {
 		Recipe recipe = recipeService.getRecipe(id);
 
 		try {
-			response.setHeader("Content-Disposition", "inline;filename=\""
-					+ recipe.getImgName() + "\"");
-			OutputStream out = response.getOutputStream();
-			response.setContentType(recipe.getImgType());
-			int width = 150, height = 150;
-			BufferedImage image = ImageIO.read(recipe.getImg()
-					.getBinaryStream());// You can use InputStream as well here,
-										// in place of source file
-			BufferedImage thumbnail = Scalr.resize(image, Scalr.Method.SPEED,
-					Scalr.Mode.FIT_TO_HEIGHT, width, height, Scalr.OP_ANTIALIAS);
-			ImageIO.write(thumbnail, "jpg", out);
-			out.flush();
-			out.close();
-
+			List<Image> images = recipe.getImages();
+			if (images.size() > 0) {
+				Image image = images.get(0);
+				
+				response.setHeader("Content-Disposition", "inline;filename=\""
+						+ image.getImgName() + "\"");
+				OutputStream out = response.getOutputStream();
+				response.setContentType(image.getImgType());
+				int width = 150, height = 150;
+				BufferedImage bufimage = ImageIO.read(image.getImg()
+						.getBinaryStream());// You can use InputStream as well
+											// here,
+											// in place of source file
+				BufferedImage thumbnail = Scalr.resize(bufimage,
+						Scalr.Method.SPEED, Scalr.Mode.FIT_TO_HEIGHT, width,
+						height, Scalr.OP_ANTIALIAS);
+				ImageIO.write(thumbnail, "jpg", out);
+				out.flush();
+				out.close();
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 		return null;
 	}
-	
+
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
 	@RequestMapping(value = "/recipe/image/{id}/thumb", method = RequestMethod.GET)
 	public ModelAndView recipeImageThumb(@PathVariable long id,
@@ -143,12 +148,13 @@ public class RecipeController {
 		Recipe recipe = recipeService.getRecipe(id);
 
 		try {
-		    response.setHeader("Content-Disposition", "inline;filename=\"" + recipe.getImgName() + "\"");
-		    OutputStream out = response.getOutputStream();
-		    response.setContentType(recipe.getImgType());
-		    IOUtils.copy(recipe.getImg().getBinaryStream(), out);
-		    out.flush();
-		    out.close();
+			response.setHeader("Content-Disposition", "inline;filename=\""
+					+ recipe.getImgName() + "\"");
+			OutputStream out = response.getOutputStream();
+			response.setContentType(recipe.getImgType());
+			IOUtils.copy(recipe.getImg().getBinaryStream(), out);
+			out.flush();
+			out.close();
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -158,7 +164,7 @@ public class RecipeController {
 
 		return null;
 	}
-	
+
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
 	@RequestMapping(value = "/recipe", method = RequestMethod.GET)
 	public ModelAndView recipeFormPage() {
@@ -169,11 +175,6 @@ public class RecipeController {
 	@RequestMapping(value = "/recipe", method = RequestMethod.POST)
 	public ModelAndView recipeFormPageDo(
 			@Valid @ModelAttribute RecipeForm recipeForm, Errors errors) {
-		/*
-		 * if (errors.hasErrors()) {
-		 * 
-		 * return new ModelAndView("recipeadd").addObject(recipeForm); }
-		 */
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
 		User user = userService.getUserByLoginname(auth.getName());
@@ -185,8 +186,7 @@ public class RecipeController {
 			recipeService.addRecipe(recipeForm.getName(), recipeForm.getFile()
 					.getOriginalFilename(), blob, recipeForm.getFile()
 					.getContentType(), null, recipeForm.getDescription(),
-					recipeForm.getVisibility(), 
-					user);
+					recipeForm.getVisibility(), user);
 		} catch (IOException e) {
 			log.info("Something wrong with IO");
 			log.info("Returning template.jsp page");
@@ -200,6 +200,6 @@ public class RecipeController {
 			log.info("Returning template.jsp page");
 			return new ModelAndView("template");
 		}
-		return new ModelAndView("redirect:../home");
+		return new ModelAndView("redirect://home");
 	}
 }
