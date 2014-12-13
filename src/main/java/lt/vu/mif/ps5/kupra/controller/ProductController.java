@@ -57,7 +57,7 @@ public class ProductController {
             log.info("Returning product.jsp page");
             return new ModelAndView("productadd").addObject(productForm);
         }
-        productService.addProduct(productForm.getName(),/* product.getUnits(), */productForm.getDescription(), productForm.getImgName(), productForm.getImgType(), productForm.getImg());
+        productService.addProduct(productForm.getProductName(),/* product.getUnits(), */productForm.getDescription(), productForm.getImgName(), productForm.getImgType(), productForm.getImg());
         return new ModelAndView("redirect:product/list");
     }
 

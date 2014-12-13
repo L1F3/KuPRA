@@ -23,7 +23,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 CREATE TABLE `products` (
   `productId` bigint(20) NOT NULL auto_increment,
   `product_name` varchar(30) NOT NULL,
-  `product_description` varchar(2000) NOT NULL,
+  `product_description` varchar(2000),
   `imgName` varchar(256) default NULL,
   `imgType` varchar(8) default NULL,
   `img` blob,
