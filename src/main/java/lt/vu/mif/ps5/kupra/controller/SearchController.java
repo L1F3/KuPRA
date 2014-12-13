@@ -3,18 +3,13 @@ package lt.vu.mif.ps5.kupra.controller;
 import java.util.List;
 import java.util.logging.Logger;
 
-import javax.validation.Valid;
-
 import lt.vu.mif.ps5.kupra.service.RecipeService;
 import lt.vu.mif.ps5.kupra.service.UserService;
 
-
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,10 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import lt.vu.mif.ps5.kupra.entity.Recipe;
-import lt.vu.mif.ps5.kupra.entity.Role;
-import lt.vu.mif.ps5.kupra.form.UserForm;
-import lt.vu.mif.ps5.kupra.service.RecipeService;
-import lt.vu.mif.ps5.kupra.service.UserService;
+import lt.vu.mif.ps5.kupra.entity.User;
 
 @Controller
 public class SearchController {
@@ -41,8 +33,8 @@ public class SearchController {
 		this.userService = userService;
 	}
 
-	@RequestMapping(value = "/search/all/{key}", method = RequestMethod.POST)
-	public ModelAndView searchDo(@PathVariable String key) {
+	@RequestMapping(value = "/search/all", method = RequestMethod.POST)
+	public ModelAndView searchDo(@ModelAttribute("key") String key) {
 		List<Recipe> recipes = recipeService.getByName(key);
 		for(Recipe recipe:recipes) {
 			System.out.println(recipe.getName());
@@ -50,9 +42,13 @@ public class SearchController {
 		return new ModelAndView("searchresults").addObject("recipes", recipes);
 	}
 
-	@RequestMapping(value = "/search/{user}/{key}", method = RequestMethod.POST)
-	public ModelAndView searchDo(@PathVariable String key, @PathVariable long user) {
-		List<Recipe> recipes = recipeService.getByNameFromUser(user, key);
+	@RequestMapping(value = "/search/user", method = RequestMethod.POST)
+	public ModelAndView searchFromUserDo(@ModelAttribute("key") String key) {
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		User user = userService.getUserByLoginname(auth.getName());
+		
+		List<Recipe> recipes = recipeService.getByNameFromUser(user.getUserId(), key);
 		return new ModelAndView("searchresults").addObject("recipes", recipes);
 	}
 }

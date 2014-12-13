@@ -81,10 +81,10 @@
     </div>
   </div>
   
-  <form method="POST" class="col-md-12" id="searchForm" action="search/all/pica">
+  <form method="POST" class="col-md-12" id="searchForm" action="search/all">
     <div class="form-group col-md-4 col-md-offset-4">
       <div class="input-group input-group-lg ">
-        <input type="text" class="form-control" placeholder="Search"/>
+        <input type="text" class="form-control" placeholder="Search" name="key"/>
         <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
       </div>
     </div>
