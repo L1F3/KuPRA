@@ -81,7 +81,7 @@
     </div>
   </div>
   
-  <form class="col-md-12" id="searchForm">
+  <form method="POST" class="col-md-12" id="searchForm" action="search/all/pica">
     <div class="form-group col-md-4 col-md-offset-4">
       <div class="input-group input-group-lg ">
         <input type="text" class="form-control" placeholder="Search"/>
