@@ -64,4 +64,8 @@ public class RecipeServiceImpl implements RecipeService {
 		return recipeDao.getForUser(user);
 	}
 
+	@Transactional(readOnly = true)
+	public List<Recipe> getByName(String key) {
+		return recipeDao.getByName(key);
+	}
 }

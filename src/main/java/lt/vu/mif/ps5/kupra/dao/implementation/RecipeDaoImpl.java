@@ -43,11 +43,17 @@ public class RecipeDaoImpl extends GenericDaoImpl<Recipe> implements RecipeDao {
 		Session sess = getSession();
 		List<Recipe> recipes = new ArrayList<Recipe>();
 		recipes = (List<Recipe>)sess.createCriteria(Recipe.class).
-				addOrder(Order.desc("rating")).
 				add(Restrictions.eq("userId", user.getUserId())).
-				setMaxResults(16).
 				list();
 		return recipes;
 	}
-		
+	
+	public List<Recipe> getByName(String key) {
+		Session sess = getSession();
+		List<Recipe> recipes = new ArrayList<Recipe>();
+		recipes = (List<Recipe>)sess.createCriteria(Recipe.class).
+				add(Restrictions.like("name", "%"+key+"%")).
+				list();
+		return recipes;
+	}
 }
