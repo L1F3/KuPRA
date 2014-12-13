@@ -11,7 +11,7 @@ public class ProductForm {
 	
 	@NotEmpty
 	@Size(min = 3, max = 30)
-	private String product_name;
+	private String productName;
 	
 	private Set<Unit> unitsSet = new HashSet<Unit>();
 	
@@ -24,12 +24,12 @@ public class ProductForm {
     
     private String imgType;
     
-	public String getName() {
-		return product_name;
+	public String getProductName() {
+		return productName;
 	}
 
-	public void setName(String product_name) {
-		this.product_name = product_name;
+	public void setProductName(String product_name) {
+		this.productName = product_name;
 	}
 	 
 	public Set<Unit> getUnits(){ 

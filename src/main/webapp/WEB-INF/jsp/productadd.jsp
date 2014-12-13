@@ -65,15 +65,16 @@
 		<div class="add-recept-form container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <form class="form-horizontal" role="form">
+                    <form:form class="form-horizontal" role="form" method="POST" modelAttribute="productForm">
                         <div class="form-horizontal add-recepts-header">
                             <h1>Produkto pridėjimas</h1>
                         </div>
                         <div class="form-group">
                             <label for="recept-name" class="col-md-2 control-label">Pavadinimas*</label>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="recept-name" placeholder="Pavadinimas" />
+                                <input type="text" class="form-control" id="recept-name" placeholder="Pavadinimas" name="productName"/>
                             </div>
+                            <form:errors path="productName" cssClass="error" />
                         </div>
                         <div class="form-group">
                             <label for="recept-name" class="col-md-2 control-label">Matavimo vienetai*</label>
@@ -143,7 +144,7 @@
                         <div class="save-button-wrapper">
                             <button class="button">Pridėti</button>
                         </div>
-                    </form>
+                    </form:form>
                 </div>
             </div>
         </div>
