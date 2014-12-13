@@ -17,7 +17,6 @@ public class RecipeForm {
 	@Size(min = 3, max = 30)
 	private String name;
 
-	@NotEmpty
 	private MultipartFile file;
 
 	private Set<Product> productsOfRecipe = new HashSet<Product>(0);

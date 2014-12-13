@@ -36,7 +36,7 @@ public class SearchController {
 	@RequestMapping(value = "/search/all", method = RequestMethod.POST)
 	public ModelAndView searchDo(@ModelAttribute("key") String key) {
 		List<Recipe> recipes = recipeService.getByName(key);
-		for(Recipe recipe:recipes) {
+		for (Recipe recipe : recipes) {
 			System.out.println(recipe.getName());
 		}
 		return new ModelAndView("searchresults").addObject("recipes", recipes);
@@ -47,8 +47,9 @@ public class SearchController {
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
 		User user = userService.getUserByLoginname(auth.getName());
-		
-		List<Recipe> recipes = recipeService.getByNameFromUser(user.getUserId(), key);
+
+		List<Recipe> recipes = recipeService.getByNameFromUser(
+				user.getUserId(), key);
 		return new ModelAndView("searchresults").addObject("recipes", recipes);
 	}
 }

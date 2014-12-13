@@ -86,7 +86,7 @@ public class RecipeController {
 			List<Image> images = recipe.getImages();
 			if (images.size() > 0) {
 				Image image = images.get(0);
-				
+
 				response.setHeader("Content-Disposition", "inline;filename=\""
 						+ image.getImgName() + "\"");
 				OutputStream out = response.getOutputStream();
@@ -118,20 +118,26 @@ public class RecipeController {
 		Recipe recipe = recipeService.getRecipe(id);
 
 		try {
-			response.setHeader("Content-Disposition", "inline;filename=\""
-					+ recipe.getImgName() + "\"");
-			OutputStream out = response.getOutputStream();
-			response.setContentType(recipe.getImgType());
-			int width = 250, height = 250;
-			BufferedImage image = ImageIO.read(recipe.getImg()
-					.getBinaryStream());// You can use InputStream as well here,
-										// in place of source file
-			BufferedImage thumbnail = Scalr.resize(image, Scalr.Method.SPEED,
-					Scalr.Mode.FIT_TO_WIDTH, width, height, Scalr.OP_ANTIALIAS);
-			ImageIO.write(thumbnail, "jpg", out);
-			out.flush();
-			out.close();
+			List<Image> images = recipe.getImages();
+			if (images.size() > 0) {
+				Image image = images.get(0);
 
+				response.setHeader("Content-Disposition", "inline;filename=\""
+						+ image.getImgName() + "\"");
+				OutputStream out = response.getOutputStream();
+				response.setContentType(image.getImgType());
+				int width = 250, height = 250;
+				BufferedImage bufimage = ImageIO.read(image.getImg()
+						.getBinaryStream());// You can use InputStream as well
+											// here,
+											// in place of source file
+				BufferedImage thumbnail = Scalr.resize(bufimage,
+						Scalr.Method.SPEED, Scalr.Mode.FIT_TO_HEIGHT, width,
+						height, Scalr.OP_ANTIALIAS);
+				ImageIO.write(thumbnail, "jpg", out);
+				out.flush();
+				out.close();
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -175,6 +181,10 @@ public class RecipeController {
 	@RequestMapping(value = "/recipe", method = RequestMethod.POST)
 	public ModelAndView recipeFormPageDo(
 			@Valid @ModelAttribute RecipeForm recipeForm, Errors errors) {
+		if (errors.hasErrors()) {
+			return new ModelAndView("recipeadd").addObject(recipeForm);
+		}
+
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
 		User user = userService.getUserByLoginname(auth.getName());
