@@ -54,6 +54,20 @@ public class RecipeController {
 		return new ModelAndView("recipelist").addObject("recipes", recipes);
 	}
 
+	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
+	@RequestMapping(value = "/recipe/user", method = RequestMethod.GET)
+	public ModelAndView recipesOfUserList() {
+
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		User user = userService.getUserByLoginname(auth.getName());
+		
+		List<Recipe> recipes = recipeService.getForUser(user);
+		
+		return new ModelAndView("recipelist").addObject("recipes", recipes);
+	}
+
+
 
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
 	@RequestMapping(value = "/recipe/{id}", method = RequestMethod.GET)

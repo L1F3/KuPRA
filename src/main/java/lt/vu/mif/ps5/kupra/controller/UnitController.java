@@ -17,6 +17,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,12 +50,12 @@ public class UnitController {
     @Secured({"ROLE_USER", "ROLE_ADMIN"})
     @RequestMapping(value = "/unit", method = RequestMethod.POST)
     public ModelAndView unitCreate(
-            @Valid @ModelAttribute("unit") Unit unit, BindingResult result) {
-        if (result.hasErrors()) {
+            @Valid @ModelAttribute UnitForm unitForm, Errors errors) {
+        if (errors.hasErrors()) {
             log.info("Returning unit.jsp page");
-            return new ModelAndView("unit");
+            return new ModelAndView("unit").addObject(unitForm);
         }
-        unitService.addUnit(unit.getName(), unit.getAbbreviation());
+        unitService.addUnit(unitForm.getName(), unitForm.getAbbreviation());
         return new ModelAndView("redirect:unit/list");
     }
     

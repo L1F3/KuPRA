@@ -18,4 +18,5 @@ public interface RecipeService {
 			Set<Product> productsOfRecipe, String description, int visibility, User user);
 
 	List<Recipe> getTopRecipes();
+	List<Recipe> getForUser(User user);
 }

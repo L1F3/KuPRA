@@ -59,4 +59,9 @@ public class RecipeServiceImpl implements RecipeService {
 		return recipeDao.getTop();
 	}
 
+	@Transactional(readOnly = true)
+	public List<Recipe> getForUser(User user) {
+		return recipeDao.getForUser(user);
+	}
+
 }

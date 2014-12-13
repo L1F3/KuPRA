@@ -8,11 +8,13 @@ import java.util.Set;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import lt.vu.mif.ps5.kupra.dao.RecipeDao;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
+import lt.vu.mif.ps5.kupra.entity.User;
 
 @Component
 public class RecipeDaoImpl extends GenericDaoImpl<Recipe> implements RecipeDao {
@@ -32,6 +34,17 @@ public class RecipeDaoImpl extends GenericDaoImpl<Recipe> implements RecipeDao {
 		List<Recipe> recipes = new ArrayList<Recipe>();
 		recipes = (List<Recipe>)sess.createCriteria(Recipe.class).
 				addOrder(Order.desc("rating")).
+				setMaxResults(16).
+				list();
+		return recipes;
+	}
+	
+	public List<Recipe> getForUser(User user) {
+		Session sess = getSession();
+		List<Recipe> recipes = new ArrayList<Recipe>();
+		recipes = (List<Recipe>)sess.createCriteria(Recipe.class).
+				addOrder(Order.desc("rating")).
+				add(Restrictions.eq("userId", user.getUserId())).
 				setMaxResults(16).
 				list();
 		return recipes;
