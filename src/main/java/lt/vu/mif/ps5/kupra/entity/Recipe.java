@@ -43,8 +43,8 @@ public class Recipe {
 	@JoinTable(name = "rec_prod", joinColumns = { @JoinColumn(name = "productId") }, inverseJoinColumns = { @JoinColumn(name = "recId") })
 	private Set<Product> productsOfRecipe = new HashSet<Product>(0);
 */
-	//@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="recipe")
-	//private Set<Product> productsOfRecipe = new HashSet<Product>();
+	//@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.LAZY, mapedBy="recipe")
+	//private Set<Product> productsOfRecipe = new HashSet<Product>();p
 	/*@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(name = "recipe_product",
             joinColumns = {
