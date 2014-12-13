@@ -27,7 +27,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                     <a class="navbar-brand" href="home">
+                     <a class="navbar-brand" href="../home">
 					    <!-- System brand -->
                         <p class="brand">
                             <img src="<c:url value="/resources/svg/brand.svg"/>" />KuPRA
@@ -36,7 +36,7 @@
                 </div>
                 <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Ikelti recepta</a></li>
+                        <li><a href="../recipe">Ikelti recepta</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
@@ -82,11 +82,8 @@
                     <div class="images">
                         <div class="row">
                             <div class="col-md-4">
-                                <img src="1.jpg" class="img-responsive img-size" /></div>
-                            <div class="col-md-4">
-                                <img src="1.jpg" class="img-responsive img-size" /></div>
-                            <div class="col-md-4">
-                                <img src="1.jpg" class="img-responsive img-size" /></div>
+                                <img src="../recipe/image/${recipe.recId}/thumb" class="img-responsive img-size" />
+							</div>
                         </div>
 
                     </div>

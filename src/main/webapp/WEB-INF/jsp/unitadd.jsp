@@ -46,8 +46,8 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Klasifikatoriai<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="create-product">Produktai</a></li>
-                                <li><a href="create-unit">Matavimo vienetai</a></li>
+                                <li><a href="#">Produktai</a></li>
+                                <li><a href="#">Matavimo vienetai</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Šaldytuvas</a></li>
@@ -62,96 +62,38 @@
             </div>
             <!-- /.container-fluid -->
         </div>
-
-<div id="myCarousel" class="carousel slide">
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src="<c:url value="/resources/4.jpg"/>"/>
-    </div>
-    <div class="item">
-      <img src="<c:url value="/resources/1.jpg"/>"/>
-    </div>
-    <div class="item">
-      <img src="<c:url value="/resources/2.jpg"/>"/>
-    </div>
-  </div>
-  
-  <form class="col-md-12" id="searchForm">
-    <div class="form-group col-md-4 col-md-offset-4">
-      <div class="input-group input-group-lg ">
-        <input type="text" class="form-control" placeholder="Search"/>
-        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-      </div>
-    </div>
-  </form>
-
-
-  
-  <!-- Controls 
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>  
-      -->
-</div>
-
-
-     <div class="recipies-content">
-        <div class="container">
-         <h3>Populiariausi receptai</h3>
-          <div class='row equal'>
-         <c:forEach var="recipe" items="${topRecipes}">
-			<div class='col-md-3'>
-              <div class="panel panel-default  panel-custom" >
-			    <!-- Recipe image -->
-                <center><img src="recipe/image/${recipe.recId}/thumb2" class="img-responsive image-size"/></center>
-                <div class="made-recipe-user-name">
-				 <!-- Recipe creator -->
-                        <span>${recipe.user.username}</span>
+		<div class="add-recept-form container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-horizontal add-recepts-header">
+                            <h1>Matavimo vieneto pridėjimas</h1>
+                        </div>
+                        <div class="form-group">
+                            <label for="recept-name" class="col-md-3 control-label">Pavadinimas*</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="recept-name" placeholder="Pavadinimas" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="recept-name" class="col-md-3 control-label">Sutrumpinimas*</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="recept-name" placeholder="Sutrumpinimas" />
+                            </div>
+                        </div>
+                        <div class="save-button-wrapper">
+                            <button class="button">Pridėti</button>
+                        </div>
+                    </form>
                 </div>
-				<!-- Recipe name -->
-                <div class="recipe-name-box">
-                     <a href="../app/recipe/${recipe.recId}"><p class="recipe-name" >${recipe.name}</p></a>
-                 </div>
-				 <!-- Recipe description -->
-                 <div class="recipe-info-box">
-                       <span>${recipe.description}</span>
-                 </div>
-				 <!-- Recipe rating/ people rating -->
-                 <div class="recipe-rating-box">
-                         <span>
-                              <img src="<c:url value="/resources/svg/star.svg"/>" class="img-responsive rating-icon"/>
-                               <p class="recipe-rating">${recipe.rating}</p>
-                         </span>
-                         <span>
-                              <img src="<c:url value="/resources/svg/people.svg"/>" class="img-responsive rating-icon"/>
-                              <p class="rating-people">${recipe.ratingCount}</p>
-                         </span>
-                     </div>  
-                  
-                 </div>
-          </div>
-		  </c:forEach>
-        </div> 
-      </div>
-      </div>
-  </div>
-  <footer class="footer">
+            </div>
+        </div>
+	</div>
+	<footer class="footer">
       <div class="container">
         <p>KuPRA</p>
       </div>
     </footer>
-
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.carousel').carousel({ interval: 7000 });
-        });
-</script>
+	
 </body>
-
-
 </html>
