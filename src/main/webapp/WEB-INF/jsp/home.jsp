@@ -35,7 +35,7 @@
                 </div>
                 <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav custom-navbar">
-                        <li><a href="add-recept">Ikelti recepta</a></li>
+                        <li><a href="recipeadd">Ikelti recepta</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
@@ -102,10 +102,10 @@
      <div class="recipies-content">
         <div class="container">
          <h3>Populiariausi receptai</h3>
-          <div class='row equal'>
+          <div class='row'>
          <c:forEach var="recipe" items="${topRecipes}">
 			<div class='col-md-3'>
-              <div class="panel panel-default  panel-custom" >
+              <div class=" panel panel-default  panel-custom" >
 			    <!-- Recipe image -->
                 <img src="<c:url value="/resources/pie.jpg"/>" class="img-responsive image-size"/>
                 <div class="made-recipe-user-name">
@@ -117,9 +117,9 @@
                      <a href="../app/recipe/${recipe.recId}"><p class="recipe-name" >${recipe.name}</p></a>
                  </div>
 				 <!-- Recipe description -->
-                 <div class="recipe-info-box">
+              <!--   <div class="recipe-info-box">
                        <span>${recipe.description}</span>
-                 </div>
+                 </div> -->
 				 <!-- Recipe rating/ people rating -->
                  <div class="recipe-rating-box">
                          <span>

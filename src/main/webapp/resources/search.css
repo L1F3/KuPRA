@@ -16,23 +16,7 @@ body {
     margin-bottom: 60px;
 }
 
-/*Meniu*/
-#page-content-wrapper .navbar {
-    background-color: rgba(255, 255, 255, 0.9);
-}
 
-#page-content-wrapper .navbar-default {
-    border: none;
-}
-
-.navbar-default .navbar-nav > li > a {
-    color: #000;
-}
-
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-    color: #fff;
-    background-color: #0965aa;
-}
 
 /* Recipe's tile */
 .recipe-tile {
