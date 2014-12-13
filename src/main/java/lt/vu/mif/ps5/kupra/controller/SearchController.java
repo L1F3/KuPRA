@@ -49,5 +49,10 @@ public class SearchController {
 		}
 		return new ModelAndView("searchresults").addObject("recipes", recipes);
 	}
-	
+
+	@RequestMapping(value = "/search/{user}/{key}", method = RequestMethod.POST)
+	public ModelAndView searchDo(@PathVariable String key, @PathVariable long user) {
+		List<Recipe> recipes = recipeService.getByNameFromUser(user, key);
+		return new ModelAndView("searchresults").addObject("recipes", recipes);
+	}
 }

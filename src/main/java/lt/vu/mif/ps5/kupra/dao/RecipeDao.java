@@ -11,4 +11,5 @@ public interface RecipeDao extends GenericDao<Recipe> {
 	List<Recipe> getTop();
 	List<Recipe> getForUser(User user);
 	List<Recipe> getByName(String key);
+	List<Recipe> getByNameFromUser(long user, String key);
 }
