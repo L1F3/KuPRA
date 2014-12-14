@@ -34,5 +34,9 @@ public class UserDaoImpl extends GenericDaoImpl<User> implements UserDao {
         }
         return null;
     }
+    
+    public Set<Fridge> getUserFridgeItems(String loginname) {
+    	
+    }
 
 }

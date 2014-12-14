@@ -30,6 +30,17 @@ public class Unit {
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="unit")
 	private Set<Ingredient> ingredients = new HashSet<Ingredient>();       
 
+	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="unit")
+	private Set<Fridge> fridgeItems = new HashSet<Fridge>();       
+
+	public Set<Fridge> getFridgeItems() {
+		return fridgeItems;
+	}
+
+	public void setFridgeItems(Set<Fridge> fridgeItems) {
+		this.fridgeItems = fridgeItems;
+	}
+
 	public Set<Ingredient> getIngredients() {
 		return ingredients;
 	}

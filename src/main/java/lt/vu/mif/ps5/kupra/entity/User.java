@@ -86,9 +86,20 @@ public class User {
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="user")
 	private Set<Recipe> recipies = new HashSet<Recipe>();
 	// Get / Set
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="user")
+	private Set<Fridge> fridgeItems = new HashSet<Fridge>();
 
 	//private Set<Recipe> meals = new HashSet<Recipe>();
 	
+	public Set<Fridge> getFridgeItems() {
+		return fridgeItems;
+	}
+
+	public void setFridgeItems(Set<Fridge> fridgeItems) {
+		this.fridgeItems = fridgeItems;
+	}
+
 	public long getUserId() {
 		return userId;
 	}

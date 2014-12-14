@@ -27,14 +27,17 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long productId;
 	
-	@Column(length = 30, name= "product_name")
-	private String product_name;
+	@Column(length = 30, name= "name")
+	private String name;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="product")
 	private Set<Ingredient> ingredients = new HashSet<Ingredient>();                        
+
+
+	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="product")
+	private Set<Fridge> fridgeItems = new HashSet<Fridge>();                        
 	
-	
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(name = "unit_product",
             joinColumns = {
                 @JoinColumn(name = "productId")},
@@ -42,8 +45,8 @@ public class Product {
                 @JoinColumn(name = "unitId")})
 	private Set<Unit> unitsSet = new HashSet<Unit>();
 
-	@Column(length = 2000, name="product_description")
-	private String product_description;
+	@Column(length = 2000, name="description")
+	private String description;
 	
 	@Column(name = "imgName")
     private String imgName;
@@ -58,7 +61,48 @@ public class Product {
 	/*@ManyToOne
 	@JoinColumn(name="recipeId")
 	private Recipe recipe;*/
+
 	
+    public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Set<Ingredient> getIngredients() {
+		return ingredients;
+	}
+
+	public void setIngredients(Set<Ingredient> ingredients) {
+		this.ingredients = ingredients;
+	}
+
+	public Set<Fridge> getFridgeItems() {
+		return fridgeItems;
+	}
+
+	public void setFridgeItems(Set<Fridge> fridgeItems) {
+		this.fridgeItems = fridgeItems;
+	}
+
+	public Set<Unit> getUnitsSet() {
+		return unitsSet;
+	}
+
+	public void setUnitsSet(Set<Unit> unitsSet) {
+		this.unitsSet = unitsSet;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public void setProductId(long productId) {
         this.productId = productId;
     }
@@ -66,15 +110,7 @@ public class Product {
 	public long getProductId() {
         return productId;
     }
-    
-	public String getName() {
-	        return product_name;
-	    }
-
-	public void setName(String product_name) {
-	        this.product_name = product_name;
-	    }
-	 
+   
 	 /*public Set<Unit> getUnits(){ 
 		 return unitsSet;
 	 }
@@ -82,16 +118,6 @@ public class Product {
 	 public void setUnits( Set<Unit> unitsSet){
 		 this.unitsSet = unitsSet;
 	 }*/
-
-	 public String getDescription() {
-	        return product_description;
-	    }
-
-	   
-	 public void setDescription(String product_description) {
-	        this.product_description = product_description;
-	    }
-	 
 	 
 	 public String getImgName() {
 	        return imgName;

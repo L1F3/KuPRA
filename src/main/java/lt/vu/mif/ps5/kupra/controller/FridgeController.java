@@ -1,4 +1,4 @@
-/*package lt.vu.mif.ps5.kupra.controller;
+package lt.vu.mif.ps5.kupra.controller;
 
 import java.util.logging.Logger;
 
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 public class FridgeController {
-	static Logger log = Logger.getLogger(RegisterController.class.getName());
+	static Logger log = Logger.getLogger(FridgeController.class.getName());
 
     private final ProductService productService;
     private final UnitService unitService;
@@ -22,10 +22,10 @@ public class FridgeController {
         this.unitService = unitService;
     }
     
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    @RequestMapping(value = "/fridge/available", method = RequestMethod.GET)
     public ModelAndView fridgePage() {
-    	Set<UserProduct> userProductSet = 
-    	return new ModelAndView("fridge").addObject(attributeValue);
+    	
+    	return new ModelAndView("fridge");
     }
     
-}*/
+}
