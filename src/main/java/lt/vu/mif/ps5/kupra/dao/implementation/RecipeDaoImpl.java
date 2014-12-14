@@ -5,14 +5,17 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import lt.vu.mif.ps5.kupra.dao.RecipeDao;
+import lt.vu.mif.ps5.kupra.entity.Fridge;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.User;
 
@@ -58,13 +61,19 @@ public class RecipeDaoImpl extends GenericDaoImpl<Recipe> implements RecipeDao {
 		return recipes;
 	}
 	
-	public List<Recipe> getByNameFromUser(long user, String key) {
+	public List<Recipe> getRecipesByContainingProducts(Set<Fridge> fridgeItems, User user) {
 		Session sess = getSession();
 		List<Recipe> recipes = new ArrayList<Recipe>();
-		recipes = (List<Recipe>)sess.createCriteria(Recipe.class).
-				add(Restrictions.like("name", "%"+key+"%")).
-				add(Restrictions.eq("userId", user)).
-				list();
-		return recipes;
+		Criteria criteria = sess.createCriteria(Recipe.class).
+				createAlias("ingredients", "ingredients").
+				add(Restrictions.like("loginname", user.getName()));
+
+		Disjunction disjunction = Restrictions.disjunction();
+		
+		for (Fridge item : fridgeItems) {
+			disjunction.add(Restrictions.eq("ingredients.productId", item.getProduct().getProductId()));
+		}
+		criteria.add(disjunction);
+		return criteria.list();
 	}
 }
