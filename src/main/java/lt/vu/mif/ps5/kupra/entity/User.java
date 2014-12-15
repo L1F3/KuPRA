@@ -22,6 +22,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -84,10 +87,12 @@ public class User {
 	
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="user")
+	@Fetch (FetchMode.SELECT)
 	private Set<Recipe> recipies = new HashSet<Recipe>();
 	// Get / Set
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="user")
+	@Fetch (FetchMode.SELECT)
 	private Set<Fridge> fridgeItems = new HashSet<Fridge>();
 
 	//private Set<Recipe> meals = new HashSet<Recipe>();

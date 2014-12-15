@@ -1,8 +1,10 @@
 package lt.vu.mif.ps5.kupra.dao.implementation;
 
 import java.util.List;
+import java.util.Set;
 
 import lt.vu.mif.ps5.kupra.dao.UserDao;
+import lt.vu.mif.ps5.kupra.entity.Fridge;
 import lt.vu.mif.ps5.kupra.entity.User;
 
 import org.hibernate.Session;
@@ -35,8 +37,7 @@ public class UserDaoImpl extends GenericDaoImpl<User> implements UserDao {
         return null;
     }
     
-    public Set<Fridge> getUserFridgeItems(String loginname) {
-    	
+    public Set<Fridge> getUserFridgeItems(User user) {
+    	return user.getFridgeItems();
     }
-
 }

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.rowset.serial.SerialBlob;
 import javax.validation.Valid;
 
+import lt.vu.mif.ps5.kupra.entity.Fridge;
 import lt.vu.mif.ps5.kupra.entity.Image;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.User;
@@ -56,6 +57,21 @@ public class RecipeController {
 		return new ModelAndView("recipelist").addObject("recipes", recipes);
 	}
 
+	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
+	@RequestMapping(value = "/recipe/available", method = RequestMethod.GET)
+	public ModelAndView recipesAvailableList() {
+
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		User user = userService.getUserByLoginname(auth.getName());
+		Set<Fridge> fridgeItems = user.getFridgeItems();
+		List<Recipe> recipes = recipeService.getRecipesByContainingProducts(fridgeItems, user);
+		for (Recipe recipe : recipes) {
+			System.out.println(recipe.getRecId() + recipe.getName());
+		}
+		return new ModelAndView("recipelist").addObject("recipes", recipes);
+	}
+	
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
 	@RequestMapping(value = "/recipe/user", method = RequestMethod.GET)
 	public ModelAndView recipesOfUserList() {

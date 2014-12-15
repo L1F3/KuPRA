@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import lt.vu.mif.ps5.kupra.dao.UserDao;
+import lt.vu.mif.ps5.kupra.entity.Fridge;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.Role;
 import lt.vu.mif.ps5.kupra.entity.User;
@@ -132,5 +133,10 @@ public class UserServiceImpl implements UserService {
 	@Transactional(readOnly = true)
 	public User getUserByLoginname(String loginname) {
 		return userDao.getUserByLoginname(loginname);
+	}
+
+	@Transactional(readOnly = true)
+	public Set<Fridge> getUserFridgeItems(User user) {
+		return userDao.getUserFridgeItems(user);
 	}
 }

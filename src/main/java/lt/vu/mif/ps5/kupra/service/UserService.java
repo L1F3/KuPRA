@@ -4,6 +4,7 @@ import java.sql.Blob;
 import java.util.List;
 import java.util.Set;
 
+import lt.vu.mif.ps5.kupra.entity.Fridge;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.Role;
 import lt.vu.mif.ps5.kupra.entity.User;
@@ -30,4 +31,6 @@ public interface UserService {
 	Set<Recipe> getMeals();
 	
 	public User getUserByLoginname(String loginname);
+	
+	public Set<Fridge> getUserFridgeItems(User user);
 }

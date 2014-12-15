@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 import lt.vu.mif.ps5.kupra.dao.RecipeDao;
+import lt.vu.mif.ps5.kupra.entity.Fridge;
 import lt.vu.mif.ps5.kupra.entity.Image;
 import lt.vu.mif.ps5.kupra.entity.Product;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
@@ -81,5 +82,10 @@ public class RecipeServiceImpl implements RecipeService {
 	@Transactional(readOnly = true)
 	public List<Recipe> getByNameFromUser(long user, String key) {
 		return recipeDao.getByNameFromUser(user, key);
+	}
+
+	@Transactional(readOnly = true)
+	public List<Recipe> getRecipesByContainingProducts(Set<Fridge> fridgeItems, User user) {
+		return recipeDao.getRecipesByContainingProducts(fridgeItems, user);
 	}
 }
