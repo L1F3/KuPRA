@@ -67,7 +67,7 @@
 		  <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <form:form method="POST" class="form-horizontal" role="form" modelAttribute="recipeForm" enctype="multipart/form-data">
+                    <form:form method="POST" action="home" class="form-horizontal" role="form" modelAttribute="recipeForm" enctype="multipart/form-data">
                         <div class="form-horizontal add-recepts-header">
                             <h1>Receptu pridejimas</h1>
                         </div>

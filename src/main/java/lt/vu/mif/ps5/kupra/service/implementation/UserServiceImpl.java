@@ -119,7 +119,7 @@ public class UserServiceImpl implements UserService {
 
 	@Transactional(readOnly = true)
 	public Set<Recipe> getMeals(User user) {
-		userDao.getMeals(user);
+		userDao.getUserMeals(user);
 		return null;
 	}
 

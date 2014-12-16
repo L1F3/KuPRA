@@ -88,4 +88,9 @@ public class RecipeServiceImpl implements RecipeService {
 	public List<Recipe> getRecipesByContainingProducts(Set<Fridge> fridgeItems, User user) {
 		return recipeDao.getRecipesByContainingProducts(fridgeItems, user);
 	}
+
+	@Transactional(readOnly = true)
+	public Image getDefaultImage() {
+		return recipeDao.getDefaultImage();
+	}
 }

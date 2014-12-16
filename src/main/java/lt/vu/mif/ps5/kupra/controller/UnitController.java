@@ -40,6 +40,13 @@ public class UnitController {
     public Unit createUnitModel() {
         return new Unit();
     }
+
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+    @RequestMapping(value = "/unit/all", method = RequestMethod.GET)
+    public ModelAndView unitAllPage() {
+    	List<Unit> units = unitService.getAll();
+        return new ModelAndView("units").addObject("units", units);
+    }
     
     @Secured({"ROLE_USER", "ROLE_ADMIN"})
     @RequestMapping(value = "/unit", method = RequestMethod.GET)

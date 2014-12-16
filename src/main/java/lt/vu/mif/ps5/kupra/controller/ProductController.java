@@ -3,6 +3,7 @@ package lt.vu.mif.ps5.kupra.controller;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import javax.validation.Valid;
 
@@ -41,6 +42,13 @@ public class ProductController {
     @ModelAttribute("product")
     public Product createProductModel() {
         return new Product();
+    }
+    
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+    @RequestMapping(value = "/product/all", method = RequestMethod.GET)
+    public ModelAndView productsAllPage() {
+    	List<Product> products = productService.getAll();
+        return new ModelAndView("products").addObject("products", products);
     }
 
     @Secured({"ROLE_USER", "ROLE_ADMIN"})

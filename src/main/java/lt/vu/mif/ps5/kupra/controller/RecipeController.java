@@ -54,7 +54,7 @@ public class RecipeController {
 	@RequestMapping(value = "/recipe/all", method = RequestMethod.GET)
 	public ModelAndView recipesList() {
 		List<Recipe> recipes = recipeService.getAll();
-		return new ModelAndView("recipelist").addObject("recipes", recipes);
+		return new ModelAndView("search").addObject("recipes", recipes);
 	}
 
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
@@ -65,13 +65,14 @@ public class RecipeController {
 				.getAuthentication();
 		User user = userService.getUserByLoginname(auth.getName());
 		Set<Fridge> fridgeItems = user.getFridgeItems();
-		List<Recipe> recipes = recipeService.getRecipesByContainingProducts(fridgeItems, user);
+		List<Recipe> recipes = recipeService.getRecipesByContainingProducts(
+				fridgeItems, user);
 		for (Recipe recipe : recipes) {
 			System.out.println(recipe.getRecId() + recipe.getName());
 		}
 		return new ModelAndView("recipelist").addObject("recipes", recipes);
 	}
-	
+
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
 	@RequestMapping(value = "/recipe/user", method = RequestMethod.GET)
 	public ModelAndView recipesOfUserList() {
@@ -109,9 +110,24 @@ public class RecipeController {
 				response.setContentType(image.getImgType());
 				int width = 150, height = 150;
 				BufferedImage bufimage = ImageIO.read(image.getImg()
-						.getBinaryStream());// You can use InputStream as well
-											// here,
-											// in place of source file
+						.getBinaryStream());
+
+				BufferedImage thumbnail = Scalr.resize(bufimage,
+						Scalr.Method.SPEED, Scalr.Mode.FIT_TO_HEIGHT, width,
+						height, Scalr.OP_ANTIALIAS);
+				ImageIO.write(thumbnail, "jpg", out);
+				out.flush();
+				out.close();
+			} else {
+				Image image = recipeService.getDefaultImage();
+				response.setHeader("Content-Disposition", "inline;filename=\""
+						+ image.getImgName() + "\"");
+				OutputStream out = response.getOutputStream();
+				response.setContentType(image.getImgType());
+				int width = 150, height = 150;
+				BufferedImage bufimage = ImageIO.read(image.getImg()
+						.getBinaryStream());
+
 				BufferedImage thumbnail = Scalr.resize(bufimage,
 						Scalr.Method.SPEED, Scalr.Mode.FIT_TO_HEIGHT, width,
 						height, Scalr.OP_ANTIALIAS);
@@ -144,9 +160,8 @@ public class RecipeController {
 				response.setContentType(image.getImgType());
 				int width = 250, height = 250;
 				BufferedImage bufimage = ImageIO.read(image.getImg()
-						.getBinaryStream());// You can use InputStream as well
-											// here,
-											// in place of source file
+						.getBinaryStream());
+
 				BufferedImage thumbnail = Scalr.resize(bufimage,
 						Scalr.Method.SPEED, Scalr.Mode.FIT_TO_HEIGHT, width,
 						height, Scalr.OP_ANTIALIAS);
