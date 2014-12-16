@@ -116,12 +116,12 @@
 
                 </div>
                 <div class="col-md-9 container ">
-					<div class='row'>
+					<div class="row">
 						
-							<div class='col-md-3  size-of-panel'>
-								<div class=" panel panel-default  panel-custom" >
+							<div class="col-md-3">
+								<div class="panel panel-default panel-custom" >
 									<!-- Recipe image -->
-									<center><img src="recipe/image/${recipe.recId}/thumb2" class="img-responsive image-size"/></center>
+									<center><img src="recipe/image/${recipe.recId}/thumb2" class="img-responsive" id="search-tile-thumbnail"/></center>
 									<div class="made-recipe-user-name">
 									<!-- Recipe creator -->
 										<span>${recipe.user.username}</span>

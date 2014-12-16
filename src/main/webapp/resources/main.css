@@ -6,6 +6,7 @@ html {
   min-height: 100%;
 }
 body {
+    position: relative;
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
@@ -278,7 +279,7 @@ body {
 }
 
 .profile-image-block {
-    float: right;
+    float: left;
 }
 
 .custom-tab {
@@ -825,4 +826,9 @@ div#showingOrder-form-wrapper {
 
 .user-search {
     margin-bottom:40px;
+}
+
+img#search-tile-thumbnail {
+    height: auto;
+    width: 100%;
 }
