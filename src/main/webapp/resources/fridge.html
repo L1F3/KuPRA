@@ -66,7 +66,7 @@
 				
                     <div class='col-md-3'>
 						<button type="button" class="btn btn-default col-xs-12">Ieškoti pagal pažymėtus produktus</button>
-						<button type="button" class="btn btn-default col-xs-12" style="margin-top:30px">Pridėti produktą</button>
+						<button type="button" class="btn btn-default col-xs-12" style="margin-top:30px" data-toggle="modal" data-target="#produktas">Pridėti produktą</button>
 						<button type="button" class="btn btn-default col-xs-12" style="margin-top:30px">Trinti pažymėtus</button>
 						<button type="button" class="btn btn-default col-xs-12" style="margin-top:30px">Išsaugoti</button>
                     </div>
@@ -85,7 +85,7 @@
 										<td><input type="checkbox" class="checkthis" /></td>
 										<td>Morka</td>
 										<td>
-											<input type="text" class="fridge-text-field" value="7" > </input>
+											<input type="text" class="fridge-text-field"/>
 											<span class="fridge-row">kg</span>
 										</td>
 									</tr>
@@ -124,6 +124,55 @@
                 </div>
             </div>
         </div>
+		
+		<div class="modal fade" id="produktas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-vertical-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Pridėti produktą</h4>
+					</div>
+					<div class="modal-body" style="height:400px">
+
+						<div class="add-recept-form container">
+							<div class="row">
+								<div class="col-md-6">
+									<form class="form-horizontal" role="form">
+										<div class="form-group">
+											<label for="recept-name" class="col-md-3 control-label">Pavadinimas</label>
+											<div class="col-md-7">
+												<input type="text" class="form-control" id="recept-name" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="recept-name" class="col-md-3 control-label">Kiekis</label>
+											<div class="col-md-7">
+												<input type="text" class="form-control" id="recept-name" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="recept-name" class="col-md-3 control-label">Matavimo vienetas</label>
+											<div class="col-md-7">
+												<select class="form-control">
+													<option value="kg">kg</option>
+													<option value="vnt">vnt</option>
+												</select> 
+											</div>
+										</div>
+										<div class="save-button-wrapper">
+											<button class="button">Pridėti</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
     </div>
 
     <footer class="footer">
