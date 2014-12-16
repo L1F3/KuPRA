@@ -15,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -76,8 +77,8 @@ public class User {
             joinColumns = {
                 @JoinColumn(name = "userId")},
             inverseJoinColumns = {
-                @JoinColumn(name = "recipeId")})
-    private Set<Recipe> meals;
+                @JoinColumn(name = "recId")})
+    private Set<Recipe> meals = new HashSet<Recipe>(0);
 
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="user")
 	@Fetch (FetchMode.SELECT)

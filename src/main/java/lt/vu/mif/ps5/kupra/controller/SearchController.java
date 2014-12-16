@@ -45,9 +45,6 @@ public class SearchController {
 	@RequestMapping(value = "/search/all", method = RequestMethod.POST)
 	public ModelAndView searchDo(@ModelAttribute("key") String key) {
 		List<Recipe> recipes = recipeService.getByName(key);
-		for (Recipe recipe : recipes) {
-			System.out.println(recipe.getName());
-		}
 		return new ModelAndView("search").addObject("recipes", recipes);
 	}
 

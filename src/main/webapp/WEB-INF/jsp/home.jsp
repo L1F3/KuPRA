@@ -39,8 +39,8 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="recipe/all">Visi Receptai</a></li>
-                                <li><a href="recipe/user">Mano receptia</a></li>
+                                <li><a href="search/all">Visi Receptai</a></li>
+                                <li><a href="search/user">Mano receptia</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -50,7 +50,7 @@
                                 <li><a href="unit/all">Matavimo vienetai</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Šaldytuvas</a></li>
+                        <li><a href="fridge/list">Šaldytuvas</a></li>
                         <li><a href="#">Valgiaraštis</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right custom-navbar">

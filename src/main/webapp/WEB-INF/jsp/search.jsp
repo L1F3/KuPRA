@@ -25,7 +25,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                      <a class="navbar-brand" href="home">
+                      <a class="navbar-brand" href="../home">
 					    <!-- System brand -->
                         <p class="brand">
                             <img src="<c:url value="/resources/svg/brand.svg"/>" />KuPRA
@@ -34,12 +34,12 @@
                 </div>
                 <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="add-recept">Ikelti recepta</a></li>
+                        <li><a href="../recipe">Ikelti recepta</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Visi Receptai</a></li>
-                                <li><a href="#">Mano receptia</a></li>
+                                <li><a href="all">Visi Receptai</a></li>
+                                <li><a href="user">Mano receptia</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -115,20 +115,21 @@
                     </div>
 
                 </div>
-                <div class="col-md-9 container ">
+				<div class="col-md-9 container ">
 					<div class="row">
 						
+						<c:forEach var="recipe" items="${recipes}">
 							<div class="col-md-3">
 								<div class="panel panel-default panel-custom" >
 									<!-- Recipe image -->
-									<center><img src="recipe/image/${recipe.recId}/thumb2" class="img-responsive" id="search-tile-thumbnail"/></center>
+									<center><img src="../recipe/image/${recipe.recId}/thumb2" class="img-responsive" id="search-tile-thumbnail"/></center>
 									<div class="made-recipe-user-name">
 									<!-- Recipe creator -->
 										<span>${recipe.user.username}</span>
 									</div>
 									<!-- Recipe name -->
 									<div class="recipe-name-box">
-										<a href="../app/recipe/${recipe.recId}"><p class="recipe-name" >${recipe.name}</p></a>
+										<a href="../recipe/${recipe.recId}"><p class="recipe-name" >${recipe.name}</p></a>
 									</div>
 									<!-- Recipe description -->
 									<!--   <div class="recipe-info-box">
@@ -148,7 +149,7 @@
                   
 								</div>
 							</div>
-						
+						</c:forEach>
 					</div> 
                 </div>
             </div>

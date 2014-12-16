@@ -9,6 +9,7 @@ import lt.vu.mif.ps5.kupra.service.RecipeService;
 import lt.vu.mif.ps5.kupra.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -31,17 +32,21 @@ public class MealsController {
 		this.recipeService = recipeService;
 	}
 
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
 	@RequestMapping(value = "/meals", method = RequestMethod.GET)
 	public ModelAndView mealsList() {
 
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
 		User user = userService.getUserByLoginname(auth.getName());
-
-		return new ModelAndView("meals").addObject("meals",
-				userService.getMeals(user));
+		Set<Recipe> meals = userService.getMeals(user);
+		for (Recipe meal : meals) {
+			System.out.println(meal.getName());
+		}
+		return new ModelAndView("meals").addObject("meals", meals);
 	}
-	
+
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
 	@RequestMapping(value = "/meals/add/{id}", method = RequestMethod.GET)
 	public ModelAndView addMeal(@PathVariable long id) {
 
