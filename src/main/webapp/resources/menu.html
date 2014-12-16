@@ -28,10 +28,10 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="home">
-                        <!-- System brand -->
-                        <!--   <p class="brand">
+                        <!--System brand -->
+                         <p class="brand">
                           <img class="brand" src="<c:url value="/resources/svg/brand.svg"/>" />KuPRA
-						</p> -->
+						</p> 
                     </a>
                 </div>
                 <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
@@ -64,8 +64,7 @@
         <div class="menu-wrap">
             <div class="row">
                 <div class="container">
-                    <h3>Pirmasis valgiaraštis</h3>
-                    <div class='row'>
+                    <div class='row'>   
                         <div class='col-sm-3'>
                             <div class="panel panel-default  panel-custom">
                                 <img src="pie.jpg" class="img-responsive image-size" />
@@ -73,11 +72,10 @@
                                     <a href="#">Jonas Jonaitis</a>
                                 </div>
                                 <div class="recipe-name-box">
-                                    <a href="#">
-                                        <p class="recipe-name">Želė</p>
-                                    </a>
+                                    <p class="recipe-name">Želė</p>
                                 </div>
                                 <div class="recipe-rating-box">
+                                    <!--Vertinimo skalė -->
                                     <div class="dropdown-menu-style">
                                             <select>
                                                 <option>1</option>
@@ -92,30 +90,30 @@
                                                 <option>10</option>
                                             </select>
                                         </div>
-                                </div>
-                                </div>
-                            </div>
-                        
-                        <div class='col-sm-3'>
-                            <div class="panel panel-default  panel-custom">
-                                <img src="pie.jpg" class="img-responsive image-size" />
-                                <div class="made-recipe-user-name">
-                                    <a href="#">Jonas Jonaitis</a>
-                                </div>
-                                <div class="recipe-name-box">
-                                    <p class="recipe-name">Želė</p>
-                                </div>
-                                <div class="recipe-rating-box">
                                     <span>
                                         <img src="star.svg" class="img-responsive rating-icon" />
+                                         <!-- Rating -->
                                         <p class="recipe-rating">7</p>
                                     </span>
                                     <span>
                                         <img src="people.svg" class="img-responsive rating-icon" />
+                                        <!--Raitng people -->
                                         <p class="rating-people">80</p>
                                     </span>
                                 </div>
-
+                                <div class="create_vote_buttons">
+                                    <!-- Create a meal button --> 
+                                    <button id="create_meal" class="btn btn-lg btn-warn">Gaminti</button>
+                                    <!--Rate btton -->
+                                     <button type="button" class="btn btn-default">
+                                        <span>Vertinti </span>
+                                    </button>
+                                </div>
+                                <div class="date">
+                                     <!--Date  -->
+                                    <span class="manu_date">Gaminimo data</span>
+                                    <span class="created_date">2014-12-13 16:37</span>
+                                </div>
                             </div>
                         </div>
                         <div class='col-sm-3'>
@@ -128,16 +126,45 @@
                                     <p class="recipe-name">Želė</p>
                                 </div>
                                 <div class="recipe-rating-box">
+                                    <!--Vertinimo skalė -->
+                                    <div class="dropdown-menu-style">
+                                            <select>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                                <option>7</option>
+                                                <option>8</option>
+                                                <option>9</option>
+                                                <option>10</option>
+                                            </select>
+                                        </div>
                                     <span>
                                         <img src="star.svg" class="img-responsive rating-icon" />
+                                         <!-- Rating -->
                                         <p class="recipe-rating">7</p>
                                     </span>
                                     <span>
                                         <img src="people.svg" class="img-responsive rating-icon" />
+                                        <!--Raitng people -->
                                         <p class="rating-people">80</p>
                                     </span>
                                 </div>
-
+                                <div class="create_vote_buttons">
+                                    <!-- Create a meal button --> 
+                                    <button id="Button1" class="btn btn-lg btn-warn">Gaminti</button>
+                                    <!--Rate btton -->
+                                     <button type="button" class="btn btn-default">
+                                        <span>Vertinti </span>
+                                    </button>
+                                </div>
+                                <div class="date">
+                                     <!--Date  -->
+                                    <span class="manu_date">Gaminimo data</span>
+                                    <span class="created_date">2014-12-13 16:37</span>
+                                </div>
                             </div>
                         </div>
                         <div class='col-sm-3'>
@@ -150,116 +177,101 @@
                                     <p class="recipe-name">Želė</p>
                                 </div>
                                 <div class="recipe-rating-box">
+                                    <!--Vertinimo skalė -->
+                                    <div class="dropdown-menu-style">
+                                            <select>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                                <option>7</option>
+                                                <option>8</option>
+                                                <option>9</option>
+                                                <option>10</option>
+                                            </select>
+                                        </div>
                                     <span>
                                         <img src="star.svg" class="img-responsive rating-icon" />
+                                         <!-- Rating -->
                                         <p class="recipe-rating">7</p>
                                     </span>
                                     <span>
                                         <img src="people.svg" class="img-responsive rating-icon" />
+                                        <!--Raitng people -->
                                         <p class="rating-people">80</p>
                                     </span>
                                 </div>
+                                <div class="create_vote_buttons">
+                                    <!-- Create a meal button --> 
+                                    <button id="Button2" class="btn btn-lg btn-warn">Gaminti</button>
+                                    <!--Rate btton -->
+                                     <button type="button" class="btn btn-default">
+                                        <span>Vertinti </span>
+                                    </button>
+                                </div>
+                                <div class="date">
+                                     <!--Date  -->
+                                    <span class="manu_date">Gaminimo data</span>
+                                    <span class="created_date">2014-12-13 16:37</span>
+                                </div>
                             </div>
                         </div>
+                        <div class='col-sm-3'>
+                            <div class="panel panel-default  panel-custom">
+                                <img src="pie.jpg" class="img-responsive image-size" />
+                                <div class="made-recipe-user-name">
+                                    <a href="#">Jonas Jonaitis</a>
+                                </div>
+                                <div class="recipe-name-box">
+                                    <p class="recipe-name">Želė</p>
+                                </div>
+                                <div class="recipe-rating-box">
+                                    <!--Vertinimo skalė -->
+                                    <div class="dropdown-menu-style">
+                                            <select>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                                <option>7</option>
+                                                <option>8</option>
+                                                <option>9</option>
+                                                <option>10</option>
+                                            </select>
+                                        </div>
+                                    <span>
+                                        <img src="star.svg" class="img-responsive rating-icon" />
+                                         <!-- Rating -->
+                                        <p class="recipe-rating">7</p>
+                                    </span>
+                                    <span>
+                                        <img src="people.svg" class="img-responsive rating-icon" />
+                                        <!--Raitng people -->
+                                        <p class="rating-people">80</p>
+                                    </span>
+                                </div>
+                                <div class="create_vote_buttons">
+                                    <!-- Create a meal button --> 
+                                    <button id="Button3" class="btn btn-lg btn-warn">Gaminti</button>
+                                    <!--Rate btton -->
+                                     <button type="button" class="btn btn-default">
+                                        <span>Vertinti </span>
+                                    </button>
+                                </div>
+                                <div class="date">
+                                     <!--Date  -->
+                                    <span class="manu_date">Gaminimo data</span>
+                                    <span class="created_date">2014-12-13 16:37</span>
+                                </div>
+                            </div>
+                        </div>
+                       
                     </div>
                 </div>
-                <div class="container">
-                    <h3>Antrasis valgiaraštis</h3>
-                    <div class='row'>
-                        <div class='col-sm-3'>
-                            <div class="panel panel-default  panel-custom">
-                                <img src="pie.jpg" class="img-responsive image-size" />
-                                <div class="made-recipe-user-name">
-                                    <a href="#">Jonas Jonaitis</a>
-                                </div>
-                                <div class="recipe-name-box">
-                                    <a href="HTMLPage1.html">
-                                        <p class="recipe-name">Želė</p>
-                                    </a>
-                                </div>
-                                <div class="recipe-rating-box">
-                                    <span>
-                                        <img src="star.svg" class="img-responsive rating-icon" />
-                                        <p class="recipe-rating">7</p>
-                                    </span>
-                                    <span>
-                                        <img src="people.svg" class="img-responsive rating-icon" />
-                                        <p class="rating-people">80</p>
-                                    </span>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class='col-sm-3'>
-                            <div class="panel panel-default  panel-custom">
-                                <img src="pie.jpg" class="img-responsive image-size" />
-                                <div class="made-recipe-user-name">
-                                    <a href="#">Jonas Jonaitis</a>
-                                </div>
-                                <div class="recipe-name-box">
-                                    <p class="recipe-name">Želė</p>
-                                </div>
-                                <div class="recipe-rating-box">
-                                    <span>
-                                        <img src="star.svg" class="img-responsive rating-icon" />
-                                        <p class="recipe-rating">7</p>
-                                    </span>
-                                    <span>
-                                        <img src="people.svg" class="img-responsive rating-icon" />
-                                        <p class="rating-people">80</p>
-                                    </span>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class='col-sm-3'>
-                            <div class="panel panel-default  panel-custom">
-                                <img src="pie.jpg" class="img-responsive image-size" />
-                                <div class="made-recipe-user-name">
-                                    <a href="#">Jonas Jonaitis</a>
-                                </div>
-                                <div class="recipe-name-box">
-                                    <p class="recipe-name">Želė</p>
-                                </div>
-                                <div class="recipe-rating-box">
-                                    <span>
-                                        <img src="star.svg" class="img-responsive rating-icon" />
-                                        <p class="recipe-rating">7</p>
-                                    </span>
-                                    <span>
-                                        <img src="people.svg" class="img-responsive rating-icon" />
-                                        <p class="rating-people">80</p>
-                                    </span>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class='col-sm-3'>
-                            <div class="panel panel-default  panel-custom">
-                                <img src="pie.jpg" class="img-responsive image-size" />
-                                <div class="made-recipe-user-name">
-                                    <a href="#">Jonas Jonaitis</a>
-                                </div>
-                                <div class="recipe-name-box">
-                                    <p class="recipe-name">Želė</p>
-                                </div>
-                                <div class="recipe-rating-box">
-                                    <span>
-                                        <img src="star.svg" class="img-responsive rating-icon" />
-                                        <p class="recipe-rating">7</p>
-                                    </span>
-                                    <span>
-                                        <img src="people.svg" class="img-responsive rating-icon" />
-                                        <p class="rating-people">80</p>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
             </div>
         </div>
     </div>
@@ -269,5 +281,18 @@
             <p class="text-muted">Place sticky footer content here.</p>
         </div>
     </footer>
+
+    <script>
+        var popupElement1 = 
+           ' <div class="container"> Porcijų kiekis <input type="text" name="servings" size="4"/></div><div class="container"><span style="color:green">Produktų turite pakankamai</span><a type="button" class="accept-serving">Patvirtinti</a> </div>';
+        var popupElement2 =
+           ' <div class="container"> Porcijų kiekis <input type="text" name="servings" size="4"/></div><div class="container"><span style="color:red">Truksta produktų</span><a type="button" style="padding-left:10px" class="accept-serving">Šaldytuvas</a> </div> <div class="container row"><div class="span4"><div>Kiauliena 10g</div> <div>Kiauliena 20g</div></div>';
+
+        $('#create_meal').popover({
+            animation: true,
+            content: popupElement2,
+            html: true
+        });
+    </script>
 </body>
 </html>

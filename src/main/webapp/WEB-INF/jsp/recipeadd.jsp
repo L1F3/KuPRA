@@ -10,7 +10,7 @@
     <link href="<c:url value="/resources/normalize.css" />" rel="stylesheet" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-    <script src="<c:url value="/resources/connect.js" />"></script>
+    <script src="<c:url value="/resources/addRecipe.js" />"></script>
 </head>
 <body>
 
@@ -78,18 +78,36 @@
 								<form:errors path="name" cssClass="error" />
                             </div>
                         </div>
+						<div class="form-group">
+                            <label for="recept-name" class="col-md-3 col-sm-3 control-label">Gamybos trukmė</label>
+                            <div class="col-md-3 col-sm-3">
+                                <input type="text" class="form-control" id="recept-name" placeholder="" name="" />
+								<form:errors path="" cssClass="error" />
+                            </div>
+							<label for="recept-name" class="col-md-3 col-sm-3 control-label">Porcijų skaičius</label>
+							 <div class="col-md-3 col-sm-3">
+                                <input type="text" class="form-control" id="recept-name" placeholder="" name="" />
+								<form:errors path="" cssClass="error" />
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="recept-name" class="col-md-2 control-label">Nuotraukos</label>
                             <div class="col-md-10">
-								<input type="file" id="file" name="file"/>
+								<!--<input type="file" id="file" name="file"/>-->
+								<form class="form-horizontal">
+									<div class="text-box form-group container">
+											<div class="col-md-4"><input type="file" class="" name="txtImage[]" id="imageinput"></div>
+									</div>
+								</form>
+								<a class= "add-image-box col-md-12">Pridėti dar nuotraukų </a>
                             </div>
+							
                         </div>
                         <div class="form-group ingredients-form ">
                             <label for="ingredients" class="col-sm-2 control-label">Ingridientai</label>
-                            <div class="col-sm-10 container form-inline">
+                            <div class="col-sm-10  ">
 
-                                <input type="text" class="form-control control-group inline-ingredients" id="ingredients" placeholder="Ingredientas" size="45" />
-
+                              <!--  <input type="text" class="form-control control-group inline-ingredients" id="ingredients" placeholder="Ingredientas" size="45">
                                 <input type="text" class="form-control control-group inline-ingredients" id="ingredient-size" size="2" />
                                 <div class="dropdown control-group inline-ingredients">
                                     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
@@ -103,8 +121,22 @@
                                 </div>
                                 <button type="button" class="btn btn-default">Prideti</button>
                                 <button type="button" class="btn btn-default">Pašalinti</button>
+								-->
 								
-                            </div>
+								
+										<div class="row">
+											<div class="form-group form-group-options col-md-12">
+												<div class="input-group input-group-option">
+													<input type="text" name="ingredients[]" class="form-control" placeholder="Ingridientas">
+													<input type="text" name="quantities[]" class="form-control" placeholder="kiek">
+													<input type="text" name="units[]" class="form-control" placeholder="units">
+													<span class="input-group-addon input-group-addon-remove">
+															<span class="glyphicon glyphicon-remove"></span>
+														</span>
+												</div>
+											</div>
+										</div>
+								</div>
                         </div>
                         <div class="form-group ">
                             <label for="recept-description" class="col-md-2 control-label ">Aprašymas</label>
@@ -141,5 +173,34 @@
         <p>KuPRA</p>
       </div>
     </footer>
+	
+	<script>
+$(function(){
+	$(document).on('focus', 'div.form-group-options div.input-group-option:last-child input', function(){
+		var sInputGroupHtml = $(this).parent().html();
+		var sInputGroupClasses = $(this).parent().attr('class');
+		$(this).parent().parent().append('<div class="'+sInputGroupClasses+'">'+sInputGroupHtml+'</div>');
+	});
+	
+	$(document).on('click', 'div.form-group-options .input-group-addon-remove', function(){
+		$(this).parent().remove();
+	});
+});
+
+$(document).ready(function(){
+     $('.add-image-box').click(function(){
+        var box_html = $('<div class="text-box form-group container"><div class="col-md-4"><input type="file" class="" name="txtImage[]" id="imageinput"/></div><div class=""><button type="submit" class="remove-box btn btn-danger btn-sm"><i class="fa fa-minus-circle fa-lg"></i></button></div></div>');
+        $('.text-box:last').after(box_html);
+        box_html.fadeIn('slow');
+    });
+
+    $('.form-horizontal').on('click', '.remove-box', function(){
+            $(this).closest(".form-group").remove();
+        return false;
+    });
+
+});
+	
+	</script>
 </body>
 </html>
