@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+﻿<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -116,12 +116,12 @@
 
                 </div>
                 <div class="col-md-9 container ">
-					<div class='row'>
+					<div class="row">
 						
-							<div class='col-md-3  size-of-panel'>
-								<div class=" panel panel-default  panel-custom" >
+							<div class="col-md-3">
+								<div class="panel panel-default panel-custom" >
 									<!-- Recipe image -->
-									<center><img src="recipe/image/${recipe.recId}/thumb2" class="img-responsive image-size"/></center>
+									<center><img src="recipe/image/${recipe.recId}/thumb2" class="img-responsive" id="search-tile-thumbnail"/></center>
 									<div class="made-recipe-user-name">
 									<!-- Recipe creator -->
 										<span>${recipe.user.username}</span>
@@ -155,9 +155,9 @@
         </div>
     </div>
     <footer class="footer">
-        <div class="container">
-            <p>KuPRA</p>
-        </div>
+      <div class="container">
+        <p>KuPRA</p>
+      </div>
     </footer>
 </body>
 </html>

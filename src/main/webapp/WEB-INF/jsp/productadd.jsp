@@ -76,9 +76,9 @@
                             </div>
                             <form:errors path="productName" cssClass="error" />
                         </div>
-                        <div class="form-group">
+                        <div class="form-group ">
                             <label for="recept-name" class="col-md-2 control-label">Matavimo vienetai*</label>
-                            <div class="col-md-10">
+                            <div class="col-md-10 unit-select-field ">
                                 <div class="col-md-3 col-sm-3 col-xs-6 checkbox">
                                     <label>
                                         <input type="checkbox" />
@@ -121,12 +121,7 @@
                                     </label>
                                 </div>
 
-                                <div class="col-md-3 col-sm-3 col-xs-6 checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Privatus
-                                    </label>
-                                </div>
+                               
                             </div>
                         </div>
                         <div class="form-group ">
