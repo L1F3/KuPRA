@@ -133,12 +133,11 @@
                 </div>
             </div>
         </div>
-        <footer class="footer">
+    </div>
+      <footer class="footer">
       <div class="container">
         <p>KuPRA</p>
       </div>
     </footer>
-    </div>
-
 </body>
 </html>

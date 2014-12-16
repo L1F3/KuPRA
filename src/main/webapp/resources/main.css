@@ -21,7 +21,7 @@ body {
 
 .page-wrap {
     position:relative;
-    margin-top:100px;
+    margin-top:80px;
     padding-bottom:50px;
 }
 
@@ -116,7 +116,6 @@ body {
 -------------------------------------------------- */
 
 .carousel {
-    margin-top:80px;
     width:100%;
     margin-bottom: 60px;
 }
@@ -484,6 +483,11 @@ body {
     text-align:center;
 }
 
+.unit-select-field {
+    max-height:200px;
+    overflow:auto;
+}
+
 /* ______________________________*/
 
 
@@ -766,7 +770,7 @@ div#showingOrder-form-wrapper {
 
 
 .size-of-panel {
-    min-width:250px;
+    
 }
 
 /*Fridge*/
