@@ -10,4 +10,5 @@ public interface UserDao extends GenericDao<User>{
 	public void delete(long unitId);
 	public User getUserByLoginname(String loginname);
 	public Set<Fridge> getUserFridgeItems(User user);
+	public Set<Recipe> getUserMeals(User user);
 }

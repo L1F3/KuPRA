@@ -70,33 +70,23 @@ public class User {
 	@Column(length = 30, name = "role")
 	@Enumerated(EnumType.STRING)
 	private Role role;
-	
-	/*@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	@JoinTable(name = "user_products", joinColumns = { @JoinColumn(name = "userId") })
-	private Set<UserProduct> userProducts = new HashSet<UserProduct>();*/
 
-   /* @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(name = "user_meals",
             joinColumns = {
                 @JoinColumn(name = "userId")},
             inverseJoinColumns = {
-                @JoinColumn(name = "recipeId")})*/
-	//@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-	
-	//@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="user")
-	
-	
+                @JoinColumn(name = "recipeId")})
+    private Set<Recipe> meals;
+
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="user")
 	@Fetch (FetchMode.SELECT)
 	private Set<Recipe> recipies = new HashSet<Recipe>();
-	// Get / Set
-	
+
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="user")
 	@Fetch (FetchMode.SELECT)
 	private Set<Fridge> fridgeItems = new HashSet<Fridge>();
 
-	//private Set<Recipe> meals = new HashSet<Recipe>();
-	
 	public Set<Fridge> getFridgeItems() {
 		return fridgeItems;
 	}
@@ -116,14 +106,6 @@ public class User {
 	public void setRecipies(Set<Recipe> recipies) {
 		this.recipies = recipies;
 	}
-
-	/*public Set<Recipe> getMeals() {
-		return meals;
-	}
-
-	public void setMeals(Set<Recipe> meals) {
-		this.meals = meals;
-	}*/
 
 	public void setUserId(long userId) {
 		this.userId = userId;
@@ -223,6 +205,14 @@ public class User {
 
 	public void setRole(Role role) {
 		this.role = role;
+	}
+
+	public Set<Recipe> getMeals() {
+		return meals;
+	}
+
+	public void setMeals(Set<Recipe> meals) {
+		this.meals = meals;
 	}
 
 }

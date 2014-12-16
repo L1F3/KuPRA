@@ -117,16 +117,9 @@ public class UserServiceImpl implements UserService {
 		userDao.persist(user);
 	}
 
-	public Set<Recipe> getMeals() {
-		List<User> users = getAll();
-		
-		String username = getUsername();
-		
-		for (User user : users) {
-			if (user.getName().equals(username)) {
-				return new HashSet<Recipe>(); //user.getMeals();
-			}
-		}
+	@Transactional(readOnly = true)
+	public Set<Recipe> getMeals(User user) {
+		userDao.getMeals(user);
 		return null;
 	}
 
