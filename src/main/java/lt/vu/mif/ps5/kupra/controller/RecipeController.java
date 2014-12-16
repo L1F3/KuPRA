@@ -168,6 +168,22 @@ public class RecipeController {
 				ImageIO.write(thumbnail, "jpg", out);
 				out.flush();
 				out.close();
+			} else {
+				Image image = recipeService.getDefaultImage();
+				response.setHeader("Content-Disposition", "inline;filename=\""
+						+ image.getImgName() + "\"");
+				OutputStream out = response.getOutputStream();
+				response.setContentType(image.getImgType());
+				int width = 150, height = 150;
+				BufferedImage bufimage = ImageIO.read(image.getImg()
+						.getBinaryStream());
+
+				BufferedImage thumbnail = Scalr.resize(bufimage,
+						Scalr.Method.SPEED, Scalr.Mode.FIT_TO_HEIGHT, width,
+						height, Scalr.OP_ANTIALIAS);
+				ImageIO.write(thumbnail, "jpg", out);
+				out.flush();
+				out.close();
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

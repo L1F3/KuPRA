@@ -7,6 +7,7 @@ import lt.vu.mif.ps5.kupra.service.RecipeService;
 import lt.vu.mif.ps5.kupra.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -33,15 +34,35 @@ public class SearchController {
 		this.userService = userService;
 	}
 
+	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
+	@RequestMapping(value = "/search/all", method = RequestMethod.GET)
+	public ModelAndView searchDoPost() {
+		List<Recipe> recipes = recipeService.getAll();
+		return new ModelAndView("search").addObject("recipes", recipes);
+	}
+
+	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
 	@RequestMapping(value = "/search/all", method = RequestMethod.POST)
 	public ModelAndView searchDo(@ModelAttribute("key") String key) {
 		List<Recipe> recipes = recipeService.getByName(key);
 		for (Recipe recipe : recipes) {
 			System.out.println(recipe.getName());
 		}
-		return new ModelAndView("searchresults").addObject("recipes", recipes);
+		return new ModelAndView("search").addObject("recipes", recipes);
 	}
 
+	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
+	@RequestMapping(value = "/search/user", method = RequestMethod.GET)
+	public ModelAndView searchFromUserDoGet() {
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		User user = userService.getUserByLoginname(auth.getName());
+
+		List<Recipe> recipes = recipeService.getForUser(user);
+		return new ModelAndView("search").addObject("recipes", recipes);
+	}
+	
+	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
 	@RequestMapping(value = "/search/user", method = RequestMethod.POST)
 	public ModelAndView searchFromUserDo(@ModelAttribute("key") String key) {
 		Authentication auth = SecurityContextHolder.getContext()
@@ -50,6 +71,6 @@ public class SearchController {
 
 		List<Recipe> recipes = recipeService.getByNameFromUser(
 				user.getUserId(), key);
-		return new ModelAndView("searchresults").addObject("recipes", recipes);
+		return new ModelAndView("search").addObject("recipes", recipes);
 	}
 }

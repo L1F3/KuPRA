@@ -91,18 +91,18 @@
                     <div class="rating-time">
                         <div class="row">
 						    <div class="col-md-3 col-sm-3 col-xs-3">
-                                <img src="<c:url value="/resources/clock.svg"/>" class="img-responsive user-recipe-img display-inline" />
+                                <img src="<c:url value="/resources/svg/clock.svg"/>" class="img-responsive user-recipe-img display-inline" />
                                 <span class="display-inline">Pagaminamas per:</span>
                                 <span class="cooking-time display-inline">60min</span>
                             </div>
 							<div class="col-md-3 col-sm-3 col-xs-3">
-                                <img src="<c:url value="/resources/people.svg"/>" class="img-responsive user-recipe-img display-inline" />
+                                <img src="<c:url value="/resources/svg/people.svg"/>" class="img-responsive user-recipe-img display-inline" />
                                 <span class="display-inline">Porcijų kiekis</span>
                                 <span class="cooking-time display-inline">3</span>
                             </div>
 
                             <div class="col-md-3 col-sm-3  col-xm-3 ">
-                                <img src="<c:url value="/resources/star.svg"/>" class="img-responsive user-recipe-img  display-inline" />
+                                <img src="<c:url value="/resources/svg/star.svg"/>" class="img-responsive user-recipe-img  display-inline" />
                                 <span class="display-inline">Įvertinimas</span>
                                 <span class="display-inline">${recipe.rating}</span>
                             </div>
