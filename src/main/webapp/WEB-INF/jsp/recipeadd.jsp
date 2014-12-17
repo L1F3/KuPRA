@@ -74,19 +74,19 @@
                         <div class="form-group">
                             <label for="recept-name" class="col-md-2 control-label">Pavadinimas</label>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="recept-name" placeholder="Pavadinimas" name="name" />
+                                <input type="text" class="form-control" id="recept-name" placeholder="Pavadinimas" value="${recipeForm.name}" name="name" />
 								<form:errors path="name" cssClass="error" />
                             </div>
                         </div>
 						<div class="form-group">
                             <label for="recept-name" class="col-md-3 col-sm-3 control-label">Gamybos trukmė</label>
                             <div class="col-md-3 col-sm-3">
-                                <input type="text" class="form-control" id="recept-name" placeholder="" name="" />
+                                <input type="text" class="form-control" id="recept-name" placeholder="" value="" name="" />
 								<form:errors path="" cssClass="error" />
                             </div>
 							<label for="recept-name" class="col-md-3 col-sm-3 control-label">Porcijų skaičius</label>
 							 <div class="col-md-3 col-sm-3">
-                                <input type="text" class="form-control" id="recept-name" placeholder="" name="" />
+                                <input type="text" class="form-control" id="recept-name" placeholder="" value="" name="" />
 								<form:errors path="" cssClass="error" />
                             </div>
                         </div>
@@ -142,7 +142,7 @@
                             <label for="recept-description" class="col-md-2 control-label ">Aprašymas</label>
                             <div class="col-md-10 controls">
                                 <!-- *** -->
-                                <textarea class="form-control description" id="recipe-despription" name="description"></textarea>
+                                <textarea class="form-control description" id="recipe-despription" value="${recipeForm.description}" name="description"></textarea>
 								<form:errors path="description" cssClass="error" />
                             </div>
                         </div>

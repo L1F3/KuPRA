@@ -65,26 +65,28 @@
 		<div class="add-recept-form container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <form class="form-horizontal" role="form">
+                    <form:form class="form-horizontal" role="form" method="POST" modelAttribute="unitForm">
                         <div class="form-horizontal add-recepts-header">
                             <h1>Matavimo vieneto pridėjimas</h1>
                         </div>
                         <div class="form-group">
                             <label for="recept-name" class="col-md-3 control-label">Pavadinimas*</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="recept-name" placeholder="Pavadinimas" />
+                                <input type="text" class="form-control" id="recept-name" placeholder="Pavadinimas" value="${unitForm.name}" name="name" />
                             </div>
+                            <form:errors path="name" cssClass="error"/>
                         </div>
                         <div class="form-group">
                             <label for="recept-name" class="col-md-3 control-label">Sutrumpinimas*</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="recept-name" placeholder="Sutrumpinimas" />
+                                <input type="text" class="form-control" id="recept-name" placeholder="Sutrumpinimas"  value="${unitForm.abbreviation}" name="abbreviation"/>
                             </div>
+                            <form:errors path="abbreviation" cssClass="error"/>
                         </div>
                         <div class="save-button-wrapper">
                             <button class="button">Pridėti</button>
                         </div>
-                    </form>
+                    </form:form>
                 </div>
             </div>
         </div>
