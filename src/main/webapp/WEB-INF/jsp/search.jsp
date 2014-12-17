@@ -66,52 +66,50 @@
                 <div class="col-md-3 ">
                     <div class="search-panel">
                         <!-- Search box -->
-                        <form>
+                        <form:form method="GET" action="${requestScope['javax.servlet.forward.request_uri']}">
                             <div class="form-group">
                                 <div class="controls">
                                     <div class="input-group">
                                         <span class="input-group-addon">
-                                            <a href="#">
-												<img  id="magnifying-glass"  src="<c:url value="/resources/svg/magnifying.svg"/>" class="inputFieldIcon" onmouseover="hover(this);" onmouseout="unhover(this);" />
-                                            </a>
+                                            <button type="submit">
+												<img id="magnifying-glass"  src="<c:url value="/resources/svg/magnifying.svg"/>" class="inputFieldIcon" onmouseover="hover(this);" onmouseout="unhover(this);" />
+                                            </button>
                                         </span>
-                                        <input type="text" class="form-control" id="inputSearch" placeholder="Ieškoti" />
+                                        <input name="key" type="text" class="form-control" id="inputSearch" placeholder="Ieškoti" value="${key}" />
                                     </div>
                                 </div>
                             </div>
-                        </form>
                         <br />
                         <p><b>Rikiuoti pagal įvertinimą</b></p>
                         <div id="showingOrder-form-wrapper">
-                            <form>
-                                <input type="radio" name="showingOrder" value="bestFirst" />
+                                <input type="radio" name="order" value="best" />
                                 Geriausi viršuje<br />
-                                <input type="radio" name="showingOrder" value="worstFirst" />
+                                <input type="radio" name="order" value="worst" />
                                 Blogiausi viršuje<br />
                                 <div class="dropdown-menu-style">
-                                    <input type="radio" name="showingOrder" value="dontNeedNoneOfYourShit" />
-                                    <select>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
-                                        <option>10</option>
+                                    <input type="radio" name="order" value="byRating" />
+                                    <select name="rating">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
                                     </select>
                                 </div>
                                 <br />
-                                <input type="radio" name="showingOrder" value="justRandomShit" />
+                                <input type="radio" name="order" value="none" />
                                 Nenumatyta<br />
-                            </form>
                         </div>
                         <br />
                         <div class="refreshButtonStyle">
-                            <button class="button" type="button" onclick="">Atnaujinti</button>
+                            <button class="button" type="submit" onclick="">Atnaujinti</button>
                         </div>
+                        </form:form>
                     </div>
 
                 </div>

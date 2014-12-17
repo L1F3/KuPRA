@@ -81,16 +81,16 @@
     </div>
   </div>
   
-  <form method="POST" class="col-md-12" id="searchForm" action="search/all">
+  <form:form method="GET" class="col-md-12" id="searchForm" action="search/all">
     <div class="form-group col-md-4 col-md-offset-4">
       <div class="input-group input-group-lg ">
         <input type="text" class="form-control" placeholder="Paieška" name="key"/>
         <span class="input-group-addon">
-          <a href="search/all" style="text-decoration:none;" class="glyphicon glyphicon-search"></a>
+          <button style="text-decoration:none;" class="glyphicon glyphicon-search"></button>
         </span>
       </div>
     </div>
-  </form>
+  </form:form>
 
 
   

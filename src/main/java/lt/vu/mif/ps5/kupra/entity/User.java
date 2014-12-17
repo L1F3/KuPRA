@@ -73,6 +73,7 @@ public class User {
 	private Role role;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@Fetch (FetchMode.SELECT)
     @JoinTable(name = "user_meals",
             joinColumns = {
                 @JoinColumn(name = "userId")},
