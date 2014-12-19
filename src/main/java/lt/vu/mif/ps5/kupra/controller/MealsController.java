@@ -54,4 +54,15 @@ public class MealsController {
 		userService.addMeal(user.getUserId(), id);
 		return new ModelAndView("redirect:../../meals");
 	}
+
+	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
+	@RequestMapping(value = "/meals/{id}/delete", method = RequestMethod.GET)
+	public ModelAndView deleteMeal(@PathVariable long id) {
+
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		User user = userService.getUserByLoginname(auth.getName());
+		userService.remove(user.getUserId(), id);
+		return new ModelAndView("redirect:../../meals");
+	}
 }

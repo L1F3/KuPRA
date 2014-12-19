@@ -35,7 +35,7 @@
                 </div>
                 <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav custom-navbar">
-                        <li><a href="recipeadd">Ikelti recepta</a></li>
+                        <li><a href="recipe">Ikelti recepta</a></li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
@@ -70,7 +70,7 @@
                             <div class="panel panel-default  panel-custom panel-custom-meals">
 							<!-- Delete button -->
                                 <div class="delete-button-menu " style="position:relative">
-                                     <button type="submit" style=" right:0; position:absolute;" class="btn btn-default"><img src="<c:url value="/resources/svg/delete.svg"/>" style=" height:20px; width:20px;" /></button> 
+                                     <a href="meals/${meal.recId}/delete" type="button" style=" right:0; position:absolute;" class="btn btn-default"><img src="<c:url value="/resources/svg/delete.svg"/>" style=" height:20px; width:20px;" /></a>
                                 </div>
                                 <!-- Recipe's picture-->
                                 <img src="recipe/image/${meal.recId}/thumb2" class="img-responsive image-size" />

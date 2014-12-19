@@ -143,4 +143,14 @@ public class UserServiceImpl implements UserService {
 		meals.add(recipe);
 		user.setMeals(meals);
 	}
+
+	@Transactional
+	public void remove(long id, long recipeId) {
+
+        User user = userDao.get(id);
+        Recipe rec = recipeDao.get(recipeId);
+        Set<Recipe> list = userDao.getUserMeals(user);
+        list.remove(rec);
+        user.setMeals(list);
+	}
 }

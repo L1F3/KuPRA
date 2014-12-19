@@ -35,4 +35,6 @@ public interface UserService {
 	public Set<Fridge> getUserFridgeItems(User user);
 	
 	public void addMeal(long id, long recipeId);
+	
+	public void remove(long id, long recipeId);
 }
