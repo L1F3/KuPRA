@@ -77,23 +77,23 @@
 						<div class="table-responsive">
 							<table id="mytable" class="table table-hover">
 								<thead>
-									<th><input type="checkbox" id="checkall" /></th>
 									<th>Produktas</th>
 									<th>Kiekis</th>
+									<th><th>
 								</thead>
 								<tbody>
 			
-									<c:forEach var="item" items="${items}">
-										<td></td>
+									
+								<c:forEach var="item" items="${items}">
 									<tr>
-										
 										<td>${item.product.name}</td>
 										<td>
 											<input type="text" class="fridge-text-field" value="${item.amount}" />
 											<span class="fridge-row">${item.unit.abbreviation}</span>
 										</td>
+										<td><a href=""><input type="button" value="ištrinti" class="btn"/></a></td>
 									</tr>
-									</c:forEach>
+								</c:forEach>	
 									
 								</tbody>
 							</table>

@@ -153,4 +153,12 @@ public class UserServiceImpl implements UserService {
         list.remove(rec);
         user.setMeals(list);
 	}
+
+	@Transactional
+	public void removeFridgeItem(long id, long userId) {
+        User user = userDao.get(userId);
+        Set<Fridge> list = userDao.getUserFridgeItems(user);
+        //list.remove(rec);
+        //user.setMeals(list);
+	}
 }

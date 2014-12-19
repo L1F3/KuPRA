@@ -95,22 +95,25 @@ public class UnitController {
     @RequestMapping(value = "/unit/modify/{id}", method = RequestMethod.GET)
     public ModelAndView unitModify(@PathVariable long id) {
         Unit unit = unitService.getUnit(id);
-        return new ModelAndView("unitmodify").addObject("unit", unit);
+        UnitForm unitForm = new UnitForm();
+        unitForm.setName(unit.getName());
+        unitForm.setAbbreviation(unit.getAbbreviation());
+        return new ModelAndView("unitmodify").addObject("unitForm", unitForm);
     }
     
     @Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/unit/modify/{id}", method = RequestMethod.POST)
     public ModelAndView unitDoModify(
             @PathVariable long id,
-    		@Valid @ModelAttribute("unit") UnitForm unit, BindingResult result) {
-        if (result.hasErrors()) {
+    		@Valid @ModelAttribute("unitForm") UnitForm unitForm, Errors errors) {
+        if (errors.hasErrors()) {
             log.info("Returning unit.jsp page");
             return new ModelAndView("unit");
         }
         unitService.updateUnit(
                 id,
-                unit.getName(),
-                unit.getAbbreviation());
+                unitForm.getName(),
+                unitForm.getAbbreviation());
         return new ModelAndView("redirect:list");
     }
 }

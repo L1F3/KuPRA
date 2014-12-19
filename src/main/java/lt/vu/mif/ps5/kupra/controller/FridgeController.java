@@ -9,8 +9,6 @@ import java.util.logging.Logger;
 import lt.vu.mif.ps5.kupra.entity.Fridge;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.User;
-import lt.vu.mif.ps5.kupra.form.DeletedFridge;
-import lt.vu.mif.ps5.kupra.form.FridgeForm;
 import lt.vu.mif.ps5.kupra.service.ProductService;
 import lt.vu.mif.ps5.kupra.service.RecipeService;
 import lt.vu.mif.ps5.kupra.service.UnitService;
@@ -25,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class FridgeController {
@@ -76,17 +75,18 @@ public class FridgeController {
     }
 
     @Secured({"ROLE_USER", "ROLE_ADMIN"})
-    @RequestMapping(value = "/fridge/list/delete", method = RequestMethod.POST)
-    public ModelAndView fridgeDeletePage(@ModelAttribute("fridge") Fridge item ) {
+    @RequestMapping(value = "/fridge/{id}/delete", method = RequestMethod.GET)
+    public ModelAndView fridgeDeletePage(@PathVariable long id) {
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
 		User user = userService.getUserByLoginname(auth.getName());
-		//List<Fridge> fritems = fridgeForm.getMyList();
+		//userService.removeFridgeItem(id, user.getUserId());
+		
 		//for(Fridge item:fritems) {
 			//System.out.println(item.getFrId() + "int "+ fritems.indexOf(item));
 		//}
 		System.out.println("ZDAROA");
-    	return new ModelAndView("fridge").addObject("fridge", item);//.addObject("deletedFridge", new DeletedFridge());
+    	return new ModelAndView("fridge");//.addObject("fridge", item);//.addObject("deletedFridge", new DeletedFridge());
     }
     
 }
