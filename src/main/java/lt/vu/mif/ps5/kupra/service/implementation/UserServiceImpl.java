@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import lt.vu.mif.ps5.kupra.dao.UserDao;
+import lt.vu.mif.ps5.kupra.dao.RecipeDao;
 import lt.vu.mif.ps5.kupra.entity.Fridge;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.Role;
@@ -27,10 +28,12 @@ public class UserServiceImpl implements UserService {
 	static Logger log = Logger.getLogger(UserServiceImpl.class.getName());
 
 	private UserDao userDao;
+	private RecipeDao recipeDao;
 
 	@Autowired
-	public UserServiceImpl(UserDao userDao) {
+	public UserServiceImpl(UserDao userDao, RecipeDao recipeDao) {
 		this.userDao = userDao;
+		this.recipeDao = recipeDao;
 	}
 
 	@Transactional(readOnly = true)
@@ -130,5 +133,14 @@ public class UserServiceImpl implements UserService {
 	@Transactional(readOnly = true)
 	public Set<Fridge> getUserFridgeItems(User user) {
 		return userDao.getUserFridgeItems(user);
+	}
+
+	@Transactional
+	public void addMeal(long id, long recipeId) {
+		User user = userDao.get(id);
+		Recipe recipe = recipeDao.get(recipeId);
+		Set<Recipe> meals = user.getMeals();
+		meals.add(recipe);
+		user.setMeals(meals);
 	}
 }

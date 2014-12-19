@@ -2,6 +2,7 @@ package lt.vu.mif.ps5.kupra.entity;
 
 import java.sql.Blob;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -18,6 +19,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table (name= "fridge")
@@ -42,6 +44,16 @@ public class Fridge {
 	@Column(length=10, name="amount")
 	private long amount;
 
+	@Column(name="forDelete")
+	private boolean delete;
+
+	public boolean isForDelete() {
+		return delete;
+	}
+
+	public void setForDelete(boolean forDelete) {
+		this.delete = forDelete;
+	}
 
 	public long getFrId() {
 		return frId;

@@ -34,27 +34,27 @@
 				</div>
 				<div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="add-recept">Ikelti recepta</a></li>
+						<li><a href="recipe">Ikelti recepta</a></li>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
+							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="#">Visi Receptai</a></li>
-								<li><a href="#">Mano receptia</a></li>
+								<li><a href="search/all">Visi Receptai</a></li>
+								<li><a href="search/user">Mano receptia</a></li>
 							</ul>
 						</li>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Klasifikatoriai<span class="caret"></span></a>
+							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Klasifikatoriai<span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="#">Produktai</a></li>
-								<li><a href="#">Matavimo vienetai</a></li>
+								<li><a href="product/all">Produktai</a></li>
+								<li><a href="unit/all">Matavimo vienetai</a></li>
 							</ul>
 						</li>
-						<li><a href="#">Šaldytuvas</a></li>
-						<li><a href="#">Valgiaraštis</a></li>
+						<li><a href="fridge/list">Šaldytuvas</a></li>
+						<li><a href="meals">Valgiaraštis</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="profile">Vartotojo profilis</a></li>
-						<li><a href="#">Atsijungti</a></li>
+						<li><a href="../j_spring_security_logout">Atsijungti</a></li>
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
@@ -83,7 +83,7 @@
 										<label class="col-md-5 control-label">Email</label>
 										<div class="col-md-7">
 											<div class="input-group">
-												<!-- *** -->                <p class="form-control-static profile-user-name">Folderis</p>
+												<!-- *** -->                <p class="form-control-static profile-user-name">${userForm.loginname}</p>
 											</div>
 										</div>
 									</div>
@@ -94,13 +94,13 @@
 										<div class="col-md-7 controls">
 											<div class="input-group">
 												<span class="input-group-addon"><img src="<c:url value="/resources/svg/user.svg"/>"  class="icons-registration"/></span>
-												<!-- *** -->          <input type="text" class="form-control" id="inputUserName" placeholder="Slapyvardis" name="username"/>  
+												<!-- *** -->          <input type="text" class="form-control" id="inputUserName" value="${userForm.username}" name="username"/>  
 											</div> 
 											<form:errors path="username" cssClass="error" /> 				   
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="inputPassword" class="col-md-5 control-label">Slaptažodis *</label>
+										<label for="inputPassword" class="col-md-5 control-label">Slaptažodis</label>
 										<div class="col-md-7 controls">
 											<div class="input-group">
 												<span class="input-group-addon"> <img src="<c:url value="/resources/svg/key.svg"/>"  class="icons-registration"/></span>
@@ -110,7 +110,7 @@
 										</div>
 									</div>
 									<div class="form-group ">
-										<label for="inputRePassword" class="col-md-5 control-label">Pakartoti slaptažodi *</label>
+										<label for="inputRePassword" class="col-md-5 control-label">Pakartoti slaptažodi</label>
 										<div class="col-md-7 controls">
 											<div class="input-group">
 												<span class="input-group-addon"> <img src="<c:url value="/resources/svg/key.svg"/>"  class="icons-registration"/></span>
@@ -124,7 +124,7 @@
 										<div class="col-md-7 controls">
 											<div class="input-group">
 												<span class="input-group-addon"> <img src="<c:url value="/resources/svg/email.svg"/>" class="icons-registration"/></span>
-												<!-- *** -->             <input type="email" class="form-control" id="inputEmail" placeholder="Elektroninis paštas" name="email"/> 
+												<!-- *** -->             <input type="email" class="form-control" id="inputEmail" value="${userForm.email}" name="email"/> 
 											</div> 
 											<form:errors path="email" cssClass="error" />       
 										</div>
@@ -135,7 +135,7 @@
 											<div class="col-md-7 controls">
 												<div class="input-group">
 													<span class="input-group-addon"> <img src="<c:url value="/resources/svg/user.svg"/>"  class="icons-registration"/></span>
-													<!-- *** -->         	<input type="text" class="form-control" id="inputName" placeholder="Vardas" name="name"/>  
+													<!-- *** -->         	<input type="text" class="form-control" id="inputName" value="${userForm.name}" name="name"/>  
 												</div> 
 												<form:errors path="name" cssClass="error" />  
 											</div>
@@ -145,7 +145,7 @@
 											<div class="col-md-7 controls">
 												<div class="input-group">
 													<span class="input-group-addon">  <img src="<c:url value="/resources/svg/user.svg"/>"  class="icons-registration"/></span>
-													<!-- *** -->             <input type="text" class="form-control" id="inputLastName" placeholder="Pavarde" name="lastname"/>
+													<!-- *** -->             <input type="text" class="form-control" id="inputLastName" value="${userForm.lastname}" name="lastname"/>
 												</div> 
 												<form:errors path="lastname" cssClass="error" /> 	 
 											</div>
@@ -155,7 +155,7 @@
 											<div class="col-md-7 controls">
 												<div class="input-group">
 													<span class="input-group-addon"><img src="<c:url value="/resources/svg/buildings.svg"/>"  class="icons-registration"/> </span>
-													<!-- *** -->          <input type="text" class="form-control" id="inputAddress" placeholder="Adresas" name="address"/> 
+													<!-- *** -->          <input type="text" class="form-control" id="inputAddress" value="${userForm.address}" name="address"/> 
 												</div>
 												<form:errors path="address" cssClass="error" />
 											</div>
@@ -164,7 +164,7 @@
 											<label for="despription" class="col-md-5 control-label no-padding-right">Aprašymas</label>
 											<div class="col-md-7 controls">
 
-												<!-- *** -->     <textarea  class="form-control description" id="despription" name="despription"></textarea>       
+												<!-- *** -->     <textarea  class="form-control description" id="despription" name="despription" value="${userForm.description}"></textarea>       
 											</div>
 										</div>
 

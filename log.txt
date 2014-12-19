@@ -1,0 +1,1107 @@
+commit cba250d793f312f661bde051e1e6947a6a489977
+Merge: 1b32388 d174b0b
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Wed Dec 17 22:22:44 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA
+
+commit 1b3238887f2fced7b6e9681517cd41f83bc0bada
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Wed Dec 17 22:22:29 2014 +0200
+
+    search fully fixed
+
+commit d174b0b985326cb84423aaa076e69dad814e0966
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Wed Dec 17 16:32:54 2014 +0200
+
+    errors daryti, bet recipeadd.jsp nelabai zinau kaip su ingredientais
+
+commit 599ec5970b67bfd81bbf0300410738f48886b7d9
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Wed Dec 17 00:54:11 2014 +0200
+
+    sqlpridejau
+
+commit 6eb4593a4bd3c00fdab9dcccd201aa5b28b4bde8
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Wed Dec 17 00:53:41 2014 +0200
+
+    todays final
+
+commit e0359ca5aae50736759cef92f3a81926ac8a4fcf
+Merge: 9212be4 5a0c16b
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Wed Dec 17 00:42:36 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA
+
+commit 9212be4e398fc152d24e4260108de08bf7768575
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Wed Dec 17 00:42:18 2014 +0200
+
+    meals
+
+commit 5a0c16b9698070ee5fa834728a953f263b1c509c
+Author: acer <acer@172.26.195.72>
+Date:   Tue Dec 16 23:05:48 2014 +0200
+
+    saldytuvas su pridejimo langu
+
+commit d95bd16240fafe576c3a4534b994d1bcfa87e76d
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Tue Dec 16 22:44:29 2014 +0200
+
+    search field glyphicon as button
+
+commit cf7136b241e3e67338d002d0de8517affb397a55
+Merge: 59b131e 660bb6a
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Tue Dec 16 21:36:46 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA
+
+commit 59b131ed3cf3e7df8a3c6fc989b9bfe7255dd499
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Tue Dec 16 21:36:15 2014 +0200
+
+    Search
+
+commit 660bb6a1325ffcab43ec378ddbef1b4cbe5be773
+Merge: f119a65 5f802a2
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Tue Dec 16 21:32:01 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA
+    
+    Conflicts:
+    	src/main/webapp/resources/main.css
+
+commit f119a6501538da3f0009ef50476a91418ecf419f
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Tue Dec 16 21:25:16 2014 +0200
+
+    Push web
+
+commit 5f802a2c3c75d3375a4ec12f8d9fde7a930817b6
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Tue Dec 16 21:23:34 2014 +0200
+
+    sutvarkytas global footer'is, profile, search
+
+commit 5d08104790018a50dfd552ae8a205de79c3a1940
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Tue Dec 16 19:49:06 2014 +0200
+
+    PUSH
+
+commit 3367f2e3dfe3cf1342c816747192842c47ed3067
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Tue Dec 16 19:26:00 2014 +0200
+
+    tingiu
+
+commit 48a3bd3016ce8b432b0ed5ad7e6526f70f314d9f
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Tue Dec 16 18:14:49 2014 +0200
+
+    meals
+
+commit 142d53f413920d8da79407b429d9bbfa7f1519e7
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Tue Dec 16 15:40:03 2014 +0200
+
+    Tinklapis: Mano receptai , visi receptai, unit puslapis, produktu
+    puslapis, šaldytuvo puslapis, profilis ir t.t.
+
+commit ba763749f8e33452f2a279a2defacbdc4cab9506
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Tue Dec 16 00:13:19 2014 +0200
+
+    Fridge, fridge and recipes
+
+commit f3073e2d307db62b4c0ed81111f4efc027ca2e73
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Mon Dec 15 01:33:18 2014 +0200
+
+    recipedaoimpl, criteria, reikia sutvarkyti, istestuoti.
+
+commit d49487784460a32c9c6793d31af338b93f757686
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Mon Dec 15 01:06:01 2014 +0200
+
+    fridge entity, fridgeitems
+
+commit 17eb52c61b5e510b9b0f40949ce64b89c511ec7f
+Merge: 301d8af 8307c14
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Sat Dec 13 17:52:54 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA
+
+commit 301d8afcf040f443c225e9bcdf5e49032739ed7c
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Sat Dec 13 17:52:39 2014 +0200
+
+    dsdas
+
+commit 8307c14ea42d79d98c45d75a37e41cecdc5c180d
+Author: acer <acer@172.26.198.137>
+Date:   Sat Dec 13 17:31:51 2014 +0200
+
+    duombaze kuri nebereikalauja kad product_description butu privalomas,
+    pakeistas ProductController, ProductForm, productadd.jsp
+
+commit f2ab6e610235ceb401cf99df337aa6d06c150bc8
+Merge: 9902882 147e6bd
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Sat Dec 13 17:20:33 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA
+
+commit 99028822eda3e82a5a281c76e22fea27e0e9ee00
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Sat Dec 13 17:20:03 2014 +0200
+
+    multiple images
+
+commit 147e6bd4ad8a9354ee2a5f770fbffbf9be8d393d
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Sat Dec 13 16:30:07 2014 +0200
+
+    Valgiaraščio langas pridėtas
+
+commit 2f1c0c1406397489cc2e9257d358a16c80303d0a
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Sat Dec 13 16:01:48 2014 +0200
+
+    paieska veikia, /home lange
+
+commit de23a10c237a25acf28d8b273a75697f108d4563
+Merge: 3de52c8 39aa6c8
+Author: acer <acer@172.26.198.137>
+Date:   Sat Dec 13 15:53:58 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA.git
+
+commit 39aa6c852b6a7bfea71d512333b84fd2f6c43d19
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Sat Dec 13 15:49:34 2014 +0200
+
+    search from user recipes
+
+commit 3de52c89adad518fbe8c4d8bb63b36905ebbe438
+Merge: 901baf6 4bc3672
+Author: acer <acer@172.26.198.137>
+Date:   Sat Dec 13 15:44:57 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA.git
+
+commit 901baf60dd268718f8146474b543a7d7fb93dff9
+Author: acer <acer@172.26.198.137>
+Date:   Sat Dec 13 15:44:23 2014 +0200
+
+    daromas produkto kontroleris ir pakeistas productadd.jsp
+
+commit 4bc36721ca5ca992cd98feea0cadce7d552e10e3
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Sat Dec 13 15:42:00 2014 +0200
+
+    searchresults
+
+commit de718a81b24a2886e5952491252d2704d02f3e9e
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Sat Dec 13 15:00:33 2014 +0200
+
+    recipe get recipes of user
+
+commit 9fe6a8d8fe9771c86de633fb4758908db05b6252
+Merge: 188a06e 8d405cd
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Sat Dec 13 14:33:53 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA
+
+commit 188a06e8f4bc79d1ec2096173b9f9a94d24cf490
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Sat Dec 13 14:33:31 2014 +0200
+
+    recipes images
+
+commit 8d405cdf621df2de8d4745c4dcc9fa74a3833ab6
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Sat Dec 13 13:35:44 2014 +0200
+
+    Update
+
+commit 6454ed7a04b945e1be9cf80e62a3897561e93a98
+Merge: d61d847 9f5455d
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Sat Dec 13 13:30:47 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA
+
+commit d61d847233c124a1fa9b6ee1fb16c8e8712f4789
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Sat Dec 13 13:30:11 2014 +0200
+
+    recipe.java
+
+commit 9f5455d564cbdc5ef8390a69afc4a5ac1952c5e5
+Author: acer <acer@172.26.198.137>
+Date:   Fri Dec 12 22:53:40 2014 +0200
+
+    pridetas '50' prie imgType
+
+commit 1a833400cc9aa83d3f9dc44bc12d7c770c1ff32b
+Author: acer <acer@172.26.198.137>
+Date:   Fri Dec 12 22:40:02 2014 +0200
+
+    patobulinta duombaze
+
+commit f44e422d428a208d7357e71ee1dfdd3b64b9b4cf
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Fri Dec 12 22:37:16 2014 +0200
+
+    recipies
+
+commit 6e89014d339424b1919a3185f1facc70f17ada4c
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Fri Dec 12 22:00:20 2014 +0200
+
+    recipe add controller
+
+commit 2614366150412c91eb4951198f84723c9c9f35f1
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Fri Dec 12 21:46:31 2014 +0200
+
+    Web Home update
+
+commit 66562f344f58709ec1980db4a06e65f9069b5b3b
+Merge: ab7c49a 8ef1dc8
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Fri Dec 12 19:53:44 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA
+
+commit ab7c49af706640195059f7bf816781e63e8c1338
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Fri Dec 12 19:51:10 2014 +0200
+
+    Truputėlis web
+
+commit ff093493d908bc1ba314e7d96b6ddc0321c9f957
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Fri Dec 12 19:50:14 2014 +0200
+
+    Truputėlis Web taisų
+
+commit 8ef1dc8678d336d69b97c8fecb1078e1b0f19a3c
+Author: acer <acer@172.26.198.137>
+Date:   Thu Dec 11 22:52:34 2014 +0200
+
+    duombaze
+
+commit 4af4d5e964bbd8427174d60ff848f4e59d814149
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Thu Dec 11 22:49:43 2014 +0200
+
+    bugs
+
+commit 6b2c685f2b0c030a975551703d9959f6a8f652ef
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Thu Dec 11 22:02:30 2014 +0200
+
+    daug
+
+commit 7f22a7875653e52d4730ddd3aa7c3159ac976fe0
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Thu Dec 11 20:57:29 2014 +0200
+
+    SQL update
+
+commit 0ff7424c3a3d22bcff0fbfc1802cb410da749947
+Merge: 8ac2ce1 7daff7f
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Thu Dec 11 20:50:30 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA
+
+commit 8ac2ce125f3da9c2bf630b3b3b1c88672ac52030
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Thu Dec 11 20:49:41 2014 +0200
+
+    WEB tvarkomas
+
+commit 7daff7f828b2db8b2fac7e4a6f7c4ac974c1f68e
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Thu Dec 11 20:47:13 2014 +0200
+
+    produktai, receptai
+
+commit 19a17beca401c96bdcb66aca486bc519b73fe772
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Thu Dec 11 20:14:28 2014 +0200
+
+    recipe-user manytoone
+
+commit 819d8e73907b9c16f7c82d7a514d3fc20ef25472
+Merge: d257e66 755deb6
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Thu Dec 11 19:21:56 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA
+
+commit d257e66422d37fe9466de42cef6c38ac1c8c2d05
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Thu Dec 11 19:21:47 2014 +0200
+
+    aaa
+
+commit 755deb6ebb5f16247104046089a5b25d9cda39b6
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Thu Dec 11 19:09:27 2014 +0200
+
+    linkai:
+    
+    home -> ikelti recepta
+    home -> profilis
+
+commit 6177c10182e2b2c1d7694f69acc8dc0f1fd9a12c
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Thu Dec 11 18:31:07 2014 +0200
+
+    Sutvarkytas profilis
+
+commit 60b4e441a441aee5ca40c58da81e2178de5ac861
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Thu Dec 11 18:03:37 2014 +0200
+
+    OK
+
+commit 0fdfc378a140f06d1d3763c14e263b454fd622a1
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Wed Dec 10 23:35:21 2014 +0200
+
+    login sutvarkytas, home
+
+commit 037c26c06f874a091ff71146f4dcd31ccd3b7525
+Author: L1F3 <zvaliauskas.tomas@gmail.com>
+Date:   Wed Dec 10 22:24:26 2014 +0200
+
+    homecontroller
+
+commit d76693a8c2f2d3742a7fe51402c715f6d1e2a248
+Merge: 158cff7 903a115
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Wed Dec 10 22:18:22 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA
+
+commit 158cff7ac8cfebb20af8540eb6918b8da4cce5f4
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Wed Dec 10 22:17:47 2014 +0200
+
+    Truputėlis web
+
+commit 903a1153cae2f1a89cafbbcd4f859244f36f1ee6
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Thu Dec 4 22:34:28 2014 +0200
+
+    netoks zodis buvo
+
+commit 99da1a3bdaddbdc0734213d45c0cc9f898e572c3
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Thu Dec 4 22:33:02 2014 +0200
+
+    getMeals() uncommented
+
+commit 8b03c32aeebf7ccaea63fe7b4e74408c7383b57b
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Thu Dec 4 22:30:58 2014 +0200
+
+    user meal
+
+commit f236ac38004f2b50bc9467044310cbcf8b269faa
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Thu Dec 4 22:20:59 2014 +0200
+
+    product.java onetomany
+
+commit bcaf8d651371567dadbcaec6655906981b2fde60
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Thu Dec 4 22:15:20 2014 +0200
+
+    fixed
+
+commit 6240ecbf94b74bd369c940a94fc1c8f3a7d3b55a
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Thu Dec 4 20:46:45 2014 +0200
+
+    Recipes
+
+commit 602963484d2ed13874baa021b950938ef12ca7ee
+Author: acer <acer@172.26.199.50>
+Date:   Thu Dec 4 20:45:44 2014 +0200
+
+    User pataisytas
+
+commit b06855c7016c445c80101bb59d4006f272212a46
+Author: acer <acer@172.26.199.50>
+Date:   Thu Dec 4 20:35:58 2014 +0200
+
+    FridgeController ir FridgeForm
+
+commit e2d2b53e70b471daefcdc987005af8b6de420f16
+Author: acer <acer@172.26.199.50>
+Date:   Thu Dec 4 20:27:37 2014 +0200
+
+    UserProduct
+
+commit 4b8f3bb2e3d298b45f51598e9c52c80eb22fc36d
+Merge: ab96a2a b45e71f
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Thu Dec 4 20:24:39 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA.git
+
+commit ab96a2ad89059c211bdbce87de7b7d137168b69d
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Thu Dec 4 20:24:02 2014 +0200
+
+    MealsController updated
+
+commit b45e71f9c9bf6dc2e83909c32d07cc02340e11a8
+Author: auryssz <aurelijus.statkus@gmail.com>
+Date:   Thu Dec 4 20:23:46 2014 +0200
+
+    HomeController
+
+commit d9607dc92a1ca5c6859402deac4b0e9c89c639c3
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Thu Dec 4 20:22:19 2014 +0200
+
+    getMeals() -> UserService
+    getMeals() implementation -> UserServiceImpl
+
+commit 807f07d8e471afa11943720b40e738dd9c3440d8
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Thu Dec 4 20:19:51 2014 +0200
+
+    getMeals(String username) -> USerService
+
+commit caac762e27616176b558d1bc44020516cf87ba5c
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Thu Dec 4 20:16:16 2014 +0200
+
+    meals Getter, Setter -> User
+    Userservice, UserServiceImpl nothing
+    created MealsController
+
+commit 91a9f8c8e85f7d856f667f32f1d062216464538f
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Thu Dec 4 19:56:45 2014 +0200
+
+    prisidejau getters setters
+
+commit 3f187ff509cbfeaabcfff7b260efc66922f35838
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Thu Dec 4 19:34:57 2014 +0200
+
+    su eats table
+
+commit 1a253adc8e30104e77abbbc75ecc7ae31422d45e
+Author: acer <acer@172.26.199.50>
+Date:   Thu Dec 4 19:30:07 2014 +0200
+
+    User su userProducts
+
+commit ee38dbc5e42b414f017375b9086c4f96aa80a29d
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Thu Dec 4 18:50:27 2014 +0200
+
+    register working
+
+commit 09f7eb69448d4ee01c9352f9336fd976f8960374
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Thu Dec 4 18:42:58 2014 +0200
+
+    registercontroller
+
+commit 85dd57971173b7ea50c71906ae86388583291c09
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Thu Dec 4 18:04:19 2014 +0200
+
+    forms, erros on register.jsp, validation /register
+
+commit ed293c5ecf8b1871fa54f89e699a40952486971f
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Thu Dec 4 17:14:11 2014 +0200
+
+    register.jsp, userform
+
+commit 5254119e4c7e0ad27556811e3bfa254fb13a88f8
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Thu Dec 4 16:55:37 2014 +0200
+
+    productservice fix, transactionals
+
+commit 2baa734c7188ce84cf75438423cdc1b576b3f1ca
+Merge: 03204ad cc9184a
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Wed Dec 3 21:58:11 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA
+
+commit cc9184a4facaf871262fa844afdce03a6d4df8c2
+Author: acer <acer@172.26.199.50>
+Date:   Wed Dec 3 21:57:34 2014 +0200
+
+    ProductController, ProductService ir ProductServiceImpl dadeti update ir
+    delete metodai
+
+commit 03204ad2dc9bba22f3da9d5c21b19ccb5db2ca4c
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Wed Dec 3 21:55:35 2014 +0200
+
+    Atnaujintas langas
+
+commit 9d802e083f2ddcecd4f68e4b6bc8141acc0b61db
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Wed Dec 3 21:48:27 2014 +0200
+
+    updateUser -> UserService
+    updateUser -> UserServiceImpl
+    updated userDoModify in UserController
+
+commit 81cd3b302071de5a3aa437fb38058354c822064c
+Merge: 2a4b0a6 94f177e
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Wed Dec 3 21:48:17 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA.git
+
+commit 94f177e11ce3f263cbc3205f0e041241b0d76775
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Wed Dec 3 21:46:59 2014 +0200
+
+    sql
+
+commit 2a4b0a6631107005e02e33c36259f2ebc5abbceb
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Wed Dec 3 21:32:02 2014 +0200
+
+    Added updateUser() method to UserService
+
+commit 0a90839bcb786a0267ae50331525576ce9d83ab7
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Wed Dec 3 21:25:42 2014 +0200
+
+    Sutvarkyti override
+
+commit 74af8b09f3d50418ab915f8f3ac6e3faf3bf1d60
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Wed Dec 3 21:21:13 2014 +0200
+
+    dao
+
+commit 718e908362f10d6d51ceb9058bb5b6a85ae9b019
+Merge: 70c53aa f7c2c55
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Wed Dec 3 21:19:16 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA.git
+    
+    Conflicts:
+    	src/main/java/lt/vu/mif/ps5/kupra/service/implementation/UserServiceImpl.java
+
+commit 70c53aade72e6e9b455d6825aff7269842200f4c
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Wed Dec 3 21:13:32 2014 +0200
+
+    getUsername() -> UserServiceImple
+    
+    UserDao nieko
+    
+    UserController almost done (needs to be done: access denied return;
+    userDoModify update method)
+
+commit f7c2c5577882bca0ccb56a6c849781ef7f090563
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Wed Dec 3 21:12:48 2014 +0200
+
+    Overrides deleted
+
+commit b932c659278322d845c6bba9d70e9595afde64b1
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Wed Dec 3 21:11:12 2014 +0200
+
+    commitas
+
+commit ad4d84eb82332867cb88713b019c7a8a472b8a26
+Merge: 7c95569 6bdba61
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Wed Dec 3 21:09:20 2014 +0200
+
+    didelis
+
+commit 7c9556941ed005f05fb561e7f478f615811944ff
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Wed Dec 3 21:02:31 2014 +0200
+
+    register controller, unitcontroller, userform, unitservice update&delete
+
+commit 6bdba61277771582d4cc443b9ec86f75ca4b7da7
+Author: acer <acer@172.26.199.50>
+Date:   Wed Dec 3 20:57:55 2014 +0200
+
+    UnitForm
+
+commit b2ff46cb6b08c3ddf5862aa725dba3963c613fe4
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Wed Dec 3 20:51:42 2014 +0200
+
+    Added getUsername() method
+
+commit a293afa4c06ac9a6245d7493a7cd288104128a9a
+Merge: d1e75a2 7cc010f
+Author: acer <acer@172.26.199.50>
+Date:   Wed Dec 3 20:48:44 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA.git
+
+commit d1e75a2825fd1c07e177eea9a8193dbbf5b1514c
+Author: acer <acer@172.26.199.50>
+Date:   Wed Dec 3 20:48:14 2014 +0200
+
+    ProductForm ir pataisytas Product
+
+commit 56294b08ef96ec002116cbfa11dd9f3724b279e3
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Wed Dec 3 20:35:38 2014 +0200
+
+    Added hasRole method
+
+commit 36db6277b7a05f46e4230e7baca6c21bbe92f89c
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Wed Dec 3 20:34:10 2014 +0200
+
+    Added hasRole method
+
+commit 7cc010f64b9d43901c196b2d69c88ffbd6c1fe02
+Author: auryssz <aurelijus.statkus@gmail.com>
+Date:   Wed Dec 3 20:31:41 2014 +0200
+
+    Baigta RecipeForm
+
+commit ed466dbe8b936f52ae01545ed9964386927a84d8
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Wed Dec 3 20:17:08 2014 +0200
+
+    UserForm done
+
+commit 903ea8e5becd7ae2e888efc9ef59e2cc3b9cdc70
+Merge: 0edbe67 201a144
+Author: acer <acer@172.26.199.50>
+Date:   Wed Dec 3 20:04:23 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA.git
+
+commit 0edbe67aa8deb2e61f0e3cd274bcc1c13128b748
+Author: acer <acer@172.26.199.50>
+Date:   Wed Dec 3 20:03:28 2014 +0200
+
+    ProductController
+
+commit 201a1440cea9efc9e77bb6d81f6a5e22dff423da
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Wed Dec 3 20:03:06 2014 +0200
+
+    Formu pradzia
+
+commit acb03e7e18bb07146a70fa0fd1aa5548f79f7c74
+Merge: e2a1f8a e20f01c
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Wed Dec 3 19:48:09 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA
+
+commit e2a1f8acb0f62f115a16238de74b94ddf2a243bf
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Wed Dec 3 19:47:37 2014 +0200
+
+    register controller
+
+commit e20f01c5151f17ce5ab9991fc018b0a952b09a73
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Wed Dec 3 19:46:02 2014 +0200
+
+    UserController
+    
+    reikia ideti template
+    i UserService prideti updateUser methoda ir itrauki cia
+
+commit 6212a697c882a6f2fa7bc0df988a2850b028d337
+Merge: f1046a8 7990903
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Wed Dec 3 19:44:47 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA.git
+
+commit 7990903f8cc6c63684f38674d3c2577482f7075e
+Merge: 045e5f4 f9006ca
+Author: auryssz <aurelijus.statkus@gmail.com>
+Date:   Wed Dec 3 19:42:41 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA.git
+
+commit 045e5f44704e09a02ef728fee869130930322386
+Author: auryssz <aurelijus.statkus@gmail.com>
+Date:   Wed Dec 3 19:42:27 2014 +0200
+
+    UnitController trūksta list'o
+
+commit f9006caae276bd956af1f5138eb756024dc16eef
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Wed Dec 3 19:21:00 2014 +0200
+
+    login page working
+
+commit f1046a87d3f8bd60fed96fa8d4eaffec4d161c17
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Wed Dec 3 18:28:13 2014 +0200
+
+    pamirsau Role
+
+commit 23a29e055aa4ed49a94602b8916f65d14168188f
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Wed Dec 3 17:15:32 2014 +0200
+
+    login page, servlets, resources
+
+commit 792712d0703dc1235b3d1af443be352077d2cc86
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Wed Dec 3 16:43:35 2014 +0200
+
+    login page, servlet working
+
+commit 551678cfb22e404d352d992f24cb8b7c0f148f42
+Author: acer <acer@172.26.199.50>
+Date:   Wed Dec 3 16:27:28 2014 +0200
+
+    RecipeService ir RecipeServiceImpl
+
+commit c5defd9ebdd3a4b08a3529ab0996070df891f97f
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Wed Dec 3 15:59:59 2014 +0200
+
+    ProductServiceImpl base methods
+
+commit fa34de257a8a834acdae84f9af6401536d9505d7
+Merge: df98009 23c7167
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Wed Dec 3 15:59:36 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA.git
+
+commit 23c7167e079b9e2aa53044718b7e0738da11a8a0
+Author: acer <acer@172.26.199.50>
+Date:   Wed Dec 3 15:50:20 2014 +0200
+
+    user service'o implementacija
+
+commit df98009e7d202828007d71ad1c69b3143675a73f
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Wed Dec 3 15:46:51 2014 +0200
+
+    ProductService interface base methods
+
+commit 00969825aea2916f3c958ffa4c2f26856261d2dd
+Author: acer <acer@172.26.199.50>
+Date:   Wed Dec 3 15:29:58 2014 +0200
+
+    user service'as
+
+commit 95882b2bc04fc1a3fba27ded154ddf5a38c436b1
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Wed Dec 3 15:08:26 2014 +0200
+
+    pamirsau persist
+
+commit 8677dfa191e53983534af68fe28dcd6c0dfe0b76
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Wed Dec 3 15:07:18 2014 +0200
+
+    UnitServiceImpl atnaujintas
+
+commit fedcd6b05b22c76393e8586786526ac7f0055250
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Tue Dec 2 22:47:17 2014 +0200
+
+    buvo merge conflictas
+
+commit 194628b1195bf641f4e03da1c2ae3d4b5db6d500
+Merge: 43d472f a33bef4
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Tue Dec 2 22:46:35 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA.git
+    
+    Conflicts:
+    	src/main/java/lt/vu/mif/ps5/kupra/dao/implementation/UnitDaoImpl.java
+
+commit 43d472fb46c9def1e1be4b71503b88f8b7749e5c
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Tue Dec 2 21:51:15 2014 +0200
+
+    unit
+
+commit a33bef40495e740ce3b8a562489d8ec31afffaba
+Merge: c014836 be9e3f1
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Tue Dec 2 21:57:56 2014 +0200
+
+    UnitService
+
+commit c014836b9b30176d5ae76ba76b3f0e3f58975f1e
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Tue Dec 2 21:55:58 2014 +0200
+
+    UnitService
+
+commit be9e3f1648456eddf43df57a71d83b9bfa7ac15e
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Tue Dec 2 21:51:15 2014 +0200
+
+    unit ir recpe dao impl
+
+commit a6de7fca2201c1141b2bbcc9b37a616a8bd3df3d
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Tue Dec 2 21:37:54 2014 +0200
+
+    done kol kas
+
+commit 07dc861b82a5d5bbd5eaed6892a2612b686aa585
+Author: acer <acer@172.26.199.50>
+Date:   Tue Dec 2 21:34:28 2014 +0200
+
+    siaip
+
+commit 7941bf7b92bb99fe30c836d0a42a3d8665221338
+Author: auryssz <aurelijus.statkus@gmail.com>
+Date:   Tue Dec 2 21:20:31 2014 +0200
+
+    Ištaisyta klaida
+
+commit 634bb2053e2bb950a301593b46d3ee666d3ccc31
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Tue Dec 2 21:19:21 2014 +0200
+
+    Unit dao impl
+
+commit b5dcec14998cd4cd9ce85a8dd2d6e33e312a750e
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Tue Dec 2 20:59:58 2014 +0200
+
+    userdaoimpl
+
+commit d9ada63d64266feed64ea5c2430eeec86e13e8fc
+Merge: 6d7c2fb 1bd6624
+Author: auryssz <aurelijus.statkus@gmail.com>
+Date:   Tue Dec 2 20:54:28 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA.git
+
+commit 6d7c2fb119e172e76c9b3c2a93dc9a81e94ced31
+Author: auryssz <aurelijus.statkus@gmail.com>
+Date:   Tue Dec 2 20:53:46 2014 +0200
+
+    UserDao tuščias
+
+commit 1bd66249dca81f6cfc19cca18eb9ddc877c9bdd3
+Merge: 9640ec4 b52b454
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Tue Dec 2 20:52:24 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA
+
+commit 9640ec43e0f7fcc80ead650ff424b4debfcb6fb7
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Tue Dec 2 20:51:58 2014 +0200
+
+    Product, recipe, unit daos
+
+commit b52b4549eccece5eca9078a9a9d437d8784a6a10
+Merge: 45de11d fdd84a7
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Tue Dec 2 20:50:14 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA
+
+commit fdd84a77bf3d7c3e1c288b46fc99c8f375ad7e59
+Merge: 654ae11 1a1fc65
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Tue Dec 2 20:46:05 2014 +0200
+
+    next
+
+commit 654ae113c7c77f02bef1c4fc8b715ab38674308e
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Tue Dec 2 20:44:12 2014 +0200
+
+    Dao interfaces
+
+commit 45de11d33ab2fb267bfe5526602a41249395d659
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Tue Dec 2 20:41:16 2014 +0200
+
+    in development
+
+commit 1a1fc65a7c02f4e7336ed9db2fb6abfd96a89f45
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Tue Dec 2 20:32:41 2014 +0200
+
+    package pataisyti
+
+commit 0a7e77cd708bc8121e24f78f446ff14e73646724
+Merge: 49925b6 98a8544
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Tue Dec 2 20:27:04 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA
+
+commit 49925b6d5325769168e280b9d49541eb281ab0f6
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Tue Dec 2 20:26:37 2014 +0200
+
+    in development
+
+commit 98a85441e3a73fccceb6230885c13c77833d119c
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Tue Dec 2 20:20:15 2014 +0200
+
+    Generics
+
+commit a7b076781cdf97b7c758b6221c48ff7761c5b096
+Merge: da159c2 571e4bf
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Tue Dec 2 19:53:42 2014 +0200
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 8dae744cee15205beedc48c1d287d2542cbfcc9e
+Author: auryssz <aurelijus.statkus@gmail.com>
+Date:   Tue Dec 2 19:51:41 2014 +0200
+
+    Baigtas USER entity
+
+commit 571e4bf7509d9bf04df3c0bcb06a2b4239e2f09d
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Tue Dec 2 19:48:30 2014 +0200
+
+    Produktai padarytas, bet reikia pagalvoti apie OneToMany
+
+commit a07a97221bf9a2397809d8a76d2ce4397910974c
+Merge: db12c2d cf6ee54
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Tue Dec 2 19:47:14 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA
+
+commit da159c211957872812b803442dd07bba43d45cc3
+Merge: 52a1128 cf6ee54
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Tue Dec 2 19:46:00 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA
+
+commit 52a1128eb38a2ffd3101145153f8deaa0672d44d
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Tue Dec 2 19:45:39 2014 +0200
+
+    f
+
+commit cf6ee5421f7df88902dae35949d52791f58f7a00
+Merge: dfc64a4 fcc198c
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Tue Dec 2 19:42:11 2014 +0200
+
+    Merge branch 'master' of https://github.com/L1F3/KuPRA
+
+commit db12c2d31ac44a8c95fc33ee30aaaa8ca6f61339
+Author: G3RIS <gerimantas.triksys@gmail.com>
+Date:   Tue Dec 2 19:41:44 2014 +0200
+
+    OK
+
+commit b61fec5b20b07eacbe08cd78c83a0d77a3e8950b
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Tue Dec 2 19:35:45 2014 +0200
+
+    OK
+
+commit fcc198c84f69d3fb6709fe2e49e6a6cb0adffffe
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Tue Dec 2 19:35:21 2014 +0200
+
+    a
+
+commit 06053799df069017329c0d7676fcc770ad79fdd9
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Tue Dec 2 19:34:17 2014 +0200
+
+    OK
+
+commit fc4086615abccaac6b78561d2ed408d61e6c83ec
+Author: G3RIS <gerimantas.triksys@gmail.com>
+Date:   Tue Dec 2 19:30:36 2014 +0200
+
+    Edit
+
+commit dfc64a4a17ffb25ab2582a1f95d67cb6b3ffcac1
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Tue Dec 2 19:25:58 2014 +0200
+
+    Recipe.java
+
+commit 9d23d6aa4ef862cde299ea0b6d39d531ed778733
+Author: Gerimantas <gerimantas.triksys@gmail.com>
+Date:   Tue Dec 2 19:20:40 2014 +0200
+
+    OK
+
+commit 0c2c18dc73b87e13755f343ab0e5a8d7e4de7e52
+Author: Gerimantas <Gerimantas@Geris>
+Date:   Tue Dec 2 19:13:15 2014 +0200
+
+    Produktai baigtas, bet nėra aišku, kaip OneToMany reikia padaryti.
+
+commit 28717537bed82125f864c13f44b929023953b25e
+Author: vytaus <vytautaslatvys@gmail.com>
+Date:   Tue Dec 2 18:42:38 2014 +0200
+
+    unit entity baigtas
+
+commit d102ed8db7d3a8b6842e7bfed40588f29758de3a
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Tue Dec 2 18:05:14 2014 +0200
+
+    Entities
+
+commit 4ab1434b2ebe12a3ff6798190035eb2064968c52
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Tue Dec 2 17:03:24 2014 +0200
+
+    Login controller
+
+commit ac530af1699a777b149951f5dc182be06ccda251
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Tue Dec 2 16:48:41 2014 +0200
+
+    User.java
+
+commit 51d5275d627b740469cd2ddb718cb28ca56f17db
+Author: Tomas <zvaliauskas.tomas@gmail.com>
+Date:   Tue Dec 2 16:43:46 2014 +0200
+
+    pirmas commitas

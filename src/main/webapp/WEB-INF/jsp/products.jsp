@@ -24,7 +24,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                      <a class="navbar-brand" href="home">
+                      <a class="navbar-brand" href="../home">
 					    <!-- System brand -->
                         <p class="brand">
                             <img src="<c:url value="/resources/svg/brand.svg"/>" />KuPRA
@@ -33,27 +33,27 @@
                 </div>
                 <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="add-recept">Ikelti recepta</a></li>
+                        <li><a href="../recipe">Ikelti recepta</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Visi Receptai</a></li>
-                                <li><a href="#">Mano receptia</a></li>
+                                <li><a href="../search/all">Visi Receptai</a></li>
+                                <li><a href="../search/user">Mano receptia</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Klasifikatoriai<span class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Klasifikatoriai<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Produktai</a></li>
-                                <li><a href="#">Matavimo vienetai</a></li>
+                                <li><a href="../product/all">Produktai</a></li>
+                                <li><a href="../unit/all">Matavimo vienetai</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Šaldytuvas</a></li>
-                        <li><a href="#">Valgiaraštis</a></li>
+                        <li><a href="../fridge/list">Šaldytuvas</a></li>
+                        <li><a href="../meals">Valgiaraštis</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="profile">Vartotojo profilis</a></li>
-                        <li><a href="#">Atsijungti</a></li>
+                        <li><a href="../profile">Vartotojo profilis</a></li>
+                        <li><a href="../../j_spring_security_logout">Atsijungti</a></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -67,118 +67,54 @@
         <div class="products-wrap ">
             <div class=" container">
                 <div class="row">
+					<c:forEach var="product" items="${products}">
                     <div class="col-md-3 col-xs-12 col-sm-4">
                         <!--Data-target Gauti iš duombazes id ar pavadinima -->
-                        <div data-toggle="modal" data-target="#agurkas">
+                        <div data-toggle="modal" data-target="#${product.productId}">
                             <div class="panel panel-default product-panel-custom">
                                 <!--Paveiksliukas -->
 								
-                                <img src="<c:url value="/resources/products/agurkas.jpg"/>" class="img-responsive image-size" />
+                                <img src="../product/image/${product.productId}/thumb2" class="img-responsive image-size" />
                                 <!--Pavadinimas -->
                                 <div class="product_name">
-                                    <p>Agurkas</p>
+                                    <p>${product.name}</p>
                                 </div>
                             </div>
                         </div>
-
                         <!-- Modal  id putini tą pavadinima kuri data-target įdedi tada viskas veiks-->
-                        <div class="modal fade" id="agurkas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="${product.productId}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-vertical-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                         <!--Pavadinimas -->
-                                        <h4 class="modal-title">Agurkas</h4>
-                                        <h5 class="modal-title product-modal-id">id :123456</h5>
+                                        <h4 class="modal-title">${product.name}</h4>
+                                        <h5 class="modal-title product-modal-id">ID: ${product.productId}</h5>
                                     </div>
                                     <div class="modal-body">
                                         <div class="row">
                                             <div class="modal-image-size col-xs-10 col-md-10">
-                                                <img src="<c:url value="/resources/products/agurkas.jpg"/>" class="img-responsive" />
+                                                <img src="../product/image/${product.productId}/thumb2" class="img-responsive" />
                                             </div>
                                             <div class="product-units col-xs-2 col-md-2">
                                                   <div class="row">
-                                                        <span class="col-sm-12" >Matavimo_vienetai</span>
-                                                        <span class="col-sm-12">kg</span>
-                                                        <span class="col-sm-12">mg</span>
+                                                        <span class="col-sm-12">Matavimo_vienetai</span>
+													<c:forEach var="unit" items="${product.unitsSet}">
+                                                        <span class="col-sm-12">${unit.abbreviation}</span>
+													</c:forEach>
                                                   </div>
                                             </div>
                                         </div>
                                         <div class="product-modal-description">
                                             <h3>Aprašymas</h3>
-                                            <span>Agurkas (lot. Cucumis) – moliūginių (Cucurbitaceae) šeimos augalų gentis.
-                                              Šaknis liemeninė, stiebas šliaužiantis. Žiedai vienalyčiai, geltoni. Vaisiai žali, vidutinio dydžio.
-                                              Augalus apdulkina vabzdžiai, dirbtiniu būdu – žmogus. Nedaugelis veislių augina sėklų neturinčius vaisius be apdulkinimo. 
-                                              Jos gerai tinka šiltnamiams. Dauguma veislių vaisius mezga tik apdulkinus žiedus. Derliui padidinti į agurkų laukus vežami bičių aviliai.
-                                              Žiedus kartais apdulkina musės. Nepakankamo apdulkinimo požymiai yra nukrentantys ar deformuoti vaisiai.
-                                              Tik dalinai apdulkintų žiedų vietoje išaugę vaisiai būna nuo stiebo nutolusioje dalyje pabalę.
-                                            </span>
+                                            <span>${product.description}</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-
-                    <div class="col-md-3  col-xs-12 col-sm-4">
-                        <div data-toggle="modal" data-target="#braske">
-                            <div class="panel panel-default product-panel-custom">
-                                <img src="products/braske.jpg" class="img-responsive image-size" />
-                                <div class="product_name">
-                                    <p>Braškė</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Modal -->
-                        <div class="modal fade" id="braske" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-vertical-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                        <h4 class="modal-title" id="myModalLabel">Braškė</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        ...
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-3  col-xs-12 col-sm-4">
-                        <div class="panel panel-default product-panel-custom">
-                            <img src="products/sviestas.jpg" class="img-responsive image-size" />
-                            <div class="product_name">
-                                <p>Sviestas</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3  col-xs-12 col-sm-4">
-                        <div class="panel panel-default product-panel-custom">
-                            <img src="products/bulves.jpg" class="img-responsive image-size" />
-                            <div class="product_name">
-                                <p>Bulvė</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3  col-xs-12 col-sm-4">
-                        <div class="panel panel-default product-panel-custom">
-                            <img src="products/pomidoras.jpg" class="img-responsive image-size" />
-                            <div class="product_name">
-                                <p>Pomidoras</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3  col-xs-12 col-sm-4">
-                        <div class="panel panel-default product-panel-custom">
-                            <img src="products/morka.jpg" class="img-responsive image-size" />
-                            <div class="product_name">
-                                <p>Morka</p>
-                            </div>
-                        </div>
-                    </div>
+				</c:forEach>
                 </div>
             </div>
         </div>

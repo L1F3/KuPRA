@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class MealsController {
 
-	static Logger log = Logger.getLogger(RegisterController.class.getName());
+	static Logger log = Logger.getLogger(MealsController.class.getName());
 
 	private final UserService userService;
 	private final RecipeService recipeService;
@@ -32,7 +32,7 @@ public class MealsController {
 		this.recipeService = recipeService;
 	}
 
-    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
 	@RequestMapping(value = "/meals", method = RequestMethod.GET)
 	public ModelAndView mealsList() {
 
@@ -40,24 +40,18 @@ public class MealsController {
 				.getAuthentication();
 		User user = userService.getUserByLoginname(auth.getName());
 		Set<Recipe> meals = userService.getMeals(user);
-		for (Recipe meal : meals) {
-			System.out.println(meal.getName());
-		}
 		return new ModelAndView("meals").addObject("meals", meals);
 	}
 
-    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
 	@RequestMapping(value = "/meals/add/{id}", method = RequestMethod.GET)
 	public ModelAndView addMeal(@PathVariable long id) {
 
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
 		User user = userService.getUserByLoginname(auth.getName());
-		
-		Set<Recipe> meals = user.getMeals();
-		Recipe foradd = recipeService.getRecipe(id);
-		meals.add(foradd);
-		user.setMeals(meals);
-		return new ModelAndView("redirect:../meals");
+		System.out.println(user.getUserId() + " recepto id " + id);
+		userService.addMeal(user.getUserId(), id);
+		return new ModelAndView("redirect:../../meals");
 	}
 }

@@ -1,5 +1,7 @@
 package lt.vu.mif.ps5.kupra.controller;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -7,6 +9,8 @@ import java.util.logging.Logger;
 import lt.vu.mif.ps5.kupra.entity.Fridge;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.User;
+import lt.vu.mif.ps5.kupra.form.DeletedFridge;
+import lt.vu.mif.ps5.kupra.form.FridgeForm;
 import lt.vu.mif.ps5.kupra.service.ProductService;
 import lt.vu.mif.ps5.kupra.service.RecipeService;
 import lt.vu.mif.ps5.kupra.service.UnitService;
@@ -20,6 +24,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
 public class FridgeController {
@@ -37,11 +42,16 @@ public class FridgeController {
         this.userService = userService;
         this.recipeService = recipeService;
     }
-    
+
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+    @RequestMapping(value = "/fridge/available", method = RequestMethod.POST)
+    public ModelAndView fridgeAvailablePagePOST() {
+    	return fridgeAvailablePageGET();
+    }
 
     @Secured({"ROLE_USER", "ROLE_ADMIN"})
     @RequestMapping(value = "/fridge/available", method = RequestMethod.GET)
-    public ModelAndView fridgeAvailablePage() {
+    public ModelAndView fridgeAvailablePageGET() {
 
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
@@ -59,7 +69,24 @@ public class FridgeController {
 				.getAuthentication();
 		User user = userService.getUserByLoginname(auth.getName());
 		Set<Fridge> fritems = user.getFridgeItems();
+		//List<Fridge> main = new ArrayList<Fridge>(fritems);
+		//FridgeForm fridgeForm = new FridgeForm();
+		//fridgeForm.setMyList(main);
     	return new ModelAndView("fridge").addObject("items", fritems);
+    }
+
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+    @RequestMapping(value = "/fridge/list/delete", method = RequestMethod.POST)
+    public ModelAndView fridgeDeletePage(@ModelAttribute("fridge") Fridge item ) {
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		User user = userService.getUserByLoginname(auth.getName());
+		//List<Fridge> fritems = fridgeForm.getMyList();
+		//for(Fridge item:fritems) {
+			//System.out.println(item.getFrId() + "int "+ fritems.indexOf(item));
+		//}
+		System.out.println("ZDAROA");
+    	return new ModelAndView("fridge").addObject("fridge", item);//.addObject("deletedFridge", new DeletedFridge());
     }
     
 }

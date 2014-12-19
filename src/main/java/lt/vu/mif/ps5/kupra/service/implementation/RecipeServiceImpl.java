@@ -6,7 +6,7 @@ import java.util.Set;
 
 import lt.vu.mif.ps5.kupra.dao.RecipeDao;
 import lt.vu.mif.ps5.kupra.entity.Fridge;
-import lt.vu.mif.ps5.kupra.entity.Image;
+import lt.vu.mif.ps5.kupra.entity.RecipeImage;
 import lt.vu.mif.ps5.kupra.entity.Product;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.User;
@@ -53,8 +53,8 @@ public class RecipeServiceImpl implements RecipeService {
 		recipe.setVisibility(visibility);
 		recipe.setUser(user);
 		
-		List<Image> image = recipe.getImages();
-		Image ImgPrep = new Image();
+		List<RecipeImage> image = recipe.getImages();
+		RecipeImage ImgPrep = new RecipeImage();
 		ImgPrep.setImg(img);
 		ImgPrep.setImgName(imgName);
 		ImgPrep.setImgType(imgType);
@@ -90,7 +90,7 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 
 	@Transactional(readOnly = true)
-	public Image getDefaultImage() {
+	public RecipeImage getDefaultImage() {
 		return recipeDao.getDefaultImage();
 	}
 }

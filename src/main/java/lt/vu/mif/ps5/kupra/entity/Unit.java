@@ -13,6 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 @Table(name = "units")
 public class Unit {
@@ -28,9 +31,11 @@ public class Unit {
 	private String abbreviation;
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="unit")
+	@Fetch (FetchMode.SELECT)
 	private Set<Ingredient> ingredients = new HashSet<Ingredient>();       
 
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="unit")
+	@Fetch (FetchMode.SELECT)
 	private Set<Fridge> fridgeItems = new HashSet<Fridge>();       
 
 	public Set<Fridge> getFridgeItems() {

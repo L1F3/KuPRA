@@ -96,7 +96,13 @@ public class SearchController {
 	@RequestMapping(value = "/search/user", method = RequestMethod.GET)
 	public ModelAndView searchDoUser(@ModelAttribute("key") String key,
 			@ModelAttribute("order") String order,
-			@ModelAttribute("rating") int rating) {
+			@ModelAttribute("rating") String rating) {
+		int rate;
+		if (isNumeric(rating)) {
+			rate = Integer.parseInt(rating);
+		} else {
+			rate = 0;
+		}
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
 		User user = userService.getUserByLoginname(auth.getName());
@@ -125,7 +131,7 @@ public class SearchController {
 				Iterator<Recipe> iter = recipes.iterator();
 				while (iter.hasNext()) {
 					Recipe recipe = iter.next();
-					if (recipe.getRating() < rating) {
+					if (recipe.getRating() < rate) {
 						iter.remove();
 					}
 				}

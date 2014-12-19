@@ -2,6 +2,7 @@ package lt.vu.mif.ps5.kupra.form;
 
 import java.sql.Blob;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.validation.constraints.Size;
@@ -17,8 +18,16 @@ public class RecipeForm {
 	@Size(min = 3, max = 30)
 	private String name;
 
-	private MultipartFile file;
-
+    private List<MultipartFile> files;
+    
+    public List<MultipartFile> getFiles() {
+        return files;
+    }
+ 
+    public void setFiles(List<MultipartFile> files) {
+        this.files = files;
+    }
+    
 	private Set<Product> productsOfRecipe = new HashSet<Product>(0);
 
 	@NotEmpty
@@ -26,15 +35,6 @@ public class RecipeForm {
 	private String description;
 
 	private int visibility;
-
-
-	public MultipartFile getFile() {
-		return file;
-	}
-
-	public void setFile(MultipartFile file) {
-		this.file = file;
-	}	
 	
 	public String getName() {
 		return name;

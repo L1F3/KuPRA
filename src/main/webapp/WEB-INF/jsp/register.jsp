@@ -32,7 +32,7 @@
 				       <span class="input-group-addon"><img src="<c:url value="/resources/svg/user.svg"/>"  class="icons-registration"/></span>
 <!-- *** -->          <input value="${userForm.loginname}" type="text" class="form-control" id="inputLoginName icon-login-name" placeholder="Prisijungimo vardas" name="loginname"/> 
                   </div>
-                   <form:errors path="loginname" cssClass="error" /> 				  
+                  <form:errors path="loginname" cssClass="error" /> 				  
                 </div>
            </div>  
            <div class="form-group">

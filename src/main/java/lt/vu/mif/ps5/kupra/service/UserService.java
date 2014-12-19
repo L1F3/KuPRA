@@ -33,4 +33,6 @@ public interface UserService {
 	public User getUserByLoginname(String loginname);
 	
 	public Set<Fridge> getUserFridgeItems(User user);
+	
+	public void addMeal(long id, long recipeId);
 }

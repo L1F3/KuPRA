@@ -37,24 +37,24 @@
                     <ul class="nav navbar-nav custom-navbar">
                         <li><a href="recipe">Ikelti recepta</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="search/all">Visi Receptai</a></li>
                                 <li><a href="search/user">Mano receptia</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Klasifikatoriai<span class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Klasifikatoriai<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="product/all">Produktai</a></li>
                                 <li><a href="unit/all">Matavimo vienetai</a></li>
                             </ul>
                         </li>
                         <li><a href="fridge/list">Šaldytuvas</a></li>
-                        <li><a href="#">Valgiaraštis</a></li>
+                        <li><a href="meals">Valgiaraštis</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right custom-navbar">
-                        <li><a href="user">Vartotojo profilis</a></li>
+                        <li><a href="profile">Vartotojo profilis</a></li>
                         <li><a href="../j_spring_security_logout">Atsijungti</a></li>
                     </ul>
                 </div>
@@ -118,11 +118,6 @@
                 <div class="recipe-name-box">
                      <a href="../app/recipe/${recipe.recId}"><p class="recipe-name" >${recipe.name}</p></a>
                  </div>
-				 <!-- Recipe description -->
-              <!--   <div class="recipe-info-box">
-                       <span>${recipe.description}</span>
-                 </div> -->
-				 <!-- Recipe rating/ people rating -->
                  <div class="recipe-rating-box">
                          <span>
                               <img src="<c:url value="/resources/svg/star.svg"/>" class="img-responsive rating-icon"/>

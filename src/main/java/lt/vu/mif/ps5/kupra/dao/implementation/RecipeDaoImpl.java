@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.hibernate.sql.JoinType;
 
-import lt.vu.mif.ps5.kupra.entity.Image;
+import lt.vu.mif.ps5.kupra.entity.RecipeImage;
 import lt.vu.mif.ps5.kupra.dao.RecipeDao;
 import lt.vu.mif.ps5.kupra.entity.Fridge;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
@@ -91,12 +91,12 @@ public class RecipeDaoImpl extends GenericDaoImpl<Recipe> implements RecipeDao {
 		return recipes;
 	}
 	
-	public Image getDefaultImage() {
+	public RecipeImage getDefaultImage() {
 		Session sess = getSession();
-		Image image;
-		List<Image> images = new ArrayList<Image>();
+		RecipeImage image;
+		List<RecipeImage> images = new ArrayList<RecipeImage>();
 		long imgId = 0;
-		images = (List<Image>) sess.createCriteria(Image.class)
+		images = (List<RecipeImage>) sess.createCriteria(RecipeImage.class)
 				.add(Restrictions.eq("imgId", imgId)).list();
 		return images.get(0);
 	}

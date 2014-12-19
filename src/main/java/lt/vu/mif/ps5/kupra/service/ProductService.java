@@ -20,5 +20,5 @@ public interface ProductService {
 	
 	void updateProduct(long id, String productName, /*Set<Unit> units, */String description,
 			String imageName, String imageType, Blob image);
-
+	
 }

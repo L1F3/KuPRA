@@ -1,7 +1,9 @@
 package lt.vu.mif.ps5.kupra.entity;
 
 import java.sql.Blob;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -43,6 +45,7 @@ public class Product {
 	private Set<Fridge> fridgeItems = new HashSet<Fridge>();                        
 	
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@Fetch (FetchMode.SELECT)
     @JoinTable(name = "unit_product",
             joinColumns = {
                 @JoinColumn(name = "productId")},

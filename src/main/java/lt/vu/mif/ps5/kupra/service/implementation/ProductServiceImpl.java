@@ -6,6 +6,7 @@ import java.util.Set;
 
 import lt.vu.mif.ps5.kupra.dao.ProductDao;
 import lt.vu.mif.ps5.kupra.entity.Product;
+import lt.vu.mif.ps5.kupra.entity.RecipeImage;
 import lt.vu.mif.ps5.kupra.entity.Unit;
 import lt.vu.mif.ps5.kupra.service.ProductService;
 

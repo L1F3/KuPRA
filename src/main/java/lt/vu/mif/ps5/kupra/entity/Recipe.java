@@ -59,13 +59,13 @@ public class Recipe {
 
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="recipe")
 	@Fetch (FetchMode.SELECT)
-	private List<Image> images = new ArrayList<Image>();
+	private List<RecipeImage> images = new ArrayList<RecipeImage>();
 	
-	public List<Image> getImages() {
+	public List<RecipeImage> getImages() {
 		return images;
 	}
 
-	public void setImages(List<Image> images) {
+	public void setImages(List<RecipeImage> images) {
 		this.images = images;
 	}
 

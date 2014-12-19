@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+﻿<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -35,27 +35,27 @@
                 </div>
                 <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="add-recept">Ikelti recepta</a></li>
+                        <li><a href="../recipe">Ikelti recepta</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="../search/all">Visi Receptai</a></li>
                                 <li><a href="../search/user">Mano receptia</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Klasifikatoriai<span class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Klasifikatoriai<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Produktai</a></li>
-                                <li><a href="#">Matavimo vienetai</a></li>
+                                <li><a href="../product/all">Produktai</a></li>
+                                <li><a href="../unit/all">Matavimo vienetai</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Šaldytuvas</a></li>
-                        <li><a href="#">Valgiaraštis</a></li>
+                        <li><a href="../fridge/list">Šaldytuvas</a></li>
+                        <li><a href="../meals">Valgiaraštis</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="profile">Vartotojo profilis</a></li>
-                        <li><a href="#">Atsijungti</a></li>
+                        <li><a href="../profile">Vartotojo profilis</a></li>
+                        <li><a href="../../j_spring_security_logout">Atsijungti</a></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -86,76 +86,18 @@
                 </tfoot>
 
                 <tbody>
-
+					
+					<c:forEach var="unit" items="${units}">
                     <tr>
 					    <!--Matavimo vieneto vardas -->
-                        <td>Kilogramas</td>
+                        <td>${unit.name}</td>
 						<!--Matavimo vieneto sutrumpinimas -->
-                        <td>kg</td>
+                        <td>${unit.abbreviation}</td>
 						<!--Matavimo vieneto administratoriaus modifikavimas -->
                         <td><a class="btn" data-toggle="modal" data-target="#Kilogramas">Modifikuoti</a></td>
                     </tr>
-
-                    <tr>
-                        <td>Gramas</td>
-                        <td>g</td>
-                        <td><a class="btn" href="#">Modifikuoti</a></td>
-                    </tr>
-                    <tr>
-                        <td>Tona</td>
-                        <td>t</td>
-                        <td><a class="btn" href="#">Modifikuoti</a></td>
-                    </tr>
-                    <tr>
-                        <td>Metras</td>
-                        <td>m</td>
-                        <td><a class="btn" href="#">Modifikuoti</a></td>
-                    </tr>
-                    <tr>
-                        <td>Centimetras</td>
-                        <td>cm</td>
-                        <td><a class="btn" href="#">Modifikuoti</a></td>
-                    </tr>
-                    <tr>
-                        <td>Milimetras</td>
-                        <td>mm</td>
-                        <td><a class="btn" href="#">Modifikuoti</a></td>
-                    </tr>
-                    <tr>
-                        <td>Litras</td>
-                        <td>l</td>
-                        <td><a class="btn" href="#">Modifikuoti</a></td>
-                    </tr>
-                    <tr>
-                        <td>Mililitras</td>
-                        <td>ml</td>
-                        <td><a class="btn" href="#">Modifikuoti</a></td>
-                    </tr>
-                    <tr>
-                        <td>Vienetai</td>
-                        <td>vnt</td>
-                        <td><a class="btn" href="#">Modifikuoti</a></td>
-                    </tr>
-                    <tr>
-                        <td>Stiklinė</td>
-                        <td>Stiklinė</td>
-                        <td><a class="btn" href="#">Modifikuoti</a></td>
-                    </tr>
-                    <tr>
-                        <td>Pusė stiklinės</td>
-                        <td>Pusė stiklinės</td>
-                        <td><a class="btn" href="#">Modifikuoti</a></td>
-                    </tr>
-                    <tr>
-                        <td>Arbatinis šaukštelis</td>
-                        <td>Arbatinis šaukštelis</td>
-                        <td><a class="btn" href="#">Modifikuoti</a></td>
-                    </tr>
-                    <tr>
-                        <td>Uncija</td>
-                        <td>oz</td>
-                        <td><a class="btn" href="#">Modifikuoti</a></td>
-                    </tr>
+					</c:forEach>
+                    
                 </tbody>
             </table>
         </div>

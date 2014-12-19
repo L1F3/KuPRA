@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table (name= "recipesimages")
-public class Image {
+public class RecipeImage {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

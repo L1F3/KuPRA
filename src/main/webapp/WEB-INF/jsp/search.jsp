@@ -36,25 +36,25 @@
                     <ul class="nav navbar-nav">
                         <li><a href="../recipe">Ikelti recepta</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="all">Visi Receptai</a></li>
                                 <li><a href="user">Mano receptia</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Klasifikatoriai<span class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Klasifikatoriai<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Produktai</a></li>
-                                <li><a href="#">Matavimo vienetai</a></li>
+                                <li><a href="../product/all">Produktai</a></li>
+                                <li><a href="../unit/all">Matavimo vienetai</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Šaldytuvas</a></li>
-                        <li><a href="#">Valgiaraštis</a></li>
+                        <li><a href="../fridge/list">Šaldytuvas</a></li>
+                        <li><a href="../meals">Valgiaraštis</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="profile">Vartotojo profilis</a></li>
-                        <li><a href="#">Atsijungti</a></li>
+                        <li><a href="../profile">Vartotojo profilis</a></li>
+                        <li><a href="../../j_spring_security_logout">Atsijungti</a></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->

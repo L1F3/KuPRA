@@ -34,27 +34,27 @@
                 </div>
                 <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="add-recept">Ikelti recepta</a></li>
+                        <li><a href="../recipe">Ikelti recepta</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="../search/all">Visi Receptai</a></li>
                                 <li><a href="../search/user">Mano receptia</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Klasifikatoriai<span class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Klasifikatoriai<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="../product/all">Produktai</a></li>
                                 <li><a href="../unit/all">Matavimo vienetai</a></li>
                             </ul>
                         </li>
                         <li><a href="../fridge/list">Šaldytuvas</a></li>
-                        <li><a href="#">Valgiaraštis</a></li>
+                        <li><a href="../meals">Valgiaraštis</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="profile">Vartotojo profilis</a></li>
-                        <li><a href="#">Atsijungti</a></li>
+                        <li><a href="../profile">Vartotojo profilis</a></li>
+                        <li><a href="../../j_spring_security/logout">Atsijungti</a></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -62,14 +62,14 @@
             <!-- /.container-fluid -->
         </div>
 		
-
+	<form:form method="POST">
 		<div class="recipies-content">
             <div class="container">
                 <div class='row'>
                     <div class='col-md-3'>
-						<button type="button" class="btn btn-default col-xs-12">Ieškoti pagal turimus produktus</button>
+						<input method="GET" value="Ieskoti pagal turimus" type="submit" formaction="../fridge/available" class="btn btn-default col-xs-12"/>
 						<button type="button" class="btn btn-default col-xs-12" style="margin-top:30px" data-toggle="modal" data-target="#produktas">Pridėti produktą</button>
-						<button type="button" class="btn btn-default col-xs-12" style="margin-top:30px">Trinti pažymėtus</button>
+						<input value = "Trinti" type="submit" formaction="../fridge/list/delete" class="btn btn-default col-xs-12" style="margin-top:30px">Trinti pažymėtus</input>
 						<button type="button" class="btn btn-default col-xs-12" style="margin-top:30px">Išsaugoti</button>
                     </div>
 								
@@ -83,17 +83,17 @@
 								</thead>
 								<tbody>
 			
-									
-								<c:forEach var="item" items="${items}">
+									<c:forEach var="item" items="${items}">
+										<td></td>
 									<tr>
-										<td><input type="checkbox" class="checkthis" value="${item.frId}" /></td>
+										
 										<td>${item.product.name}</td>
 										<td>
 											<input type="text" class="fridge-text-field" value="${item.amount}" />
 											<span class="fridge-row">${item.unit.abbreviation}</span>
 										</td>
 									</tr>
-								</c:forEach>	
+									</c:forEach>
 									
 								</tbody>
 							</table>
@@ -102,7 +102,7 @@
                 </div>
             </div>
         </div>
-		
+		</form:form>
 		  <div class="modal fade" id="produktas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
    <div class="modal-dialog modal-vertical-centered">
     <div class="modal-content">

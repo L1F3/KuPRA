@@ -14,7 +14,7 @@ import javax.sql.rowset.serial.SerialBlob;
 import javax.validation.Valid;
 
 import lt.vu.mif.ps5.kupra.entity.Fridge;
-import lt.vu.mif.ps5.kupra.entity.Image;
+import lt.vu.mif.ps5.kupra.entity.RecipeImage;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.User;
 import lt.vu.mif.ps5.kupra.form.RecipeForm;
@@ -100,9 +100,9 @@ public class RecipeController {
 		Recipe recipe = recipeService.getRecipe(id);
 
 		try {
-			List<Image> images = recipe.getImages();
+			List<RecipeImage> images = recipe.getImages();
 			if (images.size() > 0) {
-				Image image = images.get(0);
+				RecipeImage image = images.get(0);
 
 				response.setHeader("Content-Disposition", "inline;filename=\""
 						+ image.getImgName() + "\"");
@@ -119,7 +119,7 @@ public class RecipeController {
 				out.flush();
 				out.close();
 			} else {
-				Image image = recipeService.getDefaultImage();
+				RecipeImage image = recipeService.getDefaultImage();
 				response.setHeader("Content-Disposition", "inline;filename=\""
 						+ image.getImgName() + "\"");
 				OutputStream out = response.getOutputStream();
@@ -150,9 +150,9 @@ public class RecipeController {
 		Recipe recipe = recipeService.getRecipe(id);
 
 		try {
-			List<Image> images = recipe.getImages();
+			List<RecipeImage> images = recipe.getImages();
 			if (images.size() > 0) {
-				Image image = images.get(0);
+				RecipeImage image = images.get(0);
 
 				response.setHeader("Content-Disposition", "inline;filename=\""
 						+ image.getImgName() + "\"");
@@ -169,7 +169,7 @@ public class RecipeController {
 				out.flush();
 				out.close();
 			} else {
-				Image image = recipeService.getDefaultImage();
+				RecipeImage image = recipeService.getDefaultImage();
 				response.setHeader("Content-Disposition", "inline;filename=\""
 						+ image.getImgName() + "\"");
 				OutputStream out = response.getOutputStream();
@@ -237,7 +237,7 @@ public class RecipeController {
 		User user = userService.getUserByLoginname(auth.getName());
 		log.info(user.getName());
 
-		try {
+		/*try {
 			log.info("Creating blob");
 			Blob blob = new SerialBlob(recipeForm.getFile().getBytes());
 			recipeService.addRecipe(recipeForm.getName(), recipeForm.getFile()
@@ -256,7 +256,7 @@ public class RecipeController {
 			log.info("addTemplate exception");
 			log.info("Returning template.jsp page");
 			return new ModelAndView("template");
-		}
+		}*/
 		return new ModelAndView("redirect://home");
 	}
 }
