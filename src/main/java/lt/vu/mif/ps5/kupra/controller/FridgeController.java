@@ -89,4 +89,9 @@ public class FridgeController {
     	return new ModelAndView("fridge");//.addObject("fridge", item);//.addObject("deletedFridge", new DeletedFridge());
     }
     
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+    @RequestMapping(value = "/fridge/add", method = RequestMethod.GET)
+    public ModelAndView fridgeAddProduct() {
+    	return new ModelAndView("add_product_fridge");
+    }
 }
