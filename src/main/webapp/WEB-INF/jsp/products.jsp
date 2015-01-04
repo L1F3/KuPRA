@@ -98,7 +98,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                   <div class="row">
-                                                        <span class="col-sm-12 style="font-size:20px;">Matavimo_vienetai</span>
+                                                         <span class="col-md-12" style="font-size:20px;" >Matavimo vienetai:</span>
 													<c:forEach var="unit" items="${product.unitsSet}">
                                                         <span class="col-sm-12">${unit.abbreviation}</span>
 													</c:forEach>
