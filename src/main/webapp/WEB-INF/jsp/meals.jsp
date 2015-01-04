@@ -73,19 +73,19 @@
                                      <a href="meals/${meal.recId}/delete" type="button" style=" right:0; position:absolute;" class="btn btn-default"><img src="<c:url value="/resources/svg/delete.svg"/>" style=" height:20px; width:20px;" /></a>
                                 </div>
                                 <!-- Recipe's picture-->
-                                <img src="recipe/image/${meal.recId}/thumb2" class="img-responsive image-size" />
+                                <img src="recipe/image/${meal.recId}/thumb2" class="img-responsive image-size" style="width: 100%"/>
                                 <!-- Recipe's information -->
                                 <div class="container" style="width: 100%;">
+								    <!-- Recipe's name -->
+                                    <div class="row recipe-name-box">
+                                        <div class="col-xs-12" style="text-wrap:normal;">
+                                            <p class="recipe-name">${meal.name}</p>
+                                        </div>
+                                    </div>
                                     <!-- Recipe's author -->
                                     <div class="row made-recipe-user-name">
                                         <div class="col-xs-12" style="text-wrap:normal;">
                                             <a href="profile/${meal.user.userId}">${meal.user.username}</a>
-                                        </div>
-                                    </div>
-                                    <!-- Recipe's name -->
-                                    <div class="row recipe-name-box">
-                                        <div class="col-xs-12" style="text-wrap:normal;">
-                                            <p class="recipe-name">${meal.name}</p>
                                         </div>
                                     </div>
                                     <!-- Recipe's rating -->
