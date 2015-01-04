@@ -93,12 +93,12 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="row">
-                                            <div class="modal-image-size col-xs-10 col-md-10">
+                                            <div class="modal-image-size col-xs-6 col-md-6">
                                                 <img src="../product/image/${product.productId}/thumb2" class="img-responsive" />
                                             </div>
-                                            <div class="product-units col-xs-2 col-md-2">
+                                            <div class="col-md-6">
                                                   <div class="row">
-                                                        <span class="col-sm-12">Matavimo_vienetai</span>
+                                                        <span class="col-sm-12 style="font-size:20px;">Matavimo_vienetai</span>
 													<c:forEach var="unit" items="${product.unitsSet}">
                                                         <span class="col-sm-12">${unit.abbreviation}</span>
 													</c:forEach>

@@ -9,6 +9,7 @@ body {
     position: relative;
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  background-color:#bfc5c9;
 }
 .footer {
   position: absolute;
@@ -119,6 +120,7 @@ body {
 .carousel {
     width:100%;
     margin-bottom: 60px;
+	position:relative;
 }
 
 .carousel-control {
@@ -135,7 +137,7 @@ body {
     overflow: hidden;
 }
 
-.carousel img {
+.carousel-inner img {
     position: absolute;
     top: 0;
     left: 0;
@@ -188,14 +190,6 @@ body {
 .recipies-content {
 }
 
-.panel{
-	-webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    border-radius: 7px;
-	border-style: solid;
-    border-width: 2px;
-	border-color:black;
-}
 .pananel-custom{
 
 }
@@ -204,14 +198,13 @@ body {
     -webkit-border-radius: 7px;
     -moz-border-radius: 7px;
     border-radius: 7px;
+    border-style: none;
+    border-color:none;
 }
-
-    .panel-custom:hover {
-    }
 
 .recipe-name-box {
     background-color: #fff;
-    height: 60px;
+    height: 80px;
     list-style: none;
 }
 
@@ -224,7 +217,7 @@ body {
     }
 
 .made-recipe-user-name {
-    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
 .recipe-info-box {
@@ -267,6 +260,7 @@ body {
     position:relative;
     display:block;
     margin:0 auto;
+	padding-top:40px;
 }
 
 .custom-tab {
@@ -340,6 +334,11 @@ body {
     width: 100px;
 }
 
+.friend-profile-image{
+    height: 50px;
+    width: 50px;
+}
+
 .profile-data .inline-profile {
     position: relative;
     display: inline-block;
@@ -356,7 +355,7 @@ body {
 /*User recipe info*/
 
 .user-recipe-content-wrapper {
-    margin-top: 80px;
+    padding-top: 40px;
 }
 
 .vcenter {
@@ -462,7 +461,7 @@ body {
 /*ADD RECEPT*/
 
 .add-recept-form {
-    margin-top: 80px;
+    padding-top: 40px;
 }
 
 .info-about-private {
@@ -491,18 +490,26 @@ body {
 
 /* ______________________________*/
 
-
 /* menu-wrap */
 .menu-wrap {
     margin-top:80px;
 }
 
 
+
+/*PRODUCT ADD*/
+.unit-box-scroll{ 
+ overflow: auto;
+}
+
+/*--------------------*/
+
 /*Produktų atvaizdavimas */
 
 .product-button-wrap {
     position:relative;
     margin-bottom:20px;
+    padding-top: 40px;
 }
 
 
@@ -556,7 +563,7 @@ body {
 }
 
 .modal-image-size {
-    width:300px;
+    
     height:200px;
 }
 
@@ -615,6 +622,7 @@ div.input-group-option{
 
 .unit-button-wrap {
     margin-bottom:40px;
+    padding-top:40px;
 }
 
 .unit-modification-button-wrapper {
@@ -711,6 +719,14 @@ div.input-group-option{
 
 
 /* Search navigation */
+
+.recipe-form {
+    padding-top:40px;
+	padding-bottom: 100px;
+}
+
+
+
 .search-panel {
     height: auto;
     background: rgb(255, 255, 255); /* Fall-back for browsers that don't support rgba */
@@ -837,5 +853,61 @@ div#showingOrder-form-wrapper {
 img#search-tile-thumbnail {
     height: auto;
     width: 100%;
+}
+
+
+
+
+
+
+
+.input-group .icon-addon .form-control {
+    border-radius: 0;
+}
+
+.icon-addon {
+    position: relative;
+    color: #555;
+    display: block;
+}
+
+.icon-addon:after,
+.icon-addon:before {
+    display: table;
+    content: " ";
+}
+
+.icon-addon:after {
+    clear: both;
+}
+
+
+.icon-addon.addon-sm .form-control {
+    height: 30px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.icon-addon.addon-lg .fa,
+.icon-addon.addon-lg .glyphicon {
+    font-size: 18px;
+    margin-left: 0;
+    left: 11px;
+    top: 4px;
+}
+
+.icon-addon.addon-md .form-control,
+.icon-addon .form-control {
+    padding-left: 10px;
+    float: left;
+    font-weight: normal;
+}
+
+.icon-addon.addon-sm .fa,
+.icon-addon.addon-sm .glyphicon {
+    margin-left: 0;
+    font-size: 12px;
+    left: 5px;
+    top: -1px
 }
 

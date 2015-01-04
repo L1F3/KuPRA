@@ -133,6 +133,45 @@
                 </div>
             </div>
         </div>
+	<div class="modal fade" id="patikrinti_ingridientus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-vertical-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <!--Pavadinimas -->
+                                        <h4 class="modal-title">Patikrinimas</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p style="color:red">Nėra produktų</p>
+										
+										<div class="needed-products-form">
+											<span>Bulvės<span>
+											<span>2</span>
+											<span>kg</span>
+										</div>
+										<div class="needed-products-form">
+											<span>Bulvės<span>
+											<span>2</span>
+											<span>kg</span>
+										</div>
+										<div class="needed-products-form">
+											<span>Bulvės<span>
+											<span>2</span>
+											<span>kg</span>
+										</div>
+										<div class="needed-products-form">
+											<span>Bulvės<span>
+											<span>2</span>
+											<span>kg</span>
+										</div>
+																				
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+		
+		
+		
     </div>
       <footer class="footer">
       <div class="container">

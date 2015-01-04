@@ -1,0 +1,849 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Comapatible" content="IE=edge" />
+    <!-- Tam nustatytu ie rendinima pagal ju verijas -->
+    <title>Valdyti</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="main.css" rel="stylesheet" type="text/css" />
+    <link href="connect.css" rel="stylesheet" type="text/css" />
+    <link href="normalize.css" rel="stylesheet" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="connect.js"></script>
+    <script src="jquery.dataTables.min.js"></script>
+    <script src="http://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.0.0/css/bootstrap-toggle.min.css" rel="stylesheet" />
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.0.0/js/bootstrap-toggle.min.js"></script>
+</head>
+<body>
+    <div class="page-wrap">
+        <div class="navbar navbar-default navbar-fixed-top menu " role="navigation">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed collapse-button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="home">
+                        <!-- System brand -->
+                        <p class="brand">
+                            <img src="<c:url value=" />resources/svg/brand.svg"/>" />KuPRA
+                        </p>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="add-recept">Ikelti recepta</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Visi Receptai</a></li>
+                                <li><a href="#">Mano receptia</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Klasifikatoriai<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Produktai</a></li>
+                                <li><a href="#">Matavimo vienetai</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Šaldytuvas</a></li>
+                        <li><a href="#">Valgiaraštis</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="profile">Vartotojo profilis</a></li>
+                        <li><a href="#">Atsijungti</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+
+
+
+        <div class="user-profile  tabbable ">
+            <div class="container">
+                <ul class="nav nav-tabs ">
+                    <li class="active"><a href="#vartotojaiTab" data-toggle="tab">Vartotojai</a></li>
+                    <li><a href="#matavimoVienetaiTab" data-toggle="tab">Matavimo vienetai</a></li>
+                    <li><a href="#produktaiTab" data-toggle="tab">Produktai</a></li>
+                    <li><a href="#receptaiTab" data-toggle="tab">Receptai</a></li>
+                </ul>
+                <div class="tab-content custom-tab">
+
+
+                    <div id="vartotojaiTab" class="tab-pane active">
+                        <div class="container" style="padding: 0px; width: 100%;">
+                            <table id="vartotojaiTable" class="table-hover table-bordered table ">
+                                <thead>
+                                    <tr>
+                                        <th>Vardas</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+
+                                <tfoot>
+                                    <tr>
+                                        <th>Vardas</th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+
+                                <tbody>
+                                    <tr>
+                                        <td>Vardas Pavardenis</td>
+                                        <td>
+                                            <input id="toggle-event" type="checkbox" data-toggle="toggle" data-onstyle="default" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jonas Jonaitis</td>
+                                        <td>
+                                            <input id="Checkbox1" type="checkbox" data-toggle="toggle" data-onstyle="default" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jonas Jonaitis</td>
+                                        <td>
+                                            <input id="Checkbox2" type="checkbox" data-toggle="toggle" data-onstyle="default" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jonas Jonaitis</td>
+                                        <td>
+                                            <input id="Checkbox3" type="checkbox" data-toggle="toggle" data-onstyle="default" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jonas Jonaitis</td>
+                                        <td>
+                                            <input id="Checkbox4" type="checkbox" data-toggle="toggle" data-onstyle="default" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jonas Jonaitis</td>
+                                        <td>
+                                            <input id="Checkbox5" type="checkbox" data-toggle="toggle" data-onstyle="default" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jonas Jonaitis</td>
+                                        <td>
+                                            <input id="Checkbox6" type="checkbox" data-toggle="toggle" data-onstyle="default" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jonas Jonaitis</td>
+                                        <td>
+                                            <input id="Checkbox7" type="checkbox" data-toggle="toggle" data-onstyle="default" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jonas Jonaitis</td>
+                                        <td>
+                                            <input id="Checkbox8" type="checkbox" data-toggle="toggle" data-onstyle="default" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jonas Jonaitis</td>
+                                        <td>
+                                            <input id="Checkbox9" type="checkbox" data-toggle="toggle" data-onstyle="default" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jonas Jonaitis</td>
+                                        <td>
+                                            <input id="Checkbox10" type="checkbox" data-toggle="toggle" data-onstyle="default" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jonas Jonaitis</td>
+                                        <td>
+                                            <input id="Checkbox11" type="checkbox" data-toggle="toggle" data-onstyle="default" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jonas Jonaitis</td>
+                                        <td>
+                                            <input id="Checkbox12" type="checkbox" data-toggle="toggle" data-onstyle="default" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jonas Jonaitis</td>
+                                        <td>
+                                            <input id="Checkbox13" type="checkbox" data-toggle="toggle" data-onstyle="default" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jonas Jonaitis</td>
+                                        <td>
+                                            <input id="Checkbox14" type="checkbox" data-toggle="toggle" data-onstyle="default" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div id="matavimoVienetaiTab" class="tab-pane">
+
+                        <div class="container" style="padding: 0px; width: 100%;">
+                            <table id="matavimoVienetaiTable" class="table-hover table-bordered table ">
+                                <thead>
+                                    <tr>
+                                        <th>Pavadinimas</th>
+                                        <th>Sutrumpinimas</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+
+                                <tfoot>
+                                    <tr>
+                                        <th>Pavadinimas</th>
+                                        <th>Sutrumpinimas</th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+
+                                <tbody>
+                                    <tr>
+                                        <td>Kilogramas</td>
+                                        <td>kg</td>
+                                        <td><a class="btn" data-toggle="modal" data-target="#Kilogramas">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gramas</td>
+                                        <td>g</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tona</td>
+                                        <td>t</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Kilogramas</td>
+                                        <td>kg</td>
+                                        <td><a class="btn" data-toggle="modal" data-target="#Kilogramas">Modifikuoti</a></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Gramas</td>
+                                        <td>g</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tona</td>
+                                        <td>t</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Metras</td>
+                                        <td>m</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Centimetras</td>
+                                        <td>cm</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Milimetras</td>
+                                        <td>mm</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Litras</td>
+                                        <td>l</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mililitras</td>
+                                        <td>ml</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vienetai</td>
+                                        <td>vnt</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Stiklinė</td>
+                                        <td>Stiklinė</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pusė stiklinės</td>
+                                        <td>Pusė stiklinės</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Arbatinis šaukštelis</td>
+                                        <td>Arbatinis šaukštelis</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Uncija</td>
+                                        <td>oz</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kilogramas</td>
+                                        <td>kg</td>
+                                        <td><a class="btn" data-toggle="modal" data-target="#Kilogramas">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gramas</td>
+                                        <td>g</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tona</td>
+                                        <td>t</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Metras</td>
+                                        <td>m</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Centimetras</td>
+                                        <td>cm</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Milimetras</td>
+                                        <td>mm</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Litras</td>
+                                        <td>l</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mililitras</td>
+                                        <td>ml</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vienetai</td>
+                                        <td>vnt</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Stiklinė</td>
+                                        <td>Stiklinė</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pusė stiklinės</td>
+                                        <td>Pusė stiklinės</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Arbatinis šaukštelis</td>
+                                        <td>Arbatinis šaukštelis</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Uncija</td>
+                                        <td>oz</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kilogramas</td>
+                                        <td>kg</td>
+                                        <td><a class="btn" data-toggle="modal" data-target="#Kilogramas">Modifikuoti</a></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Gramas</td>
+                                        <td>g</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tona</td>
+                                        <td>t</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Metras</td>
+                                        <td>m</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Centimetras</td>
+                                        <td>cm</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Milimetras</td>
+                                        <td>mm</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Litras</td>
+                                        <td>l</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mililitras</td>
+                                        <td>ml</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vienetai</td>
+                                        <td>vnt</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Stiklinė</td>
+                                        <td>Stiklinė</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pusė stiklinės</td>
+                                        <td>Pusė stiklinės</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Arbatinis šaukštelis</td>
+                                        <td>Arbatinis šaukštelis</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Uncija</td>
+                                        <td>oz</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kilogramas</td>
+                                        <td>kg</td>
+                                        <td><a class="btn" data-toggle="modal" data-target="#Kilogramas">Modifikuoti</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="modal fade" id="Kilogramas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-vertical-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <!--Pavadinimas -->
+                                        <h4 class="">Kilogramas</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <form class="form-horizontal" role="form">
+                                                <div class="form-horizontal add-recepts-header">
+                                                    <h1>Matavimo vieneto modifikavimas</h1>
+                                                </div>
+                                                <div class="form-group col-md-12 ">
+                                                    <label for="recept-name" class="col-md-3 control-label">Pavadinimas</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control" id="recept-name" value="Kilogramas" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label for="recept-name" class="col-md-3 control-label">Sutrumpinimas</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control" id="Text1" value="kg" />
+                                                    </div>
+                                                </div>
+                                                <div class=" col-md-12 modal-modification-unit-buttons">
+                                                    <div class="unit-modification-button-wrapper ">
+                                                        <button class="button">Išsaugoti</button>
+                                                    </div>
+                                                    <div class="unit-modification-button-wrapper ">
+                                                        <button class="button">Pašalinti</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div id="produktaiTab" class="tab-pane ">
+                        <div class="container" style="padding: 0px; width: 100%;">
+                            <table id="produktaiTable" class="table-hover table-bordered table ">
+                                <thead>
+                                    <tr>
+                                        <th>Pavadinimas</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+
+                                <tfoot>
+                                    <tr>
+                                        <th>Pavadinimas</th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+
+                                <tbody>
+                                    <tr>
+                                        <td>Kriaušė</td>
+                                        <td><a class="btn" data-toggle="modal" data-target="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kriaušė</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kriaušė</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kriaušė</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kriaušė</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kriaušė</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kriaušė</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kriaušė</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kriaušė</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kriaušė</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kriaušė</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kriaušė</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kriaušė</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kriaušė</td>
+                                        <td><a class="btn" data-toggle="modal" data-target="#agurkas">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kriaušė</td>
+                                        <td><a class="btn" href="#">Modifikuoti</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+						
+						<!-- Modal  id putini ta pavadinima kuri data-target idedi tada viskas veiks-->
+                        <div class="modal fade" id="agurkas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-vertical-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <!--Pavadinimas -->
+                                        <h4 class="modal-title">Agurkas</h4>
+                                        <h5 class="modal-title product-modal-id">id :123456</h5>
+                                    </div>
+                                    <div class="modal-body" style="height:540px; overflow:auto;">
+                                        <div class="row">
+                                            <div class="modal-image-size col-xs-9 col-md-9">
+                                                <img src="products/agurkas.jpg" class="img-responsive" />
+												<span><b>Pakeisti nuotrauka</b></span>
+												<input type="file" id="recept-pictures" />
+                                            </div>
+											<div class="product-units col-xs-3 col-md-3">
+                                                  <div class="row">
+                                                        <span>Matavimo vienetai</span>
+														<div class="row">
+															<div class="form-group form-group-options col-md-12">
+																<div class="input-group input-group-option">
+																	<input type="text" name="ingredients[]" class="form-control"/>
+																	<span class="input-group-addon input-group-addon-remove">
+																		<span class="glyphicon glyphicon-remove"></span>
+																	</span>
+																</div>
+															</div>
+														</div>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-modal-description">
+											<div class="col-md-12 controls">
+											    <h3>Aprašymas</h3>
+												<textarea class="form-control description" id="recept-despription" name="recept-despription" style="height:150px">Agurkas (lot. Cucumis) – moliuginiu (Cucurbitaceae) šeimos augalu gentis. Šaknis liemenine, stiebas šliaužiantis. Žiedai vienalyciai, geltoni. Vaisiai žali, vidutinio dydžio. Augalus apdulkina vabzdžiai, dirbtiniu budu – žmogus. Nedaugelis veisliu augina seklu neturincius vaisius be apdulkinimo. Jos gerai tinka šiltnamiams. Dauguma veisliu vaisius mezga tik apdulkinus žiedus. Derliui padidinti i agurku laukus vežami biciu aviliai. Žiedus kartais apdulkina muses. Nepakankamo apdulkinimo požymiai yra nukrentantys ar deformuoti vaisiai. Tik dalinai apdulkintu žiedu vietoje išauge vaisiai buna nuo stiebo nutolusioje dalyje pabale.</textarea>
+											</div>
+											<div class="save-button-wrapper">
+												<button class="button" style="margin-top:15px;">Išsaugoti</button>
+											</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						
+						
+						
+                    </div>
+
+                    <div id="receptaiTab" class="tab-pane">
+                        <div class="container" style="padding: 0px; width: 100%;">
+                            <table id="receptaiTable" class="table-hover table-bordered table ">
+                                <thead>
+                                    <tr>
+                                        <th>Recepto pavadinimas</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+
+                                <tfoot>
+                                    <tr>
+                                        <th>Recepto pavadinimas</th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+
+                                <tbody>
+                                    <tr>
+                                        <td>Kiaušinienė</td>
+                                        <td><a class="btn" data-toggle="modal" data-target="#Kiaušinienė">Modifikuoti/Ištrinti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Šaltibarkščiai</td>
+                                        <td><a class="btn" data-toggle="modal" data-target="#">Modifikuoti/Ištrinti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kepsnys su kopūstais</td>
+                                        <td><a class="btn" data-toggle="modal" data-target="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ledų kokteilis</td>
+                                        <td><a class="btn" data-toggle="modal" data-target="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vištienos sparneliai</td>
+                                        <td><a class="btn" data-toggle="modal" data-target="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tinginys</td>
+                                        <td><a class="btn" data-toggle="modal" data-target="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Omletas su razinomis</td>
+                                        <td><a class="btn" data-toggle="modal" data-target="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Obuolių pyragas</td>
+                                        <td><a class="btn" data-toggle="modal" data-target="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pomidorų sultys</td>
+                                        <td><a class="btn" data-toggle="modal" data-target="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pomidorų sultys</td>
+                                        <td><a class="btn" data-toggle="modal" data-target="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pomidorų sultys</td>
+                                        <td><a class="btn" data-toggle="modal" data-target="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pomidorų sultys</td>
+                                        <td><a class="btn" data-toggle="modal" data-target="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pomidorų sultys</td>
+                                        <td><a class="btn" data-toggle="modal" data-target="#">Modifikuoti</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pomidorų sultys</td>
+                                        <td><a class="btn" data-toggle="modal" data-target="#">Modifikuoti</a></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="modal fade" id="Kiaušinienė" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-vertical-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <!--Pavadinimas -->
+                                        <h4 class="">Kiaušinienė</h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="row">
+
+                                            <form:form method="POST" action="home" class="form-horizontal" role="form" modelattribute="recipeForm" enctype="multipart/form-data">
+                        <div class="form-horizontal add-recepts-header">
+                            <h1>Recepto modikavimas</h1>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="recept-name" class="col-md-2 control-label">Pavadinimas</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="Text2" placeholder="Pavadinimas" name="name" />
+								<form:errors path="name" cssClass="error" />
+                            </div>
+                        </div>
+						<div class="form-group  col-md-12">
+                            <label for="recept-name" class="col-md-3 col-sm-3 control-label">Gamybos trukmė</label>
+                            <div class="col-md-3 col-sm-3">
+                                <input type="text" class="form-control" id="Text3" placeholder="" name="" />
+								<form:errors path="" cssClass="error" />
+                            </div>
+							<label for="recept-name" class="col-md-3 col-sm-3 control-label">Porcijų skaičius</label>
+							 <div class="col-md-3 col-sm-3">
+                                <input type="text" class="form-control" id="Text4" placeholder="" name="" />
+								<form:errors path="" cssClass="error" />
+                            </div>
+                        </div>
+                        <div class="form-group  col-md-12">
+                            <label for="recept-name" class="col-md-2 control-label">Nuotraukos</label>
+                            <div class="col-md-10">
+								<!--<input type="file" id="file" name="file"/>-->
+								<form class="form-horizontal">
+									<div class="text-box form-group container">
+											<div class="col-md-4"><input type="file" class="" name="txtImage[]" id="imageinput"></div>
+									</div>
+								</form>
+								<a class= "add-image-box col-md-12">Pridėti dar nuotraukų </a>
+                            </div>
+							
+                        </div>
+                        <div class="form-group ingredients-form  col-md-12 ">
+                            <label for="ingredients" class="col-md-2 control-label">Ingridientai</label>
+                            <div class="col-md-10 ">	
+										<div class="row">
+											<div class="form-group  col-md-12">
+												<div class="input-group form-group-options input-group-option">
+													<input type="text" name="ingredients[]" class="form-control" placeholder="Ingridientas"/>
+													<input type="text" name="quantities[]" class="form-control" placeholder="kiek"/>
+													<input type="text" name="units[]" class="form-control" placeholder="units"/>
+													<span class="input-group-addon input-group-addon-remove">
+															<span class="glyphicon glyphicon-remove"></span>
+														</span>
+												</div>
+											</div>
+										</div>
+								</div>
+                        </div>
+                        <div class="form-group   col-md-12">
+                            <label for="recept-description" class="col-md-2 control-label ">Aprašymas</label>
+                            <div class="col-md-10 controls">
+                                <!-- *** -->
+                                <textarea class="form-control description" id="recipe-despription" name="description"></textarea>
+								<form:errors path="description" cssClass="error" />
+                            </div>
+                        </div>
+                       <div class=" col-md-12 modal-modification-unit-buttons">
+                                                    <div class="unit-modification-button-wrapper ">
+                                                        <button class="button">Išsaugoti</button>
+                                                    </div>
+                                                    <div class="unit-modification-button-wrapper ">
+                                                        <button class="button">Pašalinti</button>
+                                                    </div>
+                                                </div>
+                    </form:form>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>KuPRA</p>
+        </div>
+    </footer>
+
+
+
+
+    <script>
+      
+
+        $(document).ready(function () {
+
+
+            $('.add-image-box').click(function () {
+                var box_html = $('<div class="text-box form-group container"><div class="col-md-4"><input type="file" class="" name="txtImage[]" id="imageinput"/></div><div class=""><button type="submit" class="remove-box btn btn-danger btn-sm"><i class="fa fa-minus-circle fa-lg"></i></button></div></div>');
+                $('.text-box:last').after(box_html);
+                box_html.fadeIn('slow');
+            });
+
+            $('.form-horizontal').on('click', '.remove-box', function () {
+                $(this).closest(".form-group").remove();
+                return false;
+            });
+
+
+
+
+
+            $(document).on('focus', 'div.form-group-options div.input-group-option:last-child input', function () {
+                var sInputGroupHtml = $(this).parent().html();
+                var sInputGroupClasses = $(this).parent().attr('class');
+                $(this).parent().parent().append('<div class="' + sInputGroupClasses + '">' + sInputGroupHtml + '</div>');
+            });
+
+            $(document).on('click', 'div.form-group-options .input-group-addon-remove', function () {
+                $(this).parent().remove();
+            });
+
+
+
+
+
+
+
+
+
+            $('#vartotojaiTable').dataTable();
+            $('#matavimoVienetaiTable').dataTable();
+            $('#produktaiTable').dataTable();
+            $('#receptaiTable').dataTable();
+
+            $('#toggle-event').change(function () {
+                //  $('#console-event').html('Toggle: ' + $(this).prop('checked'))
+            })
+
+        });
+    </script>
+</body>
+</html>

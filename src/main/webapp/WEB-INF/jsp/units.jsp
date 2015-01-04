@@ -11,7 +11,7 @@
     <link href="<c:url value="/resources/normalize.css" />" rel="stylesheet" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-    <script src="http://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+   <script src="<c:url value="/resources/jquery.dataTables.min.js"/>"></script>
     <script src="http://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 </head>
 <body>
@@ -64,7 +64,7 @@
         </div>
 		
         <div class="container unit-button-wrap">
-            <button type="button" class="btn btn-default">Pridėti naują matavimo vienetą</button>
+            <a href="../unit"><input type="button" class="btn btn-default" value="Pridėti naują matavimo vienetą"></input></a>
         </div>
         <div class="unit-table-wrap container ">
 
@@ -73,7 +73,7 @@
                     <tr>
                         <th>Pavadinimas</th>
                         <th>Sutrumpinimas</th>
-                        <th></th>
+                        
                     </tr>
                 </thead>
 
@@ -81,7 +81,7 @@
                     <tr>
                         <th>Pavadinimas</th>
                         <th>Sutrumpinimas</th>
-                        <th></th>
+                       
                     </tr>
                 </tfoot>
 
@@ -93,8 +93,7 @@
                         <td>${unit.name}</td>
 						<!--Matavimo vieneto sutrumpinimas -->
                         <td>${unit.abbreviation}</td>
-						<!--Matavimo vieneto administratoriaus modifikavimas -->
-                        <td><a class="btn" data-toggle="modal" data-target="#Kilogramas">Modifikuoti</a></td>
+
                     </tr>
 					</c:forEach>
                     

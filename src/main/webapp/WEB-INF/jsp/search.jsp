@@ -61,24 +61,22 @@
             </div>
             <!-- /.container-fluid -->
         </div>
-        <div class="container">
+        <div class="container recipe-form">
             <div class="row">
                 <div class="col-md-3 ">
                     <div class="search-panel">
                         <!-- Search box -->
                         <form:form method="GET" action="${requestScope['javax.servlet.forward.request_uri']}">
                             <div class="form-group">
-                                <div class="controls">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <button type="submit">
-												<img id="magnifying-glass"  src="<c:url value="/resources/svg/magnifying.svg"/>" class="inputFieldIcon" onmouseover="hover(this);" onmouseout="unhover(this);" />
-                                            </button>
-                                        </span>
-                                        <input name="key" type="text" class="form-control" id="inputSearch" placeholder="Ieškoti" value="${key}" />
-                                    </div>
-                                </div>
-                            </div>
+                                 <div class="input-group input-group-sm">
+                    <div class="icon-addon addon-sm">
+                       <input name="key" type="text" class="form-control" id="inputSearch" placeholder="Ieškoti" value="${key}" />
+                    </div>
+					 <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default" type="button"><img id="magnifying-glass"  src="<c:url value="/resources/svg/magnifying.svg"/>" class="inputFieldIcon" onmouseover="hover(this);" onmouseout="unhover(this);" /></button>
+                    </span>
+                </div>
+            </div>
                         <br />
                         <p><b>Rikiuoti pagal įvertinimą</b></p>
                         <div id="showingOrder-form-wrapper">
@@ -117,17 +115,18 @@
 					<div class="row">
 						
 						<c:forEach var="recipe" items="${recipes}">
-							<div class="col-md-3">
+							<div class="col-md-4 col-sm-6">
 								<div class="panel panel-default panel-custom" >
 									<!-- Recipe image -->
-									<center><img src="../recipe/image/${recipe.recId}/thumb2" class="img-responsive" id="search-tile-thumbnail"/></center>
-									<div class="made-recipe-user-name">
-									<!-- Recipe creator -->
-										<span>${recipe.user.username}</span>
-									</div>
+									<center><a href="../recipe/${recipe.recId}"><img src="../recipe/image/${recipe.recId}/thumb2" class="img-responsive" id="search-tile-thumbnail"/></a></center>
+									
 									<!-- Recipe name -->
 									<div class="recipe-name-box">
 										<a href="../recipe/${recipe.recId}"><p class="recipe-name" >${recipe.name}</p></a>
+									</div>
+									<div class="made-recipe-user-name">
+									<!-- Recipe creator -->
+										<span>${recipe.user.username}</span>
 									</div>
 									<!-- Recipe description -->
 									<!--   <div class="recipe-info-box">
