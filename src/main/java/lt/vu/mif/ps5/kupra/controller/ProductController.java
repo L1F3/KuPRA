@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -16,6 +17,7 @@ import lt.vu.mif.ps5.kupra.entity.Product;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.RecipeImage;
 import lt.vu.mif.ps5.kupra.entity.Role;
+import lt.vu.mif.ps5.kupra.entity.Unit;
 import lt.vu.mif.ps5.kupra.form.ProductForm;
 import lt.vu.mif.ps5.kupra.service.ProductService;
 import lt.vu.mif.ps5.kupra.service.RecipeService;
@@ -35,6 +37,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -190,4 +193,28 @@ public class ProductController {
 		}
 		return null;
 	}
+	
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+    @RequestMapping(value = "/product/{id}/units/list", method = RequestMethod.GET, produces="application/json")
+    public @ResponseBody List<Unit> getUnitsList(@PathVariable long id) {
+    	return new ArrayList<Unit>(productService.getProduct(id).getUnitsSet());
+    }
+    
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+    @RequestMapping(value = "/product/list", method = RequestMethod.GET, produces="application/json")
+    public @ResponseBody List<Product> getProductsList(@RequestParam String name) {
+    	if (name.length() != 0) {
+    		List<Product> products = new ArrayList<Product>();
+    		
+    		for (Product product : productService.getAll()) {
+        		if (product.getName().toLowerCase().contains(name.toLowerCase())) {
+        			products.add(product);
+        		}
+        	}
+    		
+    		return products;
+    	} else {
+    		return productService.getAll();
+    	}
+    }
 }

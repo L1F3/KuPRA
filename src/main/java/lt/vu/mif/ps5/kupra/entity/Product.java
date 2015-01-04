@@ -21,11 +21,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table (name= "products")
+@JsonIgnoreProperties({"ingredients", "fridgeItems", "unitsSet", "description", "imgName", "img", "imgType"})
 public class Product {
 
 	@Id

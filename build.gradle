@@ -43,4 +43,8 @@ dependencies {
     compile 'org.springframework.security:spring-security-taglibs:3.2.5.RELEASE'
     compile 'org.hibernate:hibernate-validator:5.1.2.Final'
     compile 'javax.validation:validation-api:1.1.0.Final'
+    
+    compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
+    compile 'org.codehaus.jackson:jackson-core-asl:1.9.13'
+    
 }

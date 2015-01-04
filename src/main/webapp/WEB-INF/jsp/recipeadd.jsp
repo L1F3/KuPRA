@@ -5,18 +5,21 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Comapatible" content="IE=edge" /> <!-- Tam nustatytu ie rendinima pagal ju verijas -->
     <title>Add recipe</title>
-   <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet" type="text/css" />
+    <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/main.css" />" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/normalize.css" />" rel="stylesheet" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
     <script src="<c:url value="/resources/addRecipe.js" />"></script>
+
+    <script src="<c:url value="/resources/js/jquery.autocomplete.min.js" />"></script>
+    <link href="<c:url value="/resources/css/autocomplete.css" />" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 
     <div class="page-wrap">
 
-       <div class="navbar navbar-default navbar-fixed-top menu " role="navigation">
+        <div class="navbar navbar-default navbar-fixed-top menu " role="navigation">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -27,10 +30,10 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="home">
-					    <!-- System brand -->
+                        <!-- System brand -->
                         <p class="brand">
                             <img src="<c:url value="/resources/svg/brand.svg"/>" />KuPRA
-						</p>
+                        </p>
                     </a>
                 </div>
                 <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
@@ -64,10 +67,10 @@
         </div>
 
         <div class="add-recept-form">
-		  <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <form:form method="POST" action="home" class="form-horizontal" role="form" modelAttribute="recipeForm" enctype="multipart/form-data">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <form:form method="POST" action="home" class="form-horizontal" role="form" modelAttribute="recipeForm" enctype="multipart/form-data">
                         <div class="form-horizontal add-recepts-header">
                             <h1>Receptu pridejimas</h1>
                         </div>
@@ -75,75 +78,59 @@
                             <label for="recept-name" class="col-md-2 control-label">Pavadinimas</label>
                             <div class="col-md-10">
                                 <input type="text" class="form-control" id="recept-name" placeholder="Pavadinimas" value="${recipeForm.name}" name="name" />
-								<form:errors path="name" cssClass="error" />
+                                <form:errors path="name" cssClass="error" />
                             </div>
                         </div>
-						<div class="form-group">
+                        <div class="form-group">
                             <label for="recept-name" class="col-md-3 col-sm-3 control-label">Gamybos trukmė</label>
                             <div class="col-md-3 col-sm-3">
                                 <input type="text" class="form-control" id="recept-name" placeholder="" value="" name="" />
-								<form:errors path="" cssClass="error" />
+                                <form:errors path="" cssClass="error" />
                             </div>
-							<label for="recept-name" class="col-md-3 col-sm-3 control-label">Porcijų skaičius</label>
-							 <div class="col-md-3 col-sm-3">
+                            <label for="recept-name" class="col-md-3 col-sm-3 control-label">Porcijų skaičius</label>
+                            <div class="col-md-3 col-sm-3">
                                 <input type="text" class="form-control" id="recept-name" placeholder="" value="" name="" />
-								<form:errors path="" cssClass="error" />
+                                <form:errors path="" cssClass="error" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="recept-name" class="col-md-2 control-label">Nuotraukos</label>
                             <div class="col-md-10">
-								<!--<input type="file" id="file" name="file"/>-->
-								<form class="form-horizontal">
-									<div class="text-box form-group container">
-											<div class="col-md-4"><input type="file" class="" name="txtImage[]" id="imageinput"></div>
-									</div>
-								</form>
-								<a class= "add-image-box col-md-12">Pridėti dar nuotraukų </a>
+                                <!--<input type="file" id="file" name="file"/>-->
+                                <form class="form-horizontal">
+                                    <div class="text-box form-group container">
+                                        <div class="col-md-4"><input type="file" class="" name="txtImage[]" id="imageinput"></div>
+                                    </div>
+                                </form>
+                                <a class= "add-image-box col-md-12">Pridėti dar nuotraukų </a>
                             </div>
-							
+
                         </div>
                         <div class="form-group ingredients-form ">
                             <label for="ingredients" class="col-sm-2 control-label">Ingridientai</label>
                             <div class="col-sm-10  ">
-
-                              <!--  <input type="text" class="form-control control-group inline-ingredients" id="ingredients" placeholder="Ingredientas" size="45">
-                                <input type="text" class="form-control control-group inline-ingredients" id="ingredient-size" size="2" />
-                                <div class="dropdown control-group inline-ingredients">
-                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                                        Vertes
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                        <li role="presentation" name="recipe-unit"><a role="menuitem" tabindex="-1" href="#">kg</a></li>
-                                        <li role="presentation" name="recipe-unit"><a role="menuitem" tabindex="-1" href="#">mg</a></li>
-                                    </ul>
+                                <div class="row">
+                                    <div class="form-group form-group-options col-md-12">
+                                        <div class="input-group input-group-option">
+                                            <input id="autocomplete" type="text" name="ingredients[]" class="form-control" placeholder="Ingridientas" onfocus="startAutocomplete(this)">
+                                            <input type="text" name="quantities[]" class="form-control" placeholder="kiek">
+                                            <select id="unit-selection" class="col-md-12 form-control" placeholder="Pasirinkite vieną ingredientų">
+                                                <option value="" disabled selected>Prašome pasirinkti ingredientą</option>
+                                            </select>
+                                            <span class="input-group-addon input-group-addon-remove">
+                                                <span class="glyphicon glyphicon-remove"></span>
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <button type="button" class="btn btn-default">Prideti</button>
-                                <button type="button" class="btn btn-default">Pašalinti</button>
-								-->
-								
-								
-										<div class="row">
-											<div class="form-group form-group-options col-md-12">
-												<div class="input-group input-group-option">
-													<input type="text" name="ingredients[]" class="form-control" placeholder="Ingridientas">
-													<input type="text" name="quantities[]" class="form-control" placeholder="kiek">
-													<input type="text" name="units[]" class="form-control" placeholder="units">
-													<span class="input-group-addon input-group-addon-remove">
-															<span class="glyphicon glyphicon-remove"></span>
-														</span>
-												</div>
-											</div>
-										</div>
-								</div>
+                            </div>
                         </div>
                         <div class="form-group ">
                             <label for="recept-description" class="col-md-2 control-label ">Aprašymas</label>
                             <div class="col-md-10 controls">
                                 <!-- *** -->
                                 <textarea class="form-control description" id="recipe-despription" value="${recipeForm.description}" name="description"></textarea>
-								<form:errors path="description" cssClass="error" />
+                                <form:errors path="description" cssClass="error" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -165,42 +152,92 @@
                     </form:form>
                 </div>
             </div>
-		   </div>
         </div>
     </div>
-    <footer class="footer">
-      <div class="container">
+</div>
+<footer class="footer">
+    <div class="container">
         <p>KuPRA</p>
-      </div>
-    </footer>
-	
-	<script>
+    </div>
+</footer>
+
+<script>
+
+function startAutocomplete(eventHolder) {
+    $(eventHolder).autocomplete({
+        serviceUrl: 'product/list',
+        paramName: 'name',
+        delimiter: ',',
+        transformResult: function(response) {
+            return {
+                suggestions: $.map($.parseJSON(response), function(item) {
+                    return { 
+                        value: item.name, 
+                        data: item.productId 
+                    };
+                })
+            };
+        },
+        onSelect: function(suggestion) {
+            var siblingElement = eventHolder.parentNode.getElementsByTagName('select')[0];
+            $.ajax({
+                type: 'GET',
+                dataType: 'json',
+                url: 'product/' + suggestion.data + '/units/list',
+                success: function(response) {
+                    siblingElement.getElementsByTagName('option')[0].remove();
+                    $.each(response, function(index) {
+                        $(siblingElement).append('<option value="' + response[index].unitId + '">' + response[index].abbreviation + '</option>').html();
+                    })
+                },
+                error: function(jqXHR, exception) {
+                    if (jqXHR.status === 0) {
+                        console.log('Connection was not established.\n Verify Network.');
+                    } else if (jqXHR.status == 404) {
+                        console.log('Requested page not found. [404]');
+                    } else if (jqXHR.status == 500) {
+                        console.log('Internal Server Error. [500]');
+                    } else if (exception === 'parsererror') {
+                        console.log('Requested JSON parse failed.');
+                    } else if (exception === 'timeout') {
+                        console.log('Time out error.');
+                    } else if (exception === 'abort') {
+                        console.log('Ajax request aborted.');
+                    } else {
+                        console.log('Uncaught Error.\n' + jqXHR.responseText);
+                    }
+                }
+            });
+        }
+    });
+};
+
 $(function(){
-	$(document).on('focus', 'div.form-group-options div.input-group-option:last-child input', function(){
-		var sInputGroupHtml = $(this).parent().html();
-		var sInputGroupClasses = $(this).parent().attr('class');
-		$(this).parent().parent().append('<div class="'+sInputGroupClasses+'">'+sInputGroupHtml+'</div>');
-	});
-	
-	$(document).on('click', 'div.form-group-options .input-group-addon-remove', function(){
-		$(this).parent().remove();
-	});
+    $(document).on('focus', 'div.form-group-options div.input-group-option:last-child input', function(){
+        var sInputGroupHtml = $(this).parent().html();
+        var sInputGroupClasses = $(this).parent().attr('class');
+        $(this).parent().parent().append('<div class="'+sInputGroupClasses+'">'+sInputGroupHtml+'</div>');
+    });
+
+    $(document).on('click', 'div.form-group-options .input-group-addon-remove', function(){
+        $(this).parent().remove();
+    });
 });
 
 $(document).ready(function(){
-     $('.add-image-box').click(function(){
+    $('.add-image-box').click(function(){
         var box_html = $('<div class="text-box form-group container"><div class="col-md-4"><input type="file" class="" name="txtImage[]" id="imageinput"/></div><div class=""><button type="submit" class="remove-box btn btn-danger btn-sm"><i class="fa fa-minus-circle fa-lg"></i></button></div></div>');
         $('.text-box:last').after(box_html);
         box_html.fadeIn('slow');
     });
 
     $('.form-horizontal').on('click', '.remove-box', function(){
-            $(this).closest(".form-group").remove();
+        $(this).closest(".form-group").remove();
         return false;
     });
 
 });
-	
-	</script>
+
+</script>
 </body>
 </html>
