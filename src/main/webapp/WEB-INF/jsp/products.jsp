@@ -62,7 +62,7 @@
         </div>
 		
         <div class="container product-button-wrap">
-            <button type="button" class="btn btn-default">Pridėti naują produktą</button>
+			<a href="../product"><input type="button" class="btn btn-default" value="Pridėti naują produktą"></input></a>
         </div>
         <div class="products-wrap ">
             <div class=" container">
