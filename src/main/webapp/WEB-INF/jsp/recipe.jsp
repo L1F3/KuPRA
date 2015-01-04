@@ -5,11 +5,14 @@
    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Comapatible" content="IE=edge" /> <!-- Tam nustatytu ie rendinima pagal ju verijas -->
     <title>Add recipe</title>
-    <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet" type="text/css" />
+   <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet" type="text/css" />
+	 <link href="<c:url value="/resources/css/lightbox.css" />" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/main.css" />" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/normalize.css" />" rel="stylesheet" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+	 <script src="<c:url value="/resources/js/lightbox.min.js" />"></script>
+	 	 <script src="<c:url value="/resources/js/jquery-1.11.0.min.js" />"></script>
     <script src="<c:url value="/resources/connect.js" />"></script>
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css' />
 </head>
@@ -81,8 +84,9 @@
 					<!-- Recipe Images -->
                     <div class="images">
                         <div class="row">
-                            <div class="col-md-4">
-                                <img src="../recipe/image/${recipe.recId}/thumb" class="img-responsive img-size" />
+                             <div class="col-md-4">
+                                <!--<img src="../recipe/image/${recipe.recId}/thumb" class="img-responsive img-size" /> -->
+								<a href="../recipe/image/${recipe.recId}/thumb" data-lightbox="roadtrip"><img src="../recipe/image/${recipe.recId}/thumb" class="img-responsive img-size" /></a>
 							</div>
                         </div>
 
