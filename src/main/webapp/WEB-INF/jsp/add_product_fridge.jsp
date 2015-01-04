@@ -128,7 +128,7 @@
                         dataType: 'json',
                         url: '../product/' + suggestion.data + '/units/list',
                         success: function(response) {
-                            siblingElement.getElementsByTagName('option')[0].remove();
+                            $(siblingElement).empty();
                             $.each(response, function(index) {
                                 $(siblingElement).append('<option value="' + response[index].unitId + '">' + response[index].abbreviation + '</option>').html();
                             })
