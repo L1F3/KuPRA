@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 -- 
 -- Host: localhost
--- Generation Time: Dec 17, 2014 at 12:49 AM
+-- Generation Time: Jan 04, 2015 at 06:29 PM
 -- Server version: 5.0.51
 -- PHP Version: 5.2.6
 
@@ -25,6 +25,7 @@ CREATE TABLE `fridge` (
   `productId` int(10) NOT NULL,
   `unitId` int(10) NOT NULL,
   `amount` int(10) NOT NULL,
+  `forDelete` tinyint(1) default NULL,
   PRIMARY KEY  (`frId`),
   KEY `usrId` (`userId`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
@@ -33,9 +34,9 @@ CREATE TABLE `fridge` (
 -- Dumping data for table `fridge`
 -- 
 
-INSERT INTO `fridge` VALUES (1, 1, 1, 5, 10);
-INSERT INTO `fridge` VALUES (2, 1, 4, 2, 500);
-INSERT INTO `fridge` VALUES (3, 1, 5, 2, 500);
+INSERT INTO `fridge` VALUES (1, 1, 1, 5, 10, 0);
+INSERT INTO `fridge` VALUES (2, 1, 4, 2, 500, 0);
+INSERT INTO `fridge` VALUES (3, 1, 5, 2, 500, 0);
 
 -- --------------------------------------------------------
 
@@ -170,7 +171,7 @@ CREATE TABLE `units` (
 -- Dumping data for table `units`
 -- 
 
-INSERT INTO `units` VALUES (1, 'Kilogramai', 'kg');
+INSERT INTO `units` VALUES (1, 'kg', 'Kilogramai');
 INSERT INTO `units` VALUES (2, 'Gramai', 'g');
 INSERT INTO `units` VALUES (3, 'Litrai', 'l');
 INSERT INTO `units` VALUES (4, 'Mililitrai', 'ml');
@@ -264,5 +265,3 @@ CREATE TABLE `user_meals` (
 -- Dumping data for table `user_meals`
 -- 
 
-INSERT INTO `user_meals` VALUES (1, 1);
-INSERT INTO `user_meals` VALUES (1, 2);
