@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Comapatible" content="IE=edge" /> <!-- Tam nustatytu ie rendinima pagal ju verijas -->
-    <title>Add Product</title>
+    <title>Matavimo vieneto pridėjimas</title>
    <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/main.css" />" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/normalize.css" />" rel="stylesheet" type="text/css" />
@@ -65,81 +65,35 @@
 		<div class="add-recept-form container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <form:form class="form-horizontal" role="form" method="POST" modelAttribute="productForm">
+                    <form:form class="form-horizontal" role="form" method="POST" modelAttribute="unitForm">
                         <div class="form-horizontal add-recepts-header">
-                            <h1>Produkto pridėjimas</h1>
+                            <h1>Pridėti produktą</h1>
                         </div>
-                        <div class="form-group" style="margin-bottom:20px">
-                            <label for="recept-name" class="col-md-2 control-label">Pavadinimas*</label>
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="recept-name" placeholder="Pavadinimas" name="productName"/>
-								<form:errors path="productName" cssClass="error" />
+                        <div class="form-group">
+                            <label for="recept-name" class="col-md-3 control-label">Pavadinimas*</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="recept-name" placeholder="Pavadinimas" value="${unitForm.name}" name="name" />
                             </div>
-                
+                            <form:errors path="name" cssClass="error"/>
                         </div>
-                        <div class="form-group unit-scroll" style="margin-bottom:40px">
-                            <label for="recept-name" class="col-md-2 control-label">Matavimo vienetai*</label>
-                            <div class="col-md-10 unit-select-field ">
-                                <div class="col-md-3 col-sm-3 col-xs-6 checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Privatus
-                                    </label>
-                                </div>
-
-                                <div class="col-md-3 col-sm-3 col-xs-6 checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Privatus
-                                    </label>
-                                </div>
-
-                                <div class="col-md-3 col-sm-3 col-xs-6 checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Privatus
-                                    </label>
-                                </div>
-
-                                <div class="col-md-3 col-sm-3 col-xs-6 checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Privatus
-                                    </label>
-                                </div>
-
-                                <div class="col-md-3 col-sm-3 col-xs-6 checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Privatus
-                                    </label>
-                                </div>
-
-                                <div class="col-md-3 col-sm-3 col-xs-6 checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Privatus
-                                    </label>
-                                </div>
-
-                               
-                            </div>
-                        </div>
-                        <div class="form-group " style="margin-bottom:20px">
-                            <label for="recept-despription" class="col-md-2 control-label ">Aprašymas</label>
-                            <div class="col-md-10 controls">
-                                <textarea style="resize:none; height:50px" class="form-control description" id="recept-despription" name="recept-despription"></textarea>
-                            </div>
-                        </div>
-                         <div class="form-group" style="margin-bottom:20px">
-                            <label for="recept-name" class="col-md-2 control-label">Nuotraukos</label>
-                            <div class="col-md-10">
-                                <input type="file" id="recept-pictures" />
-                            </div>
-                        </div>
-                        <div class="save-button-wrapper">
-                            <button class="button">Pridėti</button>
-                        </div>
+						<div class="form-group">
+							 <label for="recept-name" class="col-md-3 control-label">Kiekis</label>
+								<div class="col-md-9">
+									 <input type="text" class="form-control" id="recept-name" />
+								</div>
+					    </div>
+					    <div class="form-group">
+							<label for="recept-name" class="col-md-3 control-label">Matavimo vienetas</label>
+							    <div class="col-md-9">
+									   <select class="form-control">
+											<option value="kg">kg</option>
+											<option value="vnt">vnt</option>
+										</select> 
+								</div>
+						</div>
+						<div class="save-button-wrapper">
+								<button class="button">Pridėti</button>
+						</div>
                     </form:form>
                 </div>
             </div>

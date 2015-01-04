@@ -1,0 +1,73 @@
+		<!-- Modal  id putini ta pavadinima kuri data-target idedi tada viskas veiks-->
+                        <div class="modal fade" id="agurkas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-vertical-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <!--Pavadinimas -->
+                                        <h4 class="modal-title">Agurkas</h4>
+                                        <h5 class="modal-title product-modal-id">id :123456</h5>
+                                    </div>
+                                    <div class="modal-body" style="height:540px; overflow:auto;">
+                                        <div class="row">
+                                            <div class="modal-image-size col-xs-10 col-md-10">
+                                                <img src="products/agurkas.jpg" class="img-responsive" />
+												<span><b>Pakeisti nuotrauka</b></span>
+												<input type="file" id="recept-pictures" />
+                                            </div>
+											<div class="product-units col-xs-3 col-md-3">
+                                                  <div class="row">
+                                                        <span>Matavimo vienetai</span>
+														<div class="row">
+															<div class="form-group form-group-options col-md-12">
+																<div class="input-group input-group-option">
+																	<input type="text" name="ingredients[]" class="form-control"/>
+																	<span class="input-group-addon input-group-addon-remove">
+																		<span class="glyphicon glyphicon-remove"></span>
+																	</span>
+																</div>
+															</div>
+														</div>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-modal-description">
+                                            <h3>Aprašymas</h3>
+											<div class="col-md-12 controls">
+												<textarea class="form-control description" id="recept-despription" name="recept-despription" style="height:150px">Agurkas (lot. Cucumis) – moliuginiu (Cucurbitaceae) šeimos augalu gentis. Šaknis liemenine, stiebas šliaužiantis. Žiedai vienalyciai, geltoni. Vaisiai žali, vidutinio dydžio. Augalus apdulkina vabzdžiai, dirbtiniu budu – žmogus. Nedaugelis veisliu augina seklu neturincius vaisius be apdulkinimo. Jos gerai tinka šiltnamiams. Dauguma veisliu vaisius mezga tik apdulkinus žiedus. Derliui padidinti i agurku laukus vežami biciu aviliai. Žiedus kartais apdulkina muses. Nepakankamo apdulkinimo požymiai yra nukrentantys ar deformuoti vaisiai. Tik dalinai apdulkintu žiedu vietoje išauge vaisiai buna nuo stiebo nutolusioje dalyje pabale.</textarea>
+											</div>
+											<div class="save-button-wrapper">
+												<button class="button" style="margin-top:15px;">Išsaugoti</button>
+											</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						
+	<script>
+		$(function(){
+			$(document).on('focus', 'div.form-group-options div.input-group-option:last-child input', function(){
+				var sInputGroupHtml = $(this).parent().html();
+				var sInputGroupClasses = $(this).parent().attr('class');
+				$(this).parent().parent().append('<div class="'+sInputGroupClasses+'">'+sInputGroupHtml+'</div>');
+			});
+			
+			$(document).on('click', 'div.form-group-options .input-group-addon-remove', function(){
+				$(this).parent().remove();
+			});
+		});
+
+		$(document).ready(function(){
+			 $('.add-image-box').click(function(){
+				var box_html = $('<div class="text-box form-group container"><div class="col-md-12"><input type="file" class="" name="txtImage[]" id="imageinput"/></div><div class=""><button type="submit" class="remove-box btn btn-danger btn-sm"><i class="fa fa-minus-circle fa-lg"></i></button></div></div>');
+				$('.text-box:last').after(box_html);
+				box_html.fadeIn('slow');
+			});
+
+			$('.form-horizontal').on('click', '.remove-box', function(){
+					$(this).closest(".form-group").remove();
+				return false;
+			});
+		});	
+	</script>

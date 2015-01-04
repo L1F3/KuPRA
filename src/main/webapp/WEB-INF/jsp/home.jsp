@@ -85,8 +85,8 @@
     <div class="form-group col-md-4 col-md-offset-4">
       <div class="input-group input-group-lg ">
         <input type="text" class="form-control" placeholder="Paieška" name="key"/>
-        <span class="input-group-addon">
-          <button style="text-decoration:none;" class="glyphicon glyphicon-search"></button>
+        <span class="input-group-btn">
+           <button type="submit" class="btn btn-default" type="button"><img id="magnifying-glass"  src="<c:url value="/resources/svg/magnifying.svg"/>" class="inputFieldIcon" onmouseover="hover(this);" onmouseout="unhover(this);" /></button>
         </span>
       </div>
     </div>
@@ -106,18 +106,23 @@
          <h3>Populiariausi receptai</h3>
           <div class='row'>
          <c:forEach var="recipe" items="${topRecipes}">
-			<div class='col-md-3'>
+			<div class='col-md-3 col-sm-4 col-xs-12'>
               <div class=" panel panel-default  panel-custom" >
 			    <!-- Recipe image -->
-                <center><img src="recipe/image/${recipe.recId}/thumb2" class="img-responsive image-size"/></center>
-                <div class="made-recipe-user-name">
-				 <!-- Recipe creator -->
-                        <span>${recipe.user.username}</span>
-                </div>
+               <center><a href="../app/recipe/${recipe.recId}"><img src="recipe/image/${recipe.recId}/thumb2"  class="img-responsive" id="search-tile-thumbnail"/></a></center>
 				<!-- Recipe name -->
                 <div class="recipe-name-box">
                      <a href="../app/recipe/${recipe.recId}"><p class="recipe-name" >${recipe.name}</p></a>
                  </div>
+				<div class="made-recipe-user-name">
+				 <!-- Recipe creator -->
+                        <span>${recipe.user.username}</span>
+                </div>
+				 <!-- Recipe description -->
+              <!--   <div class="recipe-info-box">
+                       <span>${recipe.description}</span>
+                 </div> -->
+				 <!-- Recipe rating/ people rating -->
                  <div class="recipe-rating-box">
                          <span>
                               <img src="<c:url value="/resources/svg/star.svg"/>" class="img-responsive rating-icon"/>

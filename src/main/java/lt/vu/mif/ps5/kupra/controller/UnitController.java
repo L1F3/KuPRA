@@ -6,8 +6,10 @@ import javax.validation.Valid;
 
 import lt.vu.mif.ps5.kupra.controller.UnitController;
 import lt.vu.mif.ps5.kupra.service.UnitService;
+import lt.vu.mif.ps5.kupra.entity.Role;
 import lt.vu.mif.ps5.kupra.entity.Unit;
 import lt.vu.mif.ps5.kupra.form.UnitForm;
+import lt.vu.mif.ps5.kupra.form.UserForm;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +68,21 @@ public class UnitController {
         return new ModelAndView("redirect:unit/list");
     }
     
+	@RequestMapping(value = "/unit/all", method = RequestMethod.POST)
+	public ModelAndView doModify(@Valid @ModelAttribute UnitForm unitForm,
+			Errors errors) {
+		if (errors.hasErrors()) {
+			return new ModelAndView("units").addObject(unitForm);
+		}
+		unitService.updateUnit(
+				1, // TODO change to id
+				unitForm.getName(),
+				unitForm.getAbbreviation()
+				);
+		return new ModelAndView("redirect:/unit/all");
+		
+	}
+    
    /* 
     <<Isvesti units lista vienam page>>
     
@@ -95,25 +112,22 @@ public class UnitController {
     @RequestMapping(value = "/unit/modify/{id}", method = RequestMethod.GET)
     public ModelAndView unitModify(@PathVariable long id) {
         Unit unit = unitService.getUnit(id);
-        UnitForm unitForm = new UnitForm();
-        unitForm.setName(unit.getName());
-        unitForm.setAbbreviation(unit.getAbbreviation());
-        return new ModelAndView("unitmodify").addObject("unitForm", unitForm);
+        return new ModelAndView("unitmodify").addObject("unit", unit);
     }
     
     @Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/unit/modify/{id}", method = RequestMethod.POST)
     public ModelAndView unitDoModify(
             @PathVariable long id,
-    		@Valid @ModelAttribute("unitForm") UnitForm unitForm, Errors errors) {
-        if (errors.hasErrors()) {
+    		@Valid @ModelAttribute("unit") UnitForm unit, BindingResult result) {
+        if (result.hasErrors()) {
             log.info("Returning unit.jsp page");
             return new ModelAndView("unit");
         }
         unitService.updateUnit(
                 id,
-                unitForm.getName(),
-                unitForm.getAbbreviation());
+                unit.getName(),
+                unit.getAbbreviation());
         return new ModelAndView("redirect:list");
     }
 }

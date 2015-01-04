@@ -15,20 +15,6 @@
 
 <body>
 
-    
-  <!-- <div id="myCarousel" class="carousel slide">
-            <div class="carousel-inner">
-              <div class="item active">
-               <img src="2.jpg"  class="img-responsive"  > 
-              </div>
-              <div class="item">
-               <img src="1.jpg"   class="img-responsive" > 
-              </div>
-            </div>
-     </div>
-    -->
-    
-
 <div id= "page-content-wrapper">
   <div class="container login">
       <div class="row">
@@ -78,40 +64,10 @@
         </form:form>
      </div> 
    </div>  
+ </div>  
   </div> 
-    <div class="modal fade forget-modal" tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-sm">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">
-					<span aria-hidden="true">X</span>
-					<span class="sr-only">Uždaryti</span>
-				</button>
-				<h4 class="modal-title">Atkurti slaptažodį</h4>
-			</div>
-			<div class="modal-body">
-				<p>Įveskite savo elektroninį paštą</p>
-<!-- *** -->    <input type="email" name="recovery-email" id="recovery-email" class="form-control" required>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default button-recovery-cancel" data-dismiss="modal">Atšaukti</button>
-				<button type="button" class="btn btn-custom button-recovery-accept">Atstatyti</button>
-			</div>
-		</div> 
-	</div> 
-</div> 
-    
-    
-      
-  </div>  
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.carousel').carousel({
-                interval: 2000
-            })
-        });
-</script>
+  
 
 	
 </body>

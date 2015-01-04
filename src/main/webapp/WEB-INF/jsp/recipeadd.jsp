@@ -70,8 +70,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
-                        <form:form method="POST" action="" class="form-horizontal" role="form" modelAttribute="recipeForm" enctype="multipart/form-data">
-                        <fieldset style='border: 0px;'>
+                        <form:form method="POST" action="home" class="form-horizontal" role="form" modelAttribute="recipeForm" enctype="multipart/form-data">
                         <div class="form-horizontal add-recepts-header">
                             <h1>Receptu pridejimas</h1>
                         </div>
@@ -90,7 +89,7 @@
                             </div>
                             <label for="recept-name" class="col-md-3 col-sm-3 control-label">Porcijų skaičius</label>
                             <div class="col-md-3 col-sm-3">
-                                <input type="text" class="form-control" id="recept-time" placeholder="" value="" name="" />
+                                <input type="text" class="form-control" id="recept-name" placeholder="" value="" name="" />
                                 <form:errors path="" cssClass="error" />
                             </div>
                         </div>
@@ -112,8 +111,8 @@
                             <div class="col-sm-10  ">
                                 <div class="row">
                                     <div class="form-group form-group-options col-md-12">
-                                        <div class="input-group input-group-option autocomplete-wrapper">
-                                            <input id="autocomplete" type="text" name="ingredients[]" class="form-control" placeholder="Ingridientas" autocomplete='off' onfocus="startAutocomplete(this)">
+                                        <div class="input-group input-group-option">
+                                            <input id="autocomplete" type="text" name="ingredients[]" class="form-control" placeholder="Ingridientas" onfocus="startAutocomplete(this)">
                                             <input type="text" name="quantities[]" class="form-control" placeholder="kiek">
                                             <select id="unit-selection" class="col-md-12 form-control" placeholder="Pasirinkite vieną ingredientų">
                                                 <option value="" disabled selected>Prašome pasirinkti ingredientą</option>
@@ -150,7 +149,6 @@
                         <div class="save-button-wrapper">
                             <button class="button">Sukurti</button>
                         </div>
-                    </fieldset>
                     </form:form>
                 </div>
             </div>

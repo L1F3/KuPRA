@@ -5,13 +5,14 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Comapatible" content="IE=edge" /> <!-- Tam nustatytu ie rendinima pagal ju verijas -->
 	<title>Registration</title>
-	<link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet" type="text/css" />
-	<link href="<c:url value="/resources/main.css" />" rel="stylesheet" type="text/css" />
-	<link href="<c:url value="/resources/connect.css" />" rel="stylesheet" type="text/css" />
-	<link href="<c:url value="/resources/normalize.css" />" rel="stylesheet" type="text/css" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-	<script src="<c:url value="/resources/connect.js" />"></script>
+	 <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet" type="text/css" />
+    <link href="<c:url value="/resources/main.css" />" rel="stylesheet" type="text/css" />
+    <link href="<c:url value="/resources/connect.css" />" rel="stylesheet" type="text/css" />
+    <link href="<c:url value="/resources/normalize.css" />" rel="stylesheet" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+	 <script src="<c:url value="/resources/jquery.dataTables.min.js"/>"></script>
+    <script src="http://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 </head>
 <body>
 	<div class="page-wrap">
@@ -187,522 +188,68 @@
 
 				</div>
 				<div id="friends" class="tab-pane ">
-					<div class="container">
-						<div class = "col-md-12 friends-wrap">
-							<div class="row">
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox">
-										<input class="margin-to-checkbox" type="checkbox"> </input>
-										<label>Vardas Traidenis </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input  class="margin-to-checkbox" type="checkbox"> </input>
-										<label>Pavarde Gaidenis </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Aš toks </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Laisvas Ridikas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Jonas Jonaitis</label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas Produktaitis </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Gražulis Traidenis </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Aš kietas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Dievas Tevas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Dievas Tevas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Dievas Tevas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Dievas Tevas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Dievas Tevas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Dievas Tevas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Dievas Tevas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Dievas Tevas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Dievas Tevas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Dievas Tevas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Dievas Tevas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Dievas Tevas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Dievas Tevas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Dievas Tevas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<input type="checkbox"> </input>
-										<label>Produktas </label>
-									</div>
-								</div>
+					 <div class="container" style="padding: 0px; width: 100%;">
+                            <table id="friendstable" class="table-hover table-bordered table ">
+                                <thead>
+                                    <tr>
+                                        <th>Slapyvardis</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
 
-							</div>
-						</div>
-						<div class="friends-delete-button" style="padding-top: 15px;">
-							<button class="button">Ištrinti pažymėtus</button>
-						</div>
-					</div>
+                                <tfoot>
+                                    <tr>
+                                        <th>Slapyvardis</th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+
+                                <tbody>
+                                    <tr>
+                                        <td>  
+											<a href="#" style="text-decoration: none" > <img src="<c:url value="/resources/1.jpg"/>" class="img-circle friend-profile-image" />ABCD</a>
+										</td>
+										<td>
+										 <!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-trash" >Ištrinti </span></a>-->
+											<!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-wrench" >Modifikuoti </span></a>-->
+											 <button type="submit" class="btn btn-default"  ><span> Nebedraugauti</span></button>
+									    </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
 				</div>
 				<div id="users" class="tab-pane">
-					<div class="container">
-						<div class="user-search">
-							<span class="paieska-user">Paieška</span>
-							<input class="paieska-user" type="text" placeholder="Ieškoti vartotojo"/>
-						</div>
-						<div class = "col-md-12">
-							<div class="row">
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox">
-										<label>Vardas Traidenis </label>
-										<button type="button" class="btn btn-default">Draugauti</button>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<label>Pavarde Gaidenis </label>
-										<button type="button" class="btn btn-default">Draugauti</button>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<label>Aš toks </label>
-										<button type="button" class="btn btn-default">Draugauti</button>
-									</div>
+					 <div class="container" style="padding: 0px; width: 100%;">
+                            <table id="userstable" class="table-hover table-bordered table ">
+                                <thead>
+                                    <tr>
+                                        <th>Slapyvardis</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
 
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-6 friend-names">
-									<div class="checkbox" >
-										<label>Aš toks </label>
-										<button type="button" class="btn btn-default">Draugai</button>
-									</div>
+                                <tfoot>
+                                    <tr>
+                                        <th>Slapyvardis</th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
 
-								</div>
-							</div>
-						</div>
-					</div>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="#" style="text-decoration: none">ABCD</a></td>
+										<td>
+										 <!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-trash" >Ištrinti </span></a>-->
+											<!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-wrench" >Modifikuoti </span></a>-->
+											 <button type="submit" class="btn btn-default"  ><span> Draugauti</span></button>
+									    </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
 				</div>
 				<!-- /.tab-content -->
 			</div>
@@ -713,6 +260,13 @@
 	<div class="container">
 		<p>KuPRA</p>
 	</div>
-</footer>,
+</footer>
+	 <script>
+        $(document).ready(function () {
+            $('#friendstable').dataTable();
+			$('#userstable').dataTable();
+        });
+    </script>
+			
 </body>
 </html>

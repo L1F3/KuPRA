@@ -30,10 +30,10 @@ public class UserForm {
 	@Size(min = 3, max = 30)
 	private String email;
 
-	@Size(min = 3, max = 30)
+	@Size(max = 30)
 	private String name;
 
-	@Size(min = 3, max = 30)
+	@Size(max = 30)
 	private String lastname;
 
 	@Size(max = 64)
