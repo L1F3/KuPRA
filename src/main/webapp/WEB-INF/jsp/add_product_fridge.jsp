@@ -28,10 +28,10 @@
                         <span class="icon-bar"></span>
                     </button>
                      <a class="navbar-brand" href="home">
-					    <!-- System brand -->
+                        <!-- System brand -->
                         <p class="brand">
                             <img class="brand" src="<c:url value="/resources/svg/brand.svg"/>" />KuPRA
-						</p>
+                        </p>
                     </a>
                 </div>
                 <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
@@ -63,7 +63,7 @@
             </div>
             <!-- /.container-fluid -->
         </div>
-		<div class="add-recept-form container">
+        <div class="add-recept-form container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <form:form class="form-horizontal" role="form" method="POST" modelAttribute="unitForm">
@@ -73,33 +73,33 @@
                         <div class="form-group">
                             <label for="recept-name" class="col-md-3 control-label">Pavadinimas*</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="recept-name autocomplete" onfocus="startAutocomplete(this)" placeholder="Pavadinimas" value="${unitForm.name}" name="name" />
+                                <input type="text" class="form-control" id="recept-name autocomplete" autocomplete='off' onfocus="startAutocomplete(this)" placeholder="Pavadinimas" value="${unitForm.name}" name="name" />
                             </div>
                             <form:errors path="name" cssClass="error"/>
                         </div>
-						<div class="form-group">
-							 <label for="recept-name" class="col-md-3 control-label">Kiekis</label>
-								<div class="col-md-9">
-									 <input type="text" class="form-control" id="recept-name" />
-								</div>
-					    </div>
-					    <div class="form-group">
-							<label for="recept-name" class="col-md-3 control-label">Matavimo vienetas</label>
-							    <div class="col-md-9">
-									   <select class="form-control" placeholder="Pasirinkite vieną ingredientų">
-											<option value="" disabled selected>Prašome pasirinkti ingredientą</option>
-										</select> 
-								</div>
-						</div>
-						<div class="save-button-wrapper">
-								<button class="button">Pridėti</button>
-						</div>
+                        <div class="form-group">
+                             <label for="recept-name" class="col-md-3 control-label">Kiekis</label>
+                                <div class="col-md-9">
+                                     <input type="text" class="form-control" id="recept-name" />
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="recept-name" class="col-md-3 control-label">Matavimo vienetas</label>
+                                <div class="col-md-9">
+                                       <select id='listas' class="form-control" placeholder="Pasirinkite vieną ingredientų">
+                                            <option value="" disabled selected>Prašome pasirinkti ingredientą</option>
+                                        </select> 
+                                </div>
+                        </div>
+                        <div class="save-button-wrapper">
+                                <button class="button">Pridėti</button>
+                        </div>
                     </form:form>
                 </div>
             </div>
         </div>
-	</div>
-	<footer class="footer">
+    </div>
+    <footer class="footer">
       <div class="container">
         <p>KuPRA</p>
       </div>
@@ -122,11 +122,11 @@
                     };
                 },
                 onSelect: function(suggestion) {
-                    var siblingElement = eventHolder.parentNode.getElementsByTagName('select')[0];
+                    var siblingElement = document.getElementById('listas');
                     $.ajax({
                         type: 'GET',
                         dataType: 'json',
-                        url: 'product/' + suggestion.data + '/units/list',
+                        url: '../product/' + suggestion.data + '/units/list',
                         success: function(response) {
                             siblingElement.getElementsByTagName('option')[0].remove();
                             $.each(response, function(index) {
