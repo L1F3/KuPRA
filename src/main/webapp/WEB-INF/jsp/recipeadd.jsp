@@ -71,6 +71,7 @@
                                     <div id="anotherClassyDiv" class="form-group form-group-options col-md-12">
                                         <div class="input-group input-group-option autocomplete-wrapper">
                                             <input id="autocomplete" type="text" name="ingredients[]" class="form-control" placeholder="Ingridientas" autocomplete='off' onfocus="startAutocomplete(this)">
+                                            <input id="hiddenId" type="hidden" name="ingredientsId[]" value=""> 
                                             <input id="quantity" type="text" name="quantities[]" class="form-control" placeholder="kiek">
                                             <select id="unit-selection" class="col-md-12 form-control" placeholder="Pasirinkite vieną ingredientų">
                                                 <option value="" disabled selected>Prašome pasirinkti ingredientą</option>
@@ -136,8 +137,11 @@ function startAutocomplete(eventHolder) {
         },
         onSelect: function(suggestion) {
             $(eventHolder).attr('name', 'ingredients[' + ($("#anotherClassyDiv").children().size() - 2) + ']');
-            $(eventHolder.parentNode.getElementsByTagName('input')[1]).attr('name', 'quantities[' + ($("#anotherClassyDiv").children().size() - 2) + ']');
+            $(eventHolder.parentNode.getElementsByTagName('input')[1]).attr('name', 'ingredientsId[' + ($("#anotherClassyDiv").children().size() - 2) + ']');
+            $(eventHolder.parentNode.getElementsByTagName('input')[1]).val(suggestion.data);
+            $(eventHolder.parentNode.getElementsByTagName('input')[2]).attr('name', 'quantities[' + ($("#anotherClassyDiv").children().size() - 2) + ']');
             var siblingElement = eventHolder.parentNode.getElementsByTagName('select')[0];
+
             $.ajax({
                 type: 'GET',
                 dataType: 'json',
