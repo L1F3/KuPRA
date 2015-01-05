@@ -9,7 +9,7 @@ body {
     position: relative;
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  background-color:#bfc5c9;
+  background-color:#E7EEF2;
 }
 .footer {
   position: absolute;
@@ -39,7 +39,9 @@ body {
   margin-bottom:auto;
 }
 
-
+table#example {
+    background-color: rgb(216, 221, 232);
+}
 
 
 /*Menu  ______________________*/
