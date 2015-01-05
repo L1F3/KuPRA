@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Comapatible" content="IE=edge" /> <!-- Tam nustatytu ie rendinima pagal ju verijas -->
-    <title>Connect</title>
+    <title>Prisijungimas</title>
     <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/connect.css" />" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/normalize.css" />" rel="stylesheet" type="text/css" />
@@ -25,21 +25,21 @@
 		<form:form method="POST" class="form-horizontal form-signin" role="form" modelAttribute="userForm" action="../j_spring_security_check">
              <fieldset>
             <div class="form-group ">
-               <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-               <div class="col-sm-10 controls">
+               <label for="inputEmail" class="col-sm-3 control-label">El. paštas</label>
+               <div class="col-sm-9 controls">
 			         <div class="input-group">
 					   <span class="input-group-addon"><img src="<c:url value="/resources/svg/user.svg"/>"  class="icons"/> </span>
-<!-- *** -->           <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="username" required/>  
+<!-- *** -->           <input type="email" class="form-control" id="inputEmail" placeholder="Elektroninio pašto adresas" name="username" required/>  
 					 </div> 
 					 <!-- Cia klaida -->
                 </div>
            </div>
            <div class="form-group">
-               <label for="inputPassword" class="col-sm-2 control-label">Password</label>
-               <div class="col-sm-10 controls"> 
+               <label for="inputPassword" class="col-sm-3 control-label">Slaptažodis</label>
+               <div class="col-sm-9 controls"> 
 			       <div class="input-group">
 				      <span class="input-group-addon"><img src="<c:url value="/resources/svg/key.svg"/>"  class="icons"/></span>
-<!-- *** -->          <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password" required/>
+<!-- *** -->          <input type="password" class="form-control" id="inputPassword" placeholder="Slaptažodis" name="password" required/>
 					</div> 
 					 <!-- Cia klaida -->
                </div>
@@ -55,7 +55,7 @@
           </div> 
            
            <div class="form-group">
-                <label class="col-md-7 control-label" for="buttonRegistration">Norite sukurti naują formą?</label>
+                <label class="col-md-7 control-label" for="buttonRegistration">Norite užsiregistruoti sistemoje?</label>
                 <div class=" col-md-5">
                     <a class="btn btn-lg btn-primary btn-block" href="register" role="button">Registracija</a>
                 </div>
