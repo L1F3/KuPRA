@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+﻿<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -16,50 +16,7 @@
 
     <div class="page-wrap">
 
-        <div class="navbar navbar-default navbar-fixed-top menu " role="navigation">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed collapse-button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="home">
-                        <!--System brand -->
-                         <p class="brand">
-                          <img class="brand" src="<c:url value="/resources/svg/brand.svg"/>" />KuPRA
-						</p> 
-                    </a>
-                </div>
-                <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav custom-navbar">
-                        <li><a href="recipeadd">Ikelti recepta</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Receptai<span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Visi Receptai</a></li>
-                                <li><a href="#">Mano receptia</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Klasifikatoriai<span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="create-product">Produktai</a></li>
-                                <li><a href="create-unit">Matavimo vienetai</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Šaldytuvas</a></li>
-                        <li><a href="#">Valgiaraštis</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right custom-navbar">
-                        <li><a href="profile">Vartotojo profilis</a></li>
-                        <li><a href="#">Atsijungti</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <jsp:include page="navbar.jsp" />
 		
 	<div class="menu-wrap">
 	   <div class="container">
@@ -127,11 +84,8 @@
 		</div>
 	 </div>
  </div>
- <footer class="footer">
-      <div class="container">
-        <p>KuPRA</p>
-      </div>
-    </footer>
+ 
+ <jsp:include page="footer.jsp" />
 
     <script>
         var popupElement1 = 
