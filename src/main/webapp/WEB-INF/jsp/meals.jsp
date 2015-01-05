@@ -21,7 +21,7 @@
         <div class="menu-wrap">
             <div class="row">
                 <div class="container">
-                    <div class='row'>
+                    <div class='row' style="margin-top: 20px;">
 						<c:forEach var="meal" items="${meals}">
                         <!-- recipe's block -->
                         <div class="col-md-3">
@@ -81,7 +81,13 @@
                                     </div>
                                     <!-- Make the meal button -->
                                     <div class="row">
-                                        <div class="col-xs-12">
+										<div class="col-xs-6" style="padding-right: 0px;">
+											<p>Porcijų kiekis</p>
+											<form>
+												<input type="text" name="servings" size="4" style="margin-left:15px; margin-bottom:20px;" />
+											</form>
+										</div>
+                                        <div class="col-xs-6" style="padding-left: 0px;">
                                             <button id="create_meal" class="btn btn-lg btn-warn" style="margin-top: 5px; margin-bottom: 5px;" data-container="body" onclick="showPopup3459kablelis3taskas14(this)">Gaminti</button>
                                         </div>
                                     </div>
@@ -97,10 +103,22 @@
 						</c:forEach>
                     </div>
                 </div>
+				
+				<div class="container col-md-6 col-md-offset-3" style="border: 12px solid #FFFFFF; border-radius: 10px;  background: #FFFFFF; ">
+					<div class="row">
+						<p class="col-xs-6" id="alert" style="color:red">Truksta produktų</p>
+						<a class="col-xs-6 accept-serving" href="fridge/list" type="button">Šaldytuvas</a>
+					</div>
+					<div class="row">
+						<p class="col-xs-12">Kiauliena 10g</p>
+						<p class="col-xs-12">Kiauliena 20g</p>
+					</div>
+				</div>
+				
             </div>
         </div>
     </div>
-
+	<!--
     <div id="popup3459kablelis3taskas14" class="container" style="display: none; padding: 5px;">
         <div class="row">
             <p class="col-xs-6">Porcijų kiekis</p>
@@ -119,7 +137,7 @@
             <p class="col-xs-12">Kiauliena 20g</p>
         </div>
     </div>
-
+	-->
     <jsp:include page="footer.jsp" />
 
     <script>
