@@ -41,7 +41,7 @@
                         <div class="row">
                              <div class="col-md-4">
                                 <!--<img src="../recipe/image/${recipe.recId}/thumb" class="img-responsive img-size" /> -->
-								<a href="../recipe/image/${recipe.recId}/thumb" data-lightbox="roadtrip"><img src="../recipe/image/${recipe.recId}/thumb" class="img-responsive img-size" /></a>
+								<a href="../recipe/image/${recipe.recId}" data-lightbox="roadtrip"><img src="../recipe/image/${recipe.recId}" class="img-responsive img-size" /></a>
 							</div>
                         </div>
 
