@@ -25,7 +25,7 @@
                     <div class='col-md-3'>
 						<input method="GET" value="Ieskoti pagal turimus" type="submit" formaction="../fridge/available" class="btn btn-default col-xs-12"/>
 						<input type="submit" class="btn btn-default col-xs-12" formaction="../add_product_fridge" style="margin-top:30px" value="Pridėti produktą"></input>
-						<input value = "Trinti" type="submit" formaction="../fridge/list/delete" class="btn btn-default col-xs-12" style="margin-top:30px"></input>
+						<input value = "Trinti" type="submit" formaction="../fridge/list/delete" class="btn btn-default col-xs-12" style="margin-top:30px; display:none;"></input>
 						<button type="button" class="btn btn-default col-xs-12" style="margin-top:30px">Išsaugoti</button>
                     </div>
 								
