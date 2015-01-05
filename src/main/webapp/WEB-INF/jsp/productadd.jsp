@@ -33,52 +33,14 @@
                             </div>
                 
                         </div>
-                        <div class="form-group unit-scroll" style="margin-bottom:40px">
+                        <div class="form-group unit-scroll" style="margin-bottom:20px">
                             <label for="recept-name" class="col-md-2 control-label">Matavimo vienetai*</label>
-                            <div class="col-md-10 unit-select-field ">
-                                <div class="col-md-3 col-sm-3 col-xs-6 checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Privatus
-                                    </label>
-                                </div>
-
-                                <div class="col-md-3 col-sm-3 col-xs-6 checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Privatus
-                                    </label>
-                                </div>
-
-                                <div class="col-md-3 col-sm-3 col-xs-6 checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Privatus
-                                    </label>
-                                </div>
-
-                                <div class="col-md-3 col-sm-3 col-xs-6 checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Privatus
-                                    </label>
-                                </div>
-
-                                <div class="col-md-3 col-sm-3 col-xs-6 checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Privatus
-                                    </label>
-                                </div>
-
-                                <div class="col-md-3 col-sm-3 col-xs-6 checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Privatus
-                                    </label>
-                                </div>
-
-                               
+                            <div class="col-md-10">
+                               <select class="form-control">
+									<c:forEach var="unit" items="${units}">
+										<option>${unit.abbreviation}</option>
+									</c:forEach>
+								</select>
                             </div>
                         </div>
                         <div class="form-group " style="margin-bottom:20px">

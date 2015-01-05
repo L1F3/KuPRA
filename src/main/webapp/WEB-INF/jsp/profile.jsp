@@ -23,7 +23,7 @@
 			<div class="container">
 				<ul class="nav nav-tabs ">
 					<li class="active"><a href="#profile" data-toggle="tab">Profilis</a></li>
-					<li><a href="#friends" data-toggle="tab">Mano draugai</a></li>
+					<!--<li><a href="#friends" data-toggle="tab">Mano draugai</a></li>-->
 					<li><a href="#users" data-toggle="tab">Naudotojų sąrašas</a></li>
 				</ul>
 				<div class="tab-content custom-tab">
@@ -143,7 +143,7 @@
 					</div>
 
 				</div>
-				<div id="friends" class="tab-pane ">
+				<!--<div id="friends" class="tab-pane ">
 					 <div class="container" style="padding: 0px; width: 100%;">
                             <table id="friendstable" class="table-hover table-bordered table ">
                                 <thead>
@@ -168,14 +168,14 @@
 										<td>
 										 <!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-trash" >Ištrinti </span></a>-->
 											<!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-wrench" >Modifikuoti </span></a>-->
-											 <button type="submit" class="btn btn-default"  ><span> Nebedraugauti</span></button>
+											<!-- <button type="submit" class="btn btn-default"  ><span> Nebedraugauti</span></button>
 									    </td>
                                     </tr>
                                 </tbody>
                             </table>
 
                         </div>
-				</div>
+				</div>-->
 				<div id="users" class="tab-pane">
 					 <div class="container" style="padding: 0px; width: 100%;">
                             <table id="userstable" class="table-hover table-bordered table ">
