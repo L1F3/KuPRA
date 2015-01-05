@@ -26,7 +26,7 @@
 						<input method="GET" value="Ieškoti pagal turimus" type="submit" formaction="../fridge/available" class="btn btn-default col-xs-12"/>
 						<input type="submit" class="btn btn-default col-xs-12" formaction="../add_product_fridge" style="margin-top:30px" value="Pridėti produktą"></input>
 						<input value = "Trinti" type="submit" formaction="../fridge/list/delete" class="btn btn-default col-xs-12" style="margin-top:30px; display:none;"></input>
-						<button type="button" class="btn btn-default col-xs-12" style="margin-top:30px">Išsaugoti</button>
+						<button type="button" class="btn btn-default col-xs-12" style="margin-top:30px; display:none;">Išsaugoti</button>
                     </div>
 								
 					<div class="col-md-9 fridge-table">
@@ -44,10 +44,10 @@
 									<tr>
 										<td>${item.product.name}</td>
 										<td>
-											<input type="text" class="fridge-text-field" value="${item.amount}" />
-											<span class="fridge-row">${item.unit.abbreviation}</span>
+											<!--<input type="text" class="fridge-text-field" value="${item.amount}" />-->
+											<span class="fridge-row">${item.amount} ${item.unit.abbreviation}</span>
 										</td>
-										<td><a href=""><input type="button" value="Ištrinti" class="btn"/></a></td>
+										<td><a href="${item.frId}/delete"><input type="button" value="Ištrinti" class="btn"/></a></td>
 									</tr>
 								</c:forEach>	
 									

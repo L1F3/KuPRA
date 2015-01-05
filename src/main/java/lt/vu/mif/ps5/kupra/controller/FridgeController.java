@@ -152,14 +152,15 @@ public class FridgeController {
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
 		User user = userService.getUserByLoginname(auth.getName());
-		// userService.removeFridgeItem(id, user.getUserId());
 
+		userService.removeFridgeItem(id, user.getUserId());
 		// for(Fridge item:fritems) {
 		// System.out.println(item.getFrId() + "int "+ fritems.indexOf(item));
-		// }
+		// }ss
+		
 		System.out.println("ZDAROA");
-		return new ModelAndView("fridge");// .addObject("fridge",
-											// item);//.addObject("deletedFridge",
+		return new ModelAndView("redirect:../list");//.addObject("item",
+											 //fritems);//.addObject("deletedFridge",
 											// new DeletedFridge());
 	}
 
