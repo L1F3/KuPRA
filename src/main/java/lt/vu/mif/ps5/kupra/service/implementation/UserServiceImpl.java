@@ -2,14 +2,17 @@ package lt.vu.mif.ps5.kupra.service.implementation;
 
 import java.sql.Blob;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
 import lt.vu.mif.ps5.kupra.dao.FridgeDao;
+import lt.vu.mif.ps5.kupra.dao.MealDao;
 import lt.vu.mif.ps5.kupra.dao.ProductDao;
 import lt.vu.mif.ps5.kupra.dao.UserDao;
 import lt.vu.mif.ps5.kupra.dao.RecipeDao;
 import lt.vu.mif.ps5.kupra.entity.Fridge;
+import lt.vu.mif.ps5.kupra.entity.Meal;
 import lt.vu.mif.ps5.kupra.entity.Product;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.Role;
@@ -33,10 +36,12 @@ public class UserServiceImpl implements UserService {
 	private UserDao userDao;
 	private RecipeDao recipeDao;
 	private FridgeDao fridgeDao;
+	private MealDao mealDao;
 
 	@Autowired
-	public UserServiceImpl(UserDao userDao, RecipeDao recipeDao, FridgeDao fridgeDao) {
+	public UserServiceImpl(UserDao userDao, RecipeDao recipeDao, FridgeDao fridgeDao, MealDao mealDao) {
 		this.userDao = userDao;
+		this.mealDao = mealDao;
 		this.recipeDao = recipeDao;
 		this.fridgeDao = fridgeDao;
 	}
