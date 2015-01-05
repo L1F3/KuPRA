@@ -56,9 +56,6 @@
                                         <option value="10">10</option>
                                     </select>
                                 </div>
-                                <br />
-                                <input type="radio" name="order" value="none" />
-                                Nenumatyta<br />
                         </div>
                         <br />
                         <div class="refreshButtonStyle">

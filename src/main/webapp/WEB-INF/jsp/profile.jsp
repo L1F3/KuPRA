@@ -24,7 +24,7 @@
 				<ul class="nav nav-tabs ">
 					<li class="active"><a href="#profile" data-toggle="tab">Profilis</a></li>
 					<li><a href="#friends" data-toggle="tab">Mano draugai</a></li>
-					<li><a href="#users" data-toggle="tab">Naudotoju sarašas</a></li>
+					<li><a href="#users" data-toggle="tab">Naudotojų sąrašas</a></li>
 				</ul>
 				<div class="tab-content custom-tab">
 					<div id="profile" class="tab-pane active">
@@ -67,11 +67,11 @@
 										</div>
 									</div>
 									<div class="form-group ">
-										<label for="inputRePassword" class="col-md-5 control-label">Pakartoti slaptažodi</label>
+										<label for="inputRePassword" class="col-md-5 control-label">Pakartoti slaptažodį</label>
 										<div class="col-md-7 controls">
 											<div class="input-group">
 												<span class="input-group-addon"> <img src="<c:url value="/resources/svg/key.svg"/>"  class="icons-registration"/></span>
-												<!-- *** -->              <input type="password" class="form-control" id="inputRePassword" placeholder="Pakartoti slaptažodi" name="passrepeat"/>
+												<!-- *** -->              <input type="password" class="form-control" id="inputRePassword" placeholder="Pakartoti slaptažodį" name="passrepeat"/>
 											</div> 
 											<form:errors path="passrepeat" cssClass="error" /> 
 										</div>
@@ -98,7 +98,7 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="inputLastName" class="col-md-5 control-label">Pavarde</label>
+											<label for="inputLastName" class="col-md-5 control-label">Pavardė</label>
 											<div class="col-md-7 controls">
 												<div class="input-group">
 													<span class="input-group-addon">  <img src="<c:url value="/resources/svg/user.svg"/>"  class="icons-registration"/></span>
@@ -125,7 +125,7 @@
 											</div>
 										</div>
 
-										<div class="col-md-6 col-md-offset-5 info-registration"><p>*pažymeti laukai privalomi</p></div> 
+										<div class="col-md-6 col-md-offset-5 info-registration"><p>*pažymėti laukai privalomi</p></div> 
 									</div>
 								</form:form>
 							</div>
