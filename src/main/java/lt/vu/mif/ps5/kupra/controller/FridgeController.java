@@ -11,7 +11,9 @@ import javax.validation.Valid;
 
 import lt.vu.mif.ps5.kupra.entity.Fridge;
 import lt.vu.mif.ps5.kupra.entity.Ingredient;
+import lt.vu.mif.ps5.kupra.entity.Product;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
+import lt.vu.mif.ps5.kupra.entity.Unit;
 import lt.vu.mif.ps5.kupra.entity.User;
 import lt.vu.mif.ps5.kupra.form.FridgeItemForm;
 import lt.vu.mif.ps5.kupra.service.FridgeService;
@@ -25,6 +27,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -193,7 +196,7 @@ public class FridgeController {
 		}
 		
 		if(!EXISTS) {
-			Product product = productService.getProduct(fridgeItemForm.getProductId());
+			Product product = productService.getProduct(Long.valueOf(fridgeItemForm.getProductId()));
 			Unit unit = unitService.getUnit(fridgeItemForm.getUnitId());
 			fridgeService.addFridge(user, product, unit, fridgeItemForm.getAmount());	
 		} else {
