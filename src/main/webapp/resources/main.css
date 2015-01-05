@@ -98,6 +98,11 @@ body {
     background-color: #0965aa;
 }
 
+.nav a.active {
+    color: #ffffff !important;
+    background-color: #0965aa;
+}
+
 .log-off-custom a:hover {
     background-color: #e51b1b;
 }

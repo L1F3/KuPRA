@@ -51,5 +51,16 @@
   </div>
   <!-- /.container-fluid -->
 </div>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('.nav a').each(function () {
+      console.log(window.location.href + ' su ' + $(this).attr('href'));
+      if (window.location.href == $(this).attr('href')) {
+        $(this).addClass('active');
+        $($(this).parents('.dropdown')).children().addClass('active');
+      };
+    });
+  });
+</script>
 </body>
 </html>
