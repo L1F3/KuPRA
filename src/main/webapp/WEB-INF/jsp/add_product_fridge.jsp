@@ -22,30 +22,35 @@
         <div class="add-recept-form container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <form:form class="form-horizontal" role="form" method="POST" modelAttribute="unitForm">
+                    <form:form class="form-horizontal" role="form" method="POST" modelAttribute="fridgeItemForm">
                         <div class="form-horizontal add-recepts-header">
                             <h1>Pridėti produktą</h1>
                         </div>
                         <div class="form-group">
                             <label for="recept-name" class="col-md-3 control-label">Pavadinimas*</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="recept-name autocomplete" autocomplete='off' onfocus="startAutocomplete(this)" placeholder="Pavadinimas" value="${unitForm.name}" name="name" />
+                                <input type="text" class="form-control" id="autocomplete" autocomplete='off' onfocus="startAutocomplete(this)" placeholder="Pavadinimas"  />
+                                <input type="hidden" value="${fridgeItemForm.productId}" name="productId" />
                             </div>
-                            <form:errors path="name" cssClass="error"/>
+                            <form:errors path="productId" cssClass="error"/>
                         </div>
                         <div class="form-group">
                              <label for="recept-name" class="col-md-3 control-label">Kiekis</label>
                                 <div class="col-md-9">
-                                     <input type="text" class="form-control" id="recept-name" />
+                                     <input type="text" class="form-control" placeholder="kiekis" value="${fridgeItemForm.amount}" name="amount" />
                                 </div>
+                                <form:errors path="amount" cssClass="error"/>
                         </div>
                         <div class="form-group">
                             <label for="recept-name" class="col-md-3 control-label">Matavimo vienetas</label>
                                 <div class="col-md-9">
-                                       <select id='listas' class="form-control" placeholder="Pasirinkite vieną ingredientų">
+                                       <!--<select id='listas' class="form-control" placeholder="Pasirinkite vieną ingredientų">
                                             <option value="" disabled selected>Prašome pasirinkti ingredientą</option>
-                                        </select> 
+                                        </select> -->
+                                        <input id="productUnit" class="form-control" readonly="readonly" />
+                                        <input id="unitIdHolder" type="hidden" value="${fridgeItemForm.unitId}" name="unitId" />
                                 </div>
+                                <form:errors path="unitId" cssClass="error"/>
                         </div>
                         <div class="save-button-wrapper">
                                 <button class="button">Pridėti</button>
@@ -59,6 +64,11 @@
     <jsp:include page="footer.jsp" />
 
     <script type="text/javascript">
+
+        function setOnClick (eventHolder) {
+            $('#unitIdHolder').val($(eventHolder).attr('value'));
+        };
+
         function startAutocomplete(eventHolder) {
             $(eventHolder).autocomplete({
                 serviceUrl: '../product/list',
@@ -75,16 +85,19 @@
                     };
                 },
                 onSelect: function(suggestion) {
-                    var siblingElement = document.getElementById('listas');
+                    $(eventHolder.parentNode.getElementsByTagName('input')[1]).val(parseInt(suggestion.data));
+                    //var siblingElement = document.getElementById('listas');
                     $.ajax({
                         type: 'GET',
                         dataType: 'json',
                         url: '../product/' + suggestion.data + '/units/list',
                         success: function(response) {
-                            $(siblingElement).empty();
-                            $.each(response, function(index) {
-                                $(siblingElement).append('<option value="' + response[index].unitId + '">' + response[index].abbreviation + '</option>').html();
-                            })
+                            //$(siblingElement).empty();
+                            //$.each(response, function(index) {
+                            //    $(siblingElement).append('<option value="' + response[index].unitId + '">' + response[index].abbreviation + '</option>').html();
+                            //})
+                            $('#productUnit').val(response[0].abbreviation);
+                            $('#unitIdHolder').val(response[0].unitId);
                         },
                         error: function(jqXHR, exception) {
                             if (jqXHR.status === 0) {

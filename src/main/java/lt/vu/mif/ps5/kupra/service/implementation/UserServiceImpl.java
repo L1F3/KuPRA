@@ -182,24 +182,15 @@ public class UserServiceImpl implements UserService {
 	@Transactional
 	public void removeFridgeItem(long id, long userId) {
         User user = userDao.get(userId);
-        System.out.println("oho0");
         Fridge fridgeItem = fridgeDao.get(id);
-        System.out.println("oho1");
         Set<Fridge> list = userDao.getUserFridgeItems(user);
-        System.out.println("oho2");
         list.remove(fridgeItem);
-        System.out.println("oho3");
         user.setFridgeItems(list);
         Set<Fridge> productFridges = fridgeItem.getProduct().getFridgeItems();
         productFridges.remove(fridgeItem);
         Set<Fridge> unitFridges = fridgeItem.getUnit().getFridgeItems();
         unitFridges.remove(fridgeItem);
         userDao.persist(user);
-        System.out.println("oho4");  
         fridgeDao.delete(id);
-        System.out.println("oho5");
-        //list.remove(rec);
-        //user.setMeals(list);
-        
 	}
 }

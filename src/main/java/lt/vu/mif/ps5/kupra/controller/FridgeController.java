@@ -7,10 +7,14 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
 
+import javax.validation.Valid;
+
 import lt.vu.mif.ps5.kupra.entity.Fridge;
 import lt.vu.mif.ps5.kupra.entity.Ingredient;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.User;
+import lt.vu.mif.ps5.kupra.form.FridgeItemForm;
+import lt.vu.mif.ps5.kupra.service.FridgeService;
 import lt.vu.mif.ps5.kupra.service.ProductService;
 import lt.vu.mif.ps5.kupra.service.RecipeService;
 import lt.vu.mif.ps5.kupra.service.UnitService;
@@ -35,15 +39,17 @@ public class FridgeController {
 	private final UnitService unitService;
 	private final UserService userService;
 	private final RecipeService recipeService;
+	private final FridgeService fridgeService;
 
 	@Autowired
 	public FridgeController(ProductService productService,
 			UnitService unitService, UserService userService,
-			RecipeService recipeService) {
+			RecipeService recipeService, FridgeService fridgeService) {
 		this.productService = productService;
 		this.unitService = unitService;
 		this.userService = userService;
 		this.recipeService = recipeService;
+		this.fridgeService = fridgeService;
 	}
 
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
@@ -152,21 +158,47 @@ public class FridgeController {
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
 		User user = userService.getUserByLoginname(auth.getName());
-
 		userService.removeFridgeItem(id, user.getUserId());
-		// for(Fridge item:fritems) {
-		// System.out.println(item.getFrId() + "int "+ fritems.indexOf(item));
-		// }ss
-		
-		System.out.println("ZDAROA");
-		return new ModelAndView("redirect:../list");//.addObject("item",
-											 //fritems);//.addObject("deletedFridge",
-											// new DeletedFridge());
+		return new ModelAndView("redirect:../list");
 	}
 
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
 	@RequestMapping(value = "/fridge/add", method = RequestMethod.GET)
 	public ModelAndView fridgeAddProduct() {
 		return new ModelAndView("add_product_fridge");
+	}
+	
+	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
+	@RequestMapping(value = "/fridge/add", method = RequestMethod.POST)
+	public ModelAndView fridgeAddProductDo(@Valid @ModelAttribute FridgeItemForm fridgeItemForm, Errors errors) {
+		if(errors.hasErrors()) {
+			log.info("Returning add_product_Fridge.jsp page");
+			return new ModelAndView("add_product_fridge").addObject(fridgeItemForm);
+		}
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		User user = userService.getUserByLoginname(auth.getName());
+		
+		Set<Fridge> fridgeItems = user.getFridgeItems();
+		
+		boolean EXISTS = false;
+		long fridgeId = 0;
+		
+		for(Fridge fridge : fridgeItems) {
+			if(fridge.getProduct().getProductId() == Long.valueOf(fridgeItemForm.getProductId())) {
+				fridgeId = fridge.getFrId();
+				EXISTS = true;
+				break;
+			}
+		}
+		
+		if(!EXISTS) {
+			Product product = productService.getProduct(fridgeItemForm.getProductId());
+			Unit unit = unitService.getUnit(fridgeItemForm.getUnitId());
+			fridgeService.addFridge(user, product, unit, fridgeItemForm.getAmount());	
+		} else {
+			fridgeService.replenish(fridgeId, fridgeItemForm.getAmount());
+		}
+		return new ModelAndView("redirect:list");
 	}
 }
