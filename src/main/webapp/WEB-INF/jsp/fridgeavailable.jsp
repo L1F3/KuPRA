@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Comapatible" content="IE=edge" /> <!-- Tam nustatytu ie rendinima pagal ju verijas -->
-    <title>Mano receptai</title>
+    <title>Paieška šaldytuve</title>
     <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/main.css" />" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/connect.css" />" rel="stylesheet" type="text/css" />
@@ -19,13 +19,14 @@
         <jsp:include page="navbar.jsp" />
 
         <div class="container recipe-form">
+					<h3>Paieška pagal šaldytuve esančius produktus</h3>
 					<div class="row"> 
 						
 						<c:forEach var="recipe" items="${recipes}">
 							<div class="col-md-3 col-sm-6">
 								<div class="panel panel-default panel-custom" >
 									<!-- Recipe image -->
-									<center><a href="../recipe/${recipe.recId}"><img src="../recipe/image/${recipe.recId}" class="img-responsive" id="search-tile-thumbnail"/></a></center>
+									<center><a href="../recipe/${recipe.recId}"><img src="../recipe/image/${recipe.recId}" class="image-all"/></a></center>
 									
 									<!-- Recipe name -->
 									<div class="recipe-name-box">
