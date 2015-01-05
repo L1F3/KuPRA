@@ -19,7 +19,7 @@ import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "units")
-@JsonIgnoreProperties({"ingredients", "fridgeItems"})
+@JsonIgnoreProperties({"fridgeItems"})
 public class Unit {
 	
 	@Id

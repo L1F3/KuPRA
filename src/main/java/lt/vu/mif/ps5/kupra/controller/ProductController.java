@@ -194,24 +194,22 @@ public class ProductController {
 		return null;
 	}
 	
-    /*@Secured({"ROLE_USER", "ROLE_ADMIN"})
-    @RequestMapping(value = "/product/{id}/units/list", method = RequestMethod.GET, produces="application/json")
-    public @ResponseBody List<Unit> getUnitsList(@PathVariable long id) {
-    	return new ArrayList<Unit>(productService.getProduct(id).getUnit());
-    }*/
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+    @RequestMapping(value = "/product/{id}/unit", method = RequestMethod.GET, produces="application/json")
+    public @ResponseBody Unit getUnitsList(@PathVariable long id) {
+    	return productService.getProduct(id).getUnit();
+    }
     
     @Secured({"ROLE_USER", "ROLE_ADMIN"})
     @RequestMapping(value = "/product/list", method = RequestMethod.GET, produces="application/json")
     public @ResponseBody List<Product> getProductsList(@RequestParam String name) {
     	if (name.length() != 0) {
     		List<Product> products = new ArrayList<Product>();
-    		
     		for (Product product : productService.getAll()) {
         		if (product.getName().toLowerCase().contains(name.toLowerCase())) {
         			products.add(product);
         		}
         	}
-    		
     		return products;
     	} else {
     		return productService.getAll();

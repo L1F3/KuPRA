@@ -73,9 +73,7 @@
                                             <input id="autocomplete" type="text" name="ingredients[0]" class="form-control" placeholder="Ingridientas" autocomplete='off' onfocus="startAutocomplete(this)">
                                             <input id="hiddenId" type="hidden" name="ingredientsId[0]" value=""> 
                                             <input id="quantity" type="text" name="quantities[0]" class="form-control" placeholder="kiek">
-                                            <select id="unit-selection" class="col-md-12 form-control" placeholder="Pasirinkite vieną ingredientų">
-                                                <option value="" disabled selected>Prašome pasirinkti ingredientą</option>
-                                            </select>
+                                            <input id="productUnit" class="form-control" readonly="readonly" />
                                             <span class="input-group-addon input-group-addon-remove">
                                                 <span class="glyphicon glyphicon-remove"></span>
                                             </span>
@@ -145,12 +143,9 @@ function startAutocomplete(eventHolder) {
             $.ajax({
                 type: 'GET',
                 dataType: 'json',
-                url: 'product/' + suggestion.data + '/units/list',
+                url: 'product/' + suggestion.data + '/unit',
                 success: function(response) {
-                    $(siblingElement).empty();
-                    $.each(response, function(index) {
-                        $(siblingElement).append('<option value="' + response[index].unitId + '">' + response[index].abbreviation + '</option>').html();
-                    })
+                    $(eventHolder.parentNode.getElementsByTagName('input')[3]).val(response.abbreviation);
                 },
                 error: function(jqXHR, exception) {
                     if (jqXHR.status === 0) {

@@ -44,9 +44,6 @@
                         <div class="form-group">
                             <label for="recept-name" class="col-md-3 control-label">Matavimo vienetas</label>
                                 <div class="col-md-9">
-                                       <!--<select id='listas' class="form-control" placeholder="Pasirinkite vieną ingredientų">
-                                            <option value="" disabled selected>Prašome pasirinkti ingredientą</option>
-                                        </select> -->
                                         <input id="productUnit" class="form-control" readonly="readonly" />
                                         <input id="unitIdHolder" type="hidden" value="${fridgeItemForm.unitId}" name="unitId" />
                                 </div>
@@ -86,18 +83,13 @@
                 },
                 onSelect: function(suggestion) {
                     $(eventHolder.parentNode.getElementsByTagName('input')[1]).val(parseInt(suggestion.data));
-                    //var siblingElement = document.getElementById('listas');
                     $.ajax({
                         type: 'GET',
                         dataType: 'json',
-                        url: '../product/' + suggestion.data + '/units/list',
+                        url: '../product/' + suggestion.data + '/unit',
                         success: function(response) {
-                            //$(siblingElement).empty();
-                            //$.each(response, function(index) {
-                            //    $(siblingElement).append('<option value="' + response[index].unitId + '">' + response[index].abbreviation + '</option>').html();
-                            //})
-                            $('#productUnit').val(response[0].abbreviation);
-                            $('#unitIdHolder').val(response[0].unitId);
+                            $('#productUnit').val(response.abbreviation);
+                            $('#unitIdHolder').val(response.unitId);
                         },
                         error: function(jqXHR, exception) {
                             if (jqXHR.status === 0) {
