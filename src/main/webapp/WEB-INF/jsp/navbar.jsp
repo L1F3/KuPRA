@@ -1,5 +1,6 @@
 ﻿
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -43,6 +44,11 @@
         <li><a href="http://localhost:8080/KuPRA/app/meals">Valgiaraštis</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right custom-navbar">
+		<sec:authorize access="hasAnyRole('ROLE_ADMIN')">
+			<li><a href="http://localhost:8080/KuPRA/app/manage">Valdyti</a></li>
+		</sec:authorize>
+		
+		
         <li><a href="http://localhost:8080/KuPRA/app/profile">Vartotojo profilis</a></li>
         <li><a href="../j_spring_security_logout">Atsijungti</a></li>
       </ul>
