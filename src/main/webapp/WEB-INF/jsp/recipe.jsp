@@ -71,7 +71,7 @@
             <div class="row ">
                 <div class="col-md-2 container">
                     <div class="menu-row  ">
-						<a type="button" href="../meals/add/${recipe.recId}" class="button" type="submit" onclick="">Įtraukti į valgiaraštį</a>
+						<input type="submit" value="Įtraukti į valgiaraštį" class=" btn-block button" onclick="window.location.href='../meals/add/${recipe.recId}'"/>
                         <input type="submit" value="Patikrinti ingredientus" class=" btn-block button" />
                     </div>
 

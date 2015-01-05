@@ -63,13 +63,13 @@
         </div>
 		
 	<form:form method="POST">
-		<div class="recipies-content">
+		<div class="recipe-form">
             <div class="container">
                 <div class='row'>
                     <div class='col-md-3'>
 						<input method="GET" value="Ieskoti pagal turimus" type="submit" formaction="../fridge/available" class="btn btn-default col-xs-12"/>
-						<button type="button" class="btn btn-default col-xs-12" style="margin-top:30px" data-toggle="modal" data-target="#produktas">Pridėti produktą</button>
-						<input value = "Trinti" type="submit" formaction="../fridge/list/delete" class="btn btn-default col-xs-12" style="margin-top:30px">Trinti pažymėtus</input>
+						<input type="submit" class="btn btn-default col-xs-12" formaction="../add_product_fridge" style="margin-top:30px" value="Pridėti produktą"></input>
+						<input value = "Trinti" type="submit" formaction="../fridge/list/delete" class="btn btn-default col-xs-12" style="margin-top:30px"></input>
 						<button type="button" class="btn btn-default col-xs-12" style="margin-top:30px">Išsaugoti</button>
                     </div>
 								
@@ -91,7 +91,7 @@
 											<input type="text" class="fridge-text-field" value="${item.amount}" />
 											<span class="fridge-row">${item.unit.abbreviation}</span>
 										</td>
-										<td><a href=""><input type="button" value="ištrinti" class="btn"/></a></td>
+										<td><a href=""><input type="button" value="Ištrinti" class="btn"/></a></td>
 									</tr>
 								</c:forEach>	
 									
@@ -102,56 +102,7 @@
                 </div>
             </div>
         </div>
-		</form:form>
-		  <div class="modal fade" id="produktas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-   <div class="modal-dialog modal-vertical-centered">
-    <div class="modal-content">
-     <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      <h4 class="modal-title">Pridėti produktą</h4>
-     </div>
-     <div class="modal-body" style="height:400px">
-
-      <div class="add-recept-form container">
-       <div class="row">
-        <div class="col-md-6">
-         <form class="form-horizontal" role="form">
-          <div class="form-group">
-           <label for="recept-name" class="col-md-3 control-label">Pavadinimas</label>
-           <div class="col-md-7">
-            <input type="text" class="form-control" id="recept-name" />
-           </div>
-          </div>
-          <div class="form-group">
-           <label for="recept-name" class="col-md-3 control-label">Kiekis</label>
-           <div class="col-md-7">
-            <input type="text" class="form-control" id="recept-name" />
-           </div>
-          </div>
-          <div class="form-group">
-           <label for="recept-name" class="col-md-3 control-label">Matavimo vienetas</label>
-           <div class="col-md-7">
-            <select class="form-control">
-             <option value="kg">kg</option>
-             <option value="vnt">vnt</option>
-            </select> 
-           </div>
-          </div>
-          <div class="save-button-wrapper">
-           <button class="button">Pridėti</button>
-          </div>
-         </form>
-        </div>
-       </div>
-      </div>
-     </div>
-     </div>
-    </div>
-   </div>
-		
-		
-		
-		
+		</form:form>	
     </div>
 
 	
