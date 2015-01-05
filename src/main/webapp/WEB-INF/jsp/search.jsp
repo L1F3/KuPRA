@@ -72,7 +72,7 @@
 							<div class="col-md-4 col-sm-6">
 								<div class="panel panel-default panel-custom" >
 									<!-- Recipe image -->
-									<center><a href="../recipe/${recipe.recId}"><img src="../recipe/image/${recipe.recId}/thumb2" class="img-responsive" id="search-tile-thumbnail"/></a></center>
+									<center><a href="../recipe/${recipe.recId}"><img src="../recipe/image/${recipe.recId}" class="image-all"></a></center>
 									
 									<!-- Recipe name -->
 									<div class="recipe-name-box">
