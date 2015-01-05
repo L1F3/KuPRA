@@ -34,6 +34,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -231,19 +232,32 @@ public class RecipeController {
 		if (errors.hasErrors()) {
 			return new ModelAndView("recipeadd").addObject(recipeForm);
 		}
-
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
 		User user = userService.getUserByLoginname(auth.getName());
 		log.info(user.getName());
 
+
+        List<MultipartFile> files = recipeForm.getFiles();
+        for (MultipartFile file : files) {
+        	System.out.println(file.getOriginalFilename());
+        }
+        
+		recipeService.addRecipe(
+				recipeForm.getName(), 
+				files, 
+				null, //ingredientai
+				recipeForm.getDescription(),
+				recipeForm.getVisibility(), 
+				user);
 		/*try {
 			log.info("Creating blob");
 			Blob blob = new SerialBlob(recipeForm.getFile().getBytes());
-			recipeService.addRecipe(recipeForm.getName(), recipeForm.getFile()
-					.getOriginalFilename(), blob, recipeForm.getFile()
-					.getContentType(), null, recipeForm.getDescription(),
-					recipeForm.getVisibility(), user);
+        
+		recipeService.addRecipe(recipeForm.getName(), recipeForm.getFile()
+				.getOriginalFilename(), blob, recipeForm.getFile()
+				.getContentType(), null, recipeForm.getDescription(),
+				recipeForm.getVisibility(), user);
 		} catch (IOException e) {
 			log.info("Something wrong with IO");
 			log.info("Returning template.jsp page");
@@ -257,6 +271,6 @@ public class RecipeController {
 			log.info("Returning template.jsp page");
 			return new ModelAndView("template");
 		}*/
-		return new ModelAndView("redirect://home");
+		return new ModelAndView("redirect:../../home");
 	}
 }

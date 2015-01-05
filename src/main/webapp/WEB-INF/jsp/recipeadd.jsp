@@ -70,7 +70,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
-                        <form:form method="POST" action="" class="form-horizontal" role="form" modelAttribute="recipeForm" enctype="multipart/form-data">
+                        <form:form method="POST" action="recipe" class="form-horizontal" role="form" modelAttribute="recipeForm" enctype="multipart/form-data">
                         <fieldset style='border: 0px;'>
                         <div class="form-horizontal add-recepts-header">
                             <h1>Receptu pridejimas</h1>
@@ -100,7 +100,7 @@
                                 <!--<input type="file" id="file" name="file"/>-->
                                 <form class="form-horizontal">
                                     <div class="text-box form-group container">
-                                        <div class="col-md-4"><input type="file" class="" name="txtImage[]" id="imageinput"></div>
+                                        <div class="col-md-4"><input type="file" class="" name="files[0]" id="imageinput"></div>
                                     </div>
                                 </form>
                                 <a class= "add-image-box col-md-12">Pridėti dar nuotraukų </a>
@@ -108,7 +108,7 @@
 
                         </div>
                         <div class="form-group ingredients-form ">
-                            <label for="ingredients" class="col-sm-2 control-label">Ingridientai</label>
+                            <label for="ingredients" class="col-sm-2 control-label">Ingredientai</label>
                             <div class="col-sm-10  ">
                                 <div class="row">
                                     <div class="form-group form-group-options col-md-12">
@@ -228,7 +228,8 @@ $(function(){
 
 $(document).ready(function(){
     $('.add-image-box').click(function(){
-        var box_html = $('<div class="text-box form-group container"><div class="col-md-4"><input type="file" class="" name="txtImage[]" id="imageinput"/></div><div class=""><button type="submit" class="remove-box btn btn-danger btn-sm"><i class="fa fa-minus-circle fa-lg"></i></button></div></div>');
+		var n = $('.text-box').length;
+        var box_html = $('<div class="text-box form-group container"><div class="col-md-4"><input type="file" class="" name="files['+ n +']" id="imageinput"/></div><div class=""><button type="submit" class="remove-box btn btn-danger btn-sm"><i class="fa fa-minus-circle fa-lg"></i></button></div></div>');
         $('.text-box:last').after(box_html);
         box_html.fadeIn('slow');
     });

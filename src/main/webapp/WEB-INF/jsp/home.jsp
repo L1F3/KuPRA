@@ -109,7 +109,7 @@
 			<div class='col-md-3 col-sm-4 col-xs-12'>
               <div class=" panel panel-default  panel-custom" >
 			    <!-- Recipe image -->
-               <center><a href="../app/recipe/${recipe.recId}"><img src="recipe/image/${recipe.recId}/thumb2"  class="img-responsive" id="search-tile-thumbnail"/></a></center>
+               <center><a href="../app/recipe/${recipe.recId}"><img src="recipe/image/${recipe.recId}"  class="img-responsive" id="search-tile-thumbnail"/></a></center>
 				<!-- Recipe name -->
                 <div class="recipe-name-box">
                      <a href="../app/recipe/${recipe.recId}"><p class="recipe-name" >${recipe.name}</p></a>
