@@ -71,8 +71,8 @@ public class FridgeController {
 				for (Fridge prod : user.getFridgeItems()) {
 					if (prod.getProduct().getName()
 							.equals(ingr.getProduct().getName())) {
-						String prodUnitName = prod.getUnit().getAbbreviation();
-						String ingrUnitName = ingr.getUnit().getAbbreviation();
+						String prodUnitName = prod.getProduct().getUnit().getAbbreviation();
+						String ingrUnitName = ingr.getProduct().getUnit().getAbbreviation();
 						if (prodUnitName.equals(ingrUnitName)) {
 							if (prod.getAmount() < ingr.getAmount()) {
 								iterator.remove();

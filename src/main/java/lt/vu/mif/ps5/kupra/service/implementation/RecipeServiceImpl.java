@@ -11,6 +11,7 @@ import javax.sql.rowset.serial.SerialException;
 
 import lt.vu.mif.ps5.kupra.dao.RecipeDao;
 import lt.vu.mif.ps5.kupra.entity.Fridge;
+import lt.vu.mif.ps5.kupra.entity.Ingredient;
 import lt.vu.mif.ps5.kupra.entity.RecipeImage;
 import lt.vu.mif.ps5.kupra.entity.Product;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
@@ -46,15 +47,20 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 
 	@Transactional
-	public long addRecipe(String name, List<MultipartFile> files,
-			Set<Product> productsOfRecipe, String description, int visibility,
+	public long addRecipe(String name, 
+			List<MultipartFile> files,
+			Set<Ingredient> ingredientsOfRecipe, 
+			String description, 
+			int visibility,
 			User user) {
 		Recipe recipe = new Recipe();
 		recipe.setName(name);
-		// recipe.setProductsOfRecipe(productsOfRecipe);
+		recipe.setIngredients(ingredientsOfRecipe);
 		recipe.setDescription(description);
 		recipe.setVisibility(visibility);
 		recipe.setUser(user);
+		
+	
 		
 		try {
 			recipe.setImg(new SerialBlob(files.get(0).getBytes()));

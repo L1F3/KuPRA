@@ -1,8 +1,10 @@
 package lt.vu.mif.ps5.kupra.controller;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Logger;
 
+import lt.vu.mif.ps5.kupra.entity.Meal;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.User;
 import lt.vu.mif.ps5.kupra.service.RecipeService;
@@ -39,8 +41,14 @@ public class MealsController {
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
 		User user = userService.getUserByLoginname(auth.getName());
-		Set<Recipe> meals = userService.getMeals(user);
-		return new ModelAndView("meals").addObject("meals", meals);
+		Set<Meal> meals = userService.getMeals(user);
+		Set<Recipe> recipes = new HashSet<Recipe>();
+		for(Meal meal : meals) {
+			recipes.add(meal.getRecipe());
+		}
+		
+	
+ 		return new ModelAndView("meals").addObject("meals", recipes);
 	}
 
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })

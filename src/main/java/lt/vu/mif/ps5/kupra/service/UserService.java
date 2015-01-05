@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 import lt.vu.mif.ps5.kupra.entity.Fridge;
+import lt.vu.mif.ps5.kupra.entity.Meal;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.Role;
 import lt.vu.mif.ps5.kupra.entity.User;
@@ -28,7 +29,7 @@ public interface UserService {
 			String address, String description, String imageName,
 			String imageType, Blob image, Role role);
 
-	public Set<Recipe> getMeals(User user);
+	public Set<Meal> getMeals(User user);
 	
 	public User getUserByLoginname(String loginname);
 	

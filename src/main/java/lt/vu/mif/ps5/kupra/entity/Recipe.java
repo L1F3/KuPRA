@@ -61,6 +61,18 @@ public class Recipe {
 	@Fetch (FetchMode.SELECT)
 	private List<RecipeImage> images = new ArrayList<RecipeImage>();
 	
+	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="recipe")
+	@Fetch (FetchMode.SELECT)
+	private Set<Meal> meals = new HashSet<Meal>();
+	
+	public Set<Meal> getMeals() {
+		return meals;
+	}
+
+	public void setMeals(Set<Meal> meals) {
+		this.meals = meals;
+	}
+
 	public List<RecipeImage> getImages() {
 		return images;
 	}

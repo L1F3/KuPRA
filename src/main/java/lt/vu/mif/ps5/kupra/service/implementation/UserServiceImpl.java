@@ -144,8 +144,11 @@ public class UserServiceImpl implements UserService {
 	public void addMeal(long id, long recipeId) {
 		User user = userDao.get(id);
 		Recipe recipe = recipeDao.get(recipeId);
-		Set<Recipe> meals = user.getMeals();
-		meals.add(recipe);
+		Set<Meal> meals = user.getMeals();
+		Meal meal = new Meal();
+		meal.setRecipe(recipe);
+		meal.setUser(user);
+		meals.add(meal);
 		user.setMeals(meals);
 	}
 
@@ -154,8 +157,20 @@ public class UserServiceImpl implements UserService {
 
         User user = userDao.get(id);
         Recipe rec = recipeDao.get(recipeId);
-        Set<Recipe> list = userDao.getUserMeals(user);
-        list.remove(rec);
+        Set<Meal> list = userDao.getUserMeals(user);
+		for (Iterator<Meal> iterator = list.iterator(); iterator.hasNext();) {
+			Meal meal = iterator.next();
+			if(meal.getRecipe().getRecId() == recipeId) {
+				System.out.println(meal.getRecipe().getRecId() + " " + recipeId);
+				iterator.remove();
+				userDao.persist(user);
+				Set<Meal> recmeals = rec.getMeals();
+				recmeals.remove(meal);
+				recipeDao.persist(rec);
+				mealDao.delete(meal.getMealId());
+			}
+		}
+        //list.remove(rec);
         user.setMeals(list);
 	}
 

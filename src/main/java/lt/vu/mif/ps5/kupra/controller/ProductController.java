@@ -194,11 +194,11 @@ public class ProductController {
 		return null;
 	}
 	
-    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+    /*@Secured({"ROLE_USER", "ROLE_ADMIN"})
     @RequestMapping(value = "/product/{id}/units/list", method = RequestMethod.GET, produces="application/json")
     public @ResponseBody List<Unit> getUnitsList(@PathVariable long id) {
-    	return new ArrayList<Unit>(productService.getProduct(id).getUnitsSet());
-    }
+    	return new ArrayList<Unit>(productService.getProduct(id).getUnit());
+    }*/
     
     @Secured({"ROLE_USER", "ROLE_ADMIN"})
     @RequestMapping(value = "/product/list", method = RequestMethod.GET, produces="application/json")

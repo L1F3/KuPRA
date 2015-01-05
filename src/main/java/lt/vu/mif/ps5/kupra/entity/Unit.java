@@ -32,9 +32,9 @@ public class Unit {
 	@Column(length = 16, name = "abbreviation")
 	private String abbreviation;
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="unit")
+	/*@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="unit")
 	@Fetch (FetchMode.SELECT)
-	private Set<Ingredient> ingredients = new HashSet<Ingredient>();       
+	private Set<Ingredient> ingredients = new HashSet<Ingredient>();   */    
 
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="unit")
 	@Fetch (FetchMode.SELECT)
@@ -48,13 +48,13 @@ public class Unit {
 		this.fridgeItems = fridgeItems;
 	}
 
-	public Set<Ingredient> getIngredients() {
+	/*public Set<Ingredient> getIngredients() {
 		return ingredients;
 	}
 
 	public void setIngredients(Set<Ingredient> ingredients) {
 		this.ingredients = ingredients;
-	}
+	}*/
 
 	public long getUnitId() {
 		return unitId;

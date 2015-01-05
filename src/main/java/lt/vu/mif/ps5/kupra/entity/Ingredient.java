@@ -35,12 +35,12 @@ public class Ingredient {
 	@JoinColumn(name="productId")
 	private Product product;
 
-	@ManyToOne
+	/*@ManyToOne
 	@JoinColumn(name="unitId")
-	private Unit unit;
+	private Unit unit;*/
 	
 	@Column(length=10, name="amount")
-	private long amount;
+	private double amount;
 
 	public long getIngrId() {
 		return ingrId;
@@ -66,19 +66,19 @@ public class Ingredient {
 		this.product = product;
 	}
 
-	public Unit getUnit() {
+	/*public Unit getUnit() {
 		return unit;
 	}
 
 	public void setUnit(Unit unit) {
 		this.unit = unit;
-	}
+	}*/
 
-	public long getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(long amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 	

@@ -70,9 +70,9 @@
                                 <div class="row">
                                     <div id="anotherClassyDiv" class="form-group form-group-options col-md-12">
                                         <div class="input-group input-group-option autocomplete-wrapper">
-                                            <input id="autocomplete" type="text" name="ingredients[]" class="form-control" placeholder="Ingridientas" autocomplete='off' onfocus="startAutocomplete(this)">
-                                            <input id="hiddenId" type="hidden" name="ingredientsId[]" value=""> 
-                                            <input id="quantity" type="text" name="quantities[]" class="form-control" placeholder="kiek">
+                                            <input id="autocomplete" type="text" name="ingredients[0]" class="form-control" placeholder="Ingridientas" autocomplete='off' onfocus="startAutocomplete(this)">
+                                            <input id="hiddenId" type="hidden" name="ingredientsId[0]" value=""> 
+                                            <input id="quantity" type="text" name="quantities[0]" class="form-control" placeholder="kiek">
                                             <select id="unit-selection" class="col-md-12 form-control" placeholder="Pasirinkite vieną ingredientų">
                                                 <option value="" disabled selected>Prašome pasirinkti ingredientą</option>
                                             </select>

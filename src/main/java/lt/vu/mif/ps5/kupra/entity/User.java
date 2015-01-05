@@ -72,14 +72,14 @@ public class User {
 	@Enumerated(EnumType.STRING)
 	private Role role;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    /*@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@Fetch (FetchMode.SELECT)
     @JoinTable(name = "user_meals",
             joinColumns = {
                 @JoinColumn(name = "userId")},
             inverseJoinColumns = {
                 @JoinColumn(name = "recId")})
-    private Set<Recipe> meals = new HashSet<Recipe>(0);
+    private Set<Recipe> meals = new HashSet<Recipe>(0);*/
 
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="user")
 	@Fetch (FetchMode.SELECT)
@@ -89,8 +89,20 @@ public class User {
 	@Fetch (FetchMode.SELECT)
 	private Set<Fridge> fridgeItems = new HashSet<Fridge>();
 
+	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="user")
+	@Fetch (FetchMode.SELECT)
+	private Set<Meal> meals = new HashSet<Meal>();
+	
 	public Set<Fridge> getFridgeItems() {
 		return fridgeItems;
+	}
+
+	public Set<Meal> getMeals() {
+		return meals;
+	}
+
+	public void setMeals(Set<Meal> meals) {
+		this.meals = meals;
 	}
 
 	public void setFridgeItems(Set<Fridge> fridgeItems) {
@@ -208,7 +220,7 @@ public class User {
 	public void setRole(Role role) {
 		this.role = role;
 	}
-
+/*
 	public Set<Recipe> getMeals() {
 		return meals;
 	}
@@ -216,5 +228,5 @@ public class User {
 	public void setMeals(Set<Recipe> meals) {
 		this.meals = meals;
 	}
-
+*/
 }

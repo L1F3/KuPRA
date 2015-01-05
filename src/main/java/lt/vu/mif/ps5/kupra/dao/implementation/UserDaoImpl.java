@@ -6,6 +6,7 @@ import java.util.Set;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.dao.UserDao;
 import lt.vu.mif.ps5.kupra.entity.Fridge;
+import lt.vu.mif.ps5.kupra.entity.Meal;
 import lt.vu.mif.ps5.kupra.entity.User;
 
 import org.hibernate.Session;
@@ -41,8 +42,8 @@ public class UserDaoImpl extends GenericDaoImpl<User> implements UserDao {
     public Set<Fridge> getUserFridgeItems(User user) {
     	return user.getFridgeItems();
     }
-    
-    public Set<Recipe> getUserMeals(User user) {
+
+    public Set<Meal> getUserMeals(User user) {
     	return user.getMeals();
     }
 }

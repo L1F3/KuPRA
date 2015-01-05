@@ -11,5 +11,6 @@
         <mapping class="lt.vu.mif.ps5.kupra.entity.Ingredient"/>
         <mapping class="lt.vu.mif.ps5.kupra.entity.RecipeImage"/>
         <mapping class="lt.vu.mif.ps5.kupra.entity.Fridge"/>
+        <mapping class="lt.vu.mif.ps5.kupra.entity.Meal"/>
     </session-factory>
 </hibernate-configuration>

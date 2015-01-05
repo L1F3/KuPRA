@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -14,10 +16,12 @@ import javax.sql.rowset.serial.SerialBlob;
 import javax.validation.Valid;
 
 import lt.vu.mif.ps5.kupra.entity.Fridge;
+import lt.vu.mif.ps5.kupra.entity.Ingredient;
 import lt.vu.mif.ps5.kupra.entity.RecipeImage;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.User;
 import lt.vu.mif.ps5.kupra.form.RecipeForm;
+import lt.vu.mif.ps5.kupra.service.IngredientService;
 import lt.vu.mif.ps5.kupra.service.RecipeService;
 import lt.vu.mif.ps5.kupra.service.UserService;
 
@@ -44,11 +48,13 @@ public class RecipeController {
 
 	private final RecipeService recipeService;
 	private final UserService userService;
+	private final IngredientService ingredientService;
 
 	@Autowired
-	public RecipeController(RecipeService recipeService, UserService userService) {
+	public RecipeController(RecipeService recipeService, UserService userService, IngredientService ingredientService) {
 		this.recipeService = recipeService;
 		this.userService = userService;
+		this.ingredientService = ingredientService;
 	}
 
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
@@ -243,13 +249,25 @@ public class RecipeController {
         	System.out.println(file.getOriginalFilename());
         }
         
+        Set<Ingredient> ingrs = new HashSet<Ingredient>();
+        for(int i=0; i < recipeForm.getIngredientsId().size(); i ++) {
+        	Ingredient ingr = ingredientService.getIngredient(recipeForm.getIngredientsId().get(i));
+        	ingr.setAmount(recipeForm.getQuantities().get(i));
+        	ingrs.add(ingr);
+        }
+        //ingredientService.getIngredient(recipeForm.getIngredientsId());
+        
 		recipeService.addRecipe(
 				recipeForm.getName(), 
 				files, 
-				null, //ingredientai
+				ingrs,
 				recipeForm.getDescription(),
 				recipeForm.getVisibility(), 
 				user);
+		
+
+		/*recipeForm.getIngredientsId(),
+		recipeForm.getQuantities(),*/
 		/*try {
 			log.info("Creating blob");
 			Blob blob = new SerialBlob(recipeForm.getFile().getBytes());

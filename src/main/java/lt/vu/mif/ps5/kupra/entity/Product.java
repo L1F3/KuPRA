@@ -3,6 +3,7 @@ package lt.vu.mif.ps5.kupra.entity;
 import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -54,7 +55,8 @@ public class Product {
             inverseJoinColumns = {
                 @JoinColumn(name = "unitId")})
 	private Set<Unit> unitsSet = new HashSet<Unit>();
-
+	//private Unit unit;
+	
 	@Column(length = 2000, name="description")
 	private String description;
 	
@@ -105,10 +107,19 @@ public class Product {
 		this.unitsSet = unitsSet;
 	}
 
+	public Unit getUnit() {
+		return getUnitsSet().iterator().next();
+	}
+
+	//public void setUnit(Unit unit) {
+	//	this.unit = unit;
+	//}
+
+
+	
 	public String getDescription() {
 		return description;
 	}
-
 	public void setDescription(String description) {
 		this.description = description;
 	}

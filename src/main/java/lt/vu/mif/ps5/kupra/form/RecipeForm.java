@@ -18,7 +18,27 @@ public class RecipeForm {
 	@Size(min = 3, max = 30)
 	private String name;
 
-    private List<MultipartFile> files;
+	private List<Long> ingredientsId;
+	
+	private List<Double> quantities;
+	
+    public List<Long> getIngredientsId() {
+		return ingredientsId;
+	}
+
+	public void setIngredientsId(List<Long> ingredientsId) {
+		this.ingredientsId = ingredientsId;
+	}
+
+	public List<Double> getQuantities() {
+		return quantities;
+	}
+
+	public void setQuantities(List<Double> quantities) {
+		this.quantities = quantities;
+	}
+
+	private List<MultipartFile> files;
     
     public List<MultipartFile> getFiles() {
         return files;
