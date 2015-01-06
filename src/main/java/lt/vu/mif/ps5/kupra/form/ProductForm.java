@@ -13,7 +13,7 @@ public class ProductForm {
 	@Size(min = 3, max = 30)
 	private String productName;
 	
-	private Set<Unit> unitsSet = new HashSet<Unit>();
+	private Unit unit = new Unit();
 	
 	@Size(max = 2000)
 	private String product_description;
@@ -32,12 +32,12 @@ public class ProductForm {
 		this.productName = product_name;
 	}
 	 
-	public Set<Unit> getUnits(){ 
-		return unitsSet;
+	public Unit getUnit(){ 
+		return unit;
 	}
 	 
-	public void setUnits(Set<Unit> unitsSet){
-		this.unitsSet = unitsSet;
+	public void setUnit(Unit unit){
+		this.unit = unit;
 	}
 
 	public String getDescription() {
@@ -71,6 +71,4 @@ public class ProductForm {
 	public void setImgType(String imgType) {
 		this.imgType = imgType;
 	}
-
-	 
 }

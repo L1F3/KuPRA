@@ -174,10 +174,23 @@ public class FridgeController {
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
 	@RequestMapping(value = "/fridge/add", method = RequestMethod.POST)
 	public ModelAndView fridgeAddProductDo(@Valid @ModelAttribute FridgeItemForm fridgeItemForm, Errors errors) {
-		if(errors.hasErrors()) {
-			log.info("Returning add_product_Fridge.jsp page");
+		if(errors.hasErrors()) {		
 			return new ModelAndView("add_product_fridge").addObject(fridgeItemForm);
 		}
+		
+		
+		try {
+			Long.valueOf(fridgeItemForm.getAmount());
+		} catch (Exception e) {
+			errors.rejectValue("amount", "msg", "Ávedëte ne skaièiø.");
+			return new ModelAndView("add_product_fridge").addObject(fridgeItemForm);
+		}
+		
+		if(Long.valueOf(fridgeItemForm.getAmount()) < 1) {
+			errors.rejectValue("amount", "msg", "Ávestas skaièius maþesnis/lygus 0.");
+			return new ModelAndView("add_product_fridge").addObject(fridgeItemForm);
+		}
+		
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
 		User user = userService.getUserByLoginname(auth.getName());
@@ -197,10 +210,10 @@ public class FridgeController {
 		
 		if(!EXISTS) {
 			Product product = productService.getProduct(Long.valueOf(fridgeItemForm.getProductId()));
-			Unit unit = unitService.getUnit(fridgeItemForm.getUnitId());
-			fridgeService.addFridge(user, product, unit, fridgeItemForm.getAmount());	
+			Unit unit = unitService.getUnit(Long.valueOf(fridgeItemForm.getUnitId()));
+			fridgeService.addFridge(user, product, unit, Long.valueOf(fridgeItemForm.getAmount()));	
 		} else {
-			fridgeService.replenish(fridgeId, fridgeItemForm.getAmount());
+			fridgeService.replenish(fridgeId, Long.valueOf(fridgeItemForm.getAmount()));
 		}
 		return new ModelAndView("redirect:list");
 	}

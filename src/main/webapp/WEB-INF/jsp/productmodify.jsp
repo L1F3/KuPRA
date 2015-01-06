@@ -28,63 +28,28 @@
                         <div class="form-group" style="margin-bottom:20px">
                             <label for="recept-name" class="col-md-2 control-label">Pavadinimas*</label>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="recept-name" placeholder="Pavadinimas" name="productName"/>
+                                <input type="text" class="form-control" id="recept-name" placeholder="Pavadinimas" name="productName" value="${productForm.productName}"/>
 								<form:errors path="productName" cssClass="error" />
                             </div>
                 
                         </div>
-                        <div class="form-group unit-scroll" style="margin-bottom:40px">
-                            <label for="recept-name" class="col-md-2 control-label">Matavimo vienetai*</label>
-                            <div class="col-md-10 unit-select-field ">
-                                <div class="col-md-3 col-sm-3 col-xs-6 checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Privatus
-                                    </label>
-                                </div>
 
-                                <div class="col-md-3 col-sm-3 col-xs-6 checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Privatus
-                                    </label>
-                                </div>
-
-                                <div class="col-md-3 col-sm-3 col-xs-6 checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Privatus
-                                    </label>
-                                </div>
-
-                                <div class="col-md-3 col-sm-3 col-xs-6 checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Privatus
-                                    </label>
-                                </div>
-
-                                <div class="col-md-3 col-sm-3 col-xs-6 checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Privatus
-                                    </label>
-                                </div>
-
-                                <div class="col-md-3 col-sm-3 col-xs-6 checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Privatus
-                                    </label>
-                                </div>
-
-                               
-                            </div>
+						<div class="form-group unit-scroll" style="margin-bottom:20px">
+							<label for="recept-name" class="col-md-2 control-label">Matavimo vienetai*</label>
+							<div class="col-md-10">
+								<select class="form-control">
+									<option>${productForm.unit.abbreviation}</option>
+									<c:forEach var="unit" items="${units}">
+										<option>${unit.abbreviation}</option>
+									</c:forEach>
+								</select>
+							</div>
                         </div>
+						
                         <div class="form-group " style="margin-bottom:20px">
                             <label for="recept-despription" class="col-md-2 control-label ">Aprašymas</label>
                             <div class="col-md-10 controls">
-                                <textarea style="resize:none; height:50px" class="form-control description" id="recept-despription" name="recept-despription"></textarea>
+                                <textarea style="resize:none; height:50px" class="form-control description" id="recept-despription" name="recept-despription" value="${productForm.description}"></textarea>
                             </div>
                         </div>
                          <div class="form-group" style="margin-bottom:20px">
