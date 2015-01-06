@@ -51,7 +51,7 @@
                                         <div class="col-xs-6" style="text-align: center;">
                                             <img src="<c:url value="resources/svg/star.svg"/>" style="height: 30px; width: 30px; margin-left: auto; margin-right: auto;" />
                                             <!-- Rating -->
-                                            <p class="recipe-rating">${meal.recipe.rating}</p>
+                                            <p class="recipe-rating">${meal.recipe.finalRating}</p>
                                         </div>
                                         <div class="col-xs-6" style="text-align: center;">
                                             <img src="<c:url value="resources/svg/people.svg"/>" style="height: 30px; width: 30px; margin-left: auto; margin-right: auto;" />

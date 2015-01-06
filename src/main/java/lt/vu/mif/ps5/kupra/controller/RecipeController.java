@@ -339,10 +339,12 @@ public class RecipeController {
     	System.out.println(ratingForm.getRecipeId());
     		
     	Recipe recipe = recipeService.getRecipe(ratingForm.getRecipeId());
-    	recipeService.setRecipeRating(ratingForm.getRecipeId(), recipe.getRating()+ratingForm.getRatingValue(), 
+    	recipeService.setRecipeRating((int)ratingForm.getRecipeId(), recipe.getRating()+ratingForm.getRatingValue(), 
     			recipe.getRatingCount() + 1,
     			(recipe.getRating()+ratingForm.getRatingValue())/(recipe.getRatingCount() + 1));
-    	
+    	System.out.println("dsadadsa " + (recipe.getRating()+ratingForm.getRatingValue())/(recipe.getRatingCount() + 1));
+    	int one = (recipe.getRating()+ratingForm.getRatingValue());
+    	int two = (recipe.getRatingCount() + 1);
     	return new ModelAndView("redirect:../meals");
 	}
 
