@@ -56,9 +56,11 @@ public class MealsController {
 		Set<Recipe> recipes = new HashSet<Recipe>();
 
 		Map<Long, Double> needMap = new HashMap<Long, Double>();
+
+		Meal neededMeal = null;
 		for (Meal meal : meals) {
 			if (meal.getMealId() == id) {
-
+				neededMeal = meal;
 				Set<Ingredient> ingrs = meal.getRecipe().getIngredients();
 				Set<Fridge> frItems = user.getFridgeItems();
 
@@ -84,23 +86,53 @@ public class MealsController {
 
 					}
 					if (found == 0) {
-						needMap.put(ingr.getProduct().getProductId(), ingr.getAmount());
+						needMap.put(ingr.getProduct().getProductId(),
+								ingr.getAmount());
 					}
 				}
 
 				break;
 			}
 		}
+		int count = 0;
 		List<FromTwo> listNeeded = new ArrayList<FromTwo>();
 		for (Long key : needMap.keySet()) {
 			FromTwo one = new FromTwo(key, needMap.get(key), productService
 					.getProduct(key).getUnit().getAbbreviation(),
 					productService.getProduct(key).getName());
 			listNeeded.add(one);
+			count++;
 		}
-		return new ModelAndView("product_need").addObject("fromTwo", listNeeded);// .addObject("meals",
-											// recipes).addObject("fromTwo",
-											// listNeeded);
+		if (count == 0) {
+			if (neededMeal != null) {
+				Set<Ingredient> ingrs = neededMeal.getRecipe().getIngredients();
+				Set<Fridge> frItems = user.getFridgeItems();
+				for (Iterator<Ingredient> it = ingrs.iterator(); it.hasNext();) {
+					Ingredient ingr = it.next();
+
+					for (Iterator<Fridge> its = frItems.iterator(); its
+							.hasNext();) {
+						Fridge prod = its.next();
+
+						if (ingr.getProduct().getProductId() == prod
+								.getProduct().getProductId()) {
+							prod.setAmount(prod.getAmount() - ingr.getAmount());
+							its.remove();
+							frItems.add(prod);
+							user.setFridgeItems(frItems);
+						}
+
+					}
+				}
+			}
+			return new ModelAndView("redirect:../meals");
+
+		} else {
+			return new ModelAndView("product_need").addObject("fromTwo",
+					listNeeded);// .addObject("meals",
+
+		} // recipes).addObject("fromTwo",
+			// listNeeded);
 	}
 
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
