@@ -31,23 +31,26 @@
                             <div class="col-md-9">
                                 <input type="text" class="form-control" id="autocomplete" autocomplete='off' onfocus="startAutocomplete(this)" placeholder="Pavadinimas"  />
                                 <input type="hidden" value="${fridgeItemForm.productId}" name="productId" />
+                                <form:errors path="productId" cssClass="error"/>
                             </div>
-                            <form:errors path="productId" cssClass="error"/>
+                            
                         </div>
                         <div class="form-group">
                              <label for="recept-name" class="col-md-3 control-label">Kiekis</label>
                                 <div class="col-md-9">
-                                     <input type="text" class="form-control" placeholder="kiekis" value="${fridgeItemForm.amount}" name="amount" />
+                                     <input type="text" class="form-control" placeholder="Kiekis" value="${fridgeItemForm.amount}" name="amount" defaultValue="0"/>
+                                     <form:errors path="amount" cssClass="error"/>
                                 </div>
-                                <form:errors path="amount" cssClass="error"/>
+                                
                         </div>
                         <div class="form-group">
                             <label for="recept-name" class="col-md-3 control-label">Matavimo vienetas</label>
                                 <div class="col-md-9">
                                         <input id="productUnit" class="form-control" readonly="readonly" />
                                         <input id="unitIdHolder" type="hidden" value="${fridgeItemForm.unitId}" name="unitId" />
+                                        <form:errors path="unitId" cssClass="error"/>
                                 </div>
-                                <form:errors path="unitId" cssClass="error"/>
+                                
                         </div>
                         <div class="save-button-wrapper">
                                 <button class="button">Pridėti</button>

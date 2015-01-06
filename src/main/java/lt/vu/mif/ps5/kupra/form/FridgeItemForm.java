@@ -4,17 +4,18 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.NumberFormat;
 
 public class FridgeItemForm {
 	
-	@NotNull
+	@NotEmpty
 	private String productId;
 	
-	@NotNull
-	private long unitId;
+	@NotEmpty
+	private String unitId;
 	
-	@Min(1)
-	private long amount;
+	@NotEmpty
+	private String amount;
 
 	public String getProductId() {
 		return productId;
@@ -24,19 +25,19 @@ public class FridgeItemForm {
 		this.productId = productId;
 	}
 
-	public long getUnitId() {
+	public String getUnitId() {
 		return unitId;
 	}
 
-	public void setUnitId(long unitId) {
+	public void setUnitId(String unitId) {
 		this.unitId = unitId;
 	}
 
-	public long getAmount() {
+	public String getAmount() {
 		return amount;
 	}
 
-	public void setAmount(long amount) {
+	public void setAmount(String amount) {
 		this.amount = amount;
 	}
 	
