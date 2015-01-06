@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+﻿<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -40,29 +40,26 @@
                             <table id="vartotojaiTable" class="table-hover table-bordered table ">
                                 <thead>
                                     <tr>
-                                        <th>Vardas</th>
+                                        <th>Vardas Pavardė</th>
                                         <th>Administratoriaus rolė</th>
                                     </tr>
                                 </thead>
 
                                 <tfoot>
                                     <tr>
-                                        <th>Vardas</th>
+                                        <th>Vardas Pavardė</th>
                                         <th>Administratoriaus rolė</th>
                                     </tr>
                                 </tfoot>
 
                                 <tbody>
-                                    <tr>
-                                        <td>Vardas Pavardenis</td>
-                                        <td>
-                                            <input id="toggle-event" type="checkbox" data-toggle="toggle" data-onstyle="default" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jonas Jonaitis</td>
-                                        <td>
-                                            <input id="Checkbox1" type="checkbox" data-toggle="toggle" data-onstyle="default" /></td>
-                                    </tr>
+									<c:forEach var="user" items="${users}">
+										<tr>
+											<td>${user.name} ${user.lastname}</td>
+											<td>
+												<input id="toggle-event" type="checkbox" data-toggle="toggle" data-onstyle="default" /></td>
+										</tr>
+									</c:forEach>
                                 </tbody>
                             </table>
 
@@ -93,17 +90,18 @@
                                 </tfoot>
 
                                 <tbody>
-                                    <tr>
-                                        <td>Kilogramas</td>
-                                        <td>kg</td>
-                                        <td>
-										 <!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-trash" >Ištrinti </span></a>-->
-											<!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-wrench" >Modifikuoti </span></a>-->
-											 <button type="submit" class="btn btn-default"  ><span class="glyphicon glyphicon-trash"> Ištrinti</span></button>
-											 <button type="submit" class="btn btn-default" ><span class="glyphicon glyphicon-wrench"> Modifikuoti</span> </button>
-									    </td>
-                                    </tr>
-                                    
+									<c:forEach var="unit" items="${units}">
+										<tr>
+											<td>${unit.name}</td>
+											<td>${unit.abbreviation}</td>
+											<td>
+											 <!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-trash" >Ištrinti </span></a>-->
+												<!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-wrench" >Modifikuoti </span></a>-->
+												 <button type="submit" class="btn btn-default" onclick="window.location.href='manage/${unit.unitId}/delete'" ><span class="glyphicon glyphicon-trash"> Ištrinti</span></button>
+												 <button type="submit" class="btn btn-default" onclick="window.location.href='unitmodify/${unit.unitId}'"><span class="glyphicon glyphicon-wrench"> Modifikuoti</span> </button>
+											</td>
+										</tr>
+									</c:forEach>
                                 </tbody>
                             </table>
                         </div>
@@ -127,15 +125,17 @@
                                 </tfoot>
 
                                 <tbody>
-                                    <tr>
-                                        <td>Kriaušė</td>
-										<td>
-										 <!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-trash" >Ištrinti </span></a>-->
-											<!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-wrench" >Modifikuoti </span></a>-->
-											 <button type="submit" class="btn btn-default"  ><span class="glyphicon glyphicon-trash"> Ištrinti</span></button>
-											 <button type="submit" class="btn btn-default" ><span class="glyphicon glyphicon-wrench"> Modifikuoti</span> </button>
-									    </td>
-                                    </tr>
+									<c:forEach var="product" items="${products}">
+										<tr>
+											<td>${product.name}</td>
+											<td>
+											 <!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-trash" >Ištrinti </span></a>-->
+												<!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-wrench" >Modifikuoti </span></a>-->
+												 <button type="submit" class="btn btn-default"  ><span class="glyphicon glyphicon-trash"> Ištrinti</span></button>
+												 <button type="submit" class="btn btn-default" onclick="window.location.href='productmodify/${product.productId}'"><span class="glyphicon glyphicon-wrench"> Modifikuoti</span> </button>
+											</td>
+										</tr>
+									</c:forEach>
                                 </tbody>
                             </table>
 
@@ -164,15 +164,17 @@
                                 </tfoot>
 
                                 <tbody>
-                                    <tr>
-                                        <td>Kiaušinienė</td>
-                                        <td>
-										 <!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-trash" >Ištrinti </span></a>-->
-											<!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-wrench" >Modifikuoti </span></a>-->
-											 <button type="submit" class="btn btn-default"  ><span class="glyphicon glyphicon-trash"> Ištrinti</span></button>
-											 <button type="submit" class="btn btn-default" ><span class="glyphicon glyphicon-wrench"> Modifikuoti</span> </button>
-									    </td>
-                                    </tr>
+									<c:forEach var="recipe" items="${recipes}">
+										<tr>
+											<td>${recipe.name}</td>
+											<td>
+											 <!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-trash" >Ištrinti </span></a>-->
+												<!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-wrench" >Modifikuoti </span></a>-->
+												 <button type="submit" class="btn btn-default"  ><span class="glyphicon glyphicon-trash"> Ištrinti</span></button>
+												 <button type="submit" class="btn btn-default" ><span class="glyphicon glyphicon-wrench"> Modifikuoti</span> </button>
+											</td>
+										</tr>
+									</c:forEach>
                                 </tbody>
                             </table>
                         </div>

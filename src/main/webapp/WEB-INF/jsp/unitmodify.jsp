@@ -1,10 +1,10 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+﻿<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Comapatible" content="IE=edge" /> <!-- Tam nustatytu ie rendinima pagal ju verijas -->
-    <title>Modify Unit</title>
+    <title>Matavimo vieneto modifikavimas</title>
    <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/main.css" />" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/normalize.css" />" rel="stylesheet" type="text/css" />
@@ -42,7 +42,7 @@
                             
                         </div>
                         <div class="save-button-wrapper">
-                            <button class="button">I�saugoti</button>
+                            <button class="button">Išsaugoti</button>
                         </div>
                     </form:form>
                 </div>
