@@ -57,7 +57,9 @@ public class RecipeServiceImpl implements RecipeService {
 			List<Long> ingrsIds, List<Double> amounts,
 			String description, 
 			int visibility,
-			User user) {
+			User user,
+			int servings,
+			String cookingTime) {
 		Recipe recipe = new Recipe();
 		recipe.setName(name);
 		
@@ -74,6 +76,8 @@ public class RecipeServiceImpl implements RecipeService {
 		recipe.setDescription(description);
 		recipe.setVisibility(visibility);
 		recipe.setUser(user);
+		recipe.setServings(servings);
+		recipe.setCookingTime(cookingTime);
 		
 	
 		

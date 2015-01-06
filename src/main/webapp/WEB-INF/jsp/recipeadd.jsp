@@ -40,13 +40,13 @@
                         <div class="form-group">
                             <label for="recept-name" class="col-md-3 col-sm-3 control-label">Gamybos trukmė</label>
                             <div class="col-md-3 col-sm-3">
-                                <input type="text" class="form-control" id="recept-name" placeholder="" value="" name="" />
-                                <form:errors path="" cssClass="error" />
+                                <input type="text" class="form-control" id="recept-name" placeholder="00:00" value="${recipeForm.cookingTime}" name="cookingTime" />
+                                <form:errors path="cookingTime" cssClass="error" />
                             </div>
-                            <label for="recept-name" class="col-md-3 col-sm-3 control-label">Porcijų skaičius</label>
+                            <label for="recept-name" class="col-md-3 col-sm-3 control-label">Asmenų skaičius</label>
                             <div class="col-md-3 col-sm-3">
-                                <input type="text" class="form-control" id="recept-time" placeholder="" value="" name="" />
-                                <form:errors path="" cssClass="error" />
+                                <input type="text" class="form-control" id="recept-time" placeholder="1" value="${recipeForm.servings}" name="servings" />
+                                <form:errors path="servings" cssClass="error" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -66,10 +66,10 @@
                         </div>
                         <div class="form-group ingredients-form ">
                             <label for="ingredients" class="col-sm-2 control-label">Ingredientai</label>
-                            <div class="col-sm-10  ">
-                                <div class="row">
-                                    <div id="anotherClassyDiv" class="form-group form-group-options col-md-12">
-                                        <div class="input-group input-group-option autocomplete-wrapper">
+                            <div class="col-sm-10" >
+                                <div class="row" >
+                                    <div id="anotherClassyDiv" class="form-group form-group-options col-md-12" style="margin-left: 0px; margin-right: 0px;">
+                                        <div class="input-group input-group-option" style="margin-left: auto; margin-right: auto;">
                                             <input id="autocomplete" type="text" name="ingredients[0]" class="form-control" placeholder="Ingridientas" autocomplete='off' onfocus="startAutocomplete(this)">
                                             <input id="hiddenId" type="hidden" name="ingredientsId[0]" value=""> 
                                             <input id="quantity" type="text" name="quantities[0]" class="form-control" placeholder="kiek">
@@ -80,13 +80,14 @@
                                         </div>
                                     </div>
                                 </div>
+                                <form:errors path="ingredientsId" cssClass="error" />
                             </div>
                         </div>
                         <div class="form-group ">
                             <label for="recept-description" class="col-md-2 control-label ">Aprašymas</label>
                             <div class="col-md-10 controls">
                                 <!-- *** -->
-                                <textarea class="form-control description" id="recipe-despription" value="${recipeForm.description}" name="description"></textarea>
+                                <textarea class="form-control description" id="recipe-despription" name="description">${recipeForm.description}</textarea>
                                 <form:errors path="description" cssClass="error" />
                             </div>
                         </div>
