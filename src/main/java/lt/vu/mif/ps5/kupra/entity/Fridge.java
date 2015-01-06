@@ -42,18 +42,7 @@ public class Fridge {
 	private Unit unit;
 	
 	@Column(length=10, name="amount")
-	private long amount;
-
-	@Column(name="forDelete")
-	private boolean delete;
-
-	public boolean isForDelete() {
-		return delete;
-	}
-
-	public void setForDelete(boolean forDelete) {
-		this.delete = forDelete;
-	}
+	private double amount;
 
 	public long getFrId() {
 		return frId;
@@ -87,11 +76,11 @@ public class Fridge {
 		this.unit = unit;
 	}
 
-	public long getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(long amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 	

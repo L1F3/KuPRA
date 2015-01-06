@@ -110,8 +110,9 @@
 						<a class="col-xs-6 accept-serving" href="fridge/list" type="button">Šaldytuvas</a>
 					</div>
 					<div class="row">
-						<p class="col-xs-12">Kiauliena 10g</p>
-						<p class="col-xs-12">Kiauliena 20g</p>
+						<c:forEach var="item" items="${fromTwo}">
+						<p class="col-xs-12">${item.first} ${item.second}(${item.third})</p>
+						</c:forEach>
 					</div>
 				</div>
 				

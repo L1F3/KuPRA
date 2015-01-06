@@ -1,8 +1,10 @@
 package lt.vu.mif.ps5.kupra.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -12,6 +14,7 @@ import lt.vu.mif.ps5.kupra.entity.Meal;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.User;
 import lt.vu.mif.ps5.kupra.entity.Ingredient;
+import lt.vu.mif.ps5.kupra.service.ProductService;
 import lt.vu.mif.ps5.kupra.service.RecipeService;
 import lt.vu.mif.ps5.kupra.service.UserService;
 
@@ -32,11 +35,13 @@ public class MealsController {
 
 	private final UserService userService;
 	private final RecipeService recipeService;
+	private final ProductService productService;
 
 	@Autowired
-	public MealsController(UserService userService, RecipeService recipeService) {
+	public MealsController(UserService userService, RecipeService recipeService, ProductService productService) {
 		this.userService = userService;
 		this.recipeService = recipeService;
+		this.productService = productService;
 	}
 
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
@@ -75,24 +80,71 @@ public class MealsController {
 		Set<Fridge> frItems = user.getFridgeItems();
 		//
 		for (Map.Entry<Long, Double> entry : sum.entrySet()) {
+			int found = 0;
 			for (Iterator<Fridge> it = frItems.iterator(); it.hasNext();) {
 				Fridge prod = it.next();
 				if (entry.getKey() == prod.getProduct().getProductId()) {
+					found = 1;
 					if (sum.containsKey(prod.getProduct().getProductId())) {
 						if (sum.get(prod.getProduct().getProductId()) > prod
 								.getAmount()) {
-							double need = sum.get(prod.getProduct()
-									.getProductId()) - prod.getAmount();
+							double need = sum.get(prod.getProduct().getProductId()) - prod.getAmount();
 							needMap.put(prod.getProduct().getProductId(), need);
 						}
 					}
 					break;
 				}
 			}
+			if(found == 0) {
+				needMap.put(entry.getKey(), sum.get(entry.getKey()));
+			}
 		}
-		return new ModelAndView("meals").addObject("meals", recipes);
+		System.out.println("reikia produktu");
+		List<FromTwo> listNeeded = new ArrayList<FromTwo>();
+		for (Long key : needMap.keySet()) {
+			FromTwo one = new FromTwo(key, needMap.get(key), productService.getProduct(key).getUnit().getAbbreviation());
+			listNeeded.add(one);
+		}
+		
+		return new ModelAndView("meals").addObject("meals", recipes).addObject("fromTwo", listNeeded);
 	}
 
+	public class FromTwo {
+		private long first;
+		private double second;
+		private String third;
+		
+		public FromTwo(long first, double second, String third) {
+			this.first = first;
+			this.second = second;
+			this.third = third;
+		}
+		
+		public long getFirst() {
+			return first;
+		}
+		
+		public double getSecond() {
+			return second;
+		}
+
+		public String getThird() {
+			return third;
+		}
+		
+		public void setFirst(long first) {
+			this.first = first;
+		}
+		
+		public void setSecond(double second) {
+			this.second = second;
+		}
+		
+		public void setThird(String third) {
+			this.third = third;
+		}
+	}
+	
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
 	@RequestMapping(value = "/meals/add/{id}", method = RequestMethod.GET)
 	public ModelAndView addMeal(@PathVariable long id) {
