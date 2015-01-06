@@ -40,4 +40,6 @@ public interface UserService {
 	public void remove(long id, long recipeId);
 	
 	public void removeFridgeItem(long id, long userId);
+	
+	public void makeMeal(long id);
 }

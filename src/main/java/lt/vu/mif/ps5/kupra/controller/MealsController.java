@@ -14,6 +14,7 @@ import lt.vu.mif.ps5.kupra.entity.Meal;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.User;
 import lt.vu.mif.ps5.kupra.entity.Ingredient;
+import lt.vu.mif.ps5.kupra.form.RatingForm;
 import lt.vu.mif.ps5.kupra.service.ProductService;
 import lt.vu.mif.ps5.kupra.service.RecipeService;
 import lt.vu.mif.ps5.kupra.service.UserService;
@@ -61,6 +62,7 @@ public class MealsController {
 		for (Meal meal : meals) {
 			if (meal.getMealId() == id) {
 				neededMeal = meal;
+				userService.makeMeal(id);
 				Set<Ingredient> ingrs = meal.getRecipe().getIngredients();
 				Set<Fridge> frItems = user.getFridgeItems();
 
@@ -200,8 +202,10 @@ public class MealsController {
 			listNeeded.add(one);
 		}
 
+		
+		
 		return new ModelAndView("meals").addObject("meals", recipes).addObject(
-				"fromTwo", listNeeded);
+				"fromTwo", listNeeded).addObject("ratingForm", new RatingForm());
 	}
 
 	public class FromTwo {

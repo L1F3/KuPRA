@@ -26,7 +26,7 @@ public class ProductForm {
 	}
 
 	@Size(max = 2000)
-	private String product_description;
+	private String description;
 	
     private String imgName;
 	
@@ -51,11 +51,11 @@ public class ProductForm {
 	}
 
 	public String getDescription() {
-		return product_description;
+		return description;
 	}
   
 	public void setDescription(String product_description) {
-		this.product_description = product_description;
+		this.description = product_description;
 	}
 	  
 	public String getImgName() {

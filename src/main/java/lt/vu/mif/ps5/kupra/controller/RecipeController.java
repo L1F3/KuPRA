@@ -28,6 +28,7 @@ import lt.vu.mif.ps5.kupra.entity.Meal;
 import lt.vu.mif.ps5.kupra.entity.RecipeImage;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.User;
+import lt.vu.mif.ps5.kupra.form.RatingForm;
 import lt.vu.mif.ps5.kupra.form.RecipeForm;
 import lt.vu.mif.ps5.kupra.service.IngredientService;
 import lt.vu.mif.ps5.kupra.service.ProductService;
@@ -329,6 +330,20 @@ public class RecipeController {
 		}
 
 		return null;
+	}
+
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+    @RequestMapping(value = "/recipe/rate", method = RequestMethod.POST)
+    public ModelAndView productRate(@Valid @ModelAttribute RatingForm ratingForm, Errors errors) {
+    	System.out.println(ratingForm.getRatingValue());
+    	System.out.println(ratingForm.getRecipeId());
+    		
+    	Recipe recipe = recipeService.getRecipe(ratingForm.getRecipeId());
+    	recipeService.setRecipeRating(ratingForm.getRecipeId(), recipe.getRating()+ratingForm.getRatingValue(), 
+    			recipe.getRatingCount() + 1,
+    			(recipe.getRating()+ratingForm.getRatingValue())/(recipe.getRatingCount() + 1));
+    	
+    	return new ModelAndView("redirect:../meals");
 	}
 
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })

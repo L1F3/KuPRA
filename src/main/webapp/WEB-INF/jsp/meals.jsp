@@ -60,25 +60,35 @@
                                         </div>
                                     </div>
                                     <!-- Rate recipe block -->
+									<form:form action="recipe/rate" method="POST" modelAttribute="ratingForm">
+									<input type="hidden" name="recipeId" value="${meal.recipe.recId}"/>
                                     <div class="row">
                                         <div class="col-xs-6 dropdown-menu-style" style="padding-right: 0px;">
-                                            <select style="margin-top: 10px; margin-left: 30px;">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                                <option>7</option>
-                                                <option>8</option>
-                                                <option>9</option>
-                                                <option>10</option>
+                                            <select style="margin-top: 10px; margin-left: 30px;" name="ratingValue">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
                                             </select>
                                         </div>
                                         <div class="col-xs-6" style="padding-left: 0px;">
-                                            <button type="button" class="btn btn-lg btn-warn">Vertinti</button>
+										<c:choose>
+											<c:when test="${meal.made == true}"> 
+												<button method="POST" type="submit" class="btn btn-lg btn-warn">Vertinti</button>
+											</c:when>
+											<c:otherwise>
+												<button method="POST" disabled="true" type="submit" class="btn btn-lg btn-warn">Vertinti</button>
+											</c:otherwise>
+										</c:choose>
                                         </div>
                                     </div>
+									</form:form>
                                     <!-- Make the meal button -->
                                     <div class="row">
 										<div class="col-xs-6" style="padding-right: 0px;">
@@ -88,7 +98,8 @@
 											</form>
 										</div>
                                         <div class="col-xs-6" style="padding-left: 0px;">
-                                            <a href="make/${meal.mealId}" id="create_meal" class="btn btn-lg btn-warn" style="margin-top: 5px; margin-bottom: 5px;" data-container="body" onclick="showPopup3459kablelis3taskas14(this)">Gaminti</a>
+										<a  href="make/${meal.mealId}" id="create_meal" class="btn btn-lg btn-warn" style="margin-top: 5px; margin-bottom: 5px;" data-container="body" onclick="showPopup3459kablelis3taskas14(this)">Gaminti</a>
+
                                         </div>
                                     </div>
                                     <!-- Date of making -->
@@ -106,8 +117,9 @@
 				<div class="container col-md-6 col-md-offset-3" style="border: 12px solid #FFFFFF; border-radius: 10px;  background: #FFFFFF; ">
      <div class="row">
       <p class="col-xs-4" id="alert" style="color:red">Truksta produktų</p>
-      <a class="col-xs-4 accept-serving" href="#" type="button">Pridėti viską į šaldytuvą</a>
+	  <input type="submit" value="Pridėti viską į šaldytuvą " class=" btn btn-warn" />
      </div>
+	  <form:form method="POST" action="DSasadasd">
      <div class="col-md-12">
       <div class="table-responsive">
        <table id="mytable" class="table table-hover">
@@ -130,6 +142,7 @@
        </table>
       </div>          
      </div>
+	  </form:form>
      
     </div>
 				

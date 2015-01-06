@@ -145,4 +145,14 @@ public class RecipeServiceImpl implements RecipeService {
 	public RecipeImage getDefaultImage() {
 		return recipeDao.getDefaultImage();
 	}
+
+	@Transactional
+	public void setRecipeRating(long recId, int rating, int ratingCount, int finalRating) {
+		Recipe recipe = recipeDao.get(recId);
+		recipe.setRating(rating);
+		recipe.setRatingCount(ratingCount);
+		recipe.setFinalRating(finalRating);
+	}
+	
+	
 }

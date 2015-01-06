@@ -194,4 +194,10 @@ public class UserServiceImpl implements UserService {
         userDao.persist(user);
         fridgeDao.delete(id);
 	}
+	
+	@Transactional
+	public void makeMeal(long id) {
+		Meal meal = mealDao.get(id);
+		meal.setMade(true);
+	}
 }

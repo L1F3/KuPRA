@@ -114,6 +114,16 @@ public class Recipe {
 	private int rating;
 	@Column(name = "ratingCount")
 	private int ratingCount;
+	@Column(name = "finalRating")
+	private int finalRating;
+
+	public int getFinalRating() {
+		return finalRating;
+	}
+
+	public void setFinalRating(int finalRating) {
+		this.finalRating = finalRating;
+	}
 
 	/*public Set<Product> getProducts() {
 		return products;

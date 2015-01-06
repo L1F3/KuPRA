@@ -1,5 +1,6 @@
 package lt.vu.mif.ps5.kupra.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,6 +25,28 @@ public class Meal {
 	@ManyToOne
 	@JoinColumn(name="userId")
 	private User user;
+
+	@Column(length = 1, name= "made")
+	private boolean made;
+
+	@Column(length = 1, name= "rated")
+	private boolean rated;
+	
+	public boolean isMade() {
+		return made;
+	}
+
+	public void setMade(boolean made) {
+		this.made = made;
+	}
+
+	public boolean isRated() {
+		return rated;
+	}
+
+	public void setRated(boolean rated) {
+		this.rated = rated;
+	}
 
 	public long getMealId() {
 		return mealId;

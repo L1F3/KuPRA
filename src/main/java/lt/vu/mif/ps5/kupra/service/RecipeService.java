@@ -28,4 +28,6 @@ public interface RecipeService {
 	List<Recipe> getByNameFromUser(long user, String key);
 	public List<Recipe> getRecipesByContainingProducts(Set<Fridge> fridgeItems, User user);
 	public RecipeImage getDefaultImage();
+	
+	public void setRecipeRating(long recId, int rating, int ratingCount, int finalRating);
 }

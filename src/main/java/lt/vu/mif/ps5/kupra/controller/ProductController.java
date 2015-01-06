@@ -90,7 +90,6 @@ public class ProductController {
     }
 
 
-
  /*   @Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/product/list", method = RequestMethod.GET)
     public ModelAndView productList() {
