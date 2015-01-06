@@ -147,19 +147,6 @@ public class HomeController {
 		userForm.setImgType(user.getImgType());
 		userForm.setLastname(user.getLastname());
 		
-		
-		System.out.println(userForm.getLoginname());
-		System.out.println(userForm.getUsername());
-		System.out.println(userForm.getPassword());
-		System.out.println(userForm.getEmail());
-		System.out.println(userForm.getName());
-		System.out.println(userForm.getLastname());
-		System.out.println(userForm.getAddress());
-		System.out.println(userForm.getDescription());
-		System.out.println(userForm.getImgName());
-		System.out.println(userForm.getImgType());
-		System.out.println(userForm.getImg());
-		
 		List<User> users = userService.getAll();
 		
 		return new ModelAndView("profile").addObject("userForm", userForm).addObject("users", users);
@@ -168,44 +155,23 @@ public class HomeController {
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
 	@RequestMapping(value = "/profile", method = RequestMethod.POST)
 	public ModelAndView profilePage(@Valid @ModelAttribute UserForm userForm, @RequestParam("file") MultipartFile file,
-			Errors errors) {
-		
-		System.out.println(userForm.getLoginname());
-		System.out.println(userForm.getUsername());
-		System.out.println(userForm.getPassword());
-		System.out.println(userForm.getEmail());
-		System.out.println(userForm.getName());
-		System.out.println(userForm.getLastname());
-		System.out.println(userForm.getAddress());
-		System.out.println(userForm.getDescription());
-		
+			Errors errors) {		
 		
 		if (errors.hasErrors()) {
 			//Pvz kaip reik rejectint patikrinus.
 			//errors.rejectValue("name", "msg", "LOPASTU");
-			System.out.println("error returning profile.jsp");
-			System.out.println(errors.getAllErrors());
 			return new ModelAndView("profile").addObject(userForm);
 		}
 		
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
 		User user = userService.getUserByLoginname(auth.getName());
-		
-		System.out.println(file.getSize());
-		
+
 		try {
 			Blob blob = new SerialBlob(file.getBytes());
 			userForm.setImgName(file.getOriginalFilename());
-			System.out.println("type " + file.getOriginalFilename() );
 			userForm.setImg(blob);
 			userForm.setImgType(file.getContentType());
-			
-			System.out.println("type " + file.getContentType() );
-			
-			System.out.println(userForm.getImgName());
-			System.out.println(userForm.getImgType());
-			System.out.println(userForm.getImg());
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
