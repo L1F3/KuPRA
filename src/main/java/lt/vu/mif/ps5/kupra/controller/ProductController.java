@@ -3,6 +3,7 @@ package lt.vu.mif.ps5.kupra.controller;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,6 +12,7 @@ import java.util.Set;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.rowset.serial.SerialBlob;
 import javax.validation.Valid;
 
 import lt.vu.mif.ps5.kupra.entity.Product;
@@ -39,6 +41,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -79,10 +82,21 @@ public class ProductController {
     @Secured({"ROLE_USER", "ROLE_ADMIN"})
     @RequestMapping(value = "/product", method = RequestMethod.POST)
     public ModelAndView productCreate(
-            @Valid @ModelAttribute ProductForm productForm, Errors errors) {
+            @Valid @ModelAttribute ProductForm productForm, @RequestParam("file") MultipartFile file, Errors errors) {
         if (errors.hasErrors()) {
             log.info("Returning product.jsp page");
             return new ModelAndView("productadd").addObject(productForm);
+        }
+        
+        if(file.getSize() != 0) {
+	        try {
+				Blob blob = new SerialBlob(file.getBytes());
+				productForm.setImgName(file.getOriginalFilename());
+				productForm.setImg(blob);
+				productForm.setImgType(file.getContentType());
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
         }
        
         productService.addProduct(productForm.getProductName(), productForm.getUnitId(), productForm.getDescription(), productForm.getImgName(), productForm.getImgType(), productForm.getImg());
