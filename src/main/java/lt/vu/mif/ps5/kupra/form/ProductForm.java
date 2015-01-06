@@ -9,6 +9,16 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class ProductForm {
 	
+	private long productId;
+	
+	public long getProductId() {
+		return productId;
+	}
+
+	public void setProductId(long productId) {
+		this.productId = productId;
+	}
+
 	@NotEmpty
 	@Size(min = 3, max = 30)
 	private String productName;

@@ -29,7 +29,7 @@
 				<div class="tab-content custom-tab">
 					<div id="profile" class="tab-pane active">
 						<div class="container">
-						<form:form method="POST" class="form-horizontal form-profile" role="form" modelAttribute="userForm">
+						<form:form method="POST" class="form-horizontal form-profile" role="form" modelAttribute="userForm" enctype="multipart/form-data">
 							<div class="row">
 
 
@@ -40,8 +40,9 @@
 									<div class="form-group">
 										<label class="col-md-5 control-label">Email</label>
 										<div class="col-md-7">
-											<div class="input-group">
-												<!-- *** -->                <p class="form-control-static profile-user-name">${userForm.loginname}</p>
+											<div class="input-group col-md-12">
+												<input type="text" class="form-control" name="loginname" value="${userForm.loginname}" readonly="readonly"/>
+												<!-- *** -->              <!--  <p class="form-control-static profile-user-name">${userForm.loginname}</p>-->
 											</div>
 										</div>
 									</div>
@@ -122,7 +123,7 @@
 											<label for="despription" class="col-md-5 control-label no-padding-right">Aprašymas</label>
 											<div class="col-md-7 controls">
 
-												<!-- *** -->     <textarea  class="form-control description" id="despription" name="despription">${userForm.description}</textarea>       
+												<!-- *** -->     <textarea  class="form-control description" id="despription" name="description">${userForm.description}</textarea>       
 											</div>
 										</div>
 
@@ -133,8 +134,9 @@
 							<div class="col-md-6" style="margin-bottom: 15px;">
 								<!--<div class="profile-image-block">-->
 								<div style="width: 50%; margin: 0px auto;">
-									<img src="src="<c:url value="/resources/pie.jpg"/>"" class="profile-image-size" />
-									<input type="file" id="exampleInputFile" />
+									<img src="profile/image" class="profile-image-size img-circle"  style="margin-bottom:10px;"/>
+
+									<input type="file" name="file" id="exampleInputFile" />
 								</div>
 							</div>
 						</div>
@@ -142,42 +144,9 @@
 							<button class="button">Išsaugoti</button>
 						</div>
 					</div>
-</form:form>
+				</form:form>
 				</div>
-				<!--<div id="friends" class="tab-pane ">
-					 <div class="container" style="padding: 0px; width: 100%;">
-                            <table id="friendstable" class="table-hover table-bordered table ">
-                                <thead>
-                                    <tr>
-                                        <th>Slapyvardis</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
 
-                                <tfoot>
-                                    <tr>
-                                        <th>Slapyvardis</th>
-                                        <th></th>
-                                    </tr>
-                                </tfoot>
-
-                                <tbody>
-                                    <tr>
-                                        <td>  
-											<a href="#" style="text-decoration: none" > <img src="<c:url value="/resources/1.jpg"/>" class="img-circle friend-profile-image" />ABCD</a>
-										</td>
-										<td>
-										 <!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-trash" >Ištrinti </span></a>-->
-											<!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-wrench" >Modifikuoti </span></a>-->
-											<!-- <button type="submit" class="btn btn-default"  ><span> Nebedraugauti</span></button>
-									    </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
-				</div>-->
-				<!-- /.tab-content -->
 				<div id="users" class="tab-pane">
       <div class="container" style="padding: 0px; width: 100%;">
                             <table id="userstable" class="table-hover table-bordered table ">
@@ -196,21 +165,21 @@
                                 </tfoot>
 
                                 <tbody>
-                                    <tr>
-                                         <td>  
-           <a href="#" style="text-decoration: none" > <img src="<c:url value="/resources/1.jpg"/>" class="img-circle users-profiles-image" />ABCD</a>
+                                	<c:forEach var="user" items="${users}">
+                                    <tr>  
+                                        <td>  
+           <a href="profile/${user.userId}" style="text-decoration: none" style="margin-right:40px; margin-left:40px;" ><!-- <img src="" style="height:80px; width:80px;" class="img-circle" />-->${user.username}</a>
           </td>
           
-           <!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-trash" >Ištrinti </span></a>-->
-           <!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-wrench" >Modifikuoti </span></a>-->
-           <!-- <button type="submit" class="btn btn-default"  ><span> Draugauti</span></button> -->
-            
+           
                                     </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
 
                         </div>
     </div>
+				<!-- /.tab-content -->
 			</div>
 		</div>
 	</div>

@@ -18,7 +18,7 @@ public interface ProductService {
 	
 	void deleteProduct(long id);
 	
-	void updateProduct(long id, String productName, /*Set<Unit> units, */String description,
+	void updateProduct(long id, String productName, long unitId,/*Set<Unit> units, */String description,
 			String imageName, String imageType, Blob image);
 	
 }

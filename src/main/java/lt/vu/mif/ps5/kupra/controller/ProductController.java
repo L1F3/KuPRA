@@ -117,7 +117,7 @@ public class ProductController {
     	Product product = productService.getProduct(id);
         return new ModelAndView("productmodify").addObject("product", product);
     }
-
+/*
     @Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/product/modify/{id}", method = RequestMethod.POST)
     public ModelAndView productDoModify(
@@ -129,13 +129,13 @@ public class ProductController {
         productService.updateProduct(
         		id,
         		product.getName(), 
-        		/*product.getUnits(), */
+        		/*product.getUnits(), *//*
         		product.getDescription(), 
         		product.getImgName(), 
         		product.getImgType(), 
         		product.getImg());
         return new ModelAndView("redirect:list");
-    }
+    }*/
 /*
     private boolean hasRole(String role) {
         Collection<GrantedAuthority> authorities = (Collection<GrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
