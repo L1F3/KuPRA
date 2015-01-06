@@ -65,7 +65,7 @@ public class UnitController {
             return new ModelAndView("unit").addObject(unitForm);
         }
         unitService.addUnit(unitForm.getName(), unitForm.getAbbreviation());
-        return new ModelAndView("redirect:unit/list");
+        return new ModelAndView("redirect:unit/all");
     }
     
 	@RequestMapping(value = "/unit/all", method = RequestMethod.POST)

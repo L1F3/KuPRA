@@ -24,13 +24,13 @@
  
         <form:form method="POST" class="form-horizontal form-registration" role="form" modelAttribute="userForm">
            <h1 class="registration-h1">Registracija</h1>
-           <fieldset>
+           <fieldset style="border: 0px;">
             <div class="form-group">
                <label for="inputLoginName" class="col-md-5 control-label">Prisijungimo vardas *</label>
                <div class="col-md-7 controls">
 			     <div class="input-group">
 				       <span class="input-group-addon"><img src="<c:url value="/resources/svg/user.svg"/>"  class="icons-registration"/></span>
-<!-- *** -->          <input value="${userForm.loginname}" type="text" class="form-control" id="inputLoginName icon-login-name" placeholder="Prisijungimo vardas" name="loginname"/> 
+<!-- *** -->          <input type="text" class="form-control" id="inputLoginName icon-login-name" placeholder="Prisijungimo vardas" name="loginname"/> 
                   </div>
                   <form:errors path="loginname" cssClass="error" /> 				  
                 </div>
@@ -40,7 +40,7 @@
                <div class="col-md-7 controls">
 			      <div class="input-group">
 				      <span class="input-group-addon"><img src="<c:url value="/resources/svg/user.svg"/>"  class="icons-registration"/></span>
-<!-- *** -->          <input type="text" class="form-control" id="inputUserName" placeholder="Slapyvardis" name="username"/>  
+<!-- *** -->          <input value="${userForm.username}" type="text" class="form-control" id="inputUserName" placeholder="Slapyvardis" name="username"/>  
 				   </div> 
                    <form:errors path="username" cssClass="error" /> 				   
                 </div>
@@ -70,7 +70,7 @@
                <div class="col-md-7 controls">
 			         <div class="input-group">
 					      <span class="input-group-addon"> <img src="<c:url value="/resources/svg/email.svg"/>"  class="icons-registration"/></span>
-<!-- *** -->             <input type="email" class="form-control" id="inputEmail" placeholder="Elektroninis paštas" name="email"/> 
+<!-- *** -->             <input value="${userForm.email}" type="email" class="form-control" id="inputEmail" placeholder="Elektroninis paštas" name="email"/> 
                     </div> 
                       <form:errors path="email" cssClass="error" />       
                 </div>
@@ -81,7 +81,7 @@
                <div class="col-md-7 controls">
 			          <div class="input-group">
 					     <span class="input-group-addon"> <img src="<c:url value="/resources/svg/user.svg"/>"  class="icons-registration"/></span>
-<!-- *** -->         	<input type="text" class="form-control" id="inputName" placeholder="Vardas" name="name"/>  
+<!-- *** -->         	<input value="${userForm.name}" type="text" class="form-control" id="inputName" placeholder="Vardas" name="name"/>  
                       </div> 
 						<form:errors path="name" cssClass="error" />  
                 </div>
@@ -91,7 +91,7 @@
                <div class="col-md-7 controls">
 			         <div class="input-group">
 					      <span class="input-group-addon">  <img src="<c:url value="/resources/svg/user.svg"/>"  class="icons-registration"/></span>
-<!-- *** -->             <input type="text" class="form-control" id="inputLastName" placeholder="Pavardė" name="lastname"/>
+<!-- *** -->             <input value="${userForm.lastname}" type="text" class="form-control" id="inputLastName" placeholder="Pavardė" name="lastname"/>
                     </div> 
                       <form:errors path="lastname" cssClass="error" /> 	 
                 </div>
@@ -101,7 +101,7 @@
                <div class="col-md-7 controls">
 			       <div class="input-group">
 				        <span class="input-group-addon"><img src="<c:url value="/resources/svg/buildings.svg"/>"  class="icons-registration"/> </span>
-<!-- *** -->          <input type="text" class="form-control" id="inputAddress" placeholder="Adresas" name="address"/> 
+<!-- *** -->          <input value="${userForm.address}" type="text" class="form-control" id="inputAddress" placeholder="Adresas" name="address"/> 
                    </div>
                       <form:errors path="address" cssClass="error" />
                 </div>

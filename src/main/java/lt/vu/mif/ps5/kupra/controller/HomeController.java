@@ -80,7 +80,10 @@ public class HomeController {
 			//errors.rejectValue("name", "msg", "LOPASTU");
 			return new ModelAndView("profile").addObject(userForm);
 		}
-		/*userService.updateUser(
+		
+		
+		
+		userService.updateUser(
 				userForm.getLoginname(), 
 				userForm.getUsername(),
 				userForm.getPassword(),
@@ -89,7 +92,7 @@ public class HomeController {
 				userForm.getLastname(),
 				userForm.getAddress(),
 				Role.ROLE_USER);
-		*/
+		
 		return new ModelAndView("profile");
 	}
 }

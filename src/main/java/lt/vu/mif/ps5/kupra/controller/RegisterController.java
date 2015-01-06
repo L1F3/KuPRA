@@ -1,5 +1,7 @@
 package lt.vu.mif.ps5.kupra.controller;
 
+import java.util.List;
+import java.util.Set;
 import java.util.logging.Logger;
 
 import javax.validation.Valid;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import lt.vu.mif.ps5.kupra.entity.Role;
+import lt.vu.mif.ps5.kupra.entity.User;
 import lt.vu.mif.ps5.kupra.form.UserForm;
 import lt.vu.mif.ps5.kupra.service.UserService;
 
@@ -41,6 +44,16 @@ public class RegisterController {
 			//errors.rejectValue("name", "msg", "LOPASTU");
 			return new ModelAndView("register").addObject(userForm);
 		}
+		
+		List<User> users = userService.getAll();
+		
+		for(User user: users) {
+			if(user.getLoginname().equals(userForm.getLoginname())) {
+				errors.rejectValue("loginname", "msg", "Toks prisijungimo vardas yra uþimtas.");
+				return new ModelAndView("register").addObject(userForm);
+			}
+		}
+		
 		userService.addUser(
 				userForm.getLoginname(), 
 				userForm.getUsername(),
@@ -50,7 +63,7 @@ public class RegisterController {
 				userForm.getLastname(),
 				userForm.getAddress(),
 				Role.ROLE_USER);
-		return new ModelAndView("redirect:/home");
+		return new ModelAndView("redirect:login");
 		
 	}
 
