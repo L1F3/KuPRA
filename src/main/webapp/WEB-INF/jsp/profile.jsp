@@ -177,38 +177,40 @@
 
                         </div>
 				</div>-->
+				<!-- /.tab-content -->
 				<div id="users" class="tab-pane">
-					 <div class="container" style="padding: 0px; width: 100%;">
+      <div class="container" style="padding: 0px; width: 100%;">
                             <table id="userstable" class="table-hover table-bordered table ">
                                 <thead>
                                     <tr>
                                         <th>Slapyvardis</th>
-                                        <th></th>
+                                       
                                     </tr>
                                 </thead>
 
                                 <tfoot>
                                     <tr>
                                         <th>Slapyvardis</th>
-                                        <th></th>
+                                       
                                     </tr>
                                 </tfoot>
 
                                 <tbody>
                                     <tr>
-                                        <td><a href="#" style="text-decoration: none">ABCD</a></td>
-										<td>
-										 <!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-trash" >Ištrinti </span></a>-->
-											<!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-wrench" >Modifikuoti </span></a>-->
-											 <button type="submit" class="btn btn-default"  ><span> Draugauti</span></button>
-									    </td>
+                                         <td>  
+           <a href="#" style="text-decoration: none" > <img src="<c:url value="/resources/1.jpg"/>" class="img-circle users-profiles-image" />ABCD</a>
+          </td>
+          
+           <!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-trash" >Ištrinti </span></a>-->
+           <!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-wrench" >Modifikuoti </span></a>-->
+           <!-- <button type="submit" class="btn btn-default"  ><span> Draugauti</span></button> -->
+            
                                     </tr>
                                 </tbody>
                             </table>
 
                         </div>
-				</div>
-				<!-- /.tab-content -->
+    </div>
 			</div>
 		</div>
 	</div>

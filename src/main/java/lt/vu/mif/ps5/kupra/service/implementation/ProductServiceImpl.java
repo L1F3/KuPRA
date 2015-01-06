@@ -1,10 +1,12 @@
 package lt.vu.mif.ps5.kupra.service.implementation;
 
 import java.sql.Blob;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import lt.vu.mif.ps5.kupra.dao.ProductDao;
+import lt.vu.mif.ps5.kupra.dao.UnitDao;
 import lt.vu.mif.ps5.kupra.entity.Product;
 import lt.vu.mif.ps5.kupra.entity.RecipeImage;
 import lt.vu.mif.ps5.kupra.entity.Unit;
@@ -21,10 +23,12 @@ public class ProductServiceImpl implements ProductService {
 	static Logger log = Logger.getLogger(ProductServiceImpl.class.getName());
 
 	private ProductDao productDao;
+	private UnitDao unitDao;
 
 	@Autowired
-	public ProductServiceImpl(ProductDao productDao) {
+	public ProductServiceImpl(ProductDao productDao, UnitDao unitDao) {
 		this.productDao = productDao;
+		this.unitDao = unitDao;
 	}
 
 	@Transactional(readOnly = true)
@@ -38,11 +42,16 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Transactional
-	public long addProduct(String productName, /*Set<Unit> units,*/
+	public long addProduct(String productName, long unitId,
 			String description, String imageName, String imageType, Blob image) {
 		Product product = new Product();
 		product.setName(productName);
-		/*product.setUnits(units);*/
+		
+		Unit unit = unitDao.get(unitId);
+		Set<Unit> units = new HashSet<Unit>();
+		
+		units.add(unit);
+		product.setUnitsSet(units);
 		product.setDescription(description);
 		product.setImgName(imageName);
 		product.setImgType(imageType);

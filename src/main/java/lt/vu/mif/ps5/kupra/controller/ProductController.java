@@ -21,6 +21,7 @@ import lt.vu.mif.ps5.kupra.entity.Unit;
 import lt.vu.mif.ps5.kupra.form.ProductForm;
 import lt.vu.mif.ps5.kupra.service.ProductService;
 import lt.vu.mif.ps5.kupra.service.RecipeService;
+import lt.vu.mif.ps5.kupra.service.UnitService;
 
 import org.apache.log4j.Logger;
 import org.h2.util.IOUtils;
@@ -47,11 +48,13 @@ public class ProductController {
 
     private final ProductService productService;
     private final RecipeService recipeService;
+    private final UnitService unitService;
 
     @Autowired
-    public ProductController(ProductService productService, RecipeService recipeService) {
+    public ProductController(ProductService productService, RecipeService recipeService, UnitService unitService) {
         this.productService = productService;
         this.recipeService = recipeService;
+        this.unitService = unitService;
     }
 
     @ModelAttribute("product")
@@ -69,7 +72,8 @@ public class ProductController {
     @Secured({"ROLE_USER", "ROLE_ADMIN"})
     @RequestMapping(value = "/product", method = RequestMethod.GET)
     public ModelAndView productPage() {
-        return new ModelAndView("productadd").addObject(new ProductForm());
+    	List<Unit> units = unitService.getAll();
+        return new ModelAndView("productadd").addObject(new ProductForm()).addObject("units", units);
     }
 
     @Secured({"ROLE_USER", "ROLE_ADMIN"})
@@ -80,8 +84,9 @@ public class ProductController {
             log.info("Returning product.jsp page");
             return new ModelAndView("productadd").addObject(productForm);
         }
-        productService.addProduct(productForm.getProductName(),/* product.getUnits(), */productForm.getDescription(), productForm.getImgName(), productForm.getImgType(), productForm.getImg());
-        return new ModelAndView("redirect:product/list");
+       
+        productService.addProduct(productForm.getProductName(), productForm.getUnitId(), productForm.getDescription(), productForm.getImgName(), productForm.getImgType(), productForm.getImg());
+        return new ModelAndView("redirect:product/all");
     }
 
  /*   @Secured({"ROLE_ADMIN"})
