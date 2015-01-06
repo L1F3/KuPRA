@@ -36,9 +36,9 @@
                         <div class="form-group unit-scroll" style="margin-bottom:20px">
                             <label for="recept-name" class="col-md-2 control-label">Matavimo vienetai*</label>
                             <div class="col-md-10">
-                               <select class="form-control">
+                               <select class="form-control" name="unitId">
 									<c:forEach var="unit" items="${units}">
-										<option>${unit.abbreviation}</option>
+										<option value="${unit.unitId}">${unit.abbreviation}</option>
 									</c:forEach>
 								</select>
                             </div>

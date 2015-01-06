@@ -13,7 +13,7 @@ public interface ProductService {
 
 	List<Product> getAll();
 
-	long addProduct(String productName, /*Set<Unit> units,*/ String description,
+	long addProduct(String productName, long unitId, String description,
 			String imageName, String imageType, Blob image);
 	
 	void deleteProduct(long id);

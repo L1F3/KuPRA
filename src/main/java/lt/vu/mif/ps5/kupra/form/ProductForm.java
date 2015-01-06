@@ -13,8 +13,18 @@ public class ProductForm {
 	@Size(min = 3, max = 30)
 	private String productName;
 	
-	private Unit unit = new Unit();
+	private Unit unit;
 	
+	private long unitId;
+	
+	public long getUnitId() {
+		return unitId;
+	}
+
+	public void setUnitId(long unitId) {
+		this.unitId = unitId;
+	}
+
 	@Size(max = 2000)
 	private String product_description;
 	
