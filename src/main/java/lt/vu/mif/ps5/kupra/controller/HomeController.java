@@ -64,6 +64,8 @@ public class HomeController {
 		userForm.setLoginname(user.getLoginname());
 		userForm.setDescription(user.getDescription());
 		userForm.setName(user.getName());
+		userForm.setPassword(user.getPassword());
+		userForm.setPassrepeat(user.getPassword());
 		userForm.setUsername(user.getUsername());
 		userForm.setAddress(user.getAddress());
 		userForm.setEmail(user.getEmail());
@@ -81,9 +83,12 @@ public class HomeController {
 			return new ModelAndView("profile").addObject(userForm);
 		}
 		
-		
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		User user = userService.getUserByLoginname(auth.getName());
 		
 		userService.updateUser(
+				user.getUserId(),
 				userForm.getLoginname(), 
 				userForm.getUsername(),
 				userForm.getPassword(),
@@ -91,8 +96,12 @@ public class HomeController {
 				userForm.getName(), 
 				userForm.getLastname(),
 				userForm.getAddress(),
+				userForm.getDescription(),
+				userForm.getImgName(),
+				userForm.getImgType(),
+				userForm.getImg(),
 				Role.ROLE_USER);
 		
-		return new ModelAndView("profile");
+		return new ModelAndView("profile").addObject(userForm);
 	}
 }

@@ -29,12 +29,13 @@
 				<div class="tab-content custom-tab">
 					<div id="profile" class="tab-pane active">
 						<div class="container">
+						<form:form method="POST" class="form-horizontal form-profile" role="form" modelAttribute="userForm">
 							<div class="row">
 
 
 								<div class="col-md-6">
 
-									<form:form method="POST" class="form-horizontal form-profile" role="form" modelattribute="userForm">
+									
 
 									<div class="form-group">
 										<label class="col-md-5 control-label">Email</label>
@@ -61,7 +62,7 @@
 										<div class="col-md-7 controls">
 											<div class="input-group">
 												<span class="input-group-addon"> <img src="<c:url value="/resources/svg/key.svg"/>"  class="icons-registration"/></span>
-												<!-- *** -->          <input type="password" class="form-control" id="inputPassword" placeholder="Slaptažodis" name="password"/>		
+												<!-- *** -->          <input type="password" class="form-control" id="inputPassword" placeholder="Slaptažodis" name="password" value="${userForm.password}"/>		
 											</div> 
 											<form:errors path="password" cssClass="error" /> 
 										</div>
@@ -71,7 +72,7 @@
 										<div class="col-md-7 controls">
 											<div class="input-group">
 												<span class="input-group-addon"> <img src="<c:url value="/resources/svg/key.svg"/>"  class="icons-registration"/></span>
-												<!-- *** -->              <input type="password" class="form-control" id="inputRePassword" placeholder="Pakartoti slaptažodį" name="passrepeat"/>
+												<!-- *** -->              <input type="password" class="form-control" id="inputRePassword" placeholder="Pakartoti slaptažodį" name="passrepeat" value="${userForm.passrepeat}"/>
 											</div> 
 											<form:errors path="passrepeat" cssClass="error" /> 
 										</div>
@@ -121,13 +122,13 @@
 											<label for="despription" class="col-md-5 control-label no-padding-right">Aprašymas</label>
 											<div class="col-md-7 controls">
 
-												<!-- *** -->     <textarea  class="form-control description" id="despription" name="despription" value="${userForm.description}"></textarea>       
+												<!-- *** -->     <textarea  class="form-control description" id="despription" name="despription">${userForm.description}</textarea>       
 											</div>
 										</div>
 
 										<div class="col-md-6 col-md-offset-5 info-registration"><p>*pažymėti laukai privalomi</p></div> 
 									</div>
-								</form:form>
+								
 							</div>
 							<div class="col-md-6" style="margin-bottom: 15px;">
 								<!--<div class="profile-image-block">-->
@@ -141,7 +142,7 @@
 							<button class="button">Išsaugoti</button>
 						</div>
 					</div>
-
+</form:form>
 				</div>
 				<!--<div id="friends" class="tab-pane ">
 					 <div class="container" style="padding: 0px; width: 100%;">
