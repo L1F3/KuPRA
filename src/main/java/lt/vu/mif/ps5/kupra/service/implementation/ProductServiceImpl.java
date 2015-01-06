@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import lt.vu.mif.ps5.kupra.dao.ProductDao;
+import lt.vu.mif.ps5.kupra.dao.RecipeDao;
 import lt.vu.mif.ps5.kupra.dao.UnitDao;
 import lt.vu.mif.ps5.kupra.entity.Product;
 import lt.vu.mif.ps5.kupra.entity.RecipeImage;
@@ -23,12 +24,14 @@ public class ProductServiceImpl implements ProductService {
 	static Logger log = Logger.getLogger(ProductServiceImpl.class.getName());
 
 	private ProductDao productDao;
+	private RecipeDao recipeDao;
 	private UnitDao unitDao;
 
 	@Autowired
-	public ProductServiceImpl(ProductDao productDao, UnitDao unitDao) {
+	public ProductServiceImpl(ProductDao productDao, UnitDao unitDao, RecipeDao recipeDao) {
 		this.productDao = productDao;
 		this.unitDao = unitDao;
+		this.recipeDao = recipeDao;
 	}
 
 	@Transactional(readOnly = true)
@@ -62,6 +65,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Transactional
 	public void deleteProduct(long id) {
+		
 		productDao.delete(id);
 	}
 

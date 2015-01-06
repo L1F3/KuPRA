@@ -96,6 +96,7 @@ public class MealsController {
 				break;
 			}
 		}
+		Set<Fridge> deck = new HashSet<Fridge>();
 		int count = 0;
 		List<FromTwo> listNeeded = new ArrayList<FromTwo>();
 		for (Long key : needMap.keySet()) {
@@ -120,13 +121,15 @@ public class MealsController {
 								.getProduct().getProductId()) {
 							prod.setAmount(prod.getAmount() - ingr.getAmount());
 							its.remove();
-							frItems.add(prod);
-							user.setFridgeItems(frItems);
+							deck.add(prod);
+							
+							//
 						}
 
 					}
 				}
 			}
+			
 			return new ModelAndView("redirect:../meals");
 
 		} else {

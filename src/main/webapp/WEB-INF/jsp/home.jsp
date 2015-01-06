@@ -81,7 +81,7 @@
                  <div class="recipe-rating-box">
                          <span>
                               <img src="<c:url value="/resources/svg/star.svg"/>" class="img-responsive rating-icon"/>
-                               <p class="recipe-rating">${recipe.rating}</p>
+                               <p class="recipe-rating">${recipe.finalRating}</p>
                          </span>
                          <span>
                               <img src="<c:url value="/resources/svg/people.svg"/>" class="img-responsive rating-icon"/>
