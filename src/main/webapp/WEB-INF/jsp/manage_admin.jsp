@@ -27,14 +27,14 @@
         <div class="user-profile  tabbable ">
             <div class="container">
                 <ul class="nav nav-tabs ">
-                    <li class="active"><a href="#vartotojaiTab" data-toggle="tab">Vartotojai</a></li>
-                    <li><a href="#matavimoVienetaiTab" data-toggle="tab">Matavimo vienetai</a></li>
+                    <!--<li style="display:none;"><a href="#vartotojaiTab" data-toggle="tab">Vartotojai</a></li>-->
+                    <li class="active"><a href="#matavimoVienetaiTab" data-toggle="tab">Matavimo vienetai</a></li>
                     <li><a href="#produktaiTab" data-toggle="tab">Produktai</a></li>
                     <li><a href="#receptaiTab" data-toggle="tab">Receptai</a></li>
                 </ul>
                 <div class="tab-content custom-tab">
 
-
+<!--
                     <div id="vartotojaiTab" class="tab-pane active">
                         <div class="container" style="padding: 0px; width: 100%;">
                             <table id="vartotojaiTable" class="table-hover table-bordered table ">
@@ -65,11 +65,11 @@
 
                         </div>
                     </div>
+-->
 
 
 
-
-                    <div id="matavimoVienetaiTab" class="tab-pane">
+                    <div id="matavimoVienetaiTab" class="tab-pane active">
 
                         <div class="container" style="padding: 0px; width: 100%;">
                             <table id="matavimoVienetaiTable" class="table-hover table-bordered table ">
@@ -166,12 +166,12 @@
                                 <tbody>
 									<c:forEach var="recipe" items="${recipes}">
 										<tr>
-											<td>${recipe.name}</td>
+											<td><a href="recipe/${recipe.recId}">${recipe.name}</a></td>
 											<td>
 											 <!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-trash" >Ištrinti </span></a>-->
 												<!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-wrench" >Modifikuoti </span></a>-->
-												 <button type="submit" class="btn btn-default" ><span class="glyphicon glyphicon-trash"> Ištrinti</span></button>
-												 <button type="submit" class="btn btn-default" ><span class="glyphicon glyphicon-wrench"> Modifikuoti</span> </button>
+												 <button type="submit" disabled class="btn btn-default" onclick="window.location.href='manage/${recipe.recId}/recipe/delete'" ><span class="glyphicon glyphicon-trash"> Ištrinti</span></button>
+												 <button type="submit" disabled class="btn btn-default" ><span class="glyphicon glyphicon-wrench"> Modifikuoti</span> </button>
 											</td>
 										</tr>
 									</c:forEach>

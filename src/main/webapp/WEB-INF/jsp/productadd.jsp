@@ -21,7 +21,7 @@
 		<div class="add-recept-form container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <form:form class="form-horizontal" role="form" method="POST" modelAttribute="productForm">
+                    <form:form class="form-horizontal" role="form" method="POST" modelAttribute="productForm" enctype="multipart/form-data">
                         <div class="form-horizontal add-recepts-header">
                             <h1>Produkto pridėjimas</h1>
                         </div>
@@ -46,13 +46,13 @@
                         <div class="form-group " style="margin-bottom:20px">
                             <label for="recept-despription" class="col-md-2 control-label ">Aprašymas</label>
                             <div class="col-md-10 controls">
-                                <textarea style="resize:none; height:50px" class="form-control description" id="recept-despription" name="recept-despription"></textarea>
+                                <textarea style="resize:none; height:50px" class="form-control description" id="recept-despription" name="description">${unit.description}</textarea>
                             </div>
                         </div>
                          <div class="form-group" style="margin-bottom:20px">
-                            <label for="recept-name" class="col-md-2 control-label">Nuotraukos</label>
+                            <label for="recept-name" class="col-md-2 control-label">Nuotrauka</label>
                             <div class="col-md-10">
-                                <input type="file" id="recept-pictures" />
+                                <input type="file" name="file" id="recept-pictures" />
                             </div>
                         </div>
                         <div class="save-button-wrapper">
