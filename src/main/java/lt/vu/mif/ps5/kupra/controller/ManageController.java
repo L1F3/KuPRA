@@ -112,9 +112,9 @@ public class ManageController {
     		List<Unit> units = unitService.getAll();
             return new ModelAndView("productmodify").addObject(productForm).addObject("units", units);
         }
-        System.out.println("0000000000000000000000000000000000000000000000000" + productForm.getDescription() + "000000000000000000000");
+        //System.out.println("0000000000000000000000000000000000000000000000000" + productForm.getDescription() + "000000000000000000000");
         productService.updateProduct(productForm.getProductId(), productForm.getProductName(), productForm.getUnitId(), productForm.getDescription(), productForm.getImgName(), productForm.getImgType(), productForm.getImg());
-        return new ModelAndView("redirect:../manage");
+        return new ModelAndView("redirect:manage");
     }
     
 	
