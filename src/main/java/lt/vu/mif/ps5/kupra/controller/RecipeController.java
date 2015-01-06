@@ -249,18 +249,20 @@ public class RecipeController {
         	System.out.println(file.getOriginalFilename());
         }
         
-        Set<Ingredient> ingrs = new HashSet<Ingredient>();
+        /*Set<Ingredient> ingrs = new HashSet<Ingredient>();
         for(int i=0; i < recipeForm.getIngredientsId().size(); i ++) {
         	Ingredient ingr = ingredientService.getIngredient(recipeForm.getIngredientsId().get(i));
         	ingr.setAmount(recipeForm.getQuantities().get(i));
         	ingrs.add(ingr);
-        }
+        }*/
         //ingredientService.getIngredient(recipeForm.getIngredientsId());
         
 		recipeService.addRecipe(
 				recipeForm.getName(), 
 				files, 
-				ingrs,
+				//ingrs,
+				recipeForm.getIngredientsId(),
+				recipeForm.getQuantities(),
 				recipeForm.getDescription(),
 				recipeForm.getVisibility(), 
 				user);

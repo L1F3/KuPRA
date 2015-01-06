@@ -3,6 +3,7 @@ package lt.vu.mif.ps5.kupra.service.implementation;
 import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -10,6 +11,7 @@ import javax.sql.rowset.serial.SerialBlob;
 import javax.sql.rowset.serial.SerialException;
 
 import lt.vu.mif.ps5.kupra.dao.RecipeDao;
+import lt.vu.mif.ps5.kupra.dao.ProductDao;
 import lt.vu.mif.ps5.kupra.entity.Fridge;
 import lt.vu.mif.ps5.kupra.entity.Ingredient;
 import lt.vu.mif.ps5.kupra.entity.RecipeImage;
@@ -30,10 +32,12 @@ public class RecipeServiceImpl implements RecipeService {
 	static Logger log = Logger.getLogger(RecipeServiceImpl.class.getName());
 
 	private RecipeDao recipeDao;
+	private ProductDao productDao;
 
 	@Autowired
-	public RecipeServiceImpl(RecipeDao recipeDao) {
+	public RecipeServiceImpl(RecipeDao recipeDao, ProductDao productDao) {
 		this.recipeDao = recipeDao;
+		this.productDao = productDao;
 	}
 
 	@Transactional(readOnly = true)
@@ -49,13 +53,24 @@ public class RecipeServiceImpl implements RecipeService {
 	@Transactional
 	public long addRecipe(String name, 
 			List<MultipartFile> files,
-			Set<Ingredient> ingredientsOfRecipe, 
+			//Set<Ingredient> ingredientsOfRecipe, 
+			List<Long> ingrsIds, List<Double> amounts,
 			String description, 
 			int visibility,
 			User user) {
 		Recipe recipe = new Recipe();
 		recipe.setName(name);
-		recipe.setIngredients(ingredientsOfRecipe);
+		
+		Set<Ingredient> ingrs = new HashSet<Ingredient>();
+		for(int i=0; i < ingrsIds.size(); i ++) {
+			Ingredient ingr = new Ingredient();
+			ingr.setAmount(amounts.get(i));
+			ingr.setRecipe(recipe);
+			ingr.setProduct(productDao.get(ingrsIds.get(i)));
+        	ingrs.add(ingr);
+        }
+		//ingrs = ingredientsOfRecipe;
+		recipe.setIngredients(ingrs);
 		recipe.setDescription(description);
 		recipe.setVisibility(visibility);
 		recipe.setUser(user);

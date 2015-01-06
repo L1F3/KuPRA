@@ -19,8 +19,8 @@ public interface RecipeService {
 
 	List<Recipe> getAll();
 	
-	long addRecipe(String name, List<MultipartFile> files,
-			Set<Ingredient> ingredientsOfRecipe, String description, int visibility, User user);
+	long addRecipe(String name, List<MultipartFile> files, List<Long> ingrsIds, List<Double> amounts,
+			/*Set<Ingredient> ingredientsOfRecipe,*/ String description, int visibility, User user);
 
 	List<Recipe> getTopRecipes();
 	List<Recipe> getForUser(User user);

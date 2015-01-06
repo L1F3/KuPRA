@@ -1,12 +1,17 @@
 package lt.vu.mif.ps5.kupra.controller;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
 
+import lt.vu.mif.ps5.kupra.entity.Fridge;
 import lt.vu.mif.ps5.kupra.entity.Meal;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.User;
+import lt.vu.mif.ps5.kupra.entity.Ingredient;
 import lt.vu.mif.ps5.kupra.service.RecipeService;
 import lt.vu.mif.ps5.kupra.service.UserService;
 
@@ -43,12 +48,49 @@ public class MealsController {
 		User user = userService.getUserByLoginname(auth.getName());
 		Set<Meal> meals = userService.getMeals(user);
 		Set<Recipe> recipes = new HashSet<Recipe>();
-		for(Meal meal : meals) {
+
+		Map<Long, Double> sum = new HashMap<Long, Double>();
+		for (Meal meal : meals) {
 			recipes.add(meal.getRecipe());
+
+			Set<Ingredient> ingrs = meal.getRecipe().getIngredients();
+
+			for (Iterator<Ingredient> it = ingrs.iterator(); it.hasNext();) {
+				Ingredient ingr = it.next();
+				if (sum.containsKey(ingr.getProduct().getProductId())) {
+					sum.put(ingr.getProduct().getProductId(), ingr.getAmount()
+							+ sum.get(ingr.getProduct().getProductId()));
+				} else {
+					sum.put(ingr.getProduct().getProductId(), ingr.getAmount());
+				}
+				//
+			}
 		}
-		
-	
- 		return new ModelAndView("meals").addObject("meals", recipes);
+		for (Long key : sum.keySet()) {
+			System.out.println(key + " - " + sum.get(key));
+
+		}
+		Map<Long, Double> needMap = new HashMap<Long, Double>();
+
+		Set<Fridge> frItems = user.getFridgeItems();
+		//
+		for (Map.Entry<Long, Double> entry : sum.entrySet()) {
+			for (Iterator<Fridge> it = frItems.iterator(); it.hasNext();) {
+				Fridge prod = it.next();
+				if (entry.getKey() == prod.getProduct().getProductId()) {
+					if (sum.containsKey(prod.getProduct().getProductId())) {
+						if (sum.get(prod.getProduct().getProductId()) > prod
+								.getAmount()) {
+							double need = sum.get(prod.getProduct()
+									.getProductId()) - prod.getAmount();
+							needMap.put(prod.getProduct().getProductId(), need);
+						}
+					}
+					break;
+				}
+			}
+		}
+		return new ModelAndView("meals").addObject("meals", recipes);
 	}
 
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
