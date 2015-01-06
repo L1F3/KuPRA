@@ -38,10 +38,69 @@ public class MealsController {
 	private final ProductService productService;
 
 	@Autowired
-	public MealsController(UserService userService, RecipeService recipeService, ProductService productService) {
+	public MealsController(UserService userService,
+			RecipeService recipeService, ProductService productService) {
 		this.userService = userService;
 		this.recipeService = recipeService;
 		this.productService = productService;
+	}
+
+	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
+	@RequestMapping(value = "/make/{id}", method = RequestMethod.GET)
+	public ModelAndView mealsMaking(@PathVariable long id) {
+
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		User user = userService.getUserByLoginname(auth.getName());
+		Set<Meal> meals = userService.getMeals(user);
+		Set<Recipe> recipes = new HashSet<Recipe>();
+
+		Map<Long, Double> needMap = new HashMap<Long, Double>();
+		for (Meal meal : meals) {
+			if (meal.getMealId() == id) {
+
+				Set<Ingredient> ingrs = meal.getRecipe().getIngredients();
+				Set<Fridge> frItems = user.getFridgeItems();
+
+				for (Iterator<Ingredient> it = ingrs.iterator(); it.hasNext();) {
+					Ingredient ingr = it.next();
+					int found = 0;
+
+					for (Iterator<Fridge> its = frItems.iterator(); its
+							.hasNext();) {
+						Fridge prod = its.next();
+
+						if (ingr.getProduct().getProductId() == prod
+								.getProduct().getProductId()) {
+							found = 1;
+							if (ingr.getAmount() > prod.getAmount()) {
+								double need = ingr.getAmount()
+										- prod.getAmount();
+								needMap.put(prod.getProduct().getProductId(),
+										need);
+							}
+							break;
+						}
+
+					}
+					if (found == 0) {
+						needMap.put(ingr.getProduct().getProductId(), ingr.getAmount());
+					}
+				}
+
+				break;
+			}
+		}
+		List<FromTwo> listNeeded = new ArrayList<FromTwo>();
+		for (Long key : needMap.keySet()) {
+			FromTwo one = new FromTwo(key, needMap.get(key), productService
+					.getProduct(key).getUnit().getAbbreviation(),
+					productService.getProduct(key).getName());
+			listNeeded.add(one);
+		}
+		return new ModelAndView("product_need").addObject("fromTwo", listNeeded);// .addObject("meals",
+											// recipes).addObject("fromTwo",
+											// listNeeded);
 	}
 
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
@@ -52,11 +111,11 @@ public class MealsController {
 				.getAuthentication();
 		User user = userService.getUserByLoginname(auth.getName());
 		Set<Meal> meals = userService.getMeals(user);
-		Set<Recipe> recipes = new HashSet<Recipe>();
+		Set<Meal> recipes = new HashSet<Meal>();
 
 		Map<Long, Double> sum = new HashMap<Long, Double>();
 		for (Meal meal : meals) {
-			recipes.add(meal.getRecipe());
+			recipes.add(meal);
 
 			Set<Ingredient> ingrs = meal.getRecipe().getIngredients();
 
@@ -88,42 +147,48 @@ public class MealsController {
 					if (sum.containsKey(prod.getProduct().getProductId())) {
 						if (sum.get(prod.getProduct().getProductId()) > prod
 								.getAmount()) {
-							double need = sum.get(prod.getProduct().getProductId()) - prod.getAmount();
+							double need = sum.get(prod.getProduct()
+									.getProductId()) - prod.getAmount();
 							needMap.put(prod.getProduct().getProductId(), need);
 						}
 					}
 					break;
 				}
 			}
-			if(found == 0) {
+			if (found == 0) {
 				needMap.put(entry.getKey(), sum.get(entry.getKey()));
 			}
 		}
 		System.out.println("reikia produktu");
 		List<FromTwo> listNeeded = new ArrayList<FromTwo>();
 		for (Long key : needMap.keySet()) {
-			FromTwo one = new FromTwo(key, needMap.get(key), productService.getProduct(key).getUnit().getAbbreviation());
+			FromTwo one = new FromTwo(key, needMap.get(key), productService
+					.getProduct(key).getUnit().getAbbreviation(),
+					productService.getProduct(key).getName());
 			listNeeded.add(one);
 		}
-		
-		return new ModelAndView("meals").addObject("meals", recipes).addObject("fromTwo", listNeeded);
+
+		return new ModelAndView("meals").addObject("meals", recipes).addObject(
+				"fromTwo", listNeeded);
 	}
 
 	public class FromTwo {
 		private long first;
 		private double second;
 		private String third;
-		
-		public FromTwo(long first, double second, String third) {
+		private String fourth;
+
+		public FromTwo(long first, double second, String third, String fourth) {
 			this.first = first;
 			this.second = second;
 			this.third = third;
+			this.fourth = fourth;
 		}
-		
+
 		public long getFirst() {
 			return first;
 		}
-		
+
 		public double getSecond() {
 			return second;
 		}
@@ -131,20 +196,28 @@ public class MealsController {
 		public String getThird() {
 			return third;
 		}
-		
+
+		public String getFourth() {
+			return fourth;
+		}
+
 		public void setFirst(long first) {
 			this.first = first;
 		}
-		
+
 		public void setSecond(double second) {
 			this.second = second;
 		}
-		
+
 		public void setThird(String third) {
 			this.third = third;
 		}
+
+		public void setFourth(String fourth) {
+			this.fourth = fourth;
+		}
 	}
-	
+
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
 	@RequestMapping(value = "/meals/add/{id}", method = RequestMethod.GET)
 	public ModelAndView addMeal(@PathVariable long id) {

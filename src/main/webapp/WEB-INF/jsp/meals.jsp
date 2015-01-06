@@ -28,22 +28,22 @@
                             <div class="panel panel-default  panel-custom panel-custom-meals">
 							<!-- Delete button -->
                                 <div class="delete-button-menu " style="position:relative">
-                                     <a href="meals/${meal.recId}/delete" type="button" style=" right:0; position:absolute;" class="btn btn-default"><img src="<c:url value="/resources/svg/delete.svg"/>" style=" height:20px; width:20px;" /></a>
+                                     <a href="meals/${meal.recipe.recId}/delete" type="button" style=" right:0; position:absolute;" class="btn btn-default"><img src="<c:url value="/resources/svg/delete.svg"/>" style=" height:20px; width:20px;" /></a>
                                 </div>
                                 <!-- Recipe's picture-->
-                                <img src="recipe/image/${meal.recId}/thumb2" class="img-responsive image-size" style="width: 100%"/>
+                                <img src="recipe/image/${meal.recipe.recId}/thumb2" class="img-responsive image-size" style="width: 100%"/>
                                 <!-- Recipe's information -->
                                 <div class="container" style="width: 100%;">
 								    <!-- Recipe's name -->
                                     <div class="row recipe-name-box">
                                         <div class="col-xs-12" style="text-wrap:normal;">
-                                            <p class="recipe-name">${meal.name}</p>
+                                            <p class="recipe-name">${meal.recipe.name}</p>
                                         </div>
                                     </div>
                                     <!-- Recipe's author -->
                                     <div class="row made-recipe-user-name">
                                         <div class="col-xs-12" style="text-wrap:normal;">
-                                            <a href="profile/${meal.user.userId}">${meal.user.username}</a>
+                                            <a href="profile/${meal.user.userId}">${meal.recipe.user.username}</a>
                                         </div>
                                     </div>
                                     <!-- Recipe's rating -->
@@ -51,12 +51,12 @@
                                         <div class="col-xs-6" style="text-align: center;">
                                             <img src="<c:url value="resources/svg/star.svg"/>" style="height: 30px; width: 30px; margin-left: auto; margin-right: auto;" />
                                             <!-- Rating -->
-                                            <p class="recipe-rating">${meal.rating}</p>
+                                            <p class="recipe-rating">${meal.recipe.rating}</p>
                                         </div>
                                         <div class="col-xs-6" style="text-align: center;">
                                             <img src="<c:url value="resources/svg/people.svg"/>" style="height: 30px; width: 30px; margin-left: auto; margin-right: auto;" />
                                             <!-- Total votes -->
-                                            <p class="rating-people">${meal.ratingCount}</p>
+                                            <p class="rating-people">${meal.recipe.ratingCount}</p>
                                         </div>
                                     </div>
                                     <!-- Rate recipe block -->
@@ -88,7 +88,7 @@
 											</form>
 										</div>
                                         <div class="col-xs-6" style="padding-left: 0px;">
-                                            <button id="create_meal" class="btn btn-lg btn-warn" style="margin-top: 5px; margin-bottom: 5px;" data-container="body" onclick="showPopup3459kablelis3taskas14(this)">Gaminti</button>
+                                            <a href="make/${meal.mealId}" id="create_meal" class="btn btn-lg btn-warn" style="margin-top: 5px; margin-bottom: 5px;" data-container="body" onclick="showPopup3459kablelis3taskas14(this)">Gaminti</a>
                                         </div>
                                     </div>
                                     <!-- Date of making -->
@@ -111,7 +111,7 @@
 					</div>
 					<div class="row">
 						<c:forEach var="item" items="${fromTwo}">
-						<p class="col-xs-12">${item.first} ${item.second}(${item.third})</p>
+						<p class="col-xs-12">${item.fourth} ${item.second}(${item.third})</p>
 						</c:forEach>
 					</div>
 				</div>
