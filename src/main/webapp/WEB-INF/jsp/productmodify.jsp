@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Comapatible" content="IE=edge" /> <!-- Tam nustatytu ie rendinima pagal ju verijas -->
-    <title>Modify Product</title>
+    <title>Produkto modifikavimas</title>
    <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/main.css" />" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/normalize.css" />" rel="stylesheet" type="text/css" />
@@ -21,13 +21,14 @@
 		<div class="add-recept-form container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <form:form class="form-horizontal" role="form" method="POST" modelAttribute="productForm">
+                    <form:form class="form-horizontal" role="form" method="POST" modelAttribute="productForm" action="../productmodify">
                         <div class="form-horizontal add-recepts-header">
                             <h1>Produkto modifikavimas</h1>
                         </div>
                         <div class="form-group" style="margin-bottom:20px">
                             <label for="recept-name" class="col-md-2 control-label">Pavadinimas*</label>
                             <div class="col-md-10">
+								<input type="hidden" name="productId" value="${productForm.productId}"/>
                                 <input type="text" class="form-control" id="recept-name" placeholder="Pavadinimas" name="productName" value="${productForm.productName}"/>
 								<form:errors path="productName" cssClass="error" />
                             </div>
@@ -37,19 +38,19 @@
 						<div class="form-group unit-scroll" style="margin-bottom:20px">
 							<label for="recept-name" class="col-md-2 control-label">Matavimo vienetai*</label>
 							<div class="col-md-10">
-								<select class="form-control">
-									<option>${productForm.unit.abbreviation}</option>
+								<select class="form-control" name="unitId">
+									<option value="${productForm.unit.unitId}">${productForm.unit.abbreviation}</option>
 									<c:forEach var="unit" items="${units}">
-										<option>${unit.abbreviation}</option>
+										<option value="${unit.unitId}">${unit.abbreviation}</option>
 									</c:forEach>
 								</select>
-							</div>
+                            </div>
                         </div>
 						
                         <div class="form-group " style="margin-bottom:20px">
                             <label for="recept-despription" class="col-md-2 control-label ">Aprašymas</label>
                             <div class="col-md-10 controls">
-                                <textarea style="resize:none; height:50px" class="form-control description" id="recept-despription" name="recept-despription" value="${productForm.description}"></textarea>
+                                <textarea style="resize:none; height:50px" class="form-control description" id="description" name="description" value="${productForm.description}">${productForm.description}</textarea>
                             </div>
                         </div>
                          <div class="form-group" style="margin-bottom:20px">

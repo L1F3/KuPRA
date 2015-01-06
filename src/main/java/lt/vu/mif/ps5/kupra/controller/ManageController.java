@@ -93,6 +93,7 @@ public class ManageController {
 		Product product = productService.getProduct(id);
 		List<Unit> units = unitService.getAll();
 		ProductForm productForm = new ProductForm();
+		productForm.setProductId(id);
 		productForm.setDescription(product.getDescription());
 		productForm.setImg(product.getImg());
 		productForm.setImgName(product.getImgName());
@@ -103,14 +104,16 @@ public class ManageController {
 	}
 	
     @Secured({"ROLE_ADMIN"})
-    @RequestMapping(value = "/productmodify/{id}", method = RequestMethod.POST)
-    public ModelAndView productDoModify(
-    		@PathVariable long id, @Valid @ModelAttribute("product") Product product, BindingResult result) {
+    @RequestMapping(value = "/productmodify", method = RequestMethod.POST)
+    public ModelAndView productDoModify(@Valid @ModelAttribute("productForm") ProductForm productForm, BindingResult result) {
         if (result.hasErrors()) {
             log.info("Returning product.jsp page");
-            return new ModelAndView("productmodify/{id}");
+
+    		List<Unit> units = unitService.getAll();
+            return new ModelAndView("productmodify").addObject(productForm).addObject("units", units);
         }
-        productService.updateProduct(id, product.getName(), product.getDescription(), product.getImgName(), product.getImgType(), product.getImg());
+        System.out.println("0000000000000000000000000000000000000000000000000" + productForm.getDescription() + "000000000000000000000");
+        productService.updateProduct(productForm.getProductId(), productForm.getProductName(), productForm.getUnitId(), productForm.getDescription(), productForm.getImgName(), productForm.getImgType(), productForm.getImg());
         return new ModelAndView("redirect:../manage");
     }
     

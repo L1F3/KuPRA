@@ -9,6 +9,16 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class ProductForm {
 	
+	private long productId;
+	
+	public long getProductId() {
+		return productId;
+	}
+
+	public void setProductId(long productId) {
+		this.productId = productId;
+	}
+
 	@NotEmpty
 	@Size(min = 3, max = 30)
 	private String productName;
@@ -26,7 +36,7 @@ public class ProductForm {
 	}
 
 	@Size(max = 2000)
-	private String product_description;
+	private String description;
 	
     private String imgName;
 	
@@ -51,11 +61,11 @@ public class ProductForm {
 	}
 
 	public String getDescription() {
-		return product_description;
+		return description;
 	}
   
 	public void setDescription(String product_description) {
-		this.product_description = product_description;
+		this.description = product_description;
 	}
 	  
 	public String getImgName() {

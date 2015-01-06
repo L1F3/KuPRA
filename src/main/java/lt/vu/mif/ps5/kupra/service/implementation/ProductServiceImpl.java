@@ -66,11 +66,16 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Transactional
-	public void updateProduct(long id, String productName, /*Set<Unit> units,*/
+	public void updateProduct(long id, String productName, long unitId,/*Set<Unit> units,*/
 			String description, String imageName, String imageType, Blob image) {
 		Product product = productDao.get(id);
 		product.setName(productName);
 		//product.setUnits(units);
+		Unit unit = unitDao.get(unitId);
+		Set<Unit> units = new HashSet<Unit>();
+		
+		units.add(unit);
+		product.setUnitsSet(units);
 		product.setDescription(description);
 		product.setImgName(imageName);
 		product.setImgType(imageType);
