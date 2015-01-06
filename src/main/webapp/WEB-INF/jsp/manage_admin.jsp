@@ -131,7 +131,7 @@
 											<td>
 											 <!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-trash" >Ištrinti </span></a>-->
 												<!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-wrench" >Modifikuoti </span></a>-->
-												 <button type="submit" class="btn btn-default"  ><span class="glyphicon glyphicon-trash"> Ištrinti</span></button>
+												 <button type="submit" class="btn btn-default" onclick="window.location.href='manage/${product.productId}/product/delete'" ><span class="glyphicon glyphicon-trash"> Ištrinti</span></button>
 												 <button type="submit" class="btn btn-default" onclick="window.location.href='productmodify/${product.productId}'"><span class="glyphicon glyphicon-wrench"> Modifikuoti</span> </button>
 											</td>
 										</tr>
@@ -170,7 +170,7 @@
 											<td>
 											 <!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-trash" >Ištrinti </span></a>-->
 												<!-- <a class="btn btn-default"  href="#"><span class="glyphicon glyphicon-wrench" >Modifikuoti </span></a>-->
-												 <button type="submit" class="btn btn-default"  ><span class="glyphicon glyphicon-trash"> Ištrinti</span></button>
+												 <button type="submit" class="btn btn-default" ><span class="glyphicon glyphicon-trash"> Ištrinti</span></button>
 												 <button type="submit" class="btn btn-default" ><span class="glyphicon glyphicon-wrench"> Modifikuoti</span> </button>
 											</td>
 										</tr>
