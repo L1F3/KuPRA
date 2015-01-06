@@ -25,7 +25,7 @@ public class FridgeServiceImpl implements FridgeService {
 	}
 	
 	@Transactional
-	public long addFridge(User user, Product product, Unit unit, long amount) {
+	public long addFridge(User user, Product product, Unit unit, double amount) {
 		Fridge fridge = new Fridge();
 		fridge.setUser(user);
 		fridge.setProduct(product);
@@ -36,7 +36,7 @@ public class FridgeServiceImpl implements FridgeService {
 	}
 
 	@Transactional
-	public void replenish(long id, long amount) {
+	public void replenish(long id, double amount) {
 		Fridge fridge = fridgeDao.get(id);
 		fridge.setAmount(fridge.getAmount() + amount);
 		fridgeDao.persist(fridge);		

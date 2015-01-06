@@ -6,7 +6,7 @@ import lt.vu.mif.ps5.kupra.entity.User;
 
 public interface FridgeService {
 
-	long addFridge(User user, Product product, Unit unit, long amount);
-	void replenish(long id, long amount);
+	long addFridge(User user, Product product, Unit unit, double amount);
+	void replenish(long id, double amount);
 	
 }

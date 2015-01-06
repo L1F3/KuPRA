@@ -71,6 +71,9 @@ public class User {
 	@Column(length = 30, name = "role")
 	@Enumerated(EnumType.STRING)
 	private Role role;
+	
+	@Column(name = "enabled")
+	private int enabled;
 
     /*@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@Fetch (FetchMode.SELECT)
@@ -80,6 +83,14 @@ public class User {
             inverseJoinColumns = {
                 @JoinColumn(name = "recId")})
     private Set<Recipe> meals = new HashSet<Recipe>(0);*/
+
+	public int getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(int enabled) {
+		this.enabled = enabled;
+	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="user")
 	@Fetch (FetchMode.SELECT)

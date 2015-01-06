@@ -25,11 +25,11 @@
 		<form:form method="POST" class="form-horizontal form-signin" role="form" modelAttribute="userForm" action="../j_spring_security_check">
              <fieldset>
             <div class="form-group ">
-               <label for="inputEmail" class="col-sm-3 control-label">El. paštas</label>
+               <label for="inputEmail" class="col-sm-3 control-label" style="text-align: left;">Prisijungimo vardas</label>
                <div class="col-sm-9 controls">
 			         <div class="input-group">
 					   <span class="input-group-addon"><img src="<c:url value="/resources/svg/user.svg"/>"  class="icons"/> </span>
-<!-- *** -->           <input type="email" class="form-control" id="inputEmail" placeholder="Elektroninio pašto adresas" name="username" required/>  
+<!-- *** -->           <input type="text" class="form-control" id="inputEmail" placeholder="Prisijungimo vardas" name="username" required/>  
 					 </div> 
 					 <!-- Cia klaida -->
                 </div>
@@ -48,8 +48,6 @@
              <label class="col-md-4 control-label" for="buttonLogIn"></label>
              <div class=" col-md-12 center-block ">
                 <button type="submit" name="buttonRegistration" class="btn btn-lg btn-primary btn-block">Prisijungti</button>
-                <!--<a class="btn btn-lg btn-primary btn-block" role="button">Prisijungti</a>-->
-                 <a href="javascript:;" class="forget" data-toggle="modal" data-target=".forget-modal">Pamiršote slaptažodį ?</a>
              </div>  
                     
           </div> 

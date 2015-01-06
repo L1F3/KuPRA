@@ -180,13 +180,13 @@ public class FridgeController {
 		
 		
 		try {
-			Long.valueOf(fridgeItemForm.getAmount());
+			Double.parseDouble(fridgeItemForm.getAmount());
 		} catch (Exception e) {
 			errors.rejectValue("amount", "msg", "Ávedëte ne skaièiø.");
 			return new ModelAndView("add_product_fridge").addObject(fridgeItemForm);
 		}
 		
-		if(Long.valueOf(fridgeItemForm.getAmount()) < 1) {
+		if(Double.parseDouble(fridgeItemForm.getAmount()) < 0) {
 			errors.rejectValue("amount", "msg", "Ávestas skaièius maþesnis/lygus 0.");
 			return new ModelAndView("add_product_fridge").addObject(fridgeItemForm);
 		}
@@ -211,9 +211,9 @@ public class FridgeController {
 		if(!EXISTS) {
 			Product product = productService.getProduct(Long.valueOf(fridgeItemForm.getProductId()));
 			Unit unit = unitService.getUnit(Long.valueOf(fridgeItemForm.getUnitId()));
-			fridgeService.addFridge(user, product, unit, Long.valueOf(fridgeItemForm.getAmount()));	
+			fridgeService.addFridge(user, product, unit, Double.parseDouble(fridgeItemForm.getAmount()));	
 		} else {
-			fridgeService.replenish(fridgeId, Long.valueOf(fridgeItemForm.getAmount()));
+			fridgeService.replenish(fridgeId, Double.parseDouble(fridgeItemForm.getAmount()));
 		}
 		return new ModelAndView("redirect:list");
 	}

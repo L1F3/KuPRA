@@ -69,6 +69,7 @@ public class UserServiceImpl implements UserService {
 		user.setLastname(lastname);
 		user.setAddress(address);
 		user.setRole(role);
+		user.setEnabled(1);
 		userDao.persist(user);
 		return user.getUserId();
 	}
