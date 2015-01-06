@@ -101,5 +101,25 @@ public class ManageController {
 		productForm.setUnit(product.getUnit());
 		return new ModelAndView("productmodify").addObject(productForm).addObject("units", units);
 	}
-
+	
+    @Secured({"ROLE_ADMIN"})
+    @RequestMapping(value = "/productmodify/{id}", method = RequestMethod.POST)
+    public ModelAndView productDoModify(
+    		@PathVariable long id, @Valid @ModelAttribute("product") Product product, BindingResult result) {
+        if (result.hasErrors()) {
+            log.info("Returning product.jsp page");
+            return new ModelAndView("productmodify/{id}");
+        }
+        productService.updateProduct(id, product.getName(), product.getDescription(), product.getImgName(), product.getImgType(), product.getImg());
+        return new ModelAndView("redirect:../manage");
+    }
+    
+	
+    @Secured({"ROLE_ADMIN"})
+    @RequestMapping(value = "/manage/{id}/product/delete", method = RequestMethod.GET)
+    public ModelAndView productDelete(@PathVariable long id) {
+        productService.deleteProduct(id);
+        return new ModelAndView("redirect:../../../manage");
+    }
+    
 }
