@@ -1,16 +1,24 @@
 package lt.vu.mif.ps5.kupra.controller;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.sql.SQLException;
 import java.util.Set;
 
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import lt.vu.mif.ps5.kupra.entity.Recipe;
+import lt.vu.mif.ps5.kupra.entity.RecipeImage;
 import lt.vu.mif.ps5.kupra.entity.Role;
 import lt.vu.mif.ps5.kupra.entity.User;
 import lt.vu.mif.ps5.kupra.form.UserForm;
 import lt.vu.mif.ps5.kupra.service.UserService;
 
 import org.apache.log4j.Logger;
+import org.imgscalr.Scalr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
@@ -105,5 +113,43 @@ public class UserController {
 		
 		
 		return new ModelAndView("friend-recipes").addObject("friendRecipes", recipes).addObject("user", user);
+	}
+	
+	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
+	@RequestMapping(value = "/profile/{id}/image", method = RequestMethod.GET)
+	public ModelAndView userAvatar(@PathVariable long id, HttpServletResponse response) {
+		User user = userService.getUser(id);
+		
+		try {
+			if(user.getImg() != null) {
+				response.setHeader("Content-Disposition", "inline;filename=\"" + user.getImgName() + "\"");
+				OutputStream out = response.getOutputStream();
+				response.setContentType(user.getImgType());
+				int width = 150, height = 150;
+				BufferedImage buffimage = ImageIO.read(user.getImg().getBinaryStream());
+				BufferedImage thumbnail = Scalr.resize(buffimage, Scalr.Method.SPEED, Scalr.Mode.FIT_TO_HEIGHT, width, height, Scalr.OP_ANTIALIAS);
+				ImageIO.write(thumbnail, "jpg", out);
+				out.flush();
+				out.close();
+			} else {
+				/*RecipeImage image = userService.getDefaultImage();
+				response.setHeader("Content-Disposition", "inline;filename=\"" + image.getImgName() + "\"");
+				OutputStream out = response.getOutputStream();
+				response.setContentType(image.getImgType());
+				int width = 150, height = 150;
+				BufferedImage bufimage = ImageIO.read(image.getImg().getBinaryStream());
+				BufferedImage thumbnail = Scalr.resize(bufimage,
+						Scalr.Method.SPEED, Scalr.Mode.FIT_TO_HEIGHT, width,
+						height, Scalr.OP_ANTIALIAS);
+				ImageIO.write(thumbnail, "jpg", out);
+				out.flush();
+				out.close();*/
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

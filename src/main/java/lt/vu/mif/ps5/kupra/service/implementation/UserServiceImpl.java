@@ -15,6 +15,7 @@ import lt.vu.mif.ps5.kupra.entity.Fridge;
 import lt.vu.mif.ps5.kupra.entity.Meal;
 import lt.vu.mif.ps5.kupra.entity.Product;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
+import lt.vu.mif.ps5.kupra.entity.RecipeImage;
 import lt.vu.mif.ps5.kupra.entity.Role;
 import lt.vu.mif.ps5.kupra.entity.User;
 import lt.vu.mif.ps5.kupra.service.UserService;
@@ -193,5 +194,10 @@ public class UserServiceImpl implements UserService {
         unitFridges.remove(fridgeItem);
         userDao.persist(user);
         fridgeDao.delete(id);
+	}
+	
+	@Transactional(readOnly = true)
+	public RecipeImage getDefaultImage() {
+		return recipeDao.getDefaultImage();
 	}
 }
