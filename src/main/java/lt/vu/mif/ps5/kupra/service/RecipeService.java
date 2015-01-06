@@ -20,7 +20,7 @@ public interface RecipeService {
 	List<Recipe> getAll();
 	
 	long addRecipe(String name, List<MultipartFile> files, List<Long> ingrsIds, List<Double> amounts,
-			/*Set<Ingredient> ingredientsOfRecipe,*/ String description, int visibility, User user);
+			/*Set<Ingredient> ingredientsOfRecipe,*/ String description, int visibility, User user, int servings, String cookingTime);
 
 	List<Recipe> getTopRecipes();
 	List<Recipe> getForUser(User user);

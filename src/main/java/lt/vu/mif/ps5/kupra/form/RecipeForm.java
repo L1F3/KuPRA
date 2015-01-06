@@ -5,9 +5,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.NumberFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 import lt.vu.mif.ps5.kupra.entity.Product;
@@ -50,6 +52,28 @@ public class RecipeForm {
     
 	private Set<Product> productsOfRecipe = new HashSet<Product>(0);
 
+	@NotEmpty
+	private String servings;
+	
+	public String getServings() {
+		return servings;
+	}
+
+	public void setServings(String servings) {
+		this.servings = servings;
+	}
+
+	public String getCookingTime() {
+		return cookingTime;
+	}
+
+	public void setCookingTime(String cookingTime) {
+		this.cookingTime = cookingTime;
+	}
+
+	@NotEmpty
+	private String cookingTime;
+	
 	@NotEmpty
 	@Size(max = 4000)
 	private String description;

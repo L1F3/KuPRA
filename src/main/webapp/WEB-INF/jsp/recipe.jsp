@@ -27,7 +27,7 @@
                 <div class="col-md-2 container">
                     <div class="menu-row  ">
 						<input type="submit" value="Įtraukti į valgiaraštį" class=" btn-block button" onclick="window.location.href='../meals/add/${recipe.recId}'"/>
-                        <input type="submit" value="Patikrinti ingredientus" class=" btn-block button" />
+                        <input type="submit" data-toggle="modal" data-target="#patikrinti_ingridientus" value="Patikrinti ingredientus" class=" btn-block button" />
                     </div>
 
                 </div>
@@ -52,12 +52,12 @@
 						    <div class="col-md-3 col-sm-3 col-xs-3">
                                 <img src="<c:url value="/resources/svg/clock.svg"/>" class="img-responsive user-recipe-img display-inline" />
                                 <span class="display-inline">Pagaminamas per:</span>
-                                <span class="cooking-time display-inline">60min</span>
+                                <span class="cooking-time display-inline">${recipe.cookingTime}</span>
                             </div>
 							<div class="col-md-3 col-sm-3 col-xs-3">
                                 <img src="<c:url value="/resources/svg/people.svg"/>" class="img-responsive user-recipe-img display-inline" />
                                 <span class="display-inline">Porcijų kiekis</span>
-                                <span class="cooking-time display-inline">3</span>
+                                <span class="cooking-time display-inline">${recipe.servings}</span>
                             </div>
 
                             <div class="col-md-3 col-sm-3  col-xm-3 ">
@@ -79,7 +79,7 @@
                                 <ul class="recipe-user-ingridients">
 								
 									<c:forEach var="recipeProduct" items="${recipe.ingredients}">
-										<li>${recipeProduct.amount}${recipeProduct.product.unit.abbreviation} ${recipeProduct.product.name}</li>
+										<li>${recipeProduct.amount} ${recipeProduct.product.unit.abbreviation} ${recipeProduct.product.name}</li>
 									 </c:forEach>
                                 </ul>
                             </div>

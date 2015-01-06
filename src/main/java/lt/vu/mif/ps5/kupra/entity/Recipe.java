@@ -39,6 +39,12 @@ public class Recipe {
 	private Blob img;
 	@Column(name = "imgType")
 	private String imgType;
+	
+	@Column(name = "servings")
+	private int servings;
+	
+	@Column(name ="cookingTime")
+	private String cookingTime;
 
 	/*@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinTable(name = "rec_prod", joinColumns = { @JoinColumn(name = "productId") }, inverseJoinColumns = { @JoinColumn(name = "recId") })
@@ -56,6 +62,22 @@ public class Recipe {
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="recipe")
 	@Fetch (FetchMode.SELECT)
 	private Set<Ingredient> ingredients = new HashSet<Ingredient>();
+
+	public int getServings() {
+		return servings;
+	}
+
+	public void setServings(int servings) {
+		this.servings = servings;
+	}
+
+	public String getCookingTime() {
+		return cookingTime;
+	}
+
+	public void setCookingTime(String cookingTime) {
+		this.cookingTime = cookingTime;
+	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="recipe")
 	@Fetch (FetchMode.SELECT)

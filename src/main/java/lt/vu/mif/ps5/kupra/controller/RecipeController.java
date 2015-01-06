@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -257,6 +260,43 @@ public class RecipeController {
         }*/
         //ingredientService.getIngredient(recipeForm.getIngredientsId());
         
+        DateFormat formatter = new SimpleDateFormat("HH:mm");
+        
+        boolean isErrors = false;
+        
+        try {
+			new java.sql.Time(formatter.parse(recipeForm.getCookingTime()).getTime());
+		} catch (ParseException e) {
+			System.out.println("Bad cooking time format returning recipeadd.jsp");
+			errors.rejectValue("cookingTime", "msg", "Laikas ávestas netinkamu formatu.");
+			isErrors = true;
+			//return new ModelAndView("recipeadd").addObject(recipeForm);
+		}
+        
+       
+        	try {
+	        	if(Integer.valueOf(recipeForm.getServings()) < 1) {
+	        		errors.rejectValue("servings", "msg", "Ávestas skaièius maþesnis/lygus 0.");
+	        		isErrors = true;
+					//return new ModelAndView("recipeadd").addObject(recipeForm);
+	        	}
+        	} catch (Exception e) {
+    			System.out.println("Bad number format returning recipeadd.jsp");
+    			errors.rejectValue("servings", "msg", "Ávedëte ne skaièiø.");
+    			isErrors = true;
+    			//return new ModelAndView("recipeadd").addObject(recipeForm);
+    		}
+        	
+        	if(recipeForm.getIngredientsId().size() == 1 && recipeForm.getIngredientsId().get(0) == null) {
+        		System.out.println("Bad number format returning recipeadd.jsp");
+    			errors.rejectValue("ingredientsId", "msg", "Nepasirinktas nei vienas ingredientas.");
+    			isErrors = true;
+        	}
+        	
+        if(isErrors) {
+        	return new ModelAndView("recipeadd").addObject(recipeForm);
+        }
+        
 		recipeService.addRecipe(
 				recipeForm.getName(), 
 				files, 
@@ -265,7 +305,9 @@ public class RecipeController {
 				recipeForm.getQuantities(),
 				recipeForm.getDescription(),
 				recipeForm.getVisibility(), 
-				user);
+				user,
+				Integer.valueOf(recipeForm.getServings()),
+				recipeForm.getCookingTime());
 		
 
 		/*recipeForm.getIngredientsId(),
@@ -291,6 +333,6 @@ public class RecipeController {
 			log.info("Returning template.jsp page");
 			return new ModelAndView("template");
 		}*/
-		return new ModelAndView("redirect:../../home");
+		return new ModelAndView("redirect:home");
 	}
 }
