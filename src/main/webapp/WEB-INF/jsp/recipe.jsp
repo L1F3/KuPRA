@@ -103,26 +103,14 @@
                                     <div class="modal-body">
                                         <p style="color:red">Nėra produktų</p>
 										
+										
+										<c:forEach var="item" items="${forTwo}">
 										<div class="needed-products-form">
-											<span>Bulvės<span>
-											<span>2</span>
-											<span>kg</span>
+											<span>${item.fourth}<span>
+											<span>${item.second}</span>
+											<span>${item.third}</span>
 										</div>
-										<div class="needed-products-form">
-											<span>Bulvės<span>
-											<span>2</span>
-											<span>kg</span>
-										</div>
-										<div class="needed-products-form">
-											<span>Bulvės<span>
-											<span>2</span>
-											<span>kg</span>
-										</div>
-										<div class="needed-products-form">
-											<span>Bulvės<span>
-											<span>2</span>
-											<span>kg</span>
-										</div>
+										</c:forEach>
 																				
                                     </div>
                                 </div>

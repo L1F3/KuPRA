@@ -103,18 +103,35 @@
 						</c:forEach>
                     </div>
                 </div>
-				
 				<div class="container col-md-6 col-md-offset-3" style="border: 12px solid #FFFFFF; border-radius: 10px;  background: #FFFFFF; ">
-					<div class="row">
-						<p class="col-xs-6" id="alert" style="color:red">Truksta produktų</p>
-						<a class="col-xs-6 accept-serving" href="fridge/list" type="button">Šaldytuvas</a>
-					</div>
-					<div class="row">
-						<c:forEach var="item" items="${fromTwo}">
-						<p class="col-xs-12">${item.fourth} ${item.second}(${item.third})</p>
-						</c:forEach>
-					</div>
-				</div>
+     <div class="row">
+      <p class="col-xs-4" id="alert" style="color:red">Truksta produktų</p>
+      <a class="col-xs-4 accept-serving" href="#" type="button">Pridėti viską į šaldytuvą</a>
+     </div>
+     <div class="col-md-12">
+      <div class="table-responsive">
+       <table id="mytable" class="table table-hover">
+        <thead>
+         <th>Produktas</th>
+         <th>Kiekis</th>
+        </thead>
+        <tbody>
+           <c:forEach var="item" items="${fromTwo}">
+         <tr>
+          <td>${item.fourth}</td>
+          <td>
+           <input type="text"  style="width:60px;" class="fridge-text-field" value="${item.second}" />
+           <span class="fridge-row">${item.third}</span>
+          </td>
+         </tr>
+          </c:forEach>
+         
+        </tbody>
+       </table>
+      </div>          
+     </div>
+     
+    </div>
 				
             </div>
         </div>

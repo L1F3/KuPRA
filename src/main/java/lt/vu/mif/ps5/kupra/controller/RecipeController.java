@@ -9,8 +9,11 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.imageio.ImageIO;
@@ -18,13 +21,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.rowset.serial.SerialBlob;
 import javax.validation.Valid;
 
+import lt.vu.mif.ps5.kupra.controller.MealsController.FromTwo;
 import lt.vu.mif.ps5.kupra.entity.Fridge;
 import lt.vu.mif.ps5.kupra.entity.Ingredient;
+import lt.vu.mif.ps5.kupra.entity.Meal;
 import lt.vu.mif.ps5.kupra.entity.RecipeImage;
 import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.User;
 import lt.vu.mif.ps5.kupra.form.RecipeForm;
 import lt.vu.mif.ps5.kupra.service.IngredientService;
+import lt.vu.mif.ps5.kupra.service.ProductService;
 import lt.vu.mif.ps5.kupra.service.RecipeService;
 import lt.vu.mif.ps5.kupra.service.UserService;
 
@@ -52,11 +58,13 @@ public class RecipeController {
 	private final RecipeService recipeService;
 	private final UserService userService;
 	private final IngredientService ingredientService;
+	private final ProductService productService;
 
 	@Autowired
-	public RecipeController(RecipeService recipeService, UserService userService, IngredientService ingredientService) {
+	public RecipeController(RecipeService recipeService, UserService userService, IngredientService ingredientService, ProductService productService) {
 		this.recipeService = recipeService;
 		this.userService = userService;
+		this.productService = productService;
 		this.ingredientService = ingredientService;
 	}
 
@@ -100,7 +108,102 @@ public class RecipeController {
 	@RequestMapping(value = "/recipe/{id}", method = RequestMethod.GET)
 	public ModelAndView recipeByIdPage(@PathVariable long id) {
 		Recipe recipe = recipeService.getRecipe(id);
-		return new ModelAndView("recipe").addObject("recipe", recipe);
+
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		User user = userService.getUserByLoginname(auth.getName());
+
+		Map<Long, Double> needMap = new HashMap<Long, Double>();
+
+				Set<Ingredient> ingrs = recipe.getIngredients();
+				Set<Fridge> frItems = user.getFridgeItems();
+
+				for (Iterator<Ingredient> it = ingrs.iterator(); it.hasNext();) {
+					Ingredient ingr = it.next();
+					int found = 0;
+
+					for (Iterator<Fridge> its = frItems.iterator(); its
+							.hasNext();) {
+						Fridge prod = its.next();
+
+						if (ingr.getProduct().getProductId() == prod
+								.getProduct().getProductId()) {
+							found = 1;
+							if (ingr.getAmount() > prod.getAmount()) {
+								double need = ingr.getAmount()
+										- prod.getAmount();
+								needMap.put(prod.getProduct().getProductId(),
+										need);
+							}
+							break;
+						}
+
+					}
+					if (found == 0) {
+						needMap.put(ingr.getProduct().getProductId(),
+								ingr.getAmount());
+						System.out.println("Nieko nerado");
+					}
+				}
+
+		int count = 0;
+		List<FromTwo> listNeeded = new ArrayList<FromTwo>();
+		for (Long key : needMap.keySet()) {
+			FromTwo one = new FromTwo(key, needMap.get(key), productService
+					.getProduct(key).getUnit().getAbbreviation(),
+					productService.getProduct(key).getName());
+			listNeeded.add(one);
+			count++;
+			System.out.println("prideda");
+		}
+		
+		return new ModelAndView("recipe").addObject("recipe", recipe).addObject("forTwo", listNeeded);
+	}
+
+	public class FromTwo {
+		private long first;
+		private double second;
+		private String third;
+		private String fourth;
+
+		public FromTwo(long first, double second, String third, String fourth) {
+			this.first = first;
+			this.second = second;
+			this.third = third;
+			this.fourth = fourth;
+		}
+
+		public long getFirst() {
+			return first;
+		}
+
+		public double getSecond() {
+			return second;
+		}
+
+		public String getThird() {
+			return third;
+		}
+
+		public String getFourth() {
+			return fourth;
+		}
+
+		public void setFirst(long first) {
+			this.first = first;
+		}
+
+		public void setSecond(double second) {
+			this.second = second;
+		}
+
+		public void setThird(String third) {
+			this.third = third;
+		}
+
+		public void setFourth(String fourth) {
+			this.fourth = fourth;
+		}
 	}
 
 	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
