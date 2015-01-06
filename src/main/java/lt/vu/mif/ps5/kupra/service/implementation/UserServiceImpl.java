@@ -196,15 +196,9 @@ public class UserServiceImpl implements UserService {
         fridgeDao.delete(id);
 	}
 	
-<<<<<<< HEAD
 	@Transactional
 	public void makeMeal(long id) {
 		Meal meal = mealDao.get(id);
 		meal.setMade(true);
-=======
-	@Transactional(readOnly = true)
-	public RecipeImage getDefaultImage() {
-		return recipeDao.getDefaultImage();
->>>>>>> 67890089558e13c35fb0502a7709b4d2cf3cac8d
 	}
 }
