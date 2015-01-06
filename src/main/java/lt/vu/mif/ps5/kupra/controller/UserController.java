@@ -1,7 +1,10 @@
 package lt.vu.mif.ps5.kupra.controller;
 
+import java.util.Set;
+
 import javax.validation.Valid;
 
+import lt.vu.mif.ps5.kupra.entity.Recipe;
 import lt.vu.mif.ps5.kupra.entity.Role;
 import lt.vu.mif.ps5.kupra.entity.User;
 import lt.vu.mif.ps5.kupra.form.UserForm;
@@ -49,7 +52,6 @@ public class UserController {
 				|| (userForm.getRole() == Role.ROLE_USER)) {
 			if (!userService.hasRole("ROLE_ADMIN")
 					&& !userService.hasRole("ROLE_MANAGER")) {
-				// log.info("Fucking cheater. Returning account.jsp page");
 				return new ModelAndView("user");
 			}
 		}
@@ -94,4 +96,14 @@ public class UserController {
 		return new ModelAndView("redirect:user/{" + user.getUserId() + "}");
 	}
 
+	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
+	@RequestMapping(value = "/profile/{id}", method = RequestMethod.GET)
+	public ModelAndView showProfile(@PathVariable long id) {
+		User user = userService.getUser(id);
+		
+		Set<Recipe> recipes = user.getRecipies();
+		
+		
+		return new ModelAndView("friend-recipes").addObject("friendRecipes", recipes).addObject("user", user);
+	}
 }

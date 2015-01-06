@@ -23,22 +23,17 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-2 col-sm-2  ">
-                        <div class="inline-profile">
-						    <!-- User picture -->
-							<img class="brand"src="<c:url value="/resources/svg/brand.svg"/>" />KuPRA</p>
-                            <img src="<c:url value="/resources/1.jpg"/>" class="img-circle  user-profile-image" />
-                        </div>
+                      <!--<div class="inline-profile">
+
+                            <img src="" class="img-circle  user-profile-image"/>
+                        </div>-->
                     </div>
                     <div class="col-md-8 col-sm-10  ">
-                        <div class=" pull-right">
+                        <div>
 						    <!-- User nickname -->
-                            <span class="user-nick">Slapyvardenis</span>
-                            <a class="btn btn-default btn-block button action-add-friend" href="#" role="button">Pakviesti draugauti</a>
+                            <span class="user-nick">${user.name}</span>
 							 <!-- About user -->
-                            <p>
-                            Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text
-                            Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text
-                            </p>
+                            <p>${user.description}</p>
                         </div>
                     </div>
                     <div class="col-md-2 ">
@@ -56,19 +51,15 @@
 			<div class='col-sm-3'>
               <div class="panel panel-default  panel-custom" >
 			    <!-- Recipe image -->
-                <img src="<c:url value="/resources/pie.jpg"/>" class="img-responsive image-size"/>
-                <div class="made-recipe-user-name">
-				 <!-- Recipe creator -->
-                        <span>${} Jonas Jonaitis</span> 
-                </div>
+                <img src="../recipe/image/${recipe.recId}" class="image-all"/>
 				<!-- Recipe name -->
                 <div class="recipe-name-box">
-                     <a href="#"><p class="recipe-name" >${recipe.name} Cool</p></a>
+                     <a href="../recipe/${recipe.recId}"><p class="recipe-name" >${recipe.name} Cool</p></a>
                  </div>
-				 <!-- Recipe description -->
-                 <div class="recipe-info-box">
-                       <span>${recipe.description} AAAAAA</span>
-                 </div>
+                   <div class="made-recipe-user-name">
+                 <!-- Recipe creator -->
+                        <span>${user.username}</span> 
+                </div>
 				 <!-- Recipe rating/ people rating -->
                  <div class="recipe-rating-box">
                          <span>
